@@ -1,40 +1,60 @@
 package com.deno4ka.LeetCode.Easy;
 
+import java.util.ArrayList;
+
 public class _21_Merge_Two_Sorted_Lists {
 
     public _21_Merge_Two_Sorted_Lists() {
         ListNode l1 = new ListNode(1);
         l1.next = new ListNode(3);
-        l1.next.next = new ListNode(5);
-        ListNode l2 = new ListNode(2);
-        l2.next = new ListNode(4);
-        l2.next.next = new ListNode(6);
+        l1.next.next = new ListNode(4);
+        ListNode l2 = new ListNode(0);
+//        l2.next = new ListNode(2);
+//        l2.next.next = new ListNode(4);
         System.out.println(mergeTwoLists(l1, l2));
     }
 
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         if (l1 != null && l2 != null) {
-            ListNode result = l1;
-            ListNode lastNode = l1;
-            while (lastNode.next != null) {
-                lastNode = lastNode.next;
+            ArrayList<Integer> tmp = new ArrayList<>();
+            int counter = 0;
+            while (l1 != null) {
+                tmp.add(counter++, l1.val);
+                l1 = l1.next;
             }
-            lastNode.next = l2;
-            // TODO: bubble sort
-            while (result.next != null) {
-                if (result.val > result.next.val) {
-                    ListNode tmp = new ListNode(result.next.val);
-                    tmp.next = result.next.next;
-                    result.val = result.next.val;
-                    result.next = result.next.next;
-
+            while (l2 != null) {
+                tmp.add(counter++, l2.val);
+                l2 = l2.next;
+            }
+            System.out.println("before: " + tmp);
+            for (int i = 0; i < tmp.size(); i++) {
+                for (int j = tmp.size() - 1; j > i; j--) {
+                    if (tmp.get(j) < tmp.get(j - 1)) {
+                        int t = tmp.get(j);
+                        tmp.set(j, tmp.get(j - 1));
+                        tmp.set(j - 1, t);
+                    }
+                }
+            }
+            System.out.println("after: " + tmp);
+            ListNode result = null;
+            ListNode current = null;
+            for (int k = 0; k < tmp.size() - 1; k++) {
+                if (result == null) {
+                    result = new ListNode(tmp.get(k));
+                    current = new ListNode(tmp.get(k + 1));
+                    result.next = current;
+                } else {
+                    ListNode t = new ListNode(tmp.get(k + 1));
+                    current.next = t;
+                    current = t;
                 }
             }
             return result;
         } else if (l1 == null && l2 != null) {
-            return new ListNode(l2.val);
-        } else if (l2 == null && l1 != null) {
-            return new ListNode(l1.val);
+            return l2;
+        } else if (l1 != null && l2 == null) {
+            return l1;
         } else {
             return null;
         }
