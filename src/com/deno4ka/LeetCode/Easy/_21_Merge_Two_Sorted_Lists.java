@@ -2,6 +2,9 @@ package com.deno4ka.LeetCode.Easy;
 
 import java.util.ArrayList;
 
+// Merge two sorted linked lists and return it as a new list.
+// The new list should be made by splicing together the nodes of the first two lists.
+
 public class _21_Merge_Two_Sorted_Lists {
 
     public _21_Merge_Two_Sorted_Lists() {
@@ -26,7 +29,7 @@ public class _21_Merge_Two_Sorted_Lists {
                 tmp.add(counter++, l2.val);
                 l2 = l2.next;
             }
-            System.out.println("before: " + tmp);
+//            System.out.println("before: " + tmp);
             for (int i = 0; i < tmp.size(); i++) {
                 for (int j = tmp.size() - 1; j > i; j--) {
                     if (tmp.get(j) < tmp.get(j - 1)) {
@@ -36,7 +39,7 @@ public class _21_Merge_Two_Sorted_Lists {
                     }
                 }
             }
-            System.out.println("after: " + tmp);
+//            System.out.println("after: " + tmp);
             ListNode result = null;
             ListNode current = null;
             for (int k = 0; k < tmp.size() - 1; k++) {
