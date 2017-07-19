@@ -11,6 +11,7 @@ public class Main {
 //        _14_Longest_Common_Prefix longestCommonPrefix = new _14_Longest_Common_Prefix();
 //        _21_Merge_Two_Sorted_Lists merge_two_sorted_lists = new _21_Merge_Two_Sorted_Lists();
 //        _26_remove_duplicates_from_sorted_array remove_duplicates_from_sorted_array = new _26_remove_duplicates_from_sorted_array();
-        _27_remove_element remove_element = new _27_remove_element();
+//        _27_remove_element remove_element = new _27_remove_element();
+        28_implement_str_str
     }
 }
