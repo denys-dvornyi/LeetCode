@@ -17,7 +17,7 @@ public class _21_Merge_Two_Sorted_Lists {
         System.out.println(mergeTwoLists(l1, l2));
     }
 
-    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    private ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         if (l1 != null && l2 != null) {
             ArrayList<Integer> tmp = new ArrayList<>();
             int counter = 0;

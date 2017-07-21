@@ -14,7 +14,7 @@ public class _26_remove_duplicates_from_sorted_array {
         System.out.println("new size = " + removeDuplicates(new int[]{1,1,1,2,3,3,4,5,6,6}));
     }
 
-    public int removeDuplicates(int[] nums) {
+    private int removeDuplicates(int[] nums) {
         int uniqueNumber = -1, counter = 0;
         for (int num : nums) {
             if (counter == 0) {
@@ -24,8 +24,6 @@ public class _26_remove_duplicates_from_sorted_array {
                 uniqueNumber = num;
                 nums[counter] = num;
                 counter++;
-            } else {
-
             }
         }
 //        for (int n : nums) {

@@ -16,7 +16,7 @@ public class _27_remove_element {
         removeElement(new int[] {3,2,2,3,3,3,4,5,3}, 2);
     }
 
-    public int removeElement(int[] nums, int val) {
+    private int removeElement(int[] nums, int val) {
         int newLength = nums.length;
         for (int i = 0; i < newLength;) {
             if (nums[i] == val) {

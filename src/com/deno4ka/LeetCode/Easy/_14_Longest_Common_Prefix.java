@@ -12,7 +12,7 @@ public class _14_Longest_Common_Prefix {
         System.out.println(longestCommonPrefix(new String[] {"acd","acbd","acd"}));
     }
 
-    public String longestCommonPrefix(String[] strs) {
+    private String longestCommonPrefix(String[] strs) {
         StringBuilder longestCommonPrefix = new StringBuilder();
         if (strs.length == 0) {
             return longestCommonPrefix.toString();
