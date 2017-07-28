@@ -27,13 +27,14 @@ package com.deno4ka.LeetCode.Easy;
 public class _38_count_and_say {
 
     public _38_count_and_say() {
-//        System.out.println(countAndSay(1));
-//        System.out.println(countAndSay(2));
-//        System.out.println(countAndSay(3));
-//        System.out.println(countAndSay(4));
-//        System.out.println(countAndSay(5));
-//        System.out.println(countAndSay(6));
-        System.out.println(countAndSay(7));
+//        System.out.println(countAndSay(1)); //"1"
+//        System.out.println(countAndSay(2)); //"11"
+//        System.out.println(countAndSay(3)); //"21"
+//        System.out.println(countAndSay(4)); //"1211"
+//        System.out.println(countAndSay(5)); //"111221"
+//        System.out.println(countAndSay(6)); //"312211"
+//        System.out.println(countAndSay(7)); //"13112221"
+        System.out.println(countAndSay(8)); //"1113213211"
     }
 
     public String countAndSay(int n) {
