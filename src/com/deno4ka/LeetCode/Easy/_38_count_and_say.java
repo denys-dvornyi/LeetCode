@@ -17,12 +17,52 @@ package com.deno4ka.LeetCode.Easy;
 //Example 2:
 //Input: 4
 //Output: "1211"
+// Input: 5
+//Output: "111221"
+// Input: 6
+//Output: "312211"
+// Input: 7
+//Output: "13112221"
 
 public class _38_count_and_say {
 
-    public String countAndSay(int n) {
+    public _38_count_and_say() {
+//        System.out.println(countAndSay(1));
+//        System.out.println(countAndSay(2));
+//        System.out.println(countAndSay(3));
+//        System.out.println(countAndSay(4));
+//        System.out.println(countAndSay(5));
+//        System.out.println(countAndSay(6));
+        System.out.println(countAndSay(7));
+    }
 
-        return "";
+    public String countAndSay(int n) {
+        if (n == 0) return "";
+        if (n == 1) return "1";
+        StringBuilder result = new StringBuilder("1");
+        int count = 0;
+        char last = '0';
+        for (int i = 1; i < n; i++) {
+            char[] tmpRes = result.toString().toCharArray();
+            result = new StringBuilder();
+            for (int j = 0; j < tmpRes.length; j++) {
+                if (count == 0) {
+                    last = tmpRes[j];
+                    count++;
+                } else if (last == tmpRes[j]) {
+                    count++;
+                } else if (last != tmpRes[j]) {
+                    result.append(String.valueOf(count)).append(last);
+                    count = 1;
+                    last = tmpRes[j];
+                }
+            }
+            if (count != 0) {
+                result.append(String.valueOf(count)).append(last);
+                count = 0;
+            }
+        }
+        return result.toString();
     }
 
 }
