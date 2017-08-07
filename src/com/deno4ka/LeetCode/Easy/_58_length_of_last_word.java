@@ -10,14 +10,30 @@ package com.deno4ka.LeetCode.Easy;
 public class _58_length_of_last_word {
 
     public _58_length_of_last_word() {
-        System.out.println(lengthOfLastWord("Hello World"));
+//        System.out.println(lengthOfLastWord(null));   //0
+//        System.out.println(lengthOfLastWord(""));     //0
+//        System.out.println(lengthOfLastWord("Hello World"));  //5
+//        System.out.println(lengthOfLastWord("Hello World "));   //0
+//        System.out.println(lengthOfLastWord("Hello World ,"));  //1
+        System.out.println(lengthOfLastWord("a ")); //1
     }
 
     public int lengthOfLastWord(String s) {
         if (s == null || s.isEmpty()) return 0;
         else {
-
-            return 0;
+            int length = 0;
+            char[] chars = s.toCharArray();
+            for (int i = chars.length-1; i >= 0; i--) {
+                if (chars[i] == ' ' && length > 0) {
+                    return length;
+                } else if (chars[i] == ' ' && length == 0) {
+                    continue;
+                } else {
+                    length++;
+                }
+            }
+            return length;
         }
     }
+
 }

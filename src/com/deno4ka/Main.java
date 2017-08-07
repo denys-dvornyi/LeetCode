@@ -13,6 +13,7 @@ public class Main {
 //        _35_search_insert_position search_insert_position = new _35_search_insert_position();
 //        _38_count_and_say count_and_say = new _38_count_and_say();
 //        _53_maximum_subarray maximum_subarray = new _53_maximum_subarray();
-        _58_length_of_last_word length_of_last_word = new _58_length_of_last_word();
+//        _58_length_of_last_word length_of_last_word = new _58_length_of_last_word();
+        _66_plus_one plus_one = new _66_plus_one();
     }
 }
