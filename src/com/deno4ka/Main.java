@@ -14,6 +14,7 @@ public class Main {
 //        _38_count_and_say count_and_say = new _38_count_and_say();
 //        _53_maximum_subarray maximum_subarray = new _53_maximum_subarray();
 //        _58_length_of_last_word length_of_last_word = new _58_length_of_last_word();
-        _66_plus_one plus_one = new _66_plus_one();
+//        _66_plus_one plus_one = new _66_plus_one();
+        _67_add_binary add_binary = new _67_add_binary();
     }
 }
