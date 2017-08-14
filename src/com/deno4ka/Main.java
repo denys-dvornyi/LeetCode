@@ -18,6 +18,6 @@ public class Main {
 //        _67_add_binary add_binary = new _67_add_binary();
 //        _69_sqrt_x sqrt_x = new _69_sqrt_x();
 //        _70_climbing_stairs climbing_stairs = new _70_climbing_stairs();
-        _83_remove_duplicates_from_sorted_list
+        _83_remove_duplicates_from_sorted_list remove_duplicates_from_sorted_list = new _83_remove_duplicates_from_sorted_list();
     }
 }

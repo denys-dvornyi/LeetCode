@@ -17,7 +17,8 @@ public class _83_remove_duplicates_from_sorted_list {
         ln2.next = ln3;
         ln3.next = ln4;
         ln4.next = ln5;
-        System.out.println(deleteDuplicates(ln1));
+        printListNodes(ln1);
+//        System.out.println(deleteDuplicates(ln1));
     }
 
     public ListNode deleteDuplicates(ListNode head) {
@@ -29,5 +30,14 @@ public class _83_remove_duplicates_from_sorted_list {
         int val;
         ListNode next;
         ListNode(int x) { val = x; }
+    }
+
+    private void printListNodes(ListNode ln) {
+        ListNode currentNode = ln;
+        while (currentNode.next != null) {
+            System.out.print(currentNode.val);
+            currentNode = currentNode.next;
+        }
+        System.out.print(currentNode.val);
     }
 }
