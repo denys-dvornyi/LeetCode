@@ -17,6 +17,6 @@ public class Main {
 //        _66_plus_one plus_one = new _66_plus_one();
 //        _67_add_binary add_binary = new _67_add_binary();
 //        _69_sqrt_x sqrt_x = new _69_sqrt_x();
-        _70_climbing_stairs climbing_stairs = new _70_climbing_stairs();
+//        _70_climbing_stairs climbing_stairs = new _70_climbing_stairs();
     }
 }
