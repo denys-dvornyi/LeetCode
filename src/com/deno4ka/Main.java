@@ -19,6 +19,7 @@ public class Main {
 //        _69_sqrt_x sqrt_x = new _69_sqrt_x();
 //        _70_climbing_stairs climbing_stairs = new _70_climbing_stairs();
 //        _83_remove_duplicates_from_sorted_list remove_duplicates_from_sorted_list = new _83_remove_duplicates_from_sorted_list();
-        _88_merge_sorted_array merge_sorted_array = new _88_merge_sorted_array();
+//        _88_merge_sorted_array merge_sorted_array = new _88_merge_sorted_array();
+        _100_same_tree same_tree = new _100_same_tree();
     }
 }

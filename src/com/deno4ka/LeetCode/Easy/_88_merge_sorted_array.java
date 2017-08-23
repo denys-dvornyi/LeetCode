@@ -14,34 +14,53 @@ public class _88_merge_sorted_array {
         int[] nums2 = new int[] {1,3,5,7,9};
         printArray(nums1);
         printArray(nums2);
-        merge(nums1, nums1.length, nums2, nums2.length);
+        merge(nums1, 5, nums2, nums2.length);
         printArray(nums1);
     }
 
     private void merge(int[] nums1, int m, int[] nums2, int n) {
-        int[] tmp = new int[10];
-        int pos1 = 0, pos2 = 0;
-        for (int i = 0; i < 10; i ++) {
-            if (nums1[pos1] <= nums2[pos2]) {
-                if (pos1 < m - 1) {
-                    tmp[i] = nums1[pos1];
-                    pos1++;
+        if (nums2 != null && n != 0) {
+            int[] tmp = new int[m + n];
+            int pos1 = 0, pos2 = 0;
+            boolean secondEnd = false, firstEnd = false;
+            for (int i = 0; i < tmp.length; i ++) {
+                if (nums1[pos1] <= nums2[pos2]) {
+                    if (pos1 == m - 1) {
+                        if (firstEnd) {
+                            tmp[i] = nums2[pos2];
+                            pos2++;
+                        } else {
+                            tmp[i] = nums1[pos1];
+                            firstEnd = true;
+                        }
+                    } else if (pos1 < m - 1) {
+                        tmp[i] = nums1[pos1];
+                        pos1++;
+                    } else {
+                        tmp[i] = nums2[pos2];
+                        pos2++;
+                    }
                 } else {
-                    tmp[i] = nums2[pos2];
-                    pos2++;
-                }
-            } else {
-                if (pos2 < n -1) {
-                    tmp[i] = nums2[pos2];
-                    pos2++;
-                } else {
-                    tmp[i] = nums1[pos1];
-                    pos1++;
+                    if (pos2 == n - 1) {
+                        if (secondEnd) {
+                            tmp[i] = nums1[pos1];
+                            pos1++;
+                        } else {
+                            tmp[i] = nums2[pos2];
+                            secondEnd = true;
+                        }
+                    } else if (pos2 < n -1) {
+                        tmp[i] = nums2[pos2];
+                        pos2++;
+                    } else {
+                        tmp[i] = nums1[pos1];
+                        pos1++;
+                    }
                 }
             }
-        }
-        for (int j = 0; j < tmp.length; j++) {
-            nums1[j] = tmp[j];
+            for (int j = 0; j < tmp.length; j++) {
+                nums1[j] = tmp[j];
+            }
         }
     }
 
