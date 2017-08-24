@@ -20,6 +20,7 @@ public class Main {
 //        _70_climbing_stairs climbing_stairs = new _70_climbing_stairs();
 //        _83_remove_duplicates_from_sorted_list remove_duplicates_from_sorted_list = new _83_remove_duplicates_from_sorted_list();
 //        _88_merge_sorted_array merge_sorted_array = new _88_merge_sorted_array();
-        _100_same_tree same_tree = new _100_same_tree();
+//        _100_same_tree same_tree = new _100_same_tree();
+        _101_symmetric_tree symmetric_tree = new _101_symmetric_tree();
     }
 }
