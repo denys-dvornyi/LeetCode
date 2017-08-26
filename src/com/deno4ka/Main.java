@@ -21,7 +21,7 @@ public class Main {
 //        _83_remove_duplicates_from_sorted_list remove_duplicates_from_sorted_list = new _83_remove_duplicates_from_sorted_list();
 //        _88_merge_sorted_array merge_sorted_array = new _88_merge_sorted_array();
 //        _100_same_tree same_tree = new _100_same_tree();
-        _101_symmetric_tree symmetric_tree = new _101_symmetric_tree();
+//        _101_symmetric_tree symmetric_tree = new _101_symmetric_tree();
         _104_maximum_depth_of_binary_tree maximum_depth_of_binary_tree = new _104_maximum_depth_of_binary_tree();
     }
 
