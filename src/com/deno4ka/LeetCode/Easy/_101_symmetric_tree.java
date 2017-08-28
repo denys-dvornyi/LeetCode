@@ -69,11 +69,6 @@ public class _101_symmetric_tree {
         return true;
     }
 
-    private Integer getValue(TreeNode node) {
-        if (node == null) return -1;
-        else return node.val;
-    }
-
     private void getSymmetricValues(TreeNode tree, ArrayList<String> values, int nesting) {
         if (tree != null) {
             getSymmetricValues(tree.left, values, ++nesting);
