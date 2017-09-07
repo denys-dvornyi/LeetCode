@@ -27,27 +27,37 @@ public class _108_convert_sorted_array_to_binary_search_tree {
     private TreeNode sortedArrayToBST(int[] nums) {
         TreeNode result = null;
         if (nums == null || nums.length == 0) return null;
-        else result = new TreeNode(0);
-        createTreeNode(result, nums, 0, nums.length - 1);
+        else if (nums.length == 1) {
+            return result = new TreeNode(nums[0]);
+        } else if (nums.length == 2) {
+            result = new TreeNode(nums[1]);
+            result.left = new TreeNode(nums[0]);
+        } else if (nums.length == 3) {
+            result = new TreeNode(nums[1]);
+            result.left = new TreeNode(nums[0]);
+            result.right = new TreeNode(nums[2]);
+        } else {
+            int midl = nums.length / 2;
+            result = new TreeNode(nums[midl]);
+            result.left = new TreeNode(nums[midl - 1 - 0] / 2);
+            result.right = new TreeNode(nums[nums.length - midl + 1] / 2);
+            createTreeNode(result.left, nums, 0, midl - 1);
+            createTreeNode(result.right, nums, midl + 1, nums.length - 1);
+        }
         return result;
     }
 
     private void createTreeNode(TreeNode child, int[] nums, int start, int end) {
-        int length = end - start;
-        if (length == 0) {
-            child = null;
-        } else if (length == 1) {
-            child = new TreeNode(nums[end]);
-        } else if (length == 2) {
-            child = new TreeNode(nums[end]);
+        int length = (end - start) + 1;
+        if (length == 1) {
             child.left = new TreeNode(nums[start]);
-        } else if (length == 3) {
-            child = new TreeNode(nums[(end - start) / 2]);
+        } else if (length == 2) {
             child.left = new TreeNode(nums[start]);
             child.right = new TreeNode(nums[end]);
         } else {
-            int midl = (end - start) / 2;
-            child = new TreeNode(nums[midl]);
+            int midl = start + (length / 2);
+            child.left = new TreeNode(nums[midl - 1 - start ]);
+            child.right = new TreeNode(nums[end - midl + 1]);
             createTreeNode(child.left, nums, start, midl - 1);
             createTreeNode(child.right, nums, midl + 1, end);
         }
@@ -56,7 +66,7 @@ public class _108_convert_sorted_array_to_binary_search_tree {
     private boolean printTreeNode(TreeNode root) {
         if (root == null) return true;
         ArrayList<String> values = new ArrayList<>();
-        int nesting = -1;
+        int nesting = 0;
         getSymmetricValues(root, values, nesting);
         System.out.println(values);
         for (int i = 0; i < values.size(); i++) {
@@ -84,4 +94,5 @@ public class _108_convert_sorted_array_to_binary_search_tree {
             val = x;
         }
     }
+
 }
