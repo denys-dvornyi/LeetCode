@@ -20,8 +20,10 @@ public class _108_convert_sorted_array_to_binary_search_tree {
 //        p.right = p2;
 //        printTreeNode(p);
 
-        TreeNode tn1 = sortedArrayToBST(new int[] {1,2,3,4,5,6,7});
-        printTreeNode(tn1);
+//        TreeNode tn1 = sortedArrayToBST(new int[] {1,2,3,4,5,6,7});
+//        printTreeNode(tn1);
+        TreeNode tn2 = sortedArrayToBST(new int[] {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15});
+        printTreeNode(tn2);
     }
 
     private TreeNode sortedArrayToBST(int[] nums) {
@@ -39,8 +41,8 @@ public class _108_convert_sorted_array_to_binary_search_tree {
         } else {
             int midl = nums.length / 2;
             result = new TreeNode(nums[midl]);
-            result.left = new TreeNode(nums[midl - 1 - 0] / 2);
-            result.right = new TreeNode(nums[nums.length - midl + 1] / 2);
+            result.left = new TreeNode(nums[(midl - 1) / 2]);
+            result.right = new TreeNode(nums[((nums.length - midl + 1) / 2) + midl]);
             createTreeNode(result.left, nums, 0, midl - 1);
             createTreeNode(result.right, nums, midl + 1, nums.length - 1);
         }
@@ -54,10 +56,13 @@ public class _108_convert_sorted_array_to_binary_search_tree {
         } else if (length == 2) {
             child.left = new TreeNode(nums[start]);
             child.right = new TreeNode(nums[end]);
-        } else {
+        } else if (length == 3) {
+            child.left = new TreeNode(nums[start]);
+            child.right = new TreeNode(nums[end]);
+        } else if (length > 3) {
             int midl = start + (length / 2);
-            child.left = new TreeNode(nums[midl - 1 - start ]);
-            child.right = new TreeNode(nums[end - midl + 1]);
+            child.left = new TreeNode(nums[(midl - 1 - start) / 2]);
+            child.right = new TreeNode(nums[((end - midl + 1) / 2) + midl]);
             createTreeNode(child.left, nums, start, midl - 1);
             createTreeNode(child.right, nums, midl + 1, end);
         }
