@@ -75,7 +75,7 @@ public class _107_binary_tree_level_order_traversal_II {
         }
     }
 
-    public class TreeNode {
+    class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;

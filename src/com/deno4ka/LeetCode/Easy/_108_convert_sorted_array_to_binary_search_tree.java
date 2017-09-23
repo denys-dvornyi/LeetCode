@@ -112,7 +112,7 @@ public class _108_convert_sorted_array_to_binary_search_tree {
         }
     }
 
-    public class TreeNode {
+    class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
