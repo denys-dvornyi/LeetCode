@@ -20,14 +20,15 @@ public class _108_convert_sorted_array_to_binary_search_tree {
 //        p.right = p2;
 //        printTreeNode(p);
 
-//        TreeNode tn1 = sortedArrayToBST(new int[] {1,2,3,4,5,6,7});
-//        printTreeNode(tn1);
-//        TreeNode tn2 = sortedArrayToBST(new int[] {-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15});
-//        printTreeNode(tn2);
-//        TreeNode tn3 = sortedArrayToBST(new int[] {-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16,-17,-18,-19,-20,-21,-22,-23,-24,-25,-26,-27,-28,-29,-30,-31});
-//        printTreeNode(tn3);
-        TreeNode tn4 = sortedArrayToBST(new int[] {-1,0,1,2});
-        printTreeNode(tn4);
+//        TreeNode tn = sortedArrayToBST(new int[] {1,2,3,4,5,6,7});
+//        TreeNode tn = sortedArrayToBST(new int[] {-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15});
+//        TreeNode tn = sortedArrayToBST(new int[] {-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16,-17,-18,-19,-20,-21,-22,-23,-24,-25,-26,-27,-28,-29,-30,-31});
+//        TreeNode tn = sortedArrayToBST(new int[] {-1,0,1,2});
+//        TreeNode tn = sortedArrayToBST(new int[] {-1,0,1,2,4});
+//        TreeNode tn = sortedArrayToBST(new int[] {-10,-3,0,5,9});
+//        TreeNode tn = sortedArrayToBST(new int[] {0,1,2,3,4,5,6,7});
+        TreeNode tn = sortedArrayToBST(new int[] {0,1,2,3,4,5,6,7,8,9});
+        printTreeNode(tn);
     }
 
     private TreeNode sortedArrayToBST(int[] nums) {
@@ -54,28 +55,38 @@ public class _108_convert_sorted_array_to_binary_search_tree {
             int rightMidl = (end - midl + 1) / 2 + midl;
             result.left = new TreeNode(nums[leftMidl]);
             result.right = new TreeNode(nums[rightMidl]);
-            createTreeNode(result.left, nums, 0, midl - 1);
-            createTreeNode(result.right, nums, midl + 1, end - 1);
+            if (0 != midl - 1) {
+                createTreeNode(result.left, nums, 0, midl - 1, leftMidl);
+            }
+            if (midl + 1 != end - 1) {
+                createTreeNode(result.right, nums, midl + 1, end - 1, rightMidl);
+            }
         }
         return result;
     }
 
-    private void createTreeNode(TreeNode child, int[] nums, int start, int end) {
-        int length = (end - start) + 1;
+    private void createTreeNode(TreeNode child, int[] nums, int start, int end, int parentPosition) {
+        int length = (end - start);
         if (length == 1) {
-            child.left = new TreeNode(nums[start]);
+            if (parentPosition == start) {
+                child.right = new TreeNode(nums[end]);
+            } else if (parentPosition == end) {
+                child.left = new TreeNode(nums[start]);
+            }
         } else if (length == 2) {
             child.left = new TreeNode(nums[start]);
             child.right = new TreeNode(nums[end]);
-        } else if (length == 3) {
-            child.left = new TreeNode(nums[start]);
-            child.right = new TreeNode(nums[end]);
-        } else if (length > 3) {
-            int midl = start + (length / 2);
-            child.left = new TreeNode(nums[(midl - 1 - start) / 2 + start]);
-            child.right = new TreeNode(nums[((end - midl + 1) / 2) + midl]);
-            createTreeNode(child.left, nums, start, midl - 1);
-            createTreeNode(child.right, nums, midl + 1, end);
+        } else if (length > 2) {
+            int leftMidl = (parentPosition - start) / 2 + start;
+            int rightMidl = ((end - parentPosition) / 2) + 1 + parentPosition;
+            child.left = new TreeNode(nums[leftMidl]);
+            child.right = new TreeNode(nums[rightMidl]);
+            if (start != parentPosition - 1) {
+                createTreeNode(child.left, nums, start, parentPosition - 1, leftMidl);
+            }
+            if (parentPosition != end - 1) {
+                createTreeNode(child.right, nums, parentPosition + 1, end, rightMidl);
+            }
         }
     }
 
