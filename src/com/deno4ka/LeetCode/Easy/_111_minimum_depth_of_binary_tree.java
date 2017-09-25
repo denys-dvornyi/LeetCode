@@ -29,6 +29,14 @@ public class _111_minimum_depth_of_binary_tree {
         System.out.println(minDepth(r1));
     }
 
+    // code from LeetCode
+//    public int minDepth(TreeNode root) {
+//        if (root==null) { return 0; }
+//        if (root.left==null) { return 1 + minDepth(root.right); }
+//        if (root.right==null) { return 1 + minDepth(root.left); }
+//        return 1 + Math.min(minDepth(root.left), minDepth(root.right));
+//    }
+
     private int minDepth(TreeNode root) {
         if (root == null) return 0;
         ArrayList<Integer> depths = new ArrayList<>();
