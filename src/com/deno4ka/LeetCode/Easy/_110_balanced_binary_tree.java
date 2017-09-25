@@ -11,14 +11,14 @@ import java.util.ArrayList;
 public class _110_balanced_binary_tree {
 
     public _110_balanced_binary_tree() {
-        TreeNode r1 = new TreeNode(1);
-        TreeNode r2_1 = new TreeNode(21);
-        TreeNode r2_2 = new TreeNode(22);
-        TreeNode r3_1 = new TreeNode(31);
-        TreeNode r3_2 = new TreeNode(32);
-        TreeNode r3_3 = new TreeNode(33);
-        TreeNode r3_4 = new TreeNode(34);
-        TreeNode r4_1 = new TreeNode(41);
+        TreeNode r1 = new TreeNode(11);
+        TreeNode r2_1L = new TreeNode(21);
+        TreeNode r2_2R = new TreeNode(22);
+        TreeNode r3_1L = new TreeNode(31);
+        TreeNode r3_2R = new TreeNode(32);
+        TreeNode r3_3L = new TreeNode(33);
+        TreeNode r3_4R = new TreeNode(34);
+        TreeNode r4_1L = new TreeNode(41);
         TreeNode r4_2 = new TreeNode(42);
         TreeNode r4_3 = new TreeNode(43);
         TreeNode r4_4 = new TreeNode(44);
@@ -26,33 +26,42 @@ public class _110_balanced_binary_tree {
         TreeNode r5_2 = new TreeNode(52);
         TreeNode r6_1 = new TreeNode(61);
 
-        r5_1.left = r6_1;
+//        r5_1.left = r6_1;
 
-        r4_1.left = r5_1;
-        r4_2.right = r5_2;
+//        r4_1L.left = r5_1;
+//        r4_2.right = r5_2;
 
-        r3_1.left = r4_1;
-        r3_2.left = r4_2;
-        r3_3.left = r4_3;
-        r3_4.left = r4_4;
+        r3_1L.left = r4_1L;
+//        r3_1L.right = r4_1;
+//        r3_2R.left = r4_2;
+//        r3_2R.right = r4_2;
+        r3_3L.left = r4_3;
+        r3_3L.right = r4_3;
+//        r3_4R.left = r4_4;
+        r3_4R.right = r4_4;
 
-        r2_1.left = r3_1;
-        r2_1.right = r3_2;
-        r2_2.left = r3_3;
-        r2_2.right = r3_4;
+        r2_1L.left = r3_1L;
+        r2_1L.right = r3_2R;
+//        r2_2R.left = r3_3L;
+        r2_2R.right = r3_4R;
 
-        r1.left = r2_1;
-        r1.right = r2_2;
+        r1.left = r2_1L;
+        r1.right = r2_2R;
         System.out.println(isBalanced(r1));
     }
 
     public boolean isBalanced(TreeNode root) {
-        return checkBalance(root);
+        ArrayList<Boolean> isBalanced = new ArrayList<>();
+        checkBalance(root, isBalanced);
+        for(Boolean bal:isBalanced) {
+            if (!bal) return false;
+        }
+        return true;
     }
 
-    private boolean checkBalance(TreeNode root) {
-        if (root == null) return true;
-        else if (root.left == null && root.right == null) return true;
+    private void checkBalance(TreeNode root, ArrayList<Boolean> isBalanced) {
+        if (root == null) return;
+        else if (root.left == null && root.right == null) return;
         else {
             int leftTree = maxDepth(root.left);
             int rightTree = maxDepth(root.right);
@@ -62,7 +71,18 @@ public class _110_balanced_binary_tree {
             } else {
                 difference = rightTree - leftTree;
             }
-            return difference <= 1;
+            if (difference <= 1) {
+                isBalanced.add(true);
+            } else {
+                isBalanced.add(false);
+                return;
+            }
+        }
+        if (root.left != null) {
+            checkBalance(root.left, isBalanced);
+        }
+        if (root.right != null) {
+            checkBalance(root.right, isBalanced);
         }
     }
 
@@ -71,7 +91,6 @@ public class _110_balanced_binary_tree {
         ArrayList<Integer> depth = new ArrayList<>();
         int nesting = 0;
         getNodeDepth(root, depth, nesting);
-        System.out.println(depth);
         int max = 0;
         for (int dep : depth) {
             if (max < dep) max = dep;
