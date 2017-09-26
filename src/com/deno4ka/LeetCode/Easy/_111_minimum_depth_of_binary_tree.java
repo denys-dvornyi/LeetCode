@@ -53,7 +53,7 @@ public class _111_minimum_depth_of_binary_tree {
     private void getNodeDepth(TreeNode tree, ArrayList<Integer> depths, int depth) {
         if (tree != null) {
             if (tree.left == null && tree.right == null) {
-                System.out.println("Leaf found! Nesting=" + depths);
+                System.out.println("Leaf found! Nesting=" + depth);
                 depths.add(depth);
             }
             getNodeDepth(tree.left, depths, ++depth);
