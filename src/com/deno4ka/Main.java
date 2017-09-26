@@ -27,7 +27,8 @@ public class Main {
 //        _108_convert_sorted_array_to_binary_search_tree convertSortedArrayToBinarySearchTree = new _108_convert_sorted_array_to_binary_search_tree();
 //        _110_balanced_binary_tree balancedBinaryTree = new _110_balanced_binary_tree();
 //        _111_minimum_depth_of_binary_tree minimumDepthOfBinaryTree = new _111_minimum_depth_of_binary_tree();
-        _112_path_sum pathSum = new _112_path_sum();
+//        _112_path_sum pathSum = new _112_path_sum();
+        _118_pascals_triangle pascalsTriangle = new _118_pascals_triangle();
     }
 
 }
