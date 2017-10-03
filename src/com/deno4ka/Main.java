@@ -30,7 +30,8 @@ public class Main {
 //        _112_path_sum pathSum = new _112_path_sum();
 //        _118_pascals_triangle pascalsTriangle = new _118_pascals_triangle();
 //        _119_pascals_triangle_2 pascalsTriangle2 = new _119_pascals_triangle_2();
-        _121_best_time_to_buy_and_sell_stock bestTimeToBuyAndSellStock = new _121_best_time_to_buy_and_sell_stock();
+//        _121_best_time_to_buy_and_sell_stock bestTimeToBuyAndSellStock = new _121_best_time_to_buy_and_sell_stock();
+        _122_best_time_to_buy_and_sell_stock_2 bestTimeToBuyAndSellStock2 = new _122_best_time_to_buy_and_sell_stock_2();
     }
 
 }
