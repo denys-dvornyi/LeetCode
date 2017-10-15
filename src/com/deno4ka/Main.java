@@ -34,7 +34,8 @@ public class Main {
 //        _121_best_time_to_buy_and_sell_stock bestTimeToBuyAndSellStock = new _121_best_time_to_buy_and_sell_stock();
 //        _122_best_time_to_buy_and_sell_stock_2 bestTimeToBuyAndSellStock2 = new _122_best_time_to_buy_and_sell_stock_2();
 //        _125_valid_palindrome validPalindrome = new _125_valid_palindrome();
-        First_non_repeated_character_in_the_string firstNonRepeatedCharacterInTheString = new First_non_repeated_character_in_the_string();
+//        First_non_repeated_character_in_the_string firstNonRepeatedCharacterInTheString = new First_non_repeated_character_in_the_string();
+        _136_single_number singleNumber = new _136_single_number();
     }
 
 }
