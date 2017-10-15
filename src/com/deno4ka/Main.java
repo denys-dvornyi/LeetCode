@@ -1,6 +1,7 @@
 package com.deno4ka;
 
 import com.deno4ka.LeetCode.Easy.*;
+import com.deno4ka.Other.First_non_repeated_character_in_the_string;
 
 public class Main {
 
@@ -32,8 +33,8 @@ public class Main {
 //        _119_pascals_triangle_2 pascalsTriangle2 = new _119_pascals_triangle_2();
 //        _121_best_time_to_buy_and_sell_stock bestTimeToBuyAndSellStock = new _121_best_time_to_buy_and_sell_stock();
 //        _122_best_time_to_buy_and_sell_stock_2 bestTimeToBuyAndSellStock2 = new _122_best_time_to_buy_and_sell_stock_2();
-        _125_valid_palindrome validPalindrome = new _125_valid_palindrome();
-
+//        _125_valid_palindrome validPalindrome = new _125_valid_palindrome();
+        First_non_repeated_character_in_the_string firstNonRepeatedCharacterInTheString = new First_non_repeated_character_in_the_string();
     }
 
 }
