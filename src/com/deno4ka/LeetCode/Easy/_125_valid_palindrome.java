@@ -17,6 +17,7 @@ public class _125_valid_palindrome {
 //        System.out.println(isPalindrome(""));
         System.out.println(isPalindrome("A man, a plan, a canal: Panama")); // true
         System.out.println(isPalindrome("race a car")); // false
+        System.out.println(isPalindrome("0P")); // false
     }
 
     private boolean isPalindrome(String s) {
@@ -26,13 +27,14 @@ public class _125_valid_palindrome {
             char[] charsTmp = s.toLowerCase().toCharArray();
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < charsTmp.length; i++) {
-                if (Character.isLetter(charsTmp[i])) {
+                if (Character.isLetterOrDigit(charsTmp[i])) {
                     sb.append(charsTmp[i]);
                 }
             }
-            char[] letterOnly = sb.toString().toCharArray();
-            for (int j = 0; j < letterOnly.length; j++) {
-                if (letterOnly[j] != letterOnly[letterOnly.length-1-j]) {
+            char[] alphanumeric = sb.toString().toCharArray();
+            int midl = alphanumeric.length / 2;
+            for (int j = 0; j < midl; j++) {
+                if (alphanumeric[j] != alphanumeric[alphanumeric.length-1-j]) {
                     return false;
                 }
             }
