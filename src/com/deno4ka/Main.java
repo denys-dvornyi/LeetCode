@@ -46,7 +46,14 @@ public class Main {
 //        _125_valid_palindrome validPalindrome = new _125_valid_palindrome();
 //        _136_single_number singleNumber = new _136_single_number();
 //        _141_linked_list_cycle linkedListCycle = new _141_linked_list_cycle();
-
+        _155_min_stack minStack = new _155_min_stack();
+        minStack.push(-2);
+        minStack.push(0);
+        minStack.push(-3);
+        minStack.getMin(); // Returns -3.
+        minStack.pop();
+        minStack.top();    // Returns 0.
+        minStack.getMin(); // Returns -2.
 
     }
 
