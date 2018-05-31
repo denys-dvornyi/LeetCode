@@ -1,5 +1,7 @@
 package com.deno4ka.LeetCode.Easy;
 
+import java.util.LinkedList;
+
 public class _155_min_stack {
 
 /*
@@ -19,25 +21,27 @@ Example:
 	minStack.getMin();   --> Returns -2.
 */
 
+	private LinkedList<Integer> queue;
+
 	/** initialize your data structure here. */
 	public _155_min_stack() {
-
+		queue = new LinkedList<>();
 	}
 
 	public void push(int x) {
-
+		queue.add(x);
 	}
 
 	public void pop() {
-
+		queue.removeLast();
 	}
 
 	public int top() {
-		return -1;
+		return queue.getLast();
 	}
 
 	public int getMin() {
-		return Integer.MIN_VALUE;
+		return queue.stream().min(Integer::compare).get();
 	}
 
 }
