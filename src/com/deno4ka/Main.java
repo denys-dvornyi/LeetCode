@@ -48,6 +48,7 @@ public class Main {
 //        _136_single_number singleNumber = new _136_single_number();
 //        _141_linked_list_cycle linkedListCycle = new _141_linked_list_cycle();
 //        _155_min_stack minStack = new _155_min_stack();
+        _160_intersection_of_two_linked_lists intersectionOfTwoLinkedLists = new _160_intersection_of_two_linked_lists();
 
     }
 
