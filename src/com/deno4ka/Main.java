@@ -49,7 +49,8 @@ public class Main {
 //        _141_linked_list_cycle linkedListCycle = new _141_linked_list_cycle();
 //        _155_min_stack minStack = new _155_min_stack();
 //        _160_intersection_of_two_linked_lists intersectionOfTwoLinkedLists = new _160_intersection_of_two_linked_lists();
-        _167_two_sum_2_input_array_is_sorted twoSum2InputArrayIsSorted = new _167_two_sum_2_input_array_is_sorted();
+//        _167_two_sum_2_input_array_is_sorted twoSum2InputArrayIsSorted = new _167_two_sum_2_input_array_is_sorted();
+
 
     }
 
