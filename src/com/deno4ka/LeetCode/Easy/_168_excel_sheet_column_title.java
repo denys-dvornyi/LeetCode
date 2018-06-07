@@ -92,13 +92,11 @@ public class _168_excel_sheet_column_title {
 
 	// best from leet.code
 //	public String convertToTitle(int n) {
-//
 //		StringBuilder res = new StringBuilder();
 //		while(n>0){
 //			res.append((n%26) != 0 ? (char)('A'- 1 + (n%26)) : (char)('Z'));
 //			n= (n-1)/26;
 //		}
-//
 //		return res.reverse().toString();
 //	}
 
