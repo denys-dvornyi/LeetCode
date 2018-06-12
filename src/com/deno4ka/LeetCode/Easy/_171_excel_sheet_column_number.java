@@ -25,14 +25,39 @@ Input: "ZY"
 Output: 701
 */
 
+import java.util.Arrays;
+
 public class _171_excel_sheet_column_number {
 
 	public _171_excel_sheet_column_number() {
-
+		System.out.println(titleToNumber("A"));
+		System.out.println(titleToNumber("AB"));
+		System.out.println(titleToNumber("ZY"));
 	}
 
 	public int titleToNumber(String s) {
-		return 0;
+		final int OFFSET = 64;
+		int[] ints = new StringBuilder(s).reverse().chars().toArray();
+		int result = 0;
+		long index = 1;
+		for (int i = 0; i < ints.length; i++) {
+			result += (ints[i] - OFFSET) * index;
+			index *= 26;
+		}
+		return result;
 	}
+
+	// best from leet.code
+//	public int titleToNumber(String s) {
+//		int num = 0;
+//		int exp = 1;
+//
+//		for(int i = s.length() - 1; i >= 0; --i){
+//			num += (s.charAt(i) - 'A' + 1) * exp;
+//			exp *= 26;
+//		}
+//
+//		return num;
+//	}
 
 }
