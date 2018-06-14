@@ -25,8 +25,6 @@ Input: "ZY"
 Output: 701
 */
 
-import java.util.Arrays;
-
 public class _171_excel_sheet_column_number {
 
 	public _171_excel_sheet_column_number() {
