@@ -20,7 +20,6 @@ public class _27_remove_element {
         int newLength = nums.length;
         for (int i = 0; i < newLength;) {
             if (nums[i] == val) {
-                // TODO: shift element left
                 for (int j = i; j < newLength - 1; j++) {
                     nums[j] = nums[j+1];
                 }
