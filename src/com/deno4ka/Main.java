@@ -1,15 +1,6 @@
 package com.deno4ka;
 
 import com.deno4ka.LeetCode.Easy.*;
-import com.deno4ka.Other.First_non_repeated_character_in_the_string;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.TimeZone;
 
 public class Main {
 
@@ -53,7 +44,8 @@ public class Main {
 //        _168_excel_sheet_column_title excelSheetColumnTitle = new _168_excel_sheet_column_title();
 //        _169_majority_element majorityElement = new _169_majority_element();
 //        _171_excel_sheet_column_number excelSheetColumnNumber = new _171_excel_sheet_column_number();
-        _172_factorial_trailing_zeroes factorialTrailingZeroes = new _172_factorial_trailing_zeroes();
+//        _172_factorial_trailing_zeroes factorialTrailingZeroes = new _172_factorial_trailing_zeroes();
+        _189_rotate_array combineTwoTables = new _189_rotate_array();
 
     }
 
