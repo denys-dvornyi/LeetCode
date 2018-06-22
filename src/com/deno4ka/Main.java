@@ -45,7 +45,8 @@ public class Main {
 //        _169_majority_element majorityElement = new _169_majority_element();
 //        _171_excel_sheet_column_number excelSheetColumnNumber = new _171_excel_sheet_column_number();
 //        _172_factorial_trailing_zeroes factorialTrailingZeroes = new _172_factorial_trailing_zeroes();
-        _189_rotate_array combineTwoTables = new _189_rotate_array();
+//        _189_rotate_array combineTwoTables = new _189_rotate_array();
+        _190_reverse_bits reverseBits = new _190_reverse_bits();
 
     }
 
