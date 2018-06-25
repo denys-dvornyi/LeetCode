@@ -46,7 +46,8 @@ public class Main {
 //        _171_excel_sheet_column_number excelSheetColumnNumber = new _171_excel_sheet_column_number();
 //        _172_factorial_trailing_zeroes factorialTrailingZeroes = new _172_factorial_trailing_zeroes();
 //        _189_rotate_array combineTwoTables = new _189_rotate_array();
-        _190_reverse_bits reverseBits = new _190_reverse_bits();
+//        _190_reverse_bits reverseBits = new _190_reverse_bits();
+        _191_number_of_1_bits numberOf1Bits = new _191_number_of_1_bits();
 
     }
 
