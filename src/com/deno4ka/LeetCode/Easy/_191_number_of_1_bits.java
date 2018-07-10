@@ -23,7 +23,23 @@ public class _191_number_of_1_bits {
 
 	// you need to treat n as an unsigned value
 	public int hammingWeight(int n) {
-		return 0;
+		int hammingWeightCount = 0;
+		for (char c : Integer.toBinaryString(n).toCharArray()) {
+			if (c == '1') {
+				hammingWeightCount++;
+			}
+		}
+		return hammingWeightCount;
 	}
+
+	// best from leet.code
+//	public int hammingWeight(int n) {
+//		int count = 0;
+//		while (n != 0) {
+//			count += n & 1;
+//			n = n >>> 1;
+//		}
+//		return count;
+//	}
 
 }
