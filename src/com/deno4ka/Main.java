@@ -49,7 +49,7 @@ public class Main {
 //        _190_reverse_bits reverseBits = new _190_reverse_bits();
 //        _191_number_of_1_bits numberOf1Bits = new _191_number_of_1_bits();
 //        _198_house_robber houseRobber = new _198_house_robber();
-        _202_happy_number happyNumber = new _202_happy_number();
+//        _202_happy_number happyNumber = new _202_happy_number();
 
     }
 
