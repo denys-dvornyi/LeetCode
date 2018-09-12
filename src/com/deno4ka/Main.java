@@ -50,7 +50,8 @@ public class Main {
 //        _191_number_of_1_bits numberOf1Bits = new _191_number_of_1_bits();
 //        _198_house_robber houseRobber = new _198_house_robber();
 //        _202_happy_number happyNumber = new _202_happy_number();
-        _203_remove_linked_list_elements removeLinkedListElements = new _203_remove_linked_list_elements();
+//        _203_remove_linked_list_elements removeLinkedListElements = new _203_remove_linked_list_elements();
+        _204_count_primes countPrimes = new _204_count_primes();
 
     }
 
