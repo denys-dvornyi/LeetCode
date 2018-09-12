@@ -51,7 +51,8 @@ public class Main {
 //        _198_house_robber houseRobber = new _198_house_robber();
 //        _202_happy_number happyNumber = new _202_happy_number();
 //        _203_remove_linked_list_elements removeLinkedListElements = new _203_remove_linked_list_elements();
-        _204_count_primes countPrimes = new _204_count_primes();
+//        _204_count_primes countPrimes = new _204_count_primes();
+        _205_isomorphic_strings isomorphicStrings = new _205_isomorphic_strings();
 
     }
 
