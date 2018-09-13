@@ -52,7 +52,8 @@ public class Main {
 //        _202_happy_number happyNumber = new _202_happy_number();
 //        _203_remove_linked_list_elements removeLinkedListElements = new _203_remove_linked_list_elements();
 //        _204_count_primes countPrimes = new _204_count_primes();
-        _205_isomorphic_strings isomorphicStrings = new _205_isomorphic_strings();
+//        _205_isomorphic_strings isomorphicStrings = new _205_isomorphic_strings();
+        _206_reverse_linked_list reverseLinkedList = new _206_reverse_linked_list();
 
     }
 
