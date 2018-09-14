@@ -17,6 +17,9 @@ Input: [1,1,1,3,3,4,3,2,4,2]
 Output: true
 */
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class _217_contains_duplicate {
 
 	public _217_contains_duplicate() {
@@ -25,12 +28,18 @@ public class _217_contains_duplicate {
 		System.out.println(containsDuplicate(new int[]{1,1,1,3,3,4,3,2,4,2})); // true
 	}
 
+	// (8ms/77.75%)
 	public boolean containsDuplicate(int[] nums) {
-		if (nums == null && nums.length == 0) {
+		if (nums == null || nums.length == 0) {
 			return false;
 		} else {
-
-			return true;
+			Set<Integer> numbersSet = new HashSet<>();
+			for (int number: nums) {
+				if (!numbersSet.add(number)) {
+					return true;
+				}
+			}
+			return false;
 		}
 	}
 
