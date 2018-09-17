@@ -56,7 +56,8 @@ public class Main {
 //        _206_reverse_linked_list reverseLinkedList = new _206_reverse_linked_list();
 //        _217_contains_duplicate containsDuplicate = new _217_contains_duplicate();
 //        _219_contains_duplicate_2 containsDuplicate2 = new _219_contains_duplicate_2();
-        _225_implement_stack_using_queues implementStackUsingQueues = new _225_implement_stack_using_queues();
+//        _225_implement_stack_using_queues implementStackUsingQueues = new _225_implement_stack_using_queues();
+        _226_invert_binary_tree invertBinaryTree = new _226_invert_binary_tree();
 
     }
 
