@@ -59,7 +59,8 @@ public class Main {
 //        _225_implement_stack_using_queues implementStackUsingQueues = new _225_implement_stack_using_queues();
 //        _226_invert_binary_tree invertBinaryTree = new _226_invert_binary_tree();
 //        _231_power_of_two powerOfTwo = new _231_power_of_two();
-        _232_implement_queue_using_stacks implementQueueUsingStacks = new _232_implement_queue_using_stacks();
+//        _232_implement_queue_using_stacks implementQueueUsingStacks = new _232_implement_queue_using_stacks();
+        _234_palindrome_linked_list palindromeLinkedList = new _234_palindrome_linked_list();
 
     }
 
