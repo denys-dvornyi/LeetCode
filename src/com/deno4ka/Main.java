@@ -60,13 +60,6 @@ public class Main {
 //        _226_invert_binary_tree invertBinaryTree = new _226_invert_binary_tree();
 //        _231_power_of_two powerOfTwo = new _231_power_of_two();
         _232_implement_queue_using_stacks implementQueueUsingStacks = new _232_implement_queue_using_stacks();
-        _232_implement_queue_using_stacks obj = new _232_implement_queue_using_stacks();
-        obj.push(1);
-        obj.push(2);
-        int param_2 = obj.peek(); // 1
-        int param_3 = obj.pop(); // 1
-        boolean param_4 = obj.empty(); // false
-        System.out.println(String.format("%d, %d, %s", param_2, param_3, param_4));
 
     }
 
