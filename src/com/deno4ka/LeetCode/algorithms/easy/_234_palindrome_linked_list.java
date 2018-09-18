@@ -15,7 +15,12 @@ Follow up:
 Could you do it in O(n) time and O(1) space?
 */
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class _234_palindrome_linked_list {
+
+	private List<Integer> numbers;
 
 	public _234_palindrome_linked_list() {
 		ListNode head = new ListNode(1);
@@ -33,11 +38,23 @@ public class _234_palindrome_linked_list {
 		System.out.println(isPalindrome(head)); // true
 	}
 
+	// (8ms/8%)
 	public boolean isPalindrome(ListNode head) {
-		if (head != null) {
+		if (head == null || head.next == null) {
 			return true;
 		}
-		return false;
+		numbers = new ArrayList<>();
+		ListNode cursor = head;
+		while (cursor != null) {
+			numbers.add(cursor.val);
+			cursor = cursor.next;
+		}
+		for (int i = 0; i <= numbers.size() / 2; i++) {
+			if (!numbers.get(i).equals(numbers.get(numbers.size() - 1 - i))) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	private class ListNode {
