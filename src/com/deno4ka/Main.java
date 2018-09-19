@@ -60,7 +60,8 @@ public class Main {
 //        _226_invert_binary_tree invertBinaryTree = new _226_invert_binary_tree();
 //        _231_power_of_two powerOfTwo = new _231_power_of_two();
 //        _232_implement_queue_using_stacks implementQueueUsingStacks = new _232_implement_queue_using_stacks();
-        _234_palindrome_linked_list palindromeLinkedList = new _234_palindrome_linked_list();
+//        _234_palindrome_linked_list palindromeLinkedList = new _234_palindrome_linked_list();
+        _235_lowest_common_ancestor_of_a_binary_search_tree lowestCommonAncestorOfABinarySearchTree = new _235_lowest_common_ancestor_of_a_binary_search_tree();
 
     }
 
