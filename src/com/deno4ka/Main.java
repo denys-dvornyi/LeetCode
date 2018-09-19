@@ -61,7 +61,8 @@ public class Main {
 //        _231_power_of_two powerOfTwo = new _231_power_of_two();
 //        _232_implement_queue_using_stacks implementQueueUsingStacks = new _232_implement_queue_using_stacks();
 //        _234_palindrome_linked_list palindromeLinkedList = new _234_palindrome_linked_list();
-        _235_lowest_common_ancestor_of_a_binary_search_tree lowestCommonAncestorOfABinarySearchTree = new _235_lowest_common_ancestor_of_a_binary_search_tree();
+//        _235_lowest_common_ancestor_of_a_binary_search_tree lowestCommonAncestorOfABinarySearchTree = new _235_lowest_common_ancestor_of_a_binary_search_tree();
+        _237_delete_node_in_a_linked_list deleteNodeInALinkedList = new _237_delete_node_in_a_linked_list();
 
     }
 
