@@ -40,20 +40,24 @@ public class _237_delete_node_in_a_linked_list {
 		listNodeToString(node_1, listNodeAsString);
 		System.out.println(listNodeAsString);
 
-//		deleteNode(node_2);
+		deleteNode(node_3);
 
 		listNodeAsString = new StringJoiner("->");
 		listNodeToString(node_1, listNodeAsString);
 		System.out.println(listNodeAsString);
 	}
 
+	// (0ms/100%)
 	public void deleteNode(ListNode node) {
 		node.val = node.next.val;
 		node.next = node.next.next;
 	}
 
 	private void listNodeToString(ListNode node, StringJoiner listNodeAsString) {
-
+		if (node != null) {
+			listNodeAsString.add(String.valueOf(node.val));
+			listNodeToString(node.next, listNodeAsString);
+		}
 	}
 
     private class ListNode {
