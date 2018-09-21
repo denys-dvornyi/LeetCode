@@ -66,7 +66,8 @@ public class Main {
 //        _242_valid_anagram validAnagram = new _242_valid_anagram();
 //        _257_binary_tree_paths binaryTreePaths = new _257_binary_tree_paths();
 //        _258_add_digits addDigits = new _258_add_digits();
-        _263_ugly_number uglyNumber = new _263_ugly_number();
+//        _263_ugly_number uglyNumber = new _263_ugly_number();
+        _268_missing_number missingNumber = new _268_missing_number();
 
     }
 
