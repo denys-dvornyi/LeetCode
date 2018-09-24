@@ -69,6 +69,7 @@ public class Main {
 //        _263_ugly_number uglyNumber = new _263_ugly_number();
 //        _268_missing_number missingNumber = new _268_missing_number();
         _278_first_bad_version firstBadVersion = new _278_first_bad_version();
+//        _283_move_zeroes moveZeroes = new _283_move_zeroes();
 
     }
 

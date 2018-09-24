@@ -21,14 +21,41 @@ The isBadVersion API is defined in the parent class VersionControl.
       boolean isBadVersion(int version);
 */
 
-public class _278_first_bad_version {
+public class _278_first_bad_version extends VersionControl {
+
+	public static int IS_BAD;
 
 	public _278_first_bad_version() {
-
+		IS_BAD = 4;
+		System.out.println(firstBadVersion(5)); // 4
+		IS_BAD = 2;
+		System.out.println(firstBadVersion(3)); // 2
+		System.out.println(firstBadVersion(2)); // 2
 	}
 
+	// (14ms/32.39%)
 	public int firstBadVersion(int n) {
-		return n;
+		int low = 1;
+		int high = n;
+		int midl = low + (high - low) / 2;
+		boolean isBadVersion;
+		while (low <= high) { // binary search
+			isBadVersion = super.isBadVersion(midl);
+			if (isBadVersion) {
+				high = midl - 1;
+				midl = low + (high - low) / 2;
+			} else {
+				low = midl + 1;
+				midl = low + (high - low) / 2;
+			}
+		}
+		return midl;
 	}
 
+}
+
+class VersionControl {
+	public boolean isBadVersion(int version) {
+		return version >= _278_first_bad_version.IS_BAD;
+	}
 }
