@@ -21,17 +21,61 @@ What if nums1's size is small compared to nums2's size? Which algorithm is bette
 What if elements of nums2 are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?
 */
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class _350_intersection_of_two_arrays_2 {
 
 	public _350_intersection_of_two_arrays_2() {
-
+		System.out.println(Arrays.toString(intersect(new int[]{1,2,2,1}, new int[]{2,2}))); // [2,2]
+		System.out.println(Arrays.toString(intersect(new int[]{4,9,5}, new int[]{9,4,9,8,4}))); // [4,9]
 	}
 
+	// (69ms/2.64%)
 	public int[] intersect(int[] nums1, int[] nums2) {
 		if (nums1 == null || nums1.length == 0 || nums2 == null || nums2.length == 0) {
 			return new int[]{};
 		}
-		return new int[]{};
+		if (nums2.length > nums1.length) {
+			int[] tmp = nums2;
+			nums2 = nums1;
+			nums1 = tmp;
+		}
+		List<Integer> firstArray = new ArrayList<>(nums1.length);
+		for (int num : nums1) {
+			firstArray.add(num);
+		}
+		List<Integer> intersections = new ArrayList<>();
+		for (int num : nums2) {
+			if (firstArray.contains(num)) {
+				intersections.add(num);
+				firstArray.remove(new Integer(num));
+			}
+		}
+		return intersections.stream().mapToInt(Integer::intValue).toArray();
 	}
+
+	// best from leetcode
+//	public int[] intersect(int[] nums1, int[] nums2) {
+//		Arrays.sort(nums1);
+//		Arrays.sort(nums2);
+//		int maxIntersectionSize = (nums1.length > nums2.length) ? nums1.length : nums2.length;
+//		int[] intersections = new int[maxIntersectionSize];
+//		int i = 0, j = 0, intersectionsCounter = 0;
+//		while (i != nums1.length && j != nums2.length) {
+//			if (nums1[i] == nums2[j]) {
+//				intersections[intersectionsCounter] = nums1[i];
+//				i++;
+//				j++;
+//				intersectionsCounter++;
+//			} else if (nums1[i] > nums2[j]) {
+//				j++;
+//			} else {
+//				i++;
+//			}
+//		}
+//		return Arrays.copyOf(intersections, intersectionsCounter);
+//	}
 
 }
