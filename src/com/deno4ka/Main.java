@@ -79,7 +79,8 @@ public class Main {
 //        _345_reverse_vowels_of_a_string reverseVowelsOfAString = new _345_reverse_vowels_of_a_string();
 //        _349_intersection_of_two_arrays intersectionOfTwoArrays = new _349_intersection_of_two_arrays();
 //        _350_intersection_of_two_arrays_2 intersectionOfTwoArrays2 = new _350_intersection_of_two_arrays_2();
-        _367_valid_perfect_square validPerfectSquare = new _367_valid_perfect_square();
+//        _367_valid_perfect_square validPerfectSquare = new _367_valid_perfect_square();
+        _371_sum_of_two_integers sumOfTwoIntegers = new _371_sum_of_two_integers();
 
     }
 
