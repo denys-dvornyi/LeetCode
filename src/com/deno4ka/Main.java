@@ -73,7 +73,8 @@ public class Main {
 //        _290_word_pattern wordPattern = new _290_word_pattern();
 //        _292_nim_game nimGame = new _292_nim_game();
 //        _303_range_sum_query_immutable rangeSumQueryImmutable = new _303_range_sum_query_immutable();
-        _326_power_of_three powerOfThree = new _326_power_of_three();
+//        _326_power_of_three powerOfThree = new _326_power_of_three();
+        _342_power_of_four powerOfFour = new _342_power_of_four();
 
     }
 
