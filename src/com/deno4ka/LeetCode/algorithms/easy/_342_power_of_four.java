@@ -21,7 +21,11 @@ public class _342_power_of_four {
 		System.out.println(isPowerOfFour(5));  // false
 	}
 
+	// (1ms/100%)
 	public boolean isPowerOfFour(int num) {
+		if (num == 0) return false;
+		if (num == 1) return true;
+		if (num % 4 == 0) return isPowerOfFour(num / 4);
 		return false;
 	}
 
