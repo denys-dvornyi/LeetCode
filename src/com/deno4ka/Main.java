@@ -77,7 +77,8 @@ public class Main {
 //        _342_power_of_four powerOfFour = new _342_power_of_four();
 //        _344_reverse_string reverseString = new _344_reverse_string();
 //        _345_reverse_vowels_of_a_string reverseVowelsOfAString = new _345_reverse_vowels_of_a_string();
-        _349_intersection_of_two_arrays intersectionOfTwoArrays = new _349_intersection_of_two_arrays();
+//        _349_intersection_of_two_arrays intersectionOfTwoArrays = new _349_intersection_of_two_arrays();
+        _350_intersection_of_two_arrays_2 intersectionOfTwoArrays2 = new _350_intersection_of_two_arrays_2();
 
     }
 
