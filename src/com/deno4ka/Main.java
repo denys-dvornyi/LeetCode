@@ -71,7 +71,8 @@ public class Main {
 //        _278_first_bad_version firstBadVersion = new _278_first_bad_version();
 //        _283_move_zeroes moveZeroes = new _283_move_zeroes();
 //        _290_word_pattern wordPattern = new _290_word_pattern();
-        _292_nim_game nimGame = new _292_nim_game();
+//        _292_nim_game nimGame = new _292_nim_game();
+        _303_range_sum_query_immutable rangeSumQueryImmutable = new _303_range_sum_query_immutable();
 
     }
 
