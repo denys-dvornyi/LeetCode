@@ -26,14 +26,33 @@ Could you do it without using any loop / recursion?
 public class _326_power_of_three {
 
 	public _326_power_of_three() {
-		System.out.println(isPowerOfThree(27)); // true
-		System.out.println(isPowerOfThree(0));  // false
-		System.out.println(isPowerOfThree(9));  // true
-		System.out.println(isPowerOfThree(45)); // false
+//		System.out.println(isPowerOfThree(27)); // true
+//		System.out.println(isPowerOfThree(0));  // false
+//		System.out.println(isPowerOfThree(9));  // true
+//		System.out.println(isPowerOfThree(45)); // false
+		System.out.println(isPowerOfThree(2147483647)); // false
 	}
 
+	// (29ms/5.60%)
 	public boolean isPowerOfThree(int n) {
+		int pow = 0;
+		long powOfThree;
+		do {
+			powOfThree = (long)Math.pow(3, pow++);
+			if (powOfThree == n) {
+				return true;
+			}
+		}
+		while (powOfThree < n);
 		return false;
 	}
+
+	// best from leetcode (12ms)
+//	public boolean isPowerOfThree(int n) {
+//		if (n == 0) return false;
+//		if (n == 1) return true;
+//		if (n % 3 == 0) return isPowerOfThree(n / 3);
+//		return false;
+//	}
 
 }
