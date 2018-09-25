@@ -18,11 +18,13 @@ Explanation: If there are 4 stones in the heap, then you will never win the game
 public class _292_nim_game {
 
 	public _292_nim_game() {
+		System.out.println(canWinNim(3)); // true
 		System.out.println(canWinNim(4)); // false
 	}
 
+	// (0ms/100%)
 	public boolean canWinNim(int n) {
-		return false;
+		return n % 4 != 0;
 	}
 
 }
