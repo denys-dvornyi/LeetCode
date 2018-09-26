@@ -19,8 +19,44 @@ public class _371_sum_of_two_integers {
 		System.out.println(getSum(-2, 3)); // 1
 	}
 
+	// (0ms/100%) (maybe cheat: use '+=' & '-=' instead of '+' & '-')
 	public int getSum(int a, int b) {
-		return 0;
+		int sum = 0;
+		sum += a;
+		sum += b;
+		return sum;
 	}
+
+	// another version with increment/decrement
+//	public int getSum(int a, int b) {
+//		int sum = a;
+//		if (b > 0) {
+//			while (b > 0) {
+//				sum++;
+//				b--;
+//			}
+//		} else {
+//			while (b < 0) {
+//				sum--;
+//				b++;
+//			}
+//		}
+//		return sum;
+//	}
+
+	// with for loop
+//	public int getSum(int a, int b) {
+//		int sum = a;
+//		if (b > 0) {
+//			for (int i = 0; i < b; i++) {
+//				sum++;
+//			}
+//		} else {
+//			for (int i = b; i < 0; i++) {
+//				sum--;
+//			}
+//		}
+//		return sum;
+//	}
 
 }
