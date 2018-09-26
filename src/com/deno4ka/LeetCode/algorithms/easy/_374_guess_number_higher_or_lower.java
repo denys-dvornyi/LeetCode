@@ -24,26 +24,32 @@ public class _374_guess_number_higher_or_lower extends GuessGame {
 	public _374_guess_number_higher_or_lower() {
 		GUESSED_NUMBER = 6;
 		System.out.println(guessNumber(10)); // 6
+		GUESSED_NUMBER = 1;
+		System.out.println(guessNumber(3)); // 1
 	}
 
+	// (1ms/37.56%) using binary search
 	public int guessNumber(int n) {
 		int min = 1;
-		int max = Integer.MAX_VALUE;
-		int midl;
-		int result = super.guess(n);
-		if (result == 0) {
-			return n;
-		} else if (result == -1) {
-			max = n - 1;
+		int max = n;
+		int midl = 0;
+		int result;
+		while (min <= max) {
 			midl = min + (max - min) / 2;
-			return guessNumber(midl);
-		} else if (result == 1) {
-			min = n + 1;
-			midl = min + (max - min) / 2;
-			return guessNumber(midl);
+			result = super.guess(midl);
+			if (result == 0) {
+				return midl;
+			}
+			if (result == -1) {
+				max = midl - 1;
+			} else if (result == 1) {
+				min = midl + 1;
+			}
 		}
-		return n;
+		return midl;
 	}
+
+
 
 }
 
@@ -52,9 +58,9 @@ class GuessGame {
 
 	public int guess(int num) {
 		if (num > GUESSED_NUMBER) {
-			return 1;
-		} else if (num < GUESSED_NUMBER) {
 			return -1;
+		} else if (num < GUESSED_NUMBER) {
+			return 1;
 		}
 		return 0;
 	}
