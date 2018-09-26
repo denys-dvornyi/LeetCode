@@ -85,7 +85,8 @@ public class Main {
 //        _350_intersection_of_two_arrays_2 intersectionOfTwoArrays2 = new _350_intersection_of_two_arrays_2();
 //        _367_valid_perfect_square validPerfectSquare = new _367_valid_perfect_square();
 //        _371_sum_of_two_integers sumOfTwoIntegers = new _371_sum_of_two_integers();
-        _374_guess_number_higher_or_lower guessNumberHigherOrLower = new _374_guess_number_higher_or_lower();
+//        _374_guess_number_higher_or_lower guessNumberHigherOrLower = new _374_guess_number_higher_or_lower();
+        _383_ransom_note ransomNote = new _383_ransom_note();
 
     }
 
