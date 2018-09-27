@@ -66,4 +66,15 @@ public class _387_first_unique_character_in_a_string {
 		}
 	}
 
+	// best from leetcode (5ms)
+//	public int firstUniqChar(String s) {
+//		int minIndex = s.length();
+//		for (char c = 'a'; c <= 'z'; c++) {
+//			if (s.indexOf(c) != -1 && s.indexOf(c) == s.lastIndexOf(c)) {
+//				minIndex = Math.min(minIndex, s.indexOf(c));
+//			}
+//		}
+//		return minIndex == s.length() ? -1 : minIndex;
+//	}
+
 }
