@@ -86,7 +86,8 @@ public class Main {
 //        _367_valid_perfect_square validPerfectSquare = new _367_valid_perfect_square();
 //        _371_sum_of_two_integers sumOfTwoIntegers = new _371_sum_of_two_integers();
 //        _374_guess_number_higher_or_lower guessNumberHigherOrLower = new _374_guess_number_higher_or_lower();
-        _383_ransom_note ransomNote = new _383_ransom_note();
+//        _383_ransom_note ransomNote = new _383_ransom_note();
+        _387_first_unique_character_in_a_string firstUniqueCharacterInAString = new _387_first_unique_character_in_a_string();
 
     }
 
