@@ -19,7 +19,7 @@ N is less than 1000 and guaranteened to be a power of 2.
 public class _427_construct_quad_tree {
 
 	public _427_construct_quad_tree() {
-		System.out.println(construct(new int[][]{{1,1,1,1,0,0,0,0},{1,1,1,1,0,0,0,0},{1,1,1,1,1,1,1,1},{1,1,1,1,1,1,1,1},{1,1,1,1,0,0,0,0},{1,1,1,1,0,0,0,0},{1,1,1,1,0,0,0,0},{1,1,1,1,0,0,0,0}}));
+//		System.out.println(construct(new int[][]{{1,1,1,1,0,0,0,0},{1,1,1,1,0,0,0,0},{1,1,1,1,1,1,1,1},{1,1,1,1,1,1,1,1},{1,1,1,1,0,0,0,0},{1,1,1,1,0,0,0,0},{1,1,1,1,0,0,0,0},{1,1,1,1,0,0,0,0}}));
 		/*
 		{
 		  "$id": "1",
@@ -95,19 +95,108 @@ public class _427_construct_quad_tree {
 		  "val": true
 		}
 		*/
+//		System.out.println(construct(new int[][]{{1}})); //
+//		System.out.println(construct(new int[][]{{1,1},{1,1}})); //
+//		System.out.println(construct(new int[][]{{1,1,1,0},{1,1,1,1},{1,1,1,1},{1,1,1,1}})); //
+		System.out.println(construct(new int[][]{{1,1,1,1},{1,1,1,1},{1,1,1,1},{1,1,1,1}})); //
 	}
 
+	// (6ms/11.29%)
 	public Node construct(int[][] grid) {
-		return null;
+		Node result = new Node();
+		int gridLength = grid.length;
+		if (gridLength == 1) {
+			result = new Node(grid[0][0] == 1, true, null, null, null, null);
+		} else {
+			boolean isAllValuesEquals = checkAllValues(grid);
+			if (isAllValuesEquals) {
+				return new Node(grid[0][0] == 1, true, null, null, null, null);
+			}
+			int isTopLeftLeaf = isLeaf(grid, 0, gridLength / 2, 0, gridLength / 2);
+			if (isTopLeftLeaf != -1) { // this is leaf
+				result.topLeft = new Node(isTopLeftLeaf == 1, true, null, null, null, null);
+			} else {
+				result.isLeaf = false;
+				int[][] subArray = getSubArray(grid, 0, gridLength / 2, 0, gridLength / 2);
+				result.topLeft = construct(subArray);
+			}
+			int isTopRightLeaf = isLeaf(grid, 0, gridLength / 2, gridLength / 2, gridLength);
+			if (isTopRightLeaf != -1) { // this is leaf
+				result.topRight = new Node(isTopRightLeaf == 1, true, null, null, null, null);;
+			} else {
+				result.isLeaf = false;
+				int[][] subArray = getSubArray(grid, 0, gridLength / 2, gridLength / 2, gridLength);
+				result.topRight = construct(subArray);
+			}
+			int isBottomLeftLeaf = isLeaf(grid, gridLength / 2, gridLength, 0, gridLength / 2);
+			if (isBottomLeftLeaf != -1) { // this is leaf
+				result.bottomLeft = new Node(isBottomLeftLeaf == 1, true, null, null, null, null);;
+			} else {
+				result.isLeaf = false;
+				int[][] subArray = getSubArray(grid, gridLength / 2, gridLength, 0, gridLength / 2);
+				result.bottomLeft = construct(subArray);
+			}
+			int isBottomRightLeaf = isLeaf(grid, gridLength / 2, gridLength, gridLength / 2, gridLength);
+			if (isBottomRightLeaf != -1) { // this is leaf
+				result.bottomRight = new Node(isBottomRightLeaf == 1, true, null, null, null, null);;
+			} else {
+				result.isLeaf = false;
+				int[][] subArray = getSubArray(grid, gridLength / 2, gridLength, gridLength / 2, gridLength);
+				result.bottomRight = construct(subArray);
+			}
+		}
+		return result;
+	}
+
+	private boolean checkAllValues(int[][] grid) {
+		int val = grid[0][0];
+		for (int i = 0; i < grid.length; i++) {
+			for (int j = 0; j < grid.length; j++) {
+				if (val != grid[i][j]) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
+	private int[][] getSubArray(int[][] grid, int start1, int end1, int start2, int end2) {
+		int[][] subArray = new int[end1 - start1][end2 - start2];
+		int row = 0, col;
+		for (int i = start1; i < end1; i++) {
+			col = 0;
+			for (int j = start2; j < end2; j++) {
+				subArray[row][col] = grid[i][j];
+				col++;
+			}
+			row++;
+		}
+		return subArray;
+	}
+
+	private int isLeaf(int[][] grid, int start1, int end1, int start2, int end2) {
+		int val = -1;
+		for (int i = start1; i < end1; i++) {
+			for (int j = start2; j < end2; j++) {
+				if (val == -1) {
+					val = grid[i][j];
+				} else {
+					if (val != grid[i][j]) {
+						return -1;
+					}
+				}
+			}
+		}
+		return val;
 	}
 
 	private class Node {
-		public boolean val;
-		public boolean isLeaf;
-		public Node topLeft;
-		public Node topRight;
-		public Node bottomLeft;
-		public Node bottomRight;
+		boolean val;
+		boolean isLeaf;
+		Node topLeft;
+		Node topRight;
+		Node bottomLeft;
+		Node bottomRight;
 
 		public Node() {}
 
@@ -118,6 +207,18 @@ public class _427_construct_quad_tree {
 			topRight = _topRight;
 			bottomLeft = _bottomLeft;
 			bottomRight = _bottomRight;
+		}
+
+		@Override
+		public String toString() {
+			return "{" +
+					"\"val\":" + val +
+					",\"isLeaf\":" + isLeaf +
+					",\"topLeft\":" + topLeft +
+					",\"topRight\":" + topRight +
+					",\"bottomLeft\":" + bottomLeft +
+					",\"bottomRight\":" + bottomRight +
+					'}';
 		}
 	}
 
