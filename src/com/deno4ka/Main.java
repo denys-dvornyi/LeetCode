@@ -96,7 +96,8 @@ public class Main {
 //        _409_longest_palindrome longestPalindrome = new _409_longest_palindrome();
 //        _412_fizz_buzz fizzBuzz = new _412_fizz_buzz();
 //        _414_third_maximum_number thirdMaximumNumber = new _414_third_maximum_number();
-        _415_add_strings addStrings = new _415_add_strings();
+//        _415_add_strings addStrings = new _415_add_strings();
+        _427_construct_quad_tree constructQuadTree = new _427_construct_quad_tree();
 
     }
 
