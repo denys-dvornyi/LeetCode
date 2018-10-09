@@ -30,8 +30,25 @@ public class _441_arranging_coins {
 		System.out.println(arrangeCoins(8)); // 3
 	}
 
+	// (46ms/ 24.51%)
 	public int arrangeCoins(int n) {
-		return -1;
+		if (n == 0) {
+			return 0;
+		} else if (n == 1) {
+			return 1;
+		} else {
+			int step = 1;
+			long sum = step;
+			while (n - sum > step) {
+				sum += ++step;
+			}
+			return step;
+		}
 	}
+
+	// best from leetcode 23ms
+//	public int arrangeCoins(int n) {
+//		return (int) ((-1+Math.sqrt(1+8*(long)n))/2);
+//	}
 
 }
