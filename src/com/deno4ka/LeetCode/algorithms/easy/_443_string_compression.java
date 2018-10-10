@@ -42,15 +42,103 @@ All characters have an ASCII value in [35, 126].
 public class _443_string_compression {
 
 	public _443_string_compression() {
-		System.out.println(compress(null));
-		System.out.println(compress(new char[]{}));
-		System.out.println(compress(new char[]{'a','a','b','b','c','c','c'})); // 6 ['a','2','b','2','c','3']
-		System.out.println(compress(new char[]{'a'})); // 1 ['a']
-		System.out.println(compress(new char[]{'a','b','b','b','b','b','b','b','b','b','b','b','b'})); // 4 ['a','b','1','2']
+//		StringBuilder sb = new StringBuilder();
+//		int counter = 0;
+//		for (int i = 35; i <= 126; i++) {
+//			sb.append((char)i).append(" ");
+//			counter++;
+//		}
+//		System.out.println(sb.toString() + counter);
+
+//		System.out.println(compress(null));
+//		System.out.println(compress(new char[]{}));
+//		System.out.println(compress(new char[]{'a','a','b','b','c','c','c'})); // 6 ['a','2','b','2','c','3']
+//		System.out.println(compress(new char[]{'a'})); // 1 ['a']
+//		System.out.println(compress(new char[]{'a','b','b','b','b','b','b','b','b','b','b','b','b'})); // 4 ['a','b','1','2']
+//		System.out.println(compress(new char[]{'a','b','b','b','b','b','b','b','b','b','b','b','b'})); // 4 ['a','b','1','2']
 	}
 
+	// (4ms/100%)
 	public int compress(char[] chars) {
-		return -1;
+		if (chars == null || chars.length == 0) {
+			return 0;
+		} else if (chars.length == 1) {
+			return 1;
+		} else {
+			int pointer = 0;
+			char prevChar = chars[0];
+			int counter = 1;
+			for (int i = 1; i < chars.length; i++) {
+				char currentChar = chars[i];
+				if (currentChar == prevChar) {
+					counter++;
+				} else {
+					pointer = compressAndGetPosition(chars, pointer, counter, prevChar);
+					counter = 1;
+				}
+				prevChar = currentChar;
+			}
+			pointer = compressAndGetPosition(chars, pointer, counter, prevChar);
+			return pointer;
+		}
 	}
+
+	private int compressAndGetPosition(char[] chars, int pointer, int counter, char prevChar) {
+		if (counter == 1) {
+			chars[pointer++] = prevChar;
+		} else if (counter < 10) {
+			chars[pointer++] = prevChar;
+			chars[pointer++] = Character.forDigit(counter, 10);
+		} else {
+			chars[pointer++] = prevChar;
+			while (counter > 9) {
+				int digit = counter / 10;
+				chars[pointer++] = Character.forDigit(digit, 10);
+				counter -= digit * 10;
+			}
+			chars[pointer++] = Character.forDigit(counter, 10);
+		}
+		return pointer;
+	}
+
+	// not in-place Wrong Answer Output:["a","a","b","b","c","c"] Expected:["a","2","b","2","c","3"]
+//	public int compress(char[] chars) {
+//		if (chars == null || chars.length == 0) {
+//			return 0;
+//		} else if (chars.length == 1) {
+//			return 1;
+//		} else {
+//			int result = 0;
+//			char prevChar = chars[0];
+//			int counter = 1;
+//			for (int i = 1; i < chars.length; i++) {
+//				char pointer = chars[i];
+//				if (pointer == prevChar) {
+//					counter++;
+//				} else {
+//					result += calcSymbols(counter);
+//					counter = 1;
+//				}
+//				prevChar = pointer;
+//			}
+//			result += calcSymbols(counter);
+//			return result;
+//		}
+//	}
+
+//	private int calcSymbols(int counter) {
+//		if (counter == 1) {
+//			return 1;
+//		} else if (counter < 10) {
+//			return 2;
+//		} else {
+//			int digits = 1;
+//			while (counter > 9) {
+//				counter /= 10;
+//				digits++;
+//			}
+//			return digits + 1;
+//		}
+//	}
 
 }
