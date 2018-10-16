@@ -17,14 +17,15 @@ import java.util.List;
 public class _448_find_all_numbers_disappeared_in_an_array {
 
 	public _448_find_all_numbers_disappeared_in_an_array() {
-		System.out.println(findDisappearedNumbers(null)); // empty
-		System.out.println(findDisappearedNumbers(new int[]{})); // empty
+//		System.out.println(findDisappearedNumbers(null)); // empty
+//		System.out.println(findDisappearedNumbers(new int[]{})); // empty
 		System.out.println(findDisappearedNumbers(new int[]{4,3,2,7,8,2,3,1})); // [5,6]
 		System.out.println(findDisappearedNumbers(new int[]{2,2})); // [1]
 		System.out.println(findDisappearedNumbers(new int[]{1,1,2,2})); // [3,4]
 		System.out.println(findDisappearedNumbers(new int[]{1,1})); // [2]
 	}
 
+	// (31ms/18.27%)
 	public List<Integer> findDisappearedNumbers(int[] nums) {
 		List<Integer> result = new ArrayList<>();
 		if (nums != null) {
@@ -41,9 +42,9 @@ public class _448_find_all_numbers_disappeared_in_an_array {
 					} else if (i == length - 1) {
 						if (nums[length - 1] != length) {
 							int absentNumber = nums[length - 1] + 1;
-							result.add(absentNumber++);
+							result.add(absentNumber);
 							while (absentNumber < length) {
-								result.add(absentNumber++);
+								result.add(++absentNumber);
 							}
 						}
 					} else if (nums[i] != nums[i+1] && (nums[i+1] - nums[i]) > 1) {
@@ -54,12 +55,26 @@ public class _448_find_all_numbers_disappeared_in_an_array {
 						}
 					}
 				}
-//				if (nums[length - 1] != length) {
-//					result.add(length);
-//				}
 			}
 		}
 		return result;
 	}
+
+	// best from leetcode (6ms)
+//	public List<Integer> findDisappearedNumbers(int[] nums) {
+//		List<Integer> result = new ArrayList<>();
+//		int[] flag = new int[nums.length + 1];
+//
+//		for (int i = 0; i < nums.length; i++) {
+//			flag[nums[i]] = 1;
+//		}
+//
+//		for (int i = 1; i < flag.length; i++)//1 as the series starts from 1 and not from 0
+//		{
+//			if (flag[i] == 0)
+//				result.add(i);
+//		}
+//		return result;
+//	}
 
 }
