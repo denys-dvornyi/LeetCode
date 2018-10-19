@@ -104,7 +104,8 @@ public class Main {
 //        _443_string_compression stringCompression = new _443_string_compression();
 //        _447_number_of_boomerangs numberOfBoomerangs = new _447_number_of_boomerangs();
 //        _448_find_all_numbers_disappeared_in_an_array findAllNumbersDisappearedInAnArray = new _448_find_all_numbers_disappeared_in_an_array();
-        _453_minimum_moves_to_equal_array_elements minimumMovesToEqualArrayElements = new _453_minimum_moves_to_equal_array_elements();
+//        _453_minimum_moves_to_equal_array_elements minimumMovesToEqualArrayElements = new _453_minimum_moves_to_equal_array_elements();
+        _455_assign_cookies assignCookies = new _455_assign_cookies();
 
     }
 
