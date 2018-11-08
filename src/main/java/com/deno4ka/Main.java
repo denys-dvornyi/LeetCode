@@ -1,14 +1,15 @@
 package com.deno4ka;
 
-import com.deno4ka.LeetCode.algorithms.easy.*;
-
-import java.io.File;
+import com.deno4ka.LeetCode.algorithms.easy._458_poor_pigs;
+import com.deno4ka.Other.Java8Puzzlers;
 
 public class Main {
 
     public static void main(String[] args) {
 //        First_non_repeated_character_in_the_string firstNonRepeatedCharacterInTheString = new First_non_repeated_character_in_the_string();
 //        TACAssetExport tacAssetExport = new TACAssetExport();
+
+//        Java8Puzzlers java8Puzzlers = new Java8Puzzlers();
 
 //        _14_Longest_Common_Prefix longestCommonPrefix = new _14_Longest_Common_Prefix();
 //        _21_Merge_Two_Sorted_Lists mergeTwoSortedLists = new _21_Merge_Two_Sorted_Lists();
