@@ -1,6 +1,7 @@
 package com.deno4ka;
 
 import com.deno4ka.LeetCode.algorithms.easy._458_poor_pigs;
+import com.deno4ka.LeetCode.algorithms.easy._459_repeated_substring_pattern;
 import com.deno4ka.Other.Java8Puzzlers;
 
 public class Main {
@@ -107,7 +108,9 @@ public class Main {
 //        _448_find_all_numbers_disappeared_in_an_array findAllNumbersDisappearedInAnArray = new _448_find_all_numbers_disappeared_in_an_array();
 //        _453_minimum_moves_to_equal_array_elements minimumMovesToEqualArrayElements = new _453_minimum_moves_to_equal_array_elements();
 //        _455_assign_cookies assignCookies = new _455_assign_cookies();
-        _458_poor_pigs poorPigs = new _458_poor_pigs();
+//        _458_poor_pigs poorPigs = new _458_poor_pigs();
+        _459_repeated_substring_pattern repeatedSubstringPattern = new _459_repeated_substring_pattern();
+        // TODO: add junit
 
     }
 
