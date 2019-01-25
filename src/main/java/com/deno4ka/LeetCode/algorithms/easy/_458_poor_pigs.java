@@ -15,13 +15,20 @@ There is exact one bucket with poison.
 public class _458_poor_pigs {
 
 	public _458_poor_pigs() {
-		System.out.println(poorPigs(1000, 15, 60));
+		System.out.println(poorPigs(1, 1, 1)); // 0
+		System.out.println(poorPigs(1000, 15, 60)); // 5
+		System.out.println(poorPigs(1000, 12, 60)); // 4
+		System.out.println(poorPigs(4, 1, 2)); // 2
+		System.out.println(poorPigs(25, 15, 60)); // 2
 	}
 
+	// using logarithm
 	public int poorPigs(int buckets, int minutesToDie, int minutesToTest) {
 		int result = 0;
-		if (buckets > 1) {
-
+		int tries = minutesToTest / minutesToDie + 1; // find pig's life states (dead or alive)
+		// 'tries' logarithm from 'N' must be =< buckets
+		while (Math.pow(tries, result) < buckets) {
+			result++;
 		}
 		return result;
 	}
