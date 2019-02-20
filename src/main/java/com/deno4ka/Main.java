@@ -109,8 +109,6 @@ public class Main {
 //        _453_minimum_moves_to_equal_array_elements minimumMovesToEqualArrayElements = new _453_minimum_moves_to_equal_array_elements();
 //        _455_assign_cookies assignCookies = new _455_assign_cookies();
 //        _458_poor_pigs poorPigs = new _458_poor_pigs();
-        _459_repeated_substring_pattern repeatedSubstringPattern = new _459_repeated_substring_pattern();
-        // TODO: add junit
 
     }
 
