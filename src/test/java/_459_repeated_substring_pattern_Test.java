@@ -19,29 +19,29 @@ public class _459_repeated_substring_pattern_Test {
 		assertFalse(repeatedSubstringPattern.repeatedSubstringPattern(""));
 	}
 
-//	@Test
+	@Test
 	void testOneLetterWord() {
 		assertFalse(repeatedSubstringPattern.repeatedSubstringPattern("a"));
 		assertFalse(repeatedSubstringPattern.repeatedSubstringPattern("b"));
 		assertFalse(repeatedSubstringPattern.repeatedSubstringPattern("z"));
 	}
 
-//	@Test
+	@Test
 	void testExampleOne() {
 		assertTrue(repeatedSubstringPattern.repeatedSubstringPattern("abab"));
 	}
 
-//	@Test
+	@Test
 	void testExampleTwo() {
 		assertFalse(repeatedSubstringPattern.repeatedSubstringPattern("aba"));
 	}
 
-//	@Test
+	@Test
 	void testExampleThree() {
 		assertTrue(repeatedSubstringPattern.repeatedSubstringPattern("abcabcabcabc"));
 	}
 
-//	@Test
+	@Test
 	void testExampleFour() {
 		assertFalse(repeatedSubstringPattern.repeatedSubstringPattern("abac"));
 	}
