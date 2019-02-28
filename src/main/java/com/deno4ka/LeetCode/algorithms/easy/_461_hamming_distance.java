@@ -21,12 +21,31 @@ The above arrows point to positions where the corresponding bits are different.
 
 public class _461_hamming_distance {
 
+	// Runtime: 5 ms, faster than 92.72% | Memory Usage: 37.2 MB, less than 5.34%
 	public int hammingDistance(int x, int y) {
 		int result = 0;
 		if (x != y) {
-
+			StringBuilder binaryX = new StringBuilder(Integer.toBinaryString(x));
+			StringBuilder binaryY = new StringBuilder(Integer.toBinaryString(y));
+			while (binaryX.length() < binaryY.length()) {
+				binaryX.insert(0, "0");
+			}
+			while (binaryY.length() < binaryX.length()) {
+				binaryY.insert(0, "0");
+			}
+			for (int i = 0; i < binaryX.length(); i++) {
+				if (binaryX.charAt(i) != binaryY.charAt(i)) {
+					result++;
+				}
+			}
 		}
 		return result;
 	}
+
+	// best from leet.code (4ms)
+//	public int hammingDistance(int x, int y) {
+//		int val = x^y;
+//		return Integer.bitCount(val);
+//	}
 
 }
