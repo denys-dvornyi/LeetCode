@@ -19,7 +19,28 @@ Output: 16
 public class _463_island_perimeter {
 
 	public int islandPerimeter(int[][] grid) {
-		return 0;
+		int result = 0;
+		for (int i = 0; i < grid.length; i++) {
+			for (int j = 0; j < grid[i].length; j++) {
+				int landCounter = 0;
+				if (grid[i][j] == 1) {
+					if (j - 1 < 0 || grid[i][j - 1] == 0) { // check left
+						landCounter++;
+					}
+					if (i - 1 < 0 || grid[i - 1][j] == 0) { // check up
+						landCounter++;
+					}
+					if (j + 1 > grid[i].length - 1 || grid[i][j + 1] == 0) { // check right
+						landCounter++;
+					}
+					if (i + 1 > grid.length - 1 || grid[i + 1][j] == 0) { // check down
+						landCounter++;
+					}
+					result += landCounter;
+				}
+			}
+		}
+		return result;
 	}
 
 }
