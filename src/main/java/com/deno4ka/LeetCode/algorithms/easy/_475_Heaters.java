@@ -26,10 +26,101 @@ Output: 1
 Explanation: The two heater was placed in the position 1 and 4. We need to use radius 1 standard, then all the houses can be warmed.
 */
 
+import java.util.Arrays;
+
 public class _475_Heaters {
 
+	// v1
+//	public int findRadius(int[] houses, int[] heaters) {
+//		int maxRadius = Math.abs(houses[0] - heaters[0]);
+//		for (int i = 0; i < heaters.length - 1; i++) {
+//			int distanceBetweenHeaters = (heaters[i + 1] - heaters[i]) / 2;
+//			if (maxRadius < distanceBetweenHeaters) {
+//				maxRadius = distanceBetweenHeaters;
+//			}
+//		}
+//		int distanceBeetweenLastHeaterAndLastHouse = houses[houses.length - 1] - heaters[heaters.length - 1];
+//		if (distanceBeetweenLastHeaterAndLastHouse > 0 && maxRadius < distanceBeetweenLastHeaterAndLastHouse) {
+//			maxRadius = distanceBeetweenLastHeaterAndLastHouse;
+//		}
+//		return maxRadius;
+//	}
+
+	// v2
 	public int findRadius(int[] houses, int[] heaters) {
-		return 0;
+		Arrays.sort(houses);
+		Arrays.sort(heaters);
+		int prevHeater = 0;
+		int heaterCursor = 0;
+		int maxRadius = 0;
+		int tmpRadius = 0;
+		for (int i = 0; i < houses.length; i++) {
+			if (heaterCursor == heaters.length) {
+				if (heaters[heaterCursor - 1] < houses[i]) {
+					int rightRadius = houses[houses.length - 1] - heaters[heaterCursor - 1];
+					if (maxRadius < rightRadius) {
+						maxRadius = rightRadius;
+					}
+				}
+				break;
+			} else if (houses[0] > heaters[heaterCursor]) {
+				prevHeater = heaters[heaterCursor];
+				maxRadius = houses[0] - heaters[heaterCursor++];
+				i--;
+				continue;
+			} else if (houses[i] > prevHeater && houses[i] < heaters[heaterCursor]) {
+				int rightRadius = heaters[heaterCursor] - houses[i];
+				if (heaterCursor > 0) {
+					int leftRadius = houses[i] - prevHeater;
+					int distanceBetweenHeaters = (heaters[heaterCursor] - prevHeater) / 2;
+					if (leftRadius <= distanceBetweenHeaters) {
+						if (tmpRadius < leftRadius) {
+							tmpRadius = leftRadius;
+						}
+					} else if (rightRadius < distanceBetweenHeaters) {
+						if (tmpRadius < rightRadius) {
+							tmpRadius = rightRadius;
+						}
+					} else {
+						if (maxRadius < tmpRadius) {
+							maxRadius = tmpRadius;
+						}
+						tmpRadius = 0;
+						while (i < houses.length && houses[i] < heaters[heaterCursor]) {
+							i++;
+						}
+						prevHeater = heaters[heaterCursor++];
+						continue;
+					}
+				} else {
+					maxRadius = rightRadius;
+					if (heaterCursor < heaters.length) {
+						while (i < houses.length && houses[i] < heaters[heaterCursor]) {
+							i++;
+						}
+						prevHeater = heaters[heaterCursor++];
+						if (heaterCursor == heaters.length) {
+							if (prevHeater < houses[houses.length - 1]) {
+								rightRadius = houses[houses.length - 1] - prevHeater;
+								if (maxRadius < rightRadius) {
+									maxRadius = rightRadius;
+								}
+							}
+							break;
+						}
+						continue;
+					} else {
+						break;
+					}
+				}
+			} else {
+				prevHeater = heaters[heaterCursor++];
+			}
+		}
+		if (maxRadius < tmpRadius) {
+			maxRadius = tmpRadius;
+		}
+		return maxRadius;
 	}
 
 }
