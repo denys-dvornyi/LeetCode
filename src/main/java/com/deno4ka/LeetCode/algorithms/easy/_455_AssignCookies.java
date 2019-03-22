@@ -47,7 +47,7 @@ public class _455_AssignCookies {
 
 	private void init() throws IOException {
 		// Expected 9928 (686ms / 10000 iterations)
-		String input = FileUtils.readFileToString(new File("src/main/resources/_455_AssignCookies.txt"), Charset.forName("ASCII"));
+		String input = FileUtils.readFileToString(new File("src/main/resources/_455_assign_cookies.txt"), Charset.forName("ASCII"));
 		String[] strings = input.replaceAll("\\[|\r|\n", "").split("]");
 		String[] first = strings[0].split(",");
 		String[] second = strings[1].split(",");

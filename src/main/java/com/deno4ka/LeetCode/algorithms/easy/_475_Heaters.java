@@ -30,27 +30,11 @@ import java.util.Arrays;
 
 public class _475_Heaters {
 
-	// v1
-//	public int findRadius(int[] houses, int[] heaters) {
-//		int maxRadius = Math.abs(houses[0] - heaters[0]);
-//		for (int i = 0; i < heaters.length - 1; i++) {
-//			int distanceBetweenHeaters = (heaters[i + 1] - heaters[i]) / 2;
-//			if (maxRadius < distanceBetweenHeaters) {
-//				maxRadius = distanceBetweenHeaters;
-//			}
-//		}
-//		int distanceBeetweenLastHeaterAndLastHouse = houses[houses.length - 1] - heaters[heaters.length - 1];
-//		if (distanceBeetweenLastHeaterAndLastHouse > 0 && maxRadius < distanceBeetweenLastHeaterAndLastHouse) {
-//			maxRadius = distanceBeetweenLastHeaterAndLastHouse;
-//		}
-//		return maxRadius;
-//	}
-
-	// v2
+	// Runtime: 11 ms, faster than 90.50% | Memory Usage: 39.7 MB, less than 94.87%
 	public int findRadius(int[] houses, int[] heaters) {
 		Arrays.sort(houses);
 		Arrays.sort(heaters);
-		int prevHeater = 0;
+		int prevHeaterCursor = 0;
 		int heaterCursor = 0;
 		int maxRadius = 0;
 		int tmpRadius = 0;
@@ -64,15 +48,15 @@ public class _475_Heaters {
 				}
 				break;
 			} else if (houses[0] > heaters[heaterCursor]) {
-				prevHeater = heaters[heaterCursor];
+				prevHeaterCursor = heaterCursor;
 				maxRadius = houses[0] - heaters[heaterCursor++];
 				i--;
 				continue;
-			} else if (houses[i] > prevHeater && houses[i] < heaters[heaterCursor]) {
+			} else if (houses[i] >= heaters[prevHeaterCursor] && houses[i] <= heaters[heaterCursor]) {
 				int rightRadius = heaters[heaterCursor] - houses[i];
 				if (heaterCursor > 0) {
-					int leftRadius = houses[i] - prevHeater;
-					int distanceBetweenHeaters = (heaters[heaterCursor] - prevHeater) / 2;
+					int leftRadius = houses[i] - heaters[prevHeaterCursor];
+					int distanceBetweenHeaters = (heaters[heaterCursor] - heaters[prevHeaterCursor]) / 2;
 					if (leftRadius <= distanceBetweenHeaters) {
 						if (tmpRadius < leftRadius) {
 							tmpRadius = leftRadius;
@@ -89,19 +73,21 @@ public class _475_Heaters {
 						while (i < houses.length && houses[i] < heaters[heaterCursor]) {
 							i++;
 						}
-						prevHeater = heaters[heaterCursor++];
+						prevHeaterCursor = heaterCursor++;
 						continue;
 					}
 				} else {
-					maxRadius = rightRadius;
+					if (maxRadius < rightRadius) {
+						maxRadius = rightRadius;
+					}
 					if (heaterCursor < heaters.length) {
 						while (i < houses.length && houses[i] < heaters[heaterCursor]) {
 							i++;
 						}
-						prevHeater = heaters[heaterCursor++];
+						prevHeaterCursor = heaterCursor++;
 						if (heaterCursor == heaters.length) {
-							if (prevHeater < houses[houses.length - 1]) {
-								rightRadius = houses[houses.length - 1] - prevHeater;
+							if (heaters[prevHeaterCursor] < houses[houses.length - 1]) {
+								rightRadius = houses[houses.length - 1] - heaters[prevHeaterCursor];
 								if (maxRadius < rightRadius) {
 									maxRadius = rightRadius;
 								}
@@ -113,8 +99,17 @@ public class _475_Heaters {
 						break;
 					}
 				}
+			} else if (houses[i] >= heaters[prevHeaterCursor] && houses[i] > heaters[heaterCursor]) {
+				if (prevHeaterCursor < heaters.length - 1 && houses[i] > heaters[prevHeaterCursor + 1]) {
+					prevHeaterCursor++;
+				}
+				i--;
+				heaterCursor++;
+				continue;
+			} else if (houses[0] < heaters[0]) {
+				maxRadius = heaters[0] - houses[0];
 			} else {
-				prevHeater = heaters[heaterCursor++];
+				prevHeaterCursor = heaterCursor++;
 			}
 		}
 		if (maxRadius < tmpRadius) {
@@ -122,5 +117,27 @@ public class _475_Heaters {
 		}
 		return maxRadius;
 	}
+
+	// very short solution from leetcode.com
+//	public int findRadius(int[] houses, int[] heaters) {
+//		if (houses == null || heaters == null)
+//			return 0;
+//		int result = 0;
+//		Arrays.sort(heaters);
+//		Arrays.sort(houses);
+//
+//		int i = 0;
+//		int j = 0;
+//		while (i < houses.length) {
+//			while (j < heaters.length - 1 && Math.abs(heaters[j + 1] - houses[i]) <= Math.abs(heaters[j] - houses[i])) {
+//				j++;
+//			}
+//			int radius = Math.abs(heaters[j] - houses[i]);
+//			result = Math.max(result, radius);
+//			i++;
+//		}
+//
+//		return result;
+//	}
 
 }
