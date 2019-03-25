@@ -1,4 +1,5 @@
-import com.deno4ka.LeetCode.algorithms.easy._475_Heaters;
+package com.deno4ka.LeetCode.algorithms.easy;
+
 import com.deno4ka.LeetCode.model.Heaters;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.FileUtils;
@@ -27,7 +28,7 @@ public class _475_HeatersJUnit5Test {
 		assertEquals(expected, heatersImpl.findRadius(a, b));
 	}
 
-	private static Stream<Arguments> useCases() throws IOException {
+	private static Stream<Arguments> useCases() {
 		return Stream.of(
 				Arguments.of(new int[]{1, 2, 3}, new int[]{1}, 2),
 				Arguments.of(new int[]{1, 2, 3}, new int[]{2}, 1),

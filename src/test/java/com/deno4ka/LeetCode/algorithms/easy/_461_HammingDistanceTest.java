@@ -1,4 +1,5 @@
-import com.deno4ka.LeetCode.algorithms.easy._461_HammingDistance;
+package com.deno4ka.LeetCode.algorithms.easy;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

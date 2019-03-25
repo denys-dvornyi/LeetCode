@@ -1,4 +1,5 @@
-import com.deno4ka.LeetCode.algorithms.easy._475_Heaters;
+package com.deno4ka.LeetCode.algorithms.easy;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
