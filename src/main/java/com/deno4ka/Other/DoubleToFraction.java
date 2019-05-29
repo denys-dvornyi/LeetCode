@@ -3,9 +3,10 @@ package com.deno4ka.Other;
 public class DoubleToFraction {
 
 	public static void main(String[] args) {
-		printFraction(4.4d);
-		printFraction(4.0d);
-		printFraction(5.5d);
+//		printFraction(4.4d);
+//		printFraction(4.0d);
+//		printFraction(5.5d);
+		printFraction(0.5d);
 	}
 
 	private static void printFraction(double test) {
