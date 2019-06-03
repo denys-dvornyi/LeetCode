@@ -12,8 +12,8 @@ public class OrElseVsOrElseGet {
 		collection.add("Two");
 		collection.add("Three");
 		collection.add(null);
-		//		collection.forEach((el) -> System.out.println(Optional.ofNullable(el).orElse(generateString())) );
-		collection.forEach((el) -> System.out.println(Optional.ofNullable(el).orElseGet(OrElseVsOrElseGet::generateString)) );
+		//		collection.forEach((el) -> System.out.println(Optional.ofNullable(el).orElse(generateString())) ); // always execute function
+		collection.forEach((el) -> System.out.println(Optional.ofNullable(el).orElseGet(OrElseVsOrElseGet::generateString)) ); // execute only if null
 
 	}
 
