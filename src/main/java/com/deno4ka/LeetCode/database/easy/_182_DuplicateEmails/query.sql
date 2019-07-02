@@ -14,3 +14,8 @@
  -- +---------+
  -- Note: All emails are in lowercase.
 
+-- Runtime: 241 ms, faster than 15.07%
+SELECT Email FROM (SELECT COUNT(1) AS count, Email FROM leet_code.person GROUP BY Email) AS P WHERE count > 1;
+
+-- using HAVING
+# SELECT Email FROM leet_code.person GROUP BY Email HAVING count(*) > 1;
