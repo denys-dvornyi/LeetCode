@@ -16,4 +16,7 @@ INSERT INTO `Weather` (Id, RecordDate, Temperature) VALUES (2, '2015-01-02', 25)
 INSERT INTO `Weather` (Id, RecordDate, Temperature) VALUES (3, '2015-01-03', 20);
 INSERT INTO `Weather` (Id, RecordDate, Temperature) VALUES (4, '2015-01-04', 30);
 
+# INSERT INTO `Weather` (Id, RecordDate, Temperature) VALUES (1, '2000-12-16', 3);
+# INSERT INTO `Weather` (Id, RecordDate, Temperature) VALUES (2, '2000-12-15', -1);
+
 SET FOREIGN_KEY_CHECKS = 1;
