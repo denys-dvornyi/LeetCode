@@ -24,3 +24,10 @@
  -- | Max       |
  -- +-----------+
 
+-- Runtime: 311 ms, faster than 15.22%
+SELECT Name AS Customers FROM leet_code.Customers WHERE Id NOT IN (SELECT DISTINCT CustomerId FROM leet_code.orders);
+
+-- Runtime: 354 ms, faster than 5.16%
+SELECT Name AS Customers FROM leet_code.Customers
+    LEFT JOIN leet_code.Orders ON leet_code.Customers.Id = leet_code.Orders.CustomerId
+WHERE leet_code.Orders.CustomerId IS NULL;
