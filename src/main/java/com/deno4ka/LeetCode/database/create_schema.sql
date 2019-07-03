@@ -1,3 +1,3 @@
-DROP SCHEMA IF EXISTS `leet-code`;
-CREATE SCHEMA `leet-code`;
-use `leet-cod`;
+DROP SCHEMA IF EXISTS `leet_code`;
+CREATE SCHEMA `leet_code`;
+use `leet_code`;
