@@ -8,8 +8,8 @@ CREATE TABLE `World` (
      `Id` INT NOT NULL AUTO_INCREMENT,
      `name` VARCHAR(255),
      `continent` VARCHAR(255),
-     `area` INT,
-     `population` INT,
+     `area` BIGINT,
+     `population` BIGINT,
      `gdp` BIGINT,
      PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;

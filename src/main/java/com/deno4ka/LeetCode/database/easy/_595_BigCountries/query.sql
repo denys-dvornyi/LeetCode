@@ -18,3 +18,5 @@
  -- | Algeria      | 37100000    | 2381741      |
  -- +--------------+-------------+--------------+
 
+-- Runtime: 310 ms, faster than 21.74%
+SELECT name, population, area FROM leet_code.World WHERE area > 3000000 OR population > 25000000;
