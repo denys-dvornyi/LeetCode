@@ -1,0 +1,25 @@
+CREATE DATABASE  IF NOT EXISTS `leet_code`;
+USE `leet_code`;
+
+SET FOREIGN_KEY_CHECKS = 0;
+
+DROP TABLE IF EXISTS `Logs`;
+CREATE TABLE `Logs` (
+     `Id` INT NOT NULL AUTO_INCREMENT,
+     `Num` INT,
+     PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+INSERT INTO `Logs` (`Num`) VALUES (1);
+INSERT INTO `Logs` (`Num`) VALUES (1);
+INSERT INTO `Logs` (`Num`) VALUES (1);
+INSERT INTO `Logs` (`Num`) VALUES (2);
+INSERT INTO `Logs` (`Num`) VALUES (1);
+INSERT INTO `Logs` (`Num`) VALUES (3);
+INSERT INTO `Logs` (`Num`) VALUES (3);
+INSERT INTO `Logs` (`Num`) VALUES (3);
+INSERT INTO `Logs` (`Num`) VALUES (2);
+INSERT INTO `Logs` (`Num`) VALUES (3);
+INSERT INTO `Logs` (`Num`) VALUES (2);
+
+SET FOREIGN_KEY_CHECKS = 1;
