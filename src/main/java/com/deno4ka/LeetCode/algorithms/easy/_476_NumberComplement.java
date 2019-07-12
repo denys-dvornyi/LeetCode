@@ -21,7 +21,11 @@ Explanation: The binary representation of 1 is 1 (no leading zero bits), and its
 public class _476_NumberComplement {
 
 	public int findComplement(int num) {
-		return 0;
+		char[] complement = Integer.toBinaryString(num).toCharArray();
+		for (int i = 0; i < complement.length; i++) {
+			complement[i] = complement[i] == '1' ? '0' : '1';
+		}
+		return Integer.parseInt(String.valueOf(complement), 2);
 	}
 
 }
