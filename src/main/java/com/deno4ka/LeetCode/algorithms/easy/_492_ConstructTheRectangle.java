@@ -24,10 +24,33 @@ The web page's width and length you designed must be positive integers.
 
 public class _492_ConstructTheRectangle {
 
+	// Runtime: 284 ms, faster than 5.96%
 	public int[] constructRectangle(int area) {
-		int[] resultRectangle = new int[] {};
-//		resultRectangle = new int[] {2,2};
+		int[] resultRectangle = new int[] {area, 1};
+		int differenceBetweenLengthAndWidth = area - 1;
+		for (int w = area; w > 0; w--) {
+			if (area % w == 0) {
+				int l = area / w;
+				if (w >= l && w - l < differenceBetweenLengthAndWidth) {
+					differenceBetweenLengthAndWidth = w - l;
+					resultRectangle = new int[] {w, l};
+				}
+			}
+		}
 		return resultRectangle;
 	}
+
+	// from leet.code (0ms)
+//	public int[] constructRectangle(int area) {
+//		int[] result = new int[2];
+//		int sqrt = (int) Math.sqrt(area);
+//		while (area % sqrt != 0) {
+//			sqrt--;
+//		}
+//		int w = area / sqrt;
+//		result[0] = w;
+//		result[1] = sqrt;
+//		return result;
+//	}
 
 }
