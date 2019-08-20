@@ -14,15 +14,16 @@ public class _485_MaxConsecutiveOnesTest {
 	private _485_MaxConsecutiveOnes maxConsecutiveOnes = new _485_MaxConsecutiveOnes();
 
 	@DisplayName("Maximum number of consecutive 1s in this array")
-	@ParameterizedTest(name = "test #{index}: nums {0} -> expected license {1}")
+	@ParameterizedTest(name = "test #{index}: nums {0} -> expected {1}")
 	@MethodSource({"useCases"})
-	public void findMaxConsecutiveOnes(int[] nums, String expected) {
+	public void findMaxConsecutiveOnes(int[] nums, int expected) {
 		assertEquals(expected, maxConsecutiveOnes.findMaxConsecutiveOnes(nums));
 	}
 
 	public static Stream<Arguments> useCases() {
 		return Stream.of(
-				Arguments.of(new int[] {1,1,0,1,1,1}, 3)
+				Arguments.of(new int[] {1,1,0,1,1,1}, 3),
+				Arguments.of(new int[] {1,0,1,1,0,1}, 2)
 		);
 	}
 
