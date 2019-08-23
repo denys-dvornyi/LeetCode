@@ -16,7 +16,7 @@ public class _496_NextGreaterElement1Test {
 	@DisplayName("Find all the next greater numbers for nums1's elements in the corresponding places of nums2")
 	@ParameterizedTest(name = "test #{index}: nums1 {0}, nums2 {1}, -> expected {2}")
 	@MethodSource({"useCases"})
-	public void findMaxConsecutiveOnes(int[] nums1, int[] nums2, int[] expected) {
+	public void nextGreaterElement(int[] nums1, int[] nums2, int[] expected) {
 		assertArrayEquals(expected, nextGreaterElement1.nextGreaterElement(nums1, nums2));
 	}
 

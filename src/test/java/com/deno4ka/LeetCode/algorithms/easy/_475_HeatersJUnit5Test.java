@@ -24,7 +24,7 @@ public class _475_HeatersJUnit5Test {
 	@DisplayName("Should find minimum radius")
 	@ParameterizedTest(name = "test #{index}")
 	@MethodSource({"useCases", "useCasesFromFile"})
-	void sum(int[] a, int[] b, int expected) {
+	void findRadius(int[] a, int[] b, int expected) {
 		assertEquals(expected, heatersImpl.findRadius(a, b));
 	}
 

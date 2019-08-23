@@ -16,7 +16,7 @@ public class _492_ConstructTheRectangleTest {
 	@DisplayName("Construct the Rectangle")
 	@ParameterizedTest(name = "test #{index}: area {0} -> expected {1}")
 	@MethodSource({"useCases"})
-	public void findMaxConsecutiveOnes(int area, int[] expected) {
+	public void constructRectangle(int area, int[] expected) {
 		assertArrayEquals(expected, constructTheRectangle.constructRectangle(area));
 	}
 

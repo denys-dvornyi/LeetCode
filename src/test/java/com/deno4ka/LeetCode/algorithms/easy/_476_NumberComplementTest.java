@@ -16,7 +16,7 @@ public class _476_NumberComplementTest {
 	@DisplayName("Output its complement number")
 	@ParameterizedTest(name = "test #{index}: number {0} -> expected complement {1}")
 	@MethodSource({"useCases"})
-	public void getNumberComplement(int number, int expected) {
+	public void findComplement(int number, int expected) {
 		assertEquals(expected, numberComplementImpl.findComplement(number));
 	}
 
