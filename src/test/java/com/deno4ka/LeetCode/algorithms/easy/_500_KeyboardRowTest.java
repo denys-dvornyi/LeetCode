@@ -22,7 +22,10 @@ public class _500_KeyboardRowTest {
 
 	public static Stream<Arguments> useCases() {
 		return Stream.of(
-				Arguments.of(new String[] {"Hello", "Alaska", "Dad", "Peace"}, new String[] {"Alaska", "Dad"})
+				Arguments.of(
+						new String[]{"Hello", "Alaska", "Dad", "Peace"}, new String[]{"Alaska", "Dad"},
+						new String[]{"abdfs", "cccd", "a", "qwwewm"}, new String[]{"a"}
+				)
 		);
 	}
 
