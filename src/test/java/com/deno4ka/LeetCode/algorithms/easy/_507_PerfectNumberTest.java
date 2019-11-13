@@ -24,6 +24,8 @@ public class _507_PerfectNumberTest {
 		return Stream.of(
 				Arguments.of(
 						4, false,
+						6, true,
+						7, false,
 						28, true
 				)
 		);
