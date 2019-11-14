@@ -16,7 +16,7 @@ public class _506_RelativeRanksTest {
 	@DisplayName("find people with the top three highest scores")
 	@ParameterizedTest(name = "test #{index}: nums {0} -> expected {1}")
 	@MethodSource({"useCases"})
-	public void fib(int[] nums, String[] expected) {
+	public void findRelativeRanks(int[] nums, String[] expected) {
 		assertArrayEquals(expected, relativeRanks.findRelativeRanks(nums));
 	}
 

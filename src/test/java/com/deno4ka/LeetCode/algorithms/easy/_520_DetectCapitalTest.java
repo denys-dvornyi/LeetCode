@@ -15,7 +15,7 @@ public class _520_DetectCapitalTest {
 	@DisplayName("Detect Capital")
 	@ParameterizedTest(name = "test #{index}: word {0} -> expected {1}")
 	@MethodSource({"useCases"})
-	public void fib(String word, boolean expected) {
+	public void detectCapitalUse(String word, boolean expected) {
 		Assertions.assertEquals(expected, detectCapital.detectCapitalUse(word));
 	}
 

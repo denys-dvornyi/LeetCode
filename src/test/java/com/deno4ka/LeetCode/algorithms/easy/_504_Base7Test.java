@@ -15,7 +15,7 @@ public class _504_Base7Test {
 	@DisplayName("return base 7 string representation")
 	@ParameterizedTest(name = "test #{index}: integer {0} -> expected base7 {1}")
 	@MethodSource({"useCases"})
-	public void fib(int num, String expected) {
+	public void convertToBase7(int num, String expected) {
 		Assertions.assertEquals(expected, base7.convertToBase7(num));
 	}
 

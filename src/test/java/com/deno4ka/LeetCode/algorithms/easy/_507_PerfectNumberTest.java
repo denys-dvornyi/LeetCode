@@ -16,7 +16,7 @@ public class _507_PerfectNumberTest {
 	@DisplayName("Detect Perfect Number")
 	@ParameterizedTest(name = "test #{index}: perfect number {0} -> expected {1}")
 	@MethodSource({"useCases"})
-	public void fib(int num, boolean expected) {
+	public void checkPerfectNumber(int num, boolean expected) {
 		assertEquals(expected, perfectNumber.checkPerfectNumber(num));
 	}
 
