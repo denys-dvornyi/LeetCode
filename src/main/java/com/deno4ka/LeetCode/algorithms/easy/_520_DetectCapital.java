@@ -21,8 +21,34 @@ Output: False
 
 public class _520_DetectCapital {
 
+	// Runtime: 1 ms, faster than 100.00% and Memory Usage: 34.6 MB, less than 100.00%
 	public boolean detectCapitalUse(String word) {
-		return false;
+		if (word == null) return true;
+		if (word.length() < 2) return true;
+		char[] chars = word.toCharArray();
+		boolean firstCapital = false;
+		boolean secondCapital = false;
+		for (int i = 0; i < chars.length; i++) {
+			if (i == 0) {
+				firstCapital = isCapital(chars[i]);
+			} else if (i == 1) {
+				secondCapital = isCapital(chars[i]);
+				if (!firstCapital && secondCapital) {
+					return false;
+				}
+			} else if (firstCapital && secondCapital && !isCapital(chars[i])) {
+				return false;
+			} else if (firstCapital && !secondCapital && isCapital(chars[i])) {
+				return false;
+			} else if (!firstCapital && isCapital(chars[i])) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	private boolean isCapital(char c) {
+		return (int)c >= 65 && (int)c <= 90;
 	}
 
 }

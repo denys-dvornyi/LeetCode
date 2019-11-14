@@ -24,6 +24,10 @@ public class _520_DetectCapitalTest {
 				Arguments.of("USA", true),
 				Arguments.of("Google", true),
 				Arguments.of("leetcode", true),
+				Arguments.of("A", true),
+				Arguments.of("Ab", true),
+				Arguments.of("z", true),
+				Arguments.of("zA", false),
 				Arguments.of("FlaG", false),
 				Arguments.of("TrackEnsure", false)
 		);
