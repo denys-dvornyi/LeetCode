@@ -22,12 +22,10 @@ public class _507_PerfectNumberTest {
 
 	public static Stream<Arguments> useCases() {
 		return Stream.of(
-				Arguments.of(
-						4, false,
-						6, true,
-						7, false,
-						28, true
-				)
+				Arguments.of(4, false),
+				Arguments.of(6, true),
+				Arguments.of(7, false),
+				Arguments.of(28, true)
 		);
 	}
 
