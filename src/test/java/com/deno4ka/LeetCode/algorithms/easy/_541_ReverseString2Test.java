@@ -21,6 +21,11 @@ public class _541_ReverseString2Test {
 
 	public static Stream<Arguments> useCases() {
 		return Stream.of(
+				Arguments.of("hyzqyljrnigxvdtneasepfahmtyhlohwxmkqcdfehybknvdmfrfvtbsovjbdhevlfxpdaovjgunjqlimjkfnqcqnajmebeddqsgl",
+						 39, "fdcqkmxwholhytmhafpesaentdvxginrjlyqzyhehybknvdmfrfvtbsovjbdhevlfxpdaovjgunjqllgsqddebemjanqcqnfkjmi"),
+				Arguments.of("abcdefg", 3, "cbadefg"),
+				Arguments.of("abcd", 4, "dcba"),
+				Arguments.of("abcdef", 3, "cbadef"),
 				Arguments.of("abcdefg", 2, "bacdfeg")
 		);
 	}
