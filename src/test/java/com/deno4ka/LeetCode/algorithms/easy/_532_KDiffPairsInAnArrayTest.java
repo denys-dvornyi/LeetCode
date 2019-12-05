@@ -21,9 +21,11 @@ public class _532_KDiffPairsInAnArrayTest {
 
 	public static Stream<Arguments> useCases() {
 		return Stream.of(
+				Arguments.of(new int[] {-1, 0, 0, 1, 0, 0, -1}, 1, 2),
 				Arguments.of(new int[] {3, 1, 4, 1, 5}, 2, 2),
 				Arguments.of(new int[] {1, 2, 3, 4, 5}, 1, 4),
-				Arguments.of(new int[] {1, 3, 1, 5, 4}, 0, 1)
+				Arguments.of(new int[] {1, 3, 1, 5, 4}, 0, 1),
+				Arguments.of(new int[] {1, 1, 1, 1, 1}, 0, 1)
 		);
 	}
 
