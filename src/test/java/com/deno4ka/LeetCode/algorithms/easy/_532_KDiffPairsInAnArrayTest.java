@@ -15,7 +15,7 @@ public class _532_KDiffPairsInAnArrayTest {
 	@DisplayName("Number of unique k-diff pairs in the array")
 	@ParameterizedTest(name = "test #{index}: pairs {0}, k {1} -> expected {2}")
 	@MethodSource({"useCases"})
-	public void findLUSlength(int[] nums, int k, int expected) {
+	public void findPairs(int[] nums, int k, int expected) {
 		Assertions.assertEquals(expected, diffPairsInAnArray.findPairs(nums, k));
 	}
 
