@@ -24,10 +24,29 @@ The length of the given array is in range [2, 10,000], and will be even.
 The number in given array is in range [-100,000, 100,000].
 */
 
+import java.util.Arrays;
+
 public class _575_DistributeCandies {
 
+	// Runtime: 54 ms, faster than 16.62% & Memory Usage: 45.7 MB, less than 47.37%
 	public int distributeCandies(int[] candies) {
-		return candies.length / 2;
+		if (candies == null || candies.length == 0) return 0;
+		Arrays.sort(candies);
+		int uniqueCandies = 0;
+		int prevCandy = candies[0];
+		for (int i = 0; i < candies.length; i++) {
+			if (i == 0) {
+				uniqueCandies++;
+			} else {
+				if (prevCandy == candies[i]) {
+					continue;
+				} else {
+					uniqueCandies++;
+					prevCandy = candies[i];
+				}
+			}
+		}
+		return Math.min(uniqueCandies, candies.length / 2);
 	}
 
 }

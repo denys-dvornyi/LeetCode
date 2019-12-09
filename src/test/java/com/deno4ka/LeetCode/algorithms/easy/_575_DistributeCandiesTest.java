@@ -22,7 +22,9 @@ public class _575_DistributeCandiesTest {
 	public static Stream<Arguments> useCases() {
 		return Stream.of(
 				Arguments.of(new int[] {1, 1, 2, 2, 3, 3}, 3),
-				Arguments.of(new int[] {1, 1, 2, 3}, 2)
+				Arguments.of(new int[] {1, 1, 2, 3}, 2),
+				Arguments.of(new int[] {1, 1, 1, 1}, 1),
+				Arguments.of(new int[] {1, 1, 2, 2, 1, 1}, 2)
 		);
 	}
 
