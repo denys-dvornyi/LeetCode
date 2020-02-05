@@ -15,14 +15,35 @@ Then length of the input array is in range [1, 10,000].
 The input array may contain duplicates, so ascending order here means <=.
 */
 
+import java.util.Arrays;
+
 public class _581_ShortestUnsortedContinuousSubarray {
 
+	// Runtime: 6 ms, faster than 58.10% & Memory Usage: 41.6 MB, less than 19.23%
 	public int findUnsortedSubarray(int[] nums) {
 		if (nums == null || nums.length == 0) {
 			return 0;
 		}
-
-		return nums.length;
+		int[] sortedNums = new int[nums.length];
+		System.arraycopy(nums, 0, sortedNums, 0, nums.length);
+		Arrays.sort(sortedNums);
+		int sortedNumbersFromBegin = 0;
+		for (int i = 0; i < nums.length; i++) {
+			if (nums[i] == sortedNums[i]) {
+				sortedNumbersFromBegin++;
+			} else {
+				break;
+			}
+		}
+		int sortedNumbersFromEnd = 0;
+		for (int j = nums.length - 1; j >= sortedNumbersFromBegin; j--) {
+			if (nums[j] == sortedNums[j]) {
+				sortedNumbersFromEnd++;
+			} else {
+				break;
+			}
+		}
+		return nums.length - sortedNumbersFromBegin - sortedNumbersFromEnd;
 	}
 
 }
