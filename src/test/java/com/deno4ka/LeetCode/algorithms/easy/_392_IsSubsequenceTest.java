@@ -15,7 +15,7 @@ public class _392_IsSubsequenceTest {
 	@DisplayName("Is Subsequence")
 	@ParameterizedTest(name = "test #{index}: #1 \"{0}\", #2 \"{1}\" -> expect {2}")
 	@MethodSource({"useCases"})
-	public void findLHS(String s, String t, boolean expected) {
+	public void isSubsequence(String s, String t, boolean expected) {
 		Assertions.assertEquals(expected, isSubsequence.isSubsequence(s, t));
 	}
 
