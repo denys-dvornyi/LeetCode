@@ -12,11 +12,11 @@ public class _566_ReshapeTheMatrixTest {
 
 	private _566_ReshapeTheMatrix reshapeTheMatrix = new _566_ReshapeTheMatrix();
 
-	@DisplayName("Find the largest possible pairs sum")
-	@ParameterizedTest(name = "test #{index}: array \"{0}\" -> expect {1}")
+	@DisplayName("Reshape the Matrix")
+	@ParameterizedTest(name = "test #{index}: matrix to reshape \"{0}\", rows {1}, columns {2} -> expected matrix \"{3}\"")
 	@MethodSource({"useCases"})
 	public void arrayPairSum(int[][] nums, int r, int c, int[][] expected) {
-		Assertions.assertEquals(expected, reshapeTheMatrix.matrixReshape(nums, r, c));
+		Assertions.assertArrayEquals(expected, reshapeTheMatrix.matrixReshape(nums, r, c));
 	}
 
 	public static Stream<Arguments> useCases() {

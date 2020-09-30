@@ -30,7 +30,26 @@ The given r and c are all positive.
 public class _566_ReshapeTheMatrix {
 
 	public int[][] matrixReshape(int[][] nums, int r, int c) {
-		return null;
+		if (nums == null) return null;
+		int currentMatrixDimension = nums.length * nums[0].length;
+		int reshapedMatrixDimension = r * c;
+		if (currentMatrixDimension != reshapedMatrixDimension) return nums;
+		if (nums.length == r && nums[0].length == c) return nums;
+		int[][] reshapedMatrix = new int[r][c];
+		int cursor = 0;
+		for (int i = 0; i < nums.length; i++) {
+			for (int j = 0; j < nums[i].length; j++) {
+				if (cursor == 0) {
+					reshapedMatrix[0][0] = nums[i][j];
+				} else {
+					int row = cursor / c;
+					int col = cursor - row * c;
+					reshapedMatrix[row][col] = nums[i][j];
+				}
+				cursor++;
+			}
+		}
+		return reshapedMatrix;
 	}
 
 }
