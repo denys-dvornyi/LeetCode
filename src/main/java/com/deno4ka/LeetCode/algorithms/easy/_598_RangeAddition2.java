@@ -41,8 +41,7 @@ public class _598_RangeAddition2 {
 			return max;
 		} else {
 			int minRow = m, minCol = n;
-			for (int i = 0; i < ops.length; i++) {
-				int[] operation = ops[i];
+			for (int[] operation : ops) {
 				if (minRow > operation[0]) {
 					minRow = operation[0];
 				}
