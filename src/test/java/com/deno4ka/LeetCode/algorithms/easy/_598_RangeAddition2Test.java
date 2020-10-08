@@ -21,7 +21,11 @@ public class _598_RangeAddition2Test {
 
 	public static Stream<Arguments> useCases() {
 		return Stream.of(
-				Arguments.of(3, 3, new int[][] {{2,2}, {3,3}}, 4)
+				Arguments.of(3, 3, new int[][] {{2,2}, {3,3}}, 4),
+				Arguments.of(3, 3, new int[][] {{2,2},{3,3},{3,3},{3,3},{2,2},{3,3},{3,3},{3,3},{2,2},{3,3},{3,3},{3,3}}, 4),
+				Arguments.of(3, 3, new int[][] {}, 9),
+				Arguments.of(40_000, 40_000, new int[][] {}, 1_600_000_000),
+				Arguments.of(39_999, 39_999, new int[][] {{19_999,19_999}}, 399_960_001)
 		);
 	}
 
