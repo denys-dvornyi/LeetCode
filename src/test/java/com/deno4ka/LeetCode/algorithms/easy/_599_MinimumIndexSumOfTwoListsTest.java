@@ -16,7 +16,7 @@ public class _599_MinimumIndexSumOfTwoListsTest {
 	@DisplayName("Find out common interest with the least list index sum")
 	@ParameterizedTest(name = "test #{index}: \"{0}\", \"{1}\" expected array \"{2}\"")
 	@MethodSource({"useCases"})
-	public void arrayPairSum(String[] list1, String[] list2, String[] expected) {
+	public void findRestaurant(String[] list1, String[] list2, String[] expected) {
 		Arrays.sort(expected);
 		String[] restaurants = minimumIndexSumOfTwoLists.findRestaurant(list1, list2);
 		Arrays.sort(restaurants);

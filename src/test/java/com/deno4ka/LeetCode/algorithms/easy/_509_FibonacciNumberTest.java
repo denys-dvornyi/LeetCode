@@ -16,7 +16,7 @@ public class _509_FibonacciNumberTest {
 	@DisplayName("Fibonacci numbers")
 	@ParameterizedTest(name = "test #{index}: fibonacci number {0} -> expected {1}")
 	@MethodSource({"useCases"})
-	public void fib(int num, int expected) {
+	public void fibonacciNumber(int num, int expected) {
 		assertEquals(expected, fibonacciNumber.fib(num));
 	}
 

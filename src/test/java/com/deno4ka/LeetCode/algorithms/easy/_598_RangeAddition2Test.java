@@ -15,7 +15,7 @@ public class _598_RangeAddition2Test {
 	@DisplayName("Range Addition II")
 	@ParameterizedTest(name = "test #{index}: matrix to reshape \"{0}\", rows {1}, columns {2} -> expected matrix \"{3}\"")
 	@MethodSource({"useCases"})
-	public void arrayPairSum(int m, int n, int[][] ops, int expected) {
+	public void maxCount(int m, int n, int[][] ops, int expected) {
 		Assertions.assertEquals(expected, rangeAddition2.maxCount(m, n, ops));
 	}
 

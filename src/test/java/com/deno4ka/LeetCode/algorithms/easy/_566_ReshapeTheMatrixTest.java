@@ -15,7 +15,7 @@ public class _566_ReshapeTheMatrixTest {
 	@DisplayName("Reshape the Matrix")
 	@ParameterizedTest(name = "test #{index}: matrix to reshape \"{0}\", rows {1}, columns {2} -> expected matrix \"{3}\"")
 	@MethodSource({"useCases"})
-	public void arrayPairSum(int[][] nums, int r, int c, int[][] expected) {
+	public void matrixReshape(int[][] nums, int r, int c, int[][] expected) {
 		Assertions.assertArrayEquals(expected, reshapeTheMatrix.matrixReshape(nums, r, c));
 	}
 
