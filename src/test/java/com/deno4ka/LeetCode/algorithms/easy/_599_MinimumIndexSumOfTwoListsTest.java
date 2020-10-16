@@ -6,17 +6,21 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.Arrays;
 import java.util.stream.Stream;
 
 public class _599_MinimumIndexSumOfTwoListsTest {
 
 	private _599_MinimumIndexSumOfTwoLists minimumIndexSumOfTwoLists = new _599_MinimumIndexSumOfTwoLists();
 
-	@DisplayName("Range Addition II")
-	@ParameterizedTest(name = "test #{index}: matrix to reshape \"{0}\", rows {1}, columns {2} -> expected matrix \"{3}\"")
+	@DisplayName("Find out common interest with the least list index sum")
+	@ParameterizedTest(name = "test #{index}: \"{0}\", \"{1}\" expected array \"{2}\"")
 	@MethodSource({"useCases"})
 	public void arrayPairSum(String[] list1, String[] list2, String[] expected) {
-		Assertions.assertArrayEquals(expected, minimumIndexSumOfTwoLists.findRestaurant(list1, list2));
+		Arrays.sort(expected);
+		String[] restaurants = minimumIndexSumOfTwoLists.findRestaurant(list1, list2);
+		Arrays.sort(restaurants);
+		Assertions.assertArrayEquals(expected, restaurants);
 	}
 
 	public static Stream<Arguments> useCases() {
@@ -29,7 +33,8 @@ public class _599_MinimumIndexSumOfTwoListsTest {
 						new String[] {"KFC","Burger King","Tapioca Express","Shogun"}, new String[] {"KFC","Burger King","Tapioca Express","Shogun"}),
 				Arguments.of(new String[] {"Shogun","Tapioca Express","Burger King","KFC"},
 						new String[] {"KNN","KFC","Burger King","Tapioca Express","Shogun"}, new String[] {"KFC","Burger King","Tapioca Express","Shogun"}),
-				Arguments.of(new String[] {"KFC"}, new String[] {"KFC"}, new String[] {"KFC"})
+				Arguments.of(new String[] {"KFC"}, new String[] {"KFC"}, new String[] {"KFC"}),
+				Arguments.of(new String[] {"S","TEXP","BK","KFC"}, new String[] {"KFC","BK","S"}, new String[] {"S"})
 		);
 	}
 
