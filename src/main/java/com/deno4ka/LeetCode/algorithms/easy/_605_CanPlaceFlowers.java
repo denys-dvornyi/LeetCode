@@ -22,8 +22,47 @@ n is a non-negative integer which won't exceed the input array size.
 
 public class _605_CanPlaceFlowers {
 
+	// Runtime: 1 ms, faster than 94.72% & Memory Usage: 41.1 MB, less than 13.89%
 	public boolean canPlaceFlowers(int[] flowerbed, int n) {
-		return false;
+		if (n == 0) return true;
+		if (n > (flowerbed.length + 1) / 2) return false;
+		boolean leftFlower = false, rightFlower = false;
+		int emptyPlaces = 0;
+		int emptyPlacesGroups = 0;
+		int noAdjacentFlowerPlaces = 0;
+		for (int i = 0; i < flowerbed.length; i++) {
+			boolean isFlower = flowerbed[i] == 1;
+			if (i == 0) {
+				leftFlower = isFlower;
+			}
+			if (i == flowerbed.length - 1) {
+				rightFlower = isFlower;
+			}
+			if (isFlower) {
+				if (emptyPlaces > 0) {
+					emptyPlacesGroups++;
+				}
+				if (emptyPlaces > 1) {
+					if (!leftFlower) {
+						noAdjacentFlowerPlaces += (emptyPlaces) / 2;
+					} else {
+						noAdjacentFlowerPlaces += (emptyPlaces - 1) / 2;
+					}
+				}
+				leftFlower = true;
+				emptyPlaces = 0;
+			} else {
+				emptyPlaces++;
+			}
+		}
+		if (emptyPlaces > 0) {
+			if (!leftFlower && !rightFlower && emptyPlacesGroups == 0) {
+				noAdjacentFlowerPlaces += (emptyPlaces + 1) / 2;
+			} else if (!rightFlower) {
+				noAdjacentFlowerPlaces += emptyPlaces / 2;
+			}
+		}
+		return n <= noAdjacentFlowerPlaces;
 	}
 
 }

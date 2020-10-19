@@ -21,8 +21,30 @@ public class _605_CanPlaceFlowersTest {
 
 	public static Stream<Arguments> useCases() {
 		return Stream.of(
+				Arguments.of(new int[] {0}, 0, true),
+				Arguments.of(new int[] {0}, 1, true),
+				Arguments.of(new int[] {1}, 0, true),
+				Arguments.of(new int[] {1}, 1, false),
+				Arguments.of(new int[] {0, 0}, 1, true),
+				Arguments.of(new int[] {0, 0}, 2, false),
+				Arguments.of(new int[] {0, 0, 0}, 1, true),
+				Arguments.of(new int[] {0, 0, 0}, 2, true),
+				Arguments.of(new int[] {0, 0, 0}, 3, false),
 				Arguments.of(new int[] {1, 0, 0, 0, 1}, 1, true),
-				Arguments.of(new int[] {1, 0, 0, 0, 1}, 2, false)
+				Arguments.of(new int[] {1, 0, 0, 0, 1}, 2, false),
+				Arguments.of(new int[] {0, 1, 0, 0, 1, 0}, 0, true),
+				Arguments.of(new int[] {0, 1, 0, 0, 1, 0}, 1, false),
+				Arguments.of(new int[] {0, 1, 0, 0, 1, 0, 0}, 1, true),
+				Arguments.of(new int[] {0, 1, 0, 0, 1, 0, 0}, 2, false),
+				Arguments.of(new int[] {0, 0, 1, 0, 0, 1, 0, 0}, 2, true),
+				Arguments.of(new int[] {0, 0, 1, 0, 0, 1, 0, 0}, 3, false),
+				Arguments.of(new int[] {0, 0, 0, 1, 0, 0, 1, 0, 0}, 3, false),
+				Arguments.of(new int[] {0, 0, 0, 1, 0, 0, 1, 0, 0, 0}, 3, false),
+				Arguments.of(new int[] {0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0}, 3, true),
+				Arguments.of(new int[] {0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0}, 3, true),
+				Arguments.of(new int[] {0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0}, 4, true),
+				Arguments.of(new int[] {0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0}, 5, true),
+				Arguments.of(new int[] {0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0}, 6, true)
 		);
 	}
 
