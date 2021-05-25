@@ -1,15 +1,40 @@
 package com.deno4ka;
 
+import com.deno4ka.Other.CompletableFutureExamples;
+import com.deno4ka.Other.ParserFrontLog;
+import com.deno4ka.Other.ParserLog;
+import org.json.JSONObject;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
+import java.util.Set;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static java.util.Arrays.asList;
+import static java.util.Comparator.comparing;
+import static java.util.Comparator.nullsLast;
+import static org.testng.Assert.assertEquals;
 
 public class Main {
 
@@ -116,7 +141,15 @@ public class Main {
 //        _453_MinimumMovesToEqualArrayElements minimumMovesToEqualArrayElements = new _453_MinimumMovesToEqualArrayElements();
 //        _455_AssignCookies assignCookies = new _455_AssignCookies();
 //        _458_PoorPigs poorPigs = new _458_PoorPigs();
+//        CompletableFutureExamples cfe = new CompletableFutureExamples();
+//        cfe.main(null);
+        CompletableFutureExamples.main(null);
+
+//        List<Object> objects = Collections.emptyList();
+//        objects.add(null);
 
     }
+
+
 
 }
