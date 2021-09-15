@@ -141,12 +141,6 @@ public class Main {
 //        _453_MinimumMovesToEqualArrayElements minimumMovesToEqualArrayElements = new _453_MinimumMovesToEqualArrayElements();
 //        _455_AssignCookies assignCookies = new _455_AssignCookies();
 //        _458_PoorPigs poorPigs = new _458_PoorPigs();
-//        CompletableFutureExamples cfe = new CompletableFutureExamples();
-//        cfe.main(null);
-        CompletableFutureExamples.main(null);
-
-//        List<Object> objects = Collections.emptyList();
-//        objects.add(null);
 
     }
 
