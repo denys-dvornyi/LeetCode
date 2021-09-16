@@ -51,13 +51,22 @@ For operations "C" and "D", there will always be at least one previous score on 
 
 public class _682_BaseballGame {
 
+//	Runtime: 2 ms, faster than 89.98% & Memory Usage: 38.9 MB, less than 25.24%
 	public int calPoints(String[] ops) {
 		if (ops == null || ops.length == 0) return 0;
 		int[] gameScores = new int[ops.length];
-
+		int pointer = 0;
+		for (String op: ops) {
+			switch (op) {
+				case "C": pointer--; break;
+				case "D": gameScores[pointer] = 2 * gameScores[pointer - 1]; pointer++; break;
+				case "+": gameScores[pointer] = gameScores[pointer - 2] + gameScores[pointer - 1]; pointer++; break;
+				default: gameScores[pointer] = Integer.parseInt(op); pointer++;
+			}
+		}
 		int sumPoints = 0;
-		for (int score: gameScores) {
-			sumPoints += score;
+		for (int i = 0; i < pointer; i++) {
+			sumPoints += gameScores[i];
 		}
 		return sumPoints;
 	}
