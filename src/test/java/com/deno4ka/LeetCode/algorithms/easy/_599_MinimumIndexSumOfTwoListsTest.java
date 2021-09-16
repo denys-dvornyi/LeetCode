@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 
 public class _599_MinimumIndexSumOfTwoListsTest {
 
-	private _599_MinimumIndexSumOfTwoLists minimumIndexSumOfTwoLists = new _599_MinimumIndexSumOfTwoLists();
+	private final _599_MinimumIndexSumOfTwoLists minimumIndexSumOfTwoLists = new _599_MinimumIndexSumOfTwoLists();
 
 	@DisplayName("Find out common interest with the least list index sum")
 	@ParameterizedTest(name = "test #{index}: \"{0}\", \"{1}\" expected array \"{2}\"")

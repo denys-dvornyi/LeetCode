@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 public class _551_StudentAttendanceRecord1Test {
 
-	private _551_StudentAttendanceRecord1 studentAttendanceRecord1 = new _551_StudentAttendanceRecord1();
+	private final _551_StudentAttendanceRecord1 studentAttendanceRecord1 = new _551_StudentAttendanceRecord1();
 
 	@DisplayName("Return whether the student could be rewarded")
 	@ParameterizedTest(name = "test #{index}: Attendance record {0} -> expected {2}")

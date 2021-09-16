@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 public class _643_MaximumAverageSubarray1Test {
 
-	private _643_MaximumAverageSubarray1 maximumAverageSubarray1 = new _643_MaximumAverageSubarray1();
+	private final _643_MaximumAverageSubarray1 maximumAverageSubarray1 = new _643_MaximumAverageSubarray1();
 
 	@DisplayName("Find the contiguous subarray of given length k that has the maximum average value")
 	@ParameterizedTest(name = "test #{index}: array \"{0}\", length \"{1}\" expected average \"{2}\"")

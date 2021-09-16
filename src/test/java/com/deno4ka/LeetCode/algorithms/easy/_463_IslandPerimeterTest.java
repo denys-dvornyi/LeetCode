@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @DisplayName("Island Perimeter #463")
 public class _463_IslandPerimeterTest {
 
-	private _463_IslandPerimeter islandPerimeter = new _463_IslandPerimeter();
+	private final _463_IslandPerimeter islandPerimeter = new _463_IslandPerimeter();
 
 	@Test
 	public void test16Lands() {

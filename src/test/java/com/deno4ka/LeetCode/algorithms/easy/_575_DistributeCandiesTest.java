@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 public class _575_DistributeCandiesTest {
 
-	private _575_DistributeCandies distributeCandies = new _575_DistributeCandies();
+	private final _575_DistributeCandies distributeCandies = new _575_DistributeCandies();
 
 	@DisplayName("Distribute candies equally in number to brother and sister")
 	@ParameterizedTest(name = "test #{index}: candies {0} -> expected {2}")

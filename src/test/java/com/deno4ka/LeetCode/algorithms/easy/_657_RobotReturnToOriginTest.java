@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 public class _657_RobotReturnToOriginTest {
 
-	private _657_RobotReturnToOrigin robotReturnToOrigin = new _657_RobotReturnToOrigin();
+	private final _657_RobotReturnToOrigin robotReturnToOrigin = new _657_RobotReturnToOrigin();
 
 	@DisplayName("Return `true` if the robot returns to the origin after it finishes all of its moves, or `false` otherwise.")
 	@ParameterizedTest(name = "test #{index}: moves \"{0}\", expected result \"{1}\"")

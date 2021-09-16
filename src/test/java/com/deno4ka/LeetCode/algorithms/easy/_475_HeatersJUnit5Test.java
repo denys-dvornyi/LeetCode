@@ -19,7 +19,7 @@ import java.util.stream.Stream;
 
 public class _475_HeatersJUnit5Test {
 
-	private _475_Heaters heatersImpl = new _475_Heaters();
+	private final _475_Heaters heatersImpl = new _475_Heaters();
 
 	@DisplayName("Should find minimum radius")
 	@ParameterizedTest(name = "test #{index}")

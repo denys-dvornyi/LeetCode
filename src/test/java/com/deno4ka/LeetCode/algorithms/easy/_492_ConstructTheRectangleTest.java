@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class _492_ConstructTheRectangleTest {
 
-	private _492_ConstructTheRectangle constructTheRectangle = new _492_ConstructTheRectangle();
+	private final _492_ConstructTheRectangle constructTheRectangle = new _492_ConstructTheRectangle();
 
 	@DisplayName("Construct the Rectangle")
 	@ParameterizedTest(name = "test #{index}: area {0} -> expected {1}")

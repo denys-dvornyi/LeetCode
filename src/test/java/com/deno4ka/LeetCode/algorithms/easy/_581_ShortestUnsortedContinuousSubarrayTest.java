@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 public class _581_ShortestUnsortedContinuousSubarrayTest {
 
-	private _581_ShortestUnsortedContinuousSubarray shortestUnsortedContinuousSubarray = new _581_ShortestUnsortedContinuousSubarray();
+	private final _581_ShortestUnsortedContinuousSubarray shortestUnsortedContinuousSubarray = new _581_ShortestUnsortedContinuousSubarray();
 
 	@DisplayName("Find the shortest subarray")
 	@ParameterizedTest(name = "test #{index}: array {0} -> expected {1}")

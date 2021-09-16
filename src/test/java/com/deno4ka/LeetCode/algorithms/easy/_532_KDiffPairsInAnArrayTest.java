@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 public class _532_KDiffPairsInAnArrayTest {
 
-	private _532_KDiffPairsInAnArray diffPairsInAnArray = new _532_KDiffPairsInAnArray();
+	private final _532_KDiffPairsInAnArray diffPairsInAnArray = new _532_KDiffPairsInAnArray();
 
 	@DisplayName("Number of unique k-diff pairs in the array")
 	@ParameterizedTest(name = "test #{index}: pairs {0}, k {1} -> expected {2}")

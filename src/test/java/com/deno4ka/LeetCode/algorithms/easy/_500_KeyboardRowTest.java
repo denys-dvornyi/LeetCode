@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class _500_KeyboardRowTest {
 
-	private _500_KeyboardRow keyboardRow = new _500_KeyboardRow();
+	private final _500_KeyboardRow keyboardRow = new _500_KeyboardRow();
 
 	@DisplayName("Words of only one row's of American keyboard")
 	@ParameterizedTest(name = "test #{index}: words {0} -> expected {1}")

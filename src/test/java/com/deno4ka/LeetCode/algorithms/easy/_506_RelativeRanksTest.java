@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class _506_RelativeRanksTest {
 
-	private _506_RelativeRanks relativeRanks = new _506_RelativeRanks();
+	private final _506_RelativeRanks relativeRanks = new _506_RelativeRanks();
 
 	@DisplayName("find people with the top three highest scores")
 	@ParameterizedTest(name = "test #{index}: nums {0} -> expected {1}")

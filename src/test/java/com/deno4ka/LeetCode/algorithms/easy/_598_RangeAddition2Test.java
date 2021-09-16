@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 public class _598_RangeAddition2Test {
 
-	private _598_RangeAddition2 rangeAddition2 = new _598_RangeAddition2();
+	private final _598_RangeAddition2 rangeAddition2 = new _598_RangeAddition2();
 
 	@DisplayName("Range Addition II")
 	@ParameterizedTest(name = "test #{index}: matrix to reshape \"{0}\", rows {1}, columns {2} -> expected matrix \"{3}\"")

@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 public class _645_SetMismatchTest {
 
-	private _645_SetMismatch setMismatch = new _645_SetMismatch();
+	private final _645_SetMismatch setMismatch = new _645_SetMismatch();
 
 	@DisplayName("Find the number occurs twice and then find the number that is missing")
 	@ParameterizedTest(name = "test #{index}: array \"{0}\", expected result \"{1}\"")

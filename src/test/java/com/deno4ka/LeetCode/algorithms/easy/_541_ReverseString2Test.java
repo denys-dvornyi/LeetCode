@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 public class _541_ReverseString2Test {
 
-	private _541_ReverseString2 reverseString2 = new _541_ReverseString2();
+	private final _541_ReverseString2 reverseString2 = new _541_ReverseString2();
 
 	@DisplayName("Reverse the first k characters for every 2k characters counting from the start of the string")
 	@ParameterizedTest(name = "test #{index}: String {0}, k {1} -> expected {2}")

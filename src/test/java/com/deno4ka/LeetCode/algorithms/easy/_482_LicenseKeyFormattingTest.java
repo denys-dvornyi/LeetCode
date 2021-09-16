@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class _482_LicenseKeyFormattingTest {
 
-	private _482_LicenseKeyFormatting licenseKeyFormatting = new _482_LicenseKeyFormatting();
+	private final _482_LicenseKeyFormatting licenseKeyFormatting = new _482_LicenseKeyFormatting();
 
 	@DisplayName("Format the string according to the rules")
 	@ParameterizedTest(name = "test #{index}: license {0}, format {1} -> expected license {2}")

@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 public class _392_IsSubsequenceTest {
 
-	private _392_IsSubsequence isSubsequence = new _392_IsSubsequence();
+	private final _392_IsSubsequence isSubsequence = new _392_IsSubsequence();
 
 	@DisplayName("Is Subsequence")
 	@ParameterizedTest(name = "test #{index}: #1 \"{0}\", #2 \"{1}\" -> expect {2}")

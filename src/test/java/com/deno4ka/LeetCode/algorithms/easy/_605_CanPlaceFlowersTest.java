@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 public class _605_CanPlaceFlowersTest {
 
-	private _605_CanPlaceFlowers canPlaceFlowers = new _605_CanPlaceFlowers();
+	private final _605_CanPlaceFlowers canPlaceFlowers = new _605_CanPlaceFlowers();
 
 	@DisplayName("Find flowers without violating the no-adjacent-flowers rule")
 	@ParameterizedTest(name = "test #{index}: \"{0}\", \"{1}\" expected \"{2}\"")

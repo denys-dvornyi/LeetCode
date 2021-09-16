@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class _507_PerfectNumberTest {
 
-	private _507_PerfectNumber perfectNumber = new _507_PerfectNumber();
+	private final _507_PerfectNumber perfectNumber = new _507_PerfectNumber();
 
 	@DisplayName("Detect Perfect Number")
 	@ParameterizedTest(name = "test #{index}: perfect number {0} -> expected {1}")

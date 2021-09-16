@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 public class _557_ReverseWordsInAString3Test {
 
-	private _557_ReverseWordsInAString3 reverseWordsInAString3 = new _557_ReverseWordsInAString3();
+	private final _557_ReverseWordsInAString3 reverseWordsInAString3 = new _557_ReverseWordsInAString3();
 
 	@DisplayName("Кeverse the order of characters in each word")
 	@ParameterizedTest(name = "test #{index}: Attendance record {0} -> expected {2}")

@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 public class _594_LongestHarmoniousSubsequenceTest {
 
-	private _594_LongestHarmoniousSubsequence longestHarmoniousSubsequence = new _594_LongestHarmoniousSubsequence();
+	private final _594_LongestHarmoniousSubsequence longestHarmoniousSubsequence = new _594_LongestHarmoniousSubsequence();
 
 	@DisplayName("Find the length of its longest harmonious subsequence among all its possible subsequences")
 	@ParameterizedTest(name = "test #{index}: array {0} -> expected {1}")

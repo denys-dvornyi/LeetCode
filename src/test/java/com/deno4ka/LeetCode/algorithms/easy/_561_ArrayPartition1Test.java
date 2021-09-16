@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 public class _561_ArrayPartition1Test {
 
-	private _561_ArrayPartition1 arrayPartition1 = new _561_ArrayPartition1();
+	private final _561_ArrayPartition1 arrayPartition1 = new _561_ArrayPartition1();
 
 	@DisplayName("Find the largest possible pairs sum")
 	@ParameterizedTest(name = "test #{index}: array \"{0}\" -> expect {1}")

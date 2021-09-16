@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 public class _504_Base7Test {
 
-	private _504_Base7 base7 = new _504_Base7();
+	private final _504_Base7 base7 = new _504_Base7();
 
 	@DisplayName("return base 7 string representation")
 	@ParameterizedTest(name = "test #{index}: integer {0} -> expected base7 {1}")

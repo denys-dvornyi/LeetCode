@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class _485_MaxConsecutiveOnesTest {
 
-	private _485_MaxConsecutiveOnes maxConsecutiveOnes = new _485_MaxConsecutiveOnes();
+	private final _485_MaxConsecutiveOnes maxConsecutiveOnes = new _485_MaxConsecutiveOnes();
 
 	@DisplayName("Maximum number of consecutive 1s in this array")
 	@ParameterizedTest(name = "test #{index}: nums {0} -> expected {1}")

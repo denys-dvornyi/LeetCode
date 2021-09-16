@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @DisplayName("Hamming Distance #461")
 public class _461_HammingDistanceTest {
 
-	private _461_HammingDistance hammingDistanceTest = new _461_HammingDistance();
+	private final _461_HammingDistance hammingDistanceTest = new _461_HammingDistance();
 
 	@Test
 	public void testEqualNumbers() {

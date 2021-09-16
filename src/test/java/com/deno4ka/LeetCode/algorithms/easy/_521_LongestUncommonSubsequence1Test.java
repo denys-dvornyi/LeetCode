@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 public class _521_LongestUncommonSubsequence1Test {
 
-	private _521_LongestUncommonSubsequence1 longestUncommonSubsequence = new _521_LongestUncommonSubsequence1();
+	private final _521_LongestUncommonSubsequence1 longestUncommonSubsequence = new _521_LongestUncommonSubsequence1();
 
 	@DisplayName("Longest Uncommon Subsequence")
 	@ParameterizedTest(name = "test #{index}: word #1 [{0}], word #2 [{1}] -> expected subsequence length {2}")

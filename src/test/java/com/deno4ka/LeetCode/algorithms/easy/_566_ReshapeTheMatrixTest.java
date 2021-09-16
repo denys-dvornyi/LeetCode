@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 public class _566_ReshapeTheMatrixTest {
 
-	private _566_ReshapeTheMatrix reshapeTheMatrix = new _566_ReshapeTheMatrix();
+	private final _566_ReshapeTheMatrix reshapeTheMatrix = new _566_ReshapeTheMatrix();
 
 	@DisplayName("Reshape the Matrix")
 	@ParameterizedTest(name = "test #{index}: matrix to reshape \"{0}\", rows {1}, columns {2} -> expected matrix \"{3}\"")

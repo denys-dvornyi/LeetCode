@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName("Repeated Substring Pattern #459")
 public class _459_RepeatedSubstringPatternTest {
 
-	private _459_RepeatedSubstringPattern repeatedSubstringPattern = new _459_RepeatedSubstringPattern();
+	private final _459_RepeatedSubstringPattern repeatedSubstringPattern = new _459_RepeatedSubstringPattern();
 
 //	@Test
 	void testNull() {

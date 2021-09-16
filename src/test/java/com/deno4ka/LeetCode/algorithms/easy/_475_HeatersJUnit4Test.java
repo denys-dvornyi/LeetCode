@@ -15,7 +15,7 @@ import static org.junit.Assert.assertThat;
 @RunWith(value = Parameterized.class)
 public class _475_HeatersJUnit4Test {
 
-	private _475_Heaters heatersImpl = new _475_Heaters();
+	private final _475_Heaters heatersImpl = new _475_Heaters();
 
 	@Parameter(value = 0)
 	public int[] houses;

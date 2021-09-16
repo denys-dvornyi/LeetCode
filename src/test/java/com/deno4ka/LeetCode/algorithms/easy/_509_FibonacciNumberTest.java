@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class _509_FibonacciNumberTest {
 
-	private _509_FibonacciNumber fibonacciNumber = new _509_FibonacciNumber();
+	private final _509_FibonacciNumber fibonacciNumber = new _509_FibonacciNumber();
 
 	@DisplayName("Fibonacci numbers")
 	@ParameterizedTest(name = "test #{index}: fibonacci number {0} -> expected {1}")

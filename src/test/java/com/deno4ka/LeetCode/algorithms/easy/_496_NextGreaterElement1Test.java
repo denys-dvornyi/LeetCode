@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class _496_NextGreaterElement1Test {
 
-	private _496_NextGreaterElement1 nextGreaterElement1 = new _496_NextGreaterElement1();
+	private final _496_NextGreaterElement1 nextGreaterElement1 = new _496_NextGreaterElement1();
 
 	@DisplayName("Find all the next greater numbers for nums1's elements in the corresponding places of nums2")
 	@ParameterizedTest(name = "test #{index}: nums1 {0}, nums2 {1}, -> expected {2}")

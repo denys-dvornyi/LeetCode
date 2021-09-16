@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 public class _520_DetectCapitalTest {
 
-	private _520_DetectCapital detectCapital = new _520_DetectCapital();
+	private final _520_DetectCapital detectCapital = new _520_DetectCapital();
 
 	@DisplayName("Detect Capital")
 	@ParameterizedTest(name = "test #{index}: word {0} -> expected {1}")
