@@ -26,8 +26,36 @@ public class _696_CountBinarySubstrings {
 
 	public int countBinarySubstrings(String s) {
 		if (s == null || s.length() < 2) return 0;
-
-		return 0;
+		int[] sequences = new int[s.length()];
+		int sequencePointer = 0;
+		int sequenceOfZeros = 0;
+		int sequenceOfOnes = 0;
+		for (int i = 0; i < s.length(); i++) {
+			if (s.charAt(i) == '0') {
+				sequenceOfZeros++;
+				if (sequenceOfOnes != 0) {
+					sequences[sequencePointer] = sequenceOfOnes;
+					sequencePointer++;
+					sequenceOfOnes = 0;
+				}
+			} else {
+				sequenceOfOnes++;
+				if (sequenceOfZeros != 0) {
+					sequences[sequencePointer] = sequenceOfZeros;
+					sequencePointer++;
+					sequenceOfZeros = 0;
+				}
+			}
+		}
+		if (sequencePointer < 2) return 0;
+		int result = 0;
+		for (int j = 0; j < sequencePointer - 1; j++) {
+			int first = sequences[j];
+			int second = sequences[j + 1];
+			int minSequence = Math.min(first, second);
+			result += minSequence;
+		}
+		return result;
 	}
 
 }
