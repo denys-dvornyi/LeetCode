@@ -21,10 +21,18 @@ public class _696_CountBinarySubstringsTest {
 
 	public static Stream<Arguments> useCases() {
 		return Stream.of(
+				Arguments.of("01", 1),
 				Arguments.of("00110011", 6),
 				Arguments.of("10101", 4),
+				Arguments.of("11110", 1),
+				Arguments.of("0111", 1),
+				Arguments.of("11011", 2),
+				Arguments.of("001000", 2),
+				Arguments.of("011011", 3),
+				Arguments.of("101110", 3),
 				Arguments.of("11011011", 4),
-				Arguments.of("001010100", 6)
+				Arguments.of("101010", 5),
+				Arguments.of("0010101001", 7)
 		);
 	}
 

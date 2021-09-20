@@ -24,6 +24,7 @@ s[i] is either '0' or '1'.
 
 public class _696_CountBinarySubstrings {
 
+//	Runtime: 19 ms, faster than 16.13% & Memory Usage: 49.2 MB, less than 7.05%
 	public int countBinarySubstrings(String s) {
 		if (s == null || s.length() < 2) return 0;
 		int[] sequences = new int[s.length()];
@@ -47,6 +48,13 @@ public class _696_CountBinarySubstrings {
 				}
 			}
 		}
+		if (sequenceOfOnes != 0) {
+			sequences[sequencePointer] = sequenceOfOnes;
+			sequencePointer++;
+		} else if (sequenceOfZeros != 0) {
+			sequences[sequencePointer] = sequenceOfZeros;
+			sequencePointer++;
+		}
 		if (sequencePointer < 2) return 0;
 		int result = 0;
 		for (int j = 0; j < sequencePointer - 1; j++) {
@@ -57,5 +65,25 @@ public class _696_CountBinarySubstrings {
 		}
 		return result;
 	}
+
+//	fastest from leet.code (5 ms)
+//	public int countBinarySubstrings(String s) {
+//		char[] str = s.toCharArray();
+//		int left=0, mid, right=0;
+//
+//		while(right<str.length && str[left] == str[right]) right++;
+//		mid = right;
+//
+//		int ret = 0;
+//		while(right<=str.length){
+//			if(right == str.length || str[left] == str[right]){
+//				ret += Math.min(mid - left, right - mid);
+//				left = mid;
+//				mid = right;
+//			}
+//			right++;
+//		}
+//		return ret;
+//	}
 
 }
