@@ -23,7 +23,8 @@ public class _704_BinarySearchTest {
 		return Stream.of(
 				Arguments.of(new int[]{-1, 0, 3, 5, 9, 12}, 9, 4),
 				Arguments.of(new int[]{-1, 0, 3, 5, 9, 12}, 2, -1),
-				Arguments.of(new int[]{-3, -1, 0, 3, 5, 9, 12, 17}, 17, 7)
+				Arguments.of(new int[]{-3, -1, 0, 3, 5, 9, 12, 17}, 17, 7),
+				Arguments.of(new int[]{-99, -3, -1, 0, 3, 5, 9, 12, 17, 101}, -99, 0)
 		);
 	}
 
