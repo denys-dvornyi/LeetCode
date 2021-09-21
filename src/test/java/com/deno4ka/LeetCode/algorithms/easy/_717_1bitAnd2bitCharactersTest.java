@@ -30,7 +30,8 @@ public class _717_1bitAnd2bitCharactersTest {
 				Arguments.of(new int[]{0, 1, 0}, false),
 				Arguments.of(new int[]{0, 1, 0, 0}, true),
 				Arguments.of(new int[]{0, 1, 1, 0}, true),
-				Arguments.of(new int[]{1, 1, 1, 1}, false)
+				Arguments.of(new int[]{1, 1, 1, 1}, false),
+				Arguments.of(new int[]{0, 1, 1, 1, 1, 0}, true)
 		);
 	}
 
