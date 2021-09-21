@@ -22,9 +22,22 @@ s consists of printable ASCII characters.
 
 public class _709_ToLowerCase {
 
-	public String toLowerCase(String s) {
+	final int A_CHAR = 'A';
+	final int Z_CHAR = 'Z';
+	final int DIFF = (int) 'a' - (int) 'A';
 
-		return null;
+//	Runtime: 0 ms, faster than 100.00% & Memory Usage: 37.6 MB, less than 39.97%
+	public String toLowerCase(String s) {
+		if (s == null || s.isEmpty()) return s;
+		StringBuilder sb = new StringBuilder(s.length());
+		for (char c : s.toCharArray()) {
+			if ((int) c >= A_CHAR && (int) c <= Z_CHAR) {
+				sb.append((char) (((int) c) + DIFF));
+			} else {
+				sb.append(c);
+			}
+		}
+		return sb.toString();
 	}
 
 }

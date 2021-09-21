@@ -16,15 +16,15 @@ public class _709_ToLowerCaseTest {
 	@ParameterizedTest(name = "test #{index}: string \"{0}\", expected string \"{1}\"")
 	@MethodSource({"useCases"})
 	public void toLowerCase(String s, String expected) {
-		Assertions.assertEquals(expected, toLowerCase(s));
+		Assertions.assertEquals(expected, toLowerCase.toLowerCase(s));
 	}
 
 	public static Stream<Arguments> useCases() {
 		return Stream.of(
-				Arguments.of(new int[]{-1, 0, 3, 5, 9, 12}, 9, 4),
-				Arguments.of(new int[]{-1, 0, 3, 5, 9, 12}, 2, -1),
-				Arguments.of(new int[]{-3, -1, 0, 3, 5, 9, 12, 17}, 17, 7),
-				Arguments.of(new int[]{-99, -3, -1, 0, 3, 5, 9, 12, 17, 101}, -99, 0)
+				Arguments.of("Hello", "hello"),
+				Arguments.of("here", "here"),
+				Arguments.of("LOVELY", "lovely"),
+				Arguments.of("al&phaBET", "al&phabet")
 		);
 	}
 
