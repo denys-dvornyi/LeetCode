@@ -39,11 +39,22 @@ https://leetcode.com/problems/find-the-middle-index-in-array/
 
 public class _724_FindPivotIndex {
 
+//	Runtime: 1 ms, faster than 100.00% & Memory Usage: 39.9 MB, less than 45.83%
 	public int pivotIndex(int[] nums) {
-		int pivotIndex = -1;
-		if (nums == null || nums.length == 0) return pivotIndex;
-
-		return pivotIndex;
+		if (nums == null || nums.length == 0) return -1;
+		int leftSum = 0;
+		int rightSum = 0;
+		int pivotIndex = 0;
+		for (int i = 1; i < nums.length; i++) {
+			rightSum += nums[i];
+		}
+		while (leftSum != rightSum && pivotIndex < nums.length - 1) {
+			leftSum += nums[pivotIndex];
+			rightSum -= nums[pivotIndex + 1];
+			pivotIndex++;
+		}
+		if (leftSum == rightSum) return pivotIndex;
+		else return -1;
 	}
 
 }
