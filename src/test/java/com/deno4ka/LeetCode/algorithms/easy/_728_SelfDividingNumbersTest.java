@@ -6,6 +6,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -22,8 +24,8 @@ public class _728_SelfDividingNumbersTest {
 
 	public static Stream<Arguments> useCases() {
 		return Stream.of(
-				Arguments.of(1, 22, new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22}),
-				Arguments.of(47, 85, new int[]{48, 55, 66, 77})
+				Arguments.of(1, 22, Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22)),
+				Arguments.of(47, 85, Arrays.asList(48, 55, 66, 77))
 		);
 	}
 
