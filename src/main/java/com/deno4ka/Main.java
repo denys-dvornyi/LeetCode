@@ -28,6 +28,9 @@ import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executors;
+import java.util.concurrent.RejectedExecutionHandler;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -38,7 +41,7 @@ import static org.testng.Assert.assertEquals;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 //        FirstNonRepeatedCharacterInTheString firstNonRepeatedCharacterInTheString = new FirstNonRepeatedCharacterInTheString();
 //        TACAssetExport tacAssetExport = new TACAssetExport();
 
@@ -141,6 +144,30 @@ public class Main {
 //        _453_MinimumMovesToEqualArrayElements minimumMovesToEqualArrayElements = new _453_MinimumMovesToEqualArrayElements();
 //        _455_AssignCookies assignCookies = new _455_AssignCookies();
 //        _458_PoorPigs poorPigs = new _458_PoorPigs();
+
+//        ThreadPoolExecutor serviceThreadPool = (ThreadPoolExecutor) Executors.newFixedThreadPool(10);
+//        int sum = 0;
+//        for (int i = 0; i < 30; i++) {
+//            final int t = i;
+//            final int r = new Random().nextInt(10);
+//            if (t < 20) {
+//                serviceThreadPool.execute(() -> {
+//                    try {
+//                        System.out.println("run thread #" + t + ", getActiveCount=" + serviceThreadPool.getActiveCount());
+//                        Thread.sleep(r * 1000);
+//                        System.out.println("finished thread #" + t);
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
+//                });
+//            } else {
+//                Thread.sleep(1000);
+//                System.out.println("getActiveCount=" + serviceThreadPool.getActiveCount());
+//                System.out.println("getLargestPoolSize=" + serviceThreadPool.getLargestPoolSize());
+//                System.out.println("getQueue=" + serviceThreadPool.getQueue());
+//            }
+//        }
+//        serviceThreadPool.shutdown();
 
     }
 

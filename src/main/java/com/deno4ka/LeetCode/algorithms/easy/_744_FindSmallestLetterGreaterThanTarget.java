@@ -36,10 +36,18 @@ target is a lowercase English letter.
 
 public class _744_FindSmallestLetterGreaterThanTarget {
 
+//	Runtime: 0 ms, faster than 100.00% & Memory Usage: 39.3 MB, less than 55.26%
 	public char nextGreatestLetter(char[] letters, char target) {
 		if (letters == null || letters.length < 2) return target;
-
-		return target;
+		if (target < letters[0] || target >= letters[letters.length - 1]) {
+			return letters[0];
+		}
+		for (char letter : letters) {
+			if (target < letter) {
+				return letter;
+			}
+		}
+		return letters[0];
 	}
 
 }

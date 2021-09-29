@@ -26,7 +26,9 @@ public class _744_FindSmallestLetterGreaterThanTargetTest {
 				Arguments.of(new char[]{'c', 'f', 'j'}, 'c', 'f'),
 				Arguments.of(new char[]{'c', 'f', 'j'}, 'd', 'f'),
 				Arguments.of(new char[]{'c', 'f', 'j'}, 'g', 'j'),
-				Arguments.of(new char[]{'c', 'f', 'j'}, 'j', 'c')
+				Arguments.of(new char[]{'c', 'f', 'j'}, 'j', 'c'),
+				Arguments.of(new char[]{'c', 'f', 'f', 'f', 'j'}, 'f', 'j'),
+				Arguments.of(new char[]{'c', 'f', 'f', 'f', 'j'}, 'e', 'f')
 		);
 	}
 
