@@ -27,6 +27,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionHandler;
@@ -144,6 +145,21 @@ public class Main {
 //        _453_MinimumMovesToEqualArrayElements minimumMovesToEqualArrayElements = new _453_MinimumMovesToEqualArrayElements();
 //        _455_AssignCookies assignCookies = new _455_AssignCookies();
 //        _458_PoorPigs poorPigs = new _458_PoorPigs();
+
+        final ConcurrentHashMap<String, Integer> map = new ConcurrentHashMap<>();
+//        Integer integer = map.get(null);
+//        System.out.println(integer);
+        map.put("1", 1);
+//        map.put("null", null);
+//        map.put(null, 999);
+        System.out.println(map.get("1"));
+        System.out.println(map.get("2"));
+        System.out.println(map.remove("2"));
+        System.out.println(map.remove("1"));
+        System.out.println(map.get("1"));
+        System.out.println(map.remove(null));
+
+//        System.out.println(map.get(null));
 
 //        ThreadPoolExecutor serviceThreadPool = (ThreadPoolExecutor) Executors.newFixedThreadPool(10);
 //        int sum = 0;
