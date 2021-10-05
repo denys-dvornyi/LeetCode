@@ -23,10 +23,25 @@ Constraints:
 
 public class _746_MinCostClimbingStairs {
 
+	//v 1.0 Time Limit Exceeded (259 / 283 test cases passed)
 	public int minCostClimbingStairs(int[] cost) {
-		if (cost == null || cost.length == 0) return 0;
-
-		return 0;
+//		if (cost == null || cost.length == 0) return 0; // // unreal by constraints
+//		if (cost.length == 1) return cost[0];   // unreal by constraints
+		return Math.min(climb(0, 0, cost), climb(0, 1, cost));
 	}
+
+	private int climb(int sum, int position, int[] cost) {
+		if (position >= cost.length) return 0;
+		sum += cost[position] + Math.min(climb(sum, position + 1, cost), climb(sum, position + 2, cost));
+		return sum;
+	}
+
+//	from leet.code O(n) (Runtime: 1 ms, faster than 84.29% & Memory Usage: 40.8 MB, less than 14.91%)
+//	public int minCostClimbingStairs(int[] cost) {
+//		for (int i = 2; i < cost.length; i++) {
+//			cost[i] += Math.min(cost[i - 1], cost[i - 2]);
+//		}
+//		return Math.min(cost[cost.length - 1], cost[cost.length - 2]);
+//	}
 
 }
