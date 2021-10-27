@@ -28,15 +28,81 @@ Constraints:
 The largest element in nums is unique.
 */
 
+import java.util.Arrays;
+
 public class _747_LargestNumberAtLeastTwiceOfOthers {
 
+//	with two loops
+//	Runtime: 0 ms, faster than 100.00% & Memory Usage: 37.1 MB, less than 52.02%
+//	public int dominantIndex(int[] nums) {
+//		if (nums == null || nums.length == 0) return -1;
+//		if (nums.length == 1) return 0;
+//		else {
+//			int maxElementIndex = 0;
+//			int maxElement = nums[maxElementIndex];
+//			for (int i = 1; i < nums.length; i++) {
+//				if (maxElement < nums[i]) {
+//					maxElementIndex = i;
+//					maxElement = nums[i];
+//				}
+//			}
+//			for (int j = 0; j < nums.length; j++) {
+//				if (j == maxElementIndex) continue; // skip if it's the max element of array
+//				if (maxElement < nums[j] * 2) {
+//					return -1;
+//				}
+//			}
+//			return maxElementIndex;
+//		}
+//	}
+
+//	with prev maximum
+//	Runtime: 0 ms, faster than 100.00% & Memory Usage: 37 MB, less than 59.13%
 	public int dominantIndex(int[] nums) {
 		if (nums == null || nums.length == 0) return -1;
 		if (nums.length == 1) return 0;
 		else {
-
+			int prevMaxElement = Integer.MIN_VALUE;
+			int maxElementIndex = 0;
+			int maxElement = nums[maxElementIndex];
+			for (int i = 1; i < nums.length; i++) {
+				if (maxElement < nums[i]) {
+					prevMaxElement = maxElement;
+					maxElementIndex = i;
+					maxElement = nums[i];
+				} else if (prevMaxElement < nums[i]) {
+					prevMaxElement = nums[i];
+				}
+			}
+			if (prevMaxElement * 2 > maxElement) {
+				return -1;
+			} else {
+				return maxElementIndex;
+			}
 		}
-		return -1;
 	}
+
+//	with sorting array
+//	Runtime: 1 ms, faster than 50.61% & Memory Usage: 36.9 MB, less than 59.13%
+//	public int dominantIndex(int[] nums) {
+//		if (nums == null || nums.length == 0) return -1;
+//		if (nums.length == 1) return 0;
+//		else {
+//			int maxElementIndex = 0;
+//			int maxElement = nums[maxElementIndex];
+//			for (int i = 1; i < nums.length; i++) {
+//				if (maxElement < nums[i]) {
+//					maxElementIndex = i;
+//					maxElement = nums[i];
+//				}
+//			}
+//			Arrays.sort(nums);
+//			if (nums[nums.length - 2] * 2 > maxElement) {
+//				return -1;
+//			} else {
+//				return maxElementIndex;
+//			}
+//		}
+//	}
 
 }

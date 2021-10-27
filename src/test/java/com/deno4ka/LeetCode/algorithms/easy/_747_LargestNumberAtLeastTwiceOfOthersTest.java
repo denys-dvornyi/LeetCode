@@ -23,6 +23,9 @@ public class _747_LargestNumberAtLeastTwiceOfOthersTest {
 		return Stream.of(
 				Arguments.of(new int[]{3, 6, 1, 0}, 1),
 				Arguments.of(new int[]{1, 2, 3, 4}, -1),
+				Arguments.of(new int[]{10, 2, 3, 4}, 0),
+				Arguments.of(new int[]{10, 2, 3, 40}, 3),
+				Arguments.of(new int[]{0,0,3,2}, -1),
 				Arguments.of(new int[]{1}, 0)
 		);
 	}
