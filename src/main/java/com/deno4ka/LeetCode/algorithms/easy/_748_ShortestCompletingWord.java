@@ -45,11 +45,46 @@ licensePlate contains digits, letters (uppercase or lowercase), or space ' '.
 words[i] consists of lower case English letters.
 */
 
+import java.util.Arrays;
+
 public class _748_ShortestCompletingWord {
 
+//	Runtime: 5 ms, faster than 70.24% & Memory Usage: 39.3 MB, less than 84.45%
 	public String shortestCompletingWord(String licensePlate, String[] words) {
-
-		return "";
+		char[] licensePlateLetters = new char[licensePlate.length()];
+		int licencePlateLettersCount = 0;
+		final int DIFF_BETWEEN_UPPERCASE_AND_LOWERCASE = 'a' - 'A';
+		for (char c : licensePlate.toCharArray()) {
+			if ((c >= 'a' && c <= 'z')) {
+				licensePlateLetters[licencePlateLettersCount++] = c;
+			} else if ((c >= 'A' && c <= 'Z')) {
+				licensePlateLetters[licencePlateLettersCount++] = (char) ((int) c + DIFF_BETWEEN_UPPERCASE_AND_LOWERCASE);
+			}
+		}
+		licensePlateLetters = Arrays.copyOfRange(licensePlateLetters, 0, licencePlateLettersCount);
+		Arrays.sort(licensePlateLetters);
+		String shortestCompletingWord = null;
+		for (String w : words) {
+			char[] wordChars = w.toCharArray();
+			Arrays.sort(wordChars);
+			int i = 0;
+			for (int j = 0; i < licensePlateLetters.length && j < wordChars.length; ) {
+				if (licensePlateLetters[i] == wordChars[j]) {
+					i++;
+					j++;
+				} else {
+					j++;
+				}
+			}
+			if (i == licensePlateLetters.length) {
+				if (shortestCompletingWord == null) {
+					shortestCompletingWord = w;
+				} else if (shortestCompletingWord.length() > w.length()) {
+					shortestCompletingWord = w;
+				}
+			}
+		}
+		return shortestCompletingWord;
 	}
 
 }
