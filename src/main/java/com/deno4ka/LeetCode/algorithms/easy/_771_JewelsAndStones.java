@@ -20,8 +20,6 @@ jewels and stones consist of only English letters.
 All the characters of jewels are unique.
 */
 
-import java.util.Map;
-
 public class _771_JewelsAndStones {
 
 //	Runtime: 0 ms, faster than 100.00% & Memory Usage: 37.4 MB, less than 78.28%
