@@ -20,10 +20,36 @@ jewels and stones consist of only English letters.
 All the characters of jewels are unique.
 */
 
+import java.util.Map;
+
 public class _771_JewelsAndStones {
 
+//	Runtime: 0 ms, faster than 100.00% & Memory Usage: 37.4 MB, less than 78.28%
+//	array solution, faster than String.contains()
 	public int numJewelsInStones(String jewels, String stones) {
-		return 0;
+		int jewelsNum = 0;
+		boolean[] jewelsArray = new boolean[123];   // because 'z' char equals 122, so we need 123 elements array
+		for (char j : jewels.toCharArray()) {
+			jewelsArray[j] = true;
+		}
+		for (char c : stones.toCharArray()) {
+			if (jewelsArray[c]) {
+				jewelsNum++;
+			}
+		}
+		return jewelsNum;
 	}
+
+//	Runtime: 1 ms, faster than 82.24% & Memory Usage: 37.7 MB, less than 54.41%
+//	String.contains() solution
+//	public int numJewelsInStones(String jewels, String stones) {
+//		int jewelsNum = 0;
+//		for (char c : stones.toCharArray()) {
+//			if (jewels.contains(String.valueOf(c))) {
+//				jewelsNum++;
+//			}
+//		}
+//		return jewelsNum;
+//	}
 
 }
