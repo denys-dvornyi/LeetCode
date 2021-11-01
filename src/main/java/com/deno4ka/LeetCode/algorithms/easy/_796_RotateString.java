@@ -20,7 +20,40 @@ s and goal consist of lowercase English letters.
 
 public class _796_RotateString {
 
+//	Runtime: 0 ms, faster than 100.00% & Memory Usage: 36.6 MB, less than 96.90%
 	public boolean rotateString(String s, String goal) {
+		if (s.length() == 1 && goal.length() == 1) {
+			return s.equals(goal);
+		} else if (s.length() > goal.length()) {
+			return false;
+		} else {
+			boolean startFound = false;
+			int shift = 0;
+			int i = 0, j = 0;
+			while (i < s.length() && shift < goal.length()) {
+				int goalPosition = j + shift;
+				if (goalPosition >= goal.length()) {
+					goalPosition -= goal.length();
+				}
+				if (s.charAt(i) == goal.charAt(goalPosition)) {
+					if (i == s.length() - 1) {
+						return true;
+					}
+					j++;
+					i++;
+					if (!startFound) {
+						startFound = true;
+					}
+				} else {
+					i = 0;
+					j = 0;
+					shift++;
+					if (startFound) {
+						startFound = false;
+					}
+				}
+			}
+		}
 		return false;
 	}
 

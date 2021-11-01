@@ -22,7 +22,15 @@ public class _796_RotateStringTest {
 	public static Stream<Arguments> useCases() {
 		return Stream.of(
 				Arguments.of("abcde", "cdeab", true),
-				Arguments.of("abcde", "abced", false)
+				Arguments.of("abcde", "abced", false),
+				Arguments.of("w", "w", true),
+				Arguments.of("w", "g", false),
+				Arguments.of("g", "w", false),
+				Arguments.of("bbc", "bcb", true),
+				Arguments.of("aa", "a", false),
+				Arguments.of("a", "aa", true),
+				Arguments.of("a", "ba", true),
+				Arguments.of("a", "bac", true)
 		);
 	}
 
