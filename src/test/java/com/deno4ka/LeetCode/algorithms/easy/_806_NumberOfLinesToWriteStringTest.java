@@ -16,7 +16,7 @@ public class _806_NumberOfLinesToWriteStringTest {
 	@ParameterizedTest(name = "test #{index}: widths \"{0}\", string \"{1}\", expected \"{2}\"")
 	@MethodSource({"useCases"})
 	public void numberOfLines(int[] widths, String s, int[] expected) {
-		Assertions.assertEquals(expected, numberOfLinesToWriteString.numberOfLines(widths, s));
+		Assertions.assertArrayEquals(expected, numberOfLinesToWriteString.numberOfLines(widths, s));
 	}
 
 	public static Stream<Arguments> useCases() {
