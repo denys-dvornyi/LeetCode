@@ -21,8 +21,10 @@ public class _819_MostCommonWordTest {
 
 	public static Stream<Arguments> useCases() {
 		return Stream.of(
+				Arguments.of("a, a, a, a, b,b,b,c, c", new String[] {"a"}, "b"),
 				Arguments.of("Bob hit a ball, the hit BALL flew far after it was hit.", new String[] {"hit"}, "ball"),
-				Arguments.of("a.", new String[] {}, "a")
+				Arguments.of("a.", new String[] {}, "a"),
+				Arguments.of("?,,!!!b;.", new String[] {}, "b")
 		);
 	}
 
