@@ -26,10 +26,30 @@ sentence has no leading or trailing spaces.
 All the words in sentence are separated by a single space.
 */
 
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 public class _824_GoatLatin {
 
-		public String toGoatLatin(String sentence) {
-		return "";
+	private static final Set<Character> VOWELS = Stream.of('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U').collect(Collectors.toSet());
+
+//	Runtime: 2 ms, faster than 89.32% & Memory Usage: 37.7 MB, less than 75.49%
+	public String toGoatLatin(String sentence) {
+		String[] words = sentence.split(" ");
+		for (int i = 0; i < words.length; i++) {
+			StringBuilder goatWord = new StringBuilder();
+			if (VOWELS.contains(words[i].charAt(0))) {
+				goatWord.append(words[i]).append("ma");
+			} else {
+				goatWord.append(words[i].substring(1)).append(words[i].charAt(0)).append("ma");
+			}
+			for (int j = -1; j < i; j++) {
+				goatWord.append("a");
+			}
+			words[i] = goatWord.toString();
+		}
+		return String.join(" ", words);
 	}
 
 }
