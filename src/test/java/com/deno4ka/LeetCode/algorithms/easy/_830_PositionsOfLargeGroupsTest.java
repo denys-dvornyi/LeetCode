@@ -22,6 +22,7 @@ public class _830_PositionsOfLargeGroupsTest {
 
 	public static Stream<Arguments> useCases() {
 		return Stream.of(
+				Arguments.of("aaa", List.of(List.of(0, 2))),
 				Arguments.of("abbxxxxzzy", List.of(List.of(3, 6))),
 				Arguments.of("abcdddeeeeaabbbcd", List.of(List.of(3, 5), List.of(6, 9), List.of(12, 14))),
 				Arguments.of("aba", List.of())
