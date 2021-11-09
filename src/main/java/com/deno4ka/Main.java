@@ -149,34 +149,4 @@ public class Main {
 
     }
 
-    private void test(Person person) {
-        person = null;
-//        person = new Person("Helena", 33);
-//        person.name += " Ivanovich";
-//        person.age += 20;
-    }
-
-
-
-}
-
-class Person {
-    String name = "Vasya";
-    int age = 20;
-
-    public Person() {}
-
-    public Person(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
-
-    @Override
-    public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                '}';
-    }
-
 }
