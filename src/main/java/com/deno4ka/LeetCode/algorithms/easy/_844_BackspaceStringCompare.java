@@ -33,8 +33,35 @@ Follow up: Can you solve it in O(n) time and O(1) space?
 
 public class _844_BackspaceStringCompare {
 
+//	Runtime: 0 ms, faster than 100.00% & Memory Usage: 37.2 MB, less than 73.85%
 	public boolean backspaceCompare(String s, String t) {
-		return false;
+		StringBuilder first = new StringBuilder();
+		int backspaces = 0;
+		for (int i = s.length() - 1; i > -1; i--) {
+			if (s.charAt(i) != '#') {
+				if (backspaces == 0) {
+					first.append(s.charAt(i));
+				} else {
+					backspaces--;
+				}
+			} else {
+				backspaces++;
+			}
+		}
+		backspaces = 0;
+		StringBuilder second = new StringBuilder();
+		for (int j = t.length() - 1; j > -1; j--) {
+			if (t.charAt(j) != '#') {
+				if (backspaces == 0) {
+					second.append(t.charAt(j));
+				} else {
+					backspaces--;
+				}
+			} else {
+				backspaces++;
+			}
+		}
+		return first.toString().equals(second.toString());
 	}
 
 }
