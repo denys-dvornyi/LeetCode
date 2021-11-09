@@ -1,5 +1,6 @@
 package com.deno4ka;
 
+import com.deno4ka.LeetCode.algorithms.easy._852_PeakIndexInAMountainArray;
 import com.deno4ka.Other.CompletableFutureExamples;
 import com.deno4ka.Other.ParserFrontLog;
 import com.deno4ka.Other.ParserLog;
@@ -42,7 +43,7 @@ import static org.testng.Assert.assertEquals;
 
 public class Main {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, NoSuchFieldException {
 //        FirstNonRepeatedCharacterInTheString firstNonRepeatedCharacterInTheString = new FirstNonRepeatedCharacterInTheString();
 //        TACAssetExport tacAssetExport = new TACAssetExport();
 
@@ -146,47 +147,36 @@ public class Main {
 //        _455_AssignCookies assignCookies = new _455_AssignCookies();
 //        _458_PoorPigs poorPigs = new _458_PoorPigs();
 
-        final ConcurrentHashMap<String, Integer> map = new ConcurrentHashMap<>();
-//        Integer integer = map.get(null);
-//        System.out.println(integer);
-        map.put("1", 1);
-//        map.put("null", null);
-//        map.put(null, 999);
-        System.out.println(map.get("1"));
-        System.out.println(map.get("2"));
-        System.out.println(map.remove("2"));
-        System.out.println(map.remove("1"));
-        System.out.println(map.get("1"));
-        System.out.println(map.remove(null));
+    }
 
-//        System.out.println(map.get(null));
-
-//        ThreadPoolExecutor serviceThreadPool = (ThreadPoolExecutor) Executors.newFixedThreadPool(10);
-//        int sum = 0;
-//        for (int i = 0; i < 30; i++) {
-//            final int t = i;
-//            final int r = new Random().nextInt(10);
-//            if (t < 20) {
-//                serviceThreadPool.execute(() -> {
-//                    try {
-//                        System.out.println("run thread #" + t + ", getActiveCount=" + serviceThreadPool.getActiveCount());
-//                        Thread.sleep(r * 1000);
-//                        System.out.println("finished thread #" + t);
-//                    } catch (InterruptedException e) {
-//                        e.printStackTrace();
-//                    }
-//                });
-//            } else {
-//                Thread.sleep(1000);
-//                System.out.println("getActiveCount=" + serviceThreadPool.getActiveCount());
-//                System.out.println("getLargestPoolSize=" + serviceThreadPool.getLargestPoolSize());
-//                System.out.println("getQueue=" + serviceThreadPool.getQueue());
-//            }
-//        }
-//        serviceThreadPool.shutdown();
-
+    private void test(Person person) {
+        person = null;
+//        person = new Person("Helena", 33);
+//        person.name += " Ivanovich";
+//        person.age += 20;
     }
 
 
+
+}
+
+class Person {
+    String name = "Vasya";
+    int age = 20;
+
+    public Person() {}
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
 
 }

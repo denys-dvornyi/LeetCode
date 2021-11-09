@@ -39,8 +39,37 @@ Follow up: Finding the O(n) is straightforward, could you find an O(log(n)) solu
 
 public class _852_PeakIndexInAMountainArray {
 
+//	O(n) solution. Runtime: 0 ms, faster than 100.00% & Memory Usage: 39.4 MB, less than 53.89%
+//	public int peakIndexInMountainArray(int[] arr) {
+//		int value = arr[0];
+//		for (int i = 1; i < arr.length; i++) {
+//			if (value < arr[i]) {
+//				value = arr[i];
+//			} else {
+//				return i - 1;
+//			}
+//		}
+//		return 0;
+//	}
+
+//	O(log(n)) solution. (some kind of binary search)
+//  Runtime: 0 ms, faster than 100.00% & Memory Usage: 39.4 MB, less than 46.73%
 	public int peakIndexInMountainArray(int[] arr) {
-		return 0;
+		if (arr.length == 3) return 1;
+		int left = 0;
+		int right = arr.length;
+		int mid = (left + right) / 2;
+		for ( ; ; ) {
+			if (arr[mid - 1] < arr[mid] && arr[mid] > arr[mid + 1]) {
+				return mid;
+			} else if (arr[mid - 1] < arr[mid] && arr[mid] < arr[mid + 1]) {
+				left = mid;
+				mid = (left + right) / 2;
+			} else if (arr[mid - 1] > arr[mid] && arr[mid] > arr[mid + 1]) {
+				right = mid;
+				mid = (left + right) / 2;
+			}
+		}
 	}
 
 }
