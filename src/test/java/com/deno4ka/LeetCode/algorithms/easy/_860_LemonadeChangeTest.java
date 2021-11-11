@@ -22,10 +22,19 @@ public class _860_LemonadeChangeTest {
 	public static Stream<Arguments> useCases() {
 		return Stream.of(
 				Arguments.of(new int[]{5, 5, 5, 10, 20}, true),
+				Arguments.of(new int[]{5, 5, 5, 10, 5, 5, 5, 10, 20}, true),
+				Arguments.of(new int[]{5, 5, 5, 20}, true),
+				Arguments.of(new int[]{5, 5, 20}, false),
+				Arguments.of(new int[]{5, 20}, false),
+				Arguments.of(new int[]{10, 20}, false),
 				Arguments.of(new int[]{5, 5, 10, 10, 20}, false),
 				Arguments.of(new int[]{5, 5, 10}, true),
-				Arguments.of(new int[]{10, 10}, false)
-		);
+				Arguments.of(new int[]{5, 10}, true),
+				Arguments.of(new int[]{10, 10}, false),
+				Arguments.of(new int[]{5}, true),
+				Arguments.of(new int[]{10}, false),
+				Arguments.of(new int[]{20}, false)
+				);
 	}
 
 }
