@@ -20,10 +20,31 @@ s1 and s2 do not have leading or trailing spaces.
 All the words in s1 and s2 are separated by a single space.
 */
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 public class _884_UncommonWordsFromTwoSentences {
 
+//	Runtime: 2 ms, faster than 87.58% & Memory Usage: 39 MB, less than 74.60%
 	public String[] uncommonFromSentences(String s1, String s2) {
-		return null;
+		String[] s1Words = s1.split(" ");
+		String[] s2Words = s2.split(" ");
+		String[] result = new String[s1Words.length + s2Words.length];
+		Map<String, Integer> words = new HashMap<>(s1Words.length + s2Words.length);
+		for (String word : s1Words) {
+			words.put(word, words.computeIfAbsent(word, count -> 0) + 1);
+		}
+		for (String word : s2Words) {
+			words.put(word, words.computeIfAbsent(word, count -> 0) + 1);
+		}
+		int uncommonWordCount = 0;
+		for (Map.Entry<String, Integer> entry : words.entrySet()) {
+			if (entry.getValue() == 1) {
+				result[uncommonWordCount++] = entry.getKey();
+			}
+		}
+		return Arrays.copyOfRange(result, 0, uncommonWordCount);
 	}
 
 }
