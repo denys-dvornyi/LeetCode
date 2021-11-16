@@ -21,7 +21,11 @@ public class _868_BinaryGapTest {
 
 	public static Stream<Arguments> useCases() {
 		return Stream.of(
-				Arguments.of(new int[][] { {1,2} }, new int[][] { {1},{2} } )
+				Arguments.of(22, 2),
+				Arguments.of(5, 2),
+				Arguments.of(6, 1),
+				Arguments.of(8, 0),
+				Arguments.of(1, 0)
 		);
 	}
 
