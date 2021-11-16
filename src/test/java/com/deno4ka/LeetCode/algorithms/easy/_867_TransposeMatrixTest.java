@@ -21,8 +21,14 @@ public class _867_TransposeMatrixTest {
 
 	public static Stream<Arguments> useCases() {
 		return Stream.of(
+				Arguments.of(new int[][] { {1,2} }, new int[][] { {1},{2} } ),
+				Arguments.of(new int[][] { {1},{2} }, new int[][] { {1,2} } ),
+				Arguments.of(new int[][] { {1,2},{3,4} }, new int[][] { {1,3},{2,4} } ),
+				Arguments.of(new int[][] { {1,3},{2,4} }, new int[][] { {1,2},{3,4} } ),
 				Arguments.of(new int[][] { {1,2,3},{4,5,6},{7,8,9} }, new int[][] { {1,4,7},{2,5,8},{3,6,9} } ),
-				Arguments.of(new int[][] { {1,2,3},{4,5,6} }, new int[][] { {1,4},{2,5},{3,6} } )
+				Arguments.of(new int[][] { {1,4,7},{2,5,8},{3,6,9} }, new int[][] { {1,2,3},{4,5,6},{7,8,9} } ),
+				Arguments.of(new int[][] { {1,2,3},{4,5,6} }, new int[][] { {1,4},{2,5},{3,6} } ),
+				Arguments.of(new int[][] { {1,4},{2,5},{3,6} }, new int[][] { {1,2,3},{4,5,6} } )
 		);
 	}
 
