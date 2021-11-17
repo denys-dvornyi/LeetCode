@@ -23,17 +23,35 @@ Output: 0
 Explanation: Change nums to be [4, 4, 4]. The score is max(nums) - min(nums) = 4 - 4 = 0.
 
 Constraints:
-1 <= nums.length <= 104
-0 <= nums[i] <= 104
-0 <= k <= 104
+1 <= nums.length <= 10(4)
+0 <= nums[i] <= 10(4)
+0 <= k <= 10(4)
 */
+
+import java.util.IntSummaryStatistics;
+import java.util.stream.IntStream;
 
 public class _908_SmallestRange1 {
 
+//	Runtime: 2 ms, faster than 80.43% & Memory Usage: 39.2 MB, less than 78.90%
 	public int smallestRangeI(int[] nums, int k) {
 		if (nums.length < 2) return 0;
-
-		return 0;
+		int minValue = 10_000;
+		int maxValue = 0;
+		for (int num : nums) {
+			minValue = Math.min(minValue, num);
+			maxValue = Math.max(maxValue, num);
+		}
+		int diff = maxValue - minValue;
+		return diff > Math.abs(k) * 2 ? diff - Math.abs(k) * 2 : 0;
 	}
+
+//	Stream version
+//	public int smallestRangeI(int[] nums, int k) {
+//		if (nums.length < 2) return 0;
+//		IntSummaryStatistics stat = IntStream.of(nums).summaryStatistics();
+//		int diff = stat.getMax() - stat.getMin();
+//		return diff > Math.abs(k) * 2 ? diff - Math.abs(k) * 2 : 0;
+//	}
 
 }

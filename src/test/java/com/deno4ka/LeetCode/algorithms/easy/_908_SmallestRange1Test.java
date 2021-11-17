@@ -23,7 +23,10 @@ public class _908_SmallestRange1Test {
 		return Stream.of(
 				Arguments.of(new int[] {1}, 0, 0),
 				Arguments.of(new int[] {0,10}, 2, 6),
-				Arguments.of(new int[] {1,3,6}, 3, 0)
+				Arguments.of(new int[] {1,3,6}, 3, 0),
+				Arguments.of(new int[] {55,55,55}, 3, 0),
+				Arguments.of(new int[] {55,66,77}, 11, 0),
+				Arguments.of(new int[] {4103,2214,5569,6335,4244,9485,7545,8323,7841,8858}, 391, 6489)
 		);
 	}
 
