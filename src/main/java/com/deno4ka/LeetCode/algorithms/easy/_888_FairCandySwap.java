@@ -32,10 +32,60 @@ Alice and Bob have a different total number of candies.
 There will be at least one valid answer for the given input.
 */
 
+import java.util.Arrays;
+
 public class _888_FairCandySwap {
 
+//	Runtime: 11 ms, faster than 70.92% & Memory Usage: 40.6 MB, less than 67.84%
 	public int[] fairCandySwap(int[] aliceSizes, int[] bobSizes) {
-		return null;
+		int[] result = new int[2];
+		long totalAliceCandies = 0;
+		long totalBobCandies = 0;
+		for (int candy : aliceSizes) {
+			totalAliceCandies += candy;
+		}
+		for (int candy : bobSizes) {
+			totalBobCandies += candy;
+		}
+		int diff = (int) (totalAliceCandies - totalBobCandies);
+		Arrays.sort(aliceSizes);
+		Arrays.sort(bobSizes);
+		if (diff > 0) {
+			diff /= 2;
+			for (int i = 0, j = 0; i < aliceSizes.length && j < bobSizes.length; ) {
+				if (aliceSizes[i] < bobSizes[j]) {
+					i++;
+				} else {
+					if (aliceSizes[i] - bobSizes[j] == diff) {
+						result[0] = aliceSizes[i];
+						result[1] = bobSizes[j];
+						return result;
+					} else if (aliceSizes[i] - bobSizes[j] < diff) {
+						i++;
+					} else {
+						j++;
+					}
+				}
+			}
+		} else {
+			diff /= -2;
+			for (int i = 0, j = 0; i < aliceSizes.length && j < bobSizes.length; ) {
+				if (bobSizes[j] < aliceSizes[i]) {
+					j++;
+				} else {
+					if (bobSizes[j] - aliceSizes[i] == diff) {
+						result[0] = aliceSizes[i];
+						result[1] = bobSizes[j];
+						return result;
+					} else if (bobSizes[j] - aliceSizes[i] < diff) {
+						j++;
+					} else {
+						i++;
+					}
+				}
+			}
+		}
+		return result;
 	}
 
 }
