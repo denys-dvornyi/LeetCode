@@ -22,6 +22,8 @@ public class _896_MonotonicArrayTest {
 	public static Stream<Arguments> useCases() {
 		return Stream.of(
 				Arguments.of(new int[] {-555}, true),
+				Arguments.of(new int[] {-888, 777}, true),
+				Arguments.of(new int[] {333, -444}, true),
 				Arguments.of(new int[] {1,2,2,3}, true),
 				Arguments.of(new int[] {6,5,4,4}, true),
 				Arguments.of(new int[] {1,3,2}, false),
@@ -31,6 +33,7 @@ public class _896_MonotonicArrayTest {
 				Arguments.of(new int[] {0,-1,-2,-3,-4}, true),
 				Arguments.of(new int[] {-4,-3,-2,-1,0}, true),
 				Arguments.of(new int[] {1,0,1}, false),
+				Arguments.of(new int[] {1,0,0,0,0,0,0,0,0,0,0,0,1}, false),
 				Arguments.of(new int[] {-1,0,-1}, false)
 		);
 	}
