@@ -20,10 +20,20 @@ Constraints:
 
 public class _905_SortArrayByParity {
 
+//	Runtime: 1 ms, faster than 99.15% & Memory Usage: 39.9 MB, less than 52.70%
 	public int[] sortArrayByParity(int[] nums) {
 		if (nums.length <= 1) return nums;
-
-		return null;
+		int[] result = new int[nums.length];
+		int oddPosition = nums.length - 1;
+		int evenPosition = 0;
+		for (int num : nums) {
+			if (num % 2 == 0) {
+				result[evenPosition++] = num;
+			} else {
+				result[oddPosition--] = num;
+			}
+		}
+		return result;
 	}
 
 }

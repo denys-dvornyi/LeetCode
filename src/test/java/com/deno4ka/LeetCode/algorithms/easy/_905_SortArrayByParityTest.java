@@ -23,7 +23,9 @@ public class _905_SortArrayByParityTest {
 		return Stream.of(
 				Arguments.of(new int[] {3,1,2,4}, new int[] {2,4,1,3}),
 				Arguments.of(new int[] {0,3,6,1,5,2,9,4}, new int[] {0,6,2,4,9,5,1,3}),
-				Arguments.of(new int[] {0}, new int[] {0})
+				Arguments.of(new int[] {0}, new int[] {0}),
+				Arguments.of(new int[] {1,2}, new int[] {2,1}),
+				Arguments.of(new int[] {1,2,1,2}, new int[] {2,2,1,1})
 		);
 	}
 
