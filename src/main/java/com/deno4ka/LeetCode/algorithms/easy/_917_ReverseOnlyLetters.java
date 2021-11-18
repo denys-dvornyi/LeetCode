@@ -26,10 +26,28 @@ s does not contain '\"' or '\\'.
 
 public class _917_ReverseOnlyLetters {
 
+//	Runtime: 0 ms, faster than 100.00% & Memory Usage: 37.2 MB, less than 81.28%
 	public String reverseOnlyLetters(String s) {
 		if (s.length() < 2) return s;
-
-		return s;
+		char[] symbols = s.toCharArray();
+		int begin = 0;
+		int end = symbols.length - 1;
+		while (begin <= end) {
+			if ( !( (symbols[begin] >= 'a' && symbols[begin] <= 'z') || (symbols[begin] >= 'A' && symbols[begin] <= 'Z')) ) {
+				begin++; // skip reverse because NOT a letter
+			} else if ( !( (symbols[end] >= 'a' && symbols[end] <= 'z') || (symbols[end] >= 'A' && symbols[end] <= 'Z')) ) {
+				end--; // skip reverse because NOT a letter
+			} else {
+				if (begin != end) { // swap symbols because they are both letters
+					char tmp = symbols[begin];
+					symbols[begin] = symbols[end];
+					symbols[end] = tmp;
+				}
+				begin++;
+				end--;
+			}
+		}
+		return new String(symbols);
 	}
 
 }

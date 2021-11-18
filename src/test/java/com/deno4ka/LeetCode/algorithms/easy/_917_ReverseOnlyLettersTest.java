@@ -24,10 +24,17 @@ public class _917_ReverseOnlyLettersTest {
 				Arguments.of("Z", "Z"),
 				Arguments.of("!", "!"),
 				Arguments.of("-a-", "-a-"),
+				Arguments.of("a---", "a---"),
+				Arguments.of("---b", "---b"),
 				Arguments.of("-aa-", "-aa-"),
 				Arguments.of("-ab-", "-ba-"),
 				Arguments.of("ab--", "ba--"),
+				Arguments.of("--ab", "--ba"),
+				Arguments.of("--ab--", "--ba--"),
+				Arguments.of("-a-b-", "-b-a-"),
+				Arguments.of("-acb-", "-bca-"),
 				Arguments.of("ab-cd", "dc-ba"),
+				Arguments.of("aA-zZ", "Zz-Aa"),
 				Arguments.of("a-bC-dEf-ghIj", "j-Ih-gfE-dCba"),
 				Arguments.of("Test1ng-Leet=code-Q!", "Qedo1ct-eeLg=ntse-T!")
 		);
