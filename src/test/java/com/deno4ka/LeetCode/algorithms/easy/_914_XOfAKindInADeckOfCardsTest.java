@@ -24,8 +24,19 @@ public class _914_XOfAKindInADeckOfCardsTest {
 		return Stream.of(
 				Arguments.of(new int[] {1,2,3,4,4,3,2,1}, true),
 				Arguments.of(new int[] {1,1,1,2,2,2,3,3}, false),
+				Arguments.of(new int[] {1,1,1,2,2}, false),
+				Arguments.of(new int[] {1,1,1,2,2,2,2}, false),
 				Arguments.of(new int[] {1}, false),
 				Arguments.of(new int[] {1,1}, true),
+				Arguments.of(new int[] {1,1,1}, true),
+				Arguments.of(new int[] {1,1,1,1}, true),
+				Arguments.of(new int[] {1,1,1,1,1}, true),
+				Arguments.of(new int[] {1,1,1,1,1,1}, true),
+				Arguments.of(new int[] {1,1,1,1,1,1,1}, true),
+				Arguments.of(new int[] {1,1,1,1,1,1,1,1}, true),
+				Arguments.of(new int[] {1,1,1,1,1,1,1,1,1}, true),
+				Arguments.of(new int[] {1,1,1,1,1,1,1,1,1,1}, true),
+				Arguments.of(new int[] {1,1,1,1,1,1,1,1,1,1,1}, true),
 				Arguments.of(new int[] {1,1,2,2,2,2}, true)
 		);
 	}
