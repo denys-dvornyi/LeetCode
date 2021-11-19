@@ -25,8 +25,65 @@ Follow Up: Could you solve it in-place?
 
 public class _922_SortArrayByParity2 {
 
+//	sort in a new array
+//	Runtime: 2 ms, faster than 98.04% & Memory Usage: 42 MB, less than 21.45%
 	public int[] sortArrayByParityII(int[] nums) {
-		return null;
+		int[] result = new int[nums.length];
+		int evenPosition = 0;
+		int oddPosition = nums.length - 1;
+		for (int num : nums) {
+			if (num % 2 == 0) {
+				result[evenPosition] = num;
+				evenPosition += 2;
+			} else {
+				result[oddPosition] = num;
+				oddPosition -= 2;
+			}
+		}
+		return result;
 	}
+
+//	sort in-place
+//	Runtime: 3 ms, faster than 39.33% & Memory Usage: 40.2 MB, less than 49.62%
+//	public int[] sortArrayByParityII(int[] nums) {
+//		int evenPosition = 0;
+//		int oddPosition = nums.length - 1;
+//		while (evenPosition < nums.length && oddPosition > 0) {
+//			if (nums[evenPosition] % 2 == 0) {
+//				evenPosition += 2;
+//			} else if (nums[oddPosition] % 2 == 1) {
+//				oddPosition -= 2;
+//			} else {
+//				if (nums[evenPosition] % 2 != 0) {
+//					while (oddPosition > 0) {
+//						if (nums[oddPosition] % 2 == 1) {
+//							oddPosition -= 2;
+//						} else {
+//							int tmp = nums[evenPosition];
+//							nums[evenPosition] = nums[oddPosition];
+//							nums[oddPosition] = tmp;
+//							evenPosition += 2;
+//							oddPosition -= 2;
+//							break;
+//						}
+//					}
+//				} else if (nums[oddPosition] % 2 != 1) {
+//					while (evenPosition < nums.length) {
+//						if (nums[evenPosition] % 2 == 0) {
+//							evenPosition += 2;
+//						} else {
+//							int tmp = nums[oddPosition];
+//							nums[oddPosition] = nums[evenPosition];
+//							nums[evenPosition] = tmp;
+//							evenPosition += 2;
+//							oddPosition -= 2;
+//							break;
+//						}
+//					}
+//				}
+//			}
+//		}
+//		return nums;
+//	}
 
 }

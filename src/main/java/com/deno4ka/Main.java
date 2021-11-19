@@ -43,7 +43,7 @@ import static org.testng.Assert.assertEquals;
 
 public class Main {
 
-    public static void main(String[] args) throws InterruptedException, NoSuchFieldException {
+    public static void main(String[] args) throws InterruptedException, NoSuchFieldException, CloneNotSupportedException {
 //        FirstNonRepeatedCharacterInTheString firstNonRepeatedCharacterInTheString = new FirstNonRepeatedCharacterInTheString();
 //        TACAssetExport tacAssetExport = new TACAssetExport();
 
@@ -146,7 +146,6 @@ public class Main {
 //        _453_MinimumMovesToEqualArrayElements minimumMovesToEqualArrayElements = new _453_MinimumMovesToEqualArrayElements();
 //        _455_AssignCookies assignCookies = new _455_AssignCookies();
 //        _458_PoorPigs poorPigs = new _458_PoorPigs();
-
     }
 
 }
