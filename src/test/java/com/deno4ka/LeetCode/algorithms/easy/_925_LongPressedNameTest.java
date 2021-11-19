@@ -12,7 +12,7 @@ public class _925_LongPressedNameTest {
 
 	private final _925_LongPressedName longPressedName = new _925_LongPressedName();
 
-	@DisplayName("")
+	@DisplayName("Return `true` if it is possible that it was your friends name, with some characters (possibly none) being long pressed")
 	@ParameterizedTest(name = "test #{index}: name \"{0}\", typed \"{1}\", is long pressed name \"{2}\"")
 	@MethodSource({"useCases"})
 	public void isLongPressedName(String name, String typed, boolean expected) {
