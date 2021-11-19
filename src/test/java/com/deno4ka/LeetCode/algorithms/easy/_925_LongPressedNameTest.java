@@ -28,7 +28,8 @@ public class _925_LongPressedNameTest {
 				Arguments.of("aaabcd", "aaaabcd", true),
 				Arguments.of("aaabcd", "aaabccd", true),
 				Arguments.of("abcd", "abcddd", true),
-				Arguments.of("abcd", "bbcd", false)
+				Arguments.of("abcd", "bbcd", false),
+				Arguments.of("abcd", "abcdz", false)
 		);
 	}
 
