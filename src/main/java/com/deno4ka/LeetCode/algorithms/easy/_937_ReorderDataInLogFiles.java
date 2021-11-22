@@ -30,21 +30,23 @@ All the tokens of logs[i] are separated by a single space.
 logs[i] is guaranteed to have an identifier and at least one word after the identifier.
 */
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
-import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 public class _937_ReorderDataInLogFiles {
 
+//	my version
+//	Runtime: 13 ms, faster than 20.77% & Memory Usage: 39.9 MB, less than 36.25%
 	public String[] reorderLogFiles(String[] logs) {
 		if (logs == null || logs.length < 2) return logs;
 		Set<Log> result = new TreeSet<>();
+		int digitOrder = 1;
 		for (String log : logs) {
 			if ('0' <= log.charAt(log.length() - 1) && log.charAt(log.length() - 1) <= '9') {
-				result.add(new DigitLog(log));
+				result.add(new DigitLog(log, digitOrder++));
 			} else {
 				result.add(new LetterLog(log));
 			}
@@ -54,8 +56,8 @@ public class _937_ReorderDataInLogFiles {
 
 	class Log implements Comparable<Log> {
 
-		private String identifier;
-		private String value;
+		private final String identifier;
+		private final String value;
 
 		public Log(String log) {
 			String[] logParts = log.split(" ", 2);
@@ -65,10 +67,19 @@ public class _937_ReorderDataInLogFiles {
 
 		@Override
 		public int compareTo(Log log) {
-			if (log.getClass() == LetterLog.class) {
+			if (this.getClass() == DigitLog.class && log.getClass() == LetterLog.class) {
 				return 1;
+			} else if (this.getClass() == LetterLog.class && log.getClass() == DigitLog.class) {
+				return -1;
+			} else if (this.getClass() == DigitLog.class && log.getClass() == DigitLog.class) {
+				return Integer.compare(((DigitLog) this).order, ((DigitLog) log).order);
+			} else {
+				int result = this.value.compareTo(log.value);
+				if (result == 0) {
+					result = this.identifier.compareTo(log.identifier);
+				}
+				return result;
 			}
-			return 0;
 		}
 
 		@Override
@@ -84,9 +95,48 @@ public class _937_ReorderDataInLogFiles {
 	}
 
 	class DigitLog extends Log {
-		public DigitLog(String log) {
+
+		private final int order;
+
+		public DigitLog(String log, int order) {
 			super(log);
+			this.order = order;
 		}
+	}
+
+
+
+//	best from leet.code starts
+//	Runtime: 2 ms, faster than 99.74% & Memory Usage: 39.1 MB, less than 95.68%
+//	public String[] reorderLogFiles(String[] logs) {
+//		String[] output = new String[logs.length];
+//		int digitIndex = logs.length - 1;
+//		int letterIndex = 0;
+//		for (int i = logs.length - 1; i >= 0; --i) {
+//			if (isDigit(logs[i])) {
+//				output[digitIndex--] = logs[i];
+//			} else {
+//				output[letterIndex++] = logs[i];
+//			}
+//		}
+//
+//		// Sort letters
+//		Arrays.sort(output, 0, letterIndex, (o1, o2) -> {
+//			String o1Sub = o1.substring(o1.indexOf(' ') + 1);
+//			String o2Sub = o2.substring(o2.indexOf(' ') + 1);
+//			int diff = o1Sub.compareTo(o2Sub);
+//			if (diff == 0) {
+//				return o1.compareTo(o2);
+//			} else {
+//				return diff;
+//			}
+//		});
+//
+//		return output;
+//	}
+
+	private boolean isDigit(String s) {
+		return Character.isDigit(s.charAt(s.length() - 1));
 	}
 
 }
