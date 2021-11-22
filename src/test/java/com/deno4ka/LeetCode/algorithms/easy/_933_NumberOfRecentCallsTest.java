@@ -21,7 +21,7 @@ public class _933_NumberOfRecentCallsTest {
 
 	public static Stream<Arguments> useCases() {
 		return Stream.of(
-				Arguments.of(new String[]{"RecentCounter", "ping", "ping", "ping", "ping"}, new Integer[]{null, 1, 100, 3001, 3002}, 3)
+				Arguments.of(new String[]{"RecentCounter", "ping", "ping", "ping", "ping"}, new Integer[]{null, 1, 100, 3001, 3002}, new Integer[]{null, 1, 2, 3, 3})
 		);
 	}
 
