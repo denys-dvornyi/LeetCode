@@ -30,12 +30,63 @@ All the tokens of logs[i] are separated by a single space.
 logs[i] is guaranteed to have an identifier and at least one word after the identifier.
 */
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
+
 public class _937_ReorderDataInLogFiles {
 
 	public String[] reorderLogFiles(String[] logs) {
 		if (logs == null || logs.length < 2) return logs;
+		Set<Log> result = new TreeSet<>();
+		for (String log : logs) {
+			if ('0' <= log.charAt(log.length() - 1) && log.charAt(log.length() - 1) <= '9') {
+				result.add(new DigitLog(log));
+			} else {
+				result.add(new LetterLog(log));
+			}
+		}
+		return result.stream().map(Log::toString).collect(Collectors.toList()).toArray(new String[]{});
+	}
 
-		return null;
+	class Log implements Comparable<Log> {
+
+		private String identifier;
+		private String value;
+
+		public Log(String log) {
+			String[] logParts = log.split(" ", 2);
+			this.identifier = logParts[0];
+			this.value = logParts[1];
+		}
+
+		@Override
+		public int compareTo(Log log) {
+			if (log.getClass() == LetterLog.class) {
+				return 1;
+			}
+			return 0;
+		}
+
+		@Override
+		public String toString() {
+			return identifier + " " + value;
+		}
+	}
+
+	class LetterLog extends Log {
+		public LetterLog(String log) {
+			super(log);
+		}
+	}
+
+	class DigitLog extends Log {
+		public DigitLog(String log) {
+			super(log);
+		}
 	}
 
 }
