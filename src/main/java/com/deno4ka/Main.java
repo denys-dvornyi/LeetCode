@@ -146,6 +146,55 @@ public class Main {
 //        _453_MinimumMovesToEqualArrayElements minimumMovesToEqualArrayElements = new _453_MinimumMovesToEqualArrayElements();
 //        _455_AssignCookies assignCookies = new _455_AssignCookies();
 //        _458_PoorPigs poorPigs = new _458_PoorPigs();
+
+        class A implements Cloneable {
+            String name = "A";
+
+            @Override
+            protected A clone() throws CloneNotSupportedException {
+                return (A) super.clone();
+            }
+        }
+        class B implements Cloneable, AutoCloseable {
+            String name = "B";
+            A a;
+
+            void test(A a) {
+                a.name += " is changed";
+                a = new A();
+            }
+
+            @Override
+            protected B clone() throws CloneNotSupportedException {
+                B b = (B) super.clone();
+                if (this.a != null) {
+                    b.a = this.a.clone();
+                }
+                return b;
+            }
+
+            @Override
+            public void close() throws Exception {
+                System.out.println("close...");
+            }
+        }
+
+        try (B b = new B()) {
+
+        } catch (Exception e) {
+
+        }
+        B b1 = new B();
+        b1.a = new A();
+        b1.test(b1.a);
+        System.out.println(b1.a.name);
+//        B b2 = b1.clone();
+//        System.out.println(b1 == b2);
+//        System.out.println(b1.a == b2.a);
+
+        class myException extends Throwable {
+
+        }
     }
 
 }
