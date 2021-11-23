@@ -46,9 +46,41 @@ strs[i] consists of lowercase English letters.
 
 public class _944_DeleteColumnsToMakeSorted {
 
+//	Runtime: 21 ms, faster than 11.26% & Memory Usage: 50.1 MB, less than 6.67%
+//	public int minDeletionSize(String[] strs) {
+//		if (strs.length == 1) return 0;
+//		int[][] charMatrix = new int[strs.length][strs[0].length()];
+//		for (int i = 0; i < strs.length; i++) {
+//			for (int j = 0; j < strs[0].length(); j++) {
+//				charMatrix[i][j] = strs[i].charAt(j);
+//			}
+//		}
+//		int result = 0;
+//		for (int k = 0; k < charMatrix[0].length; k++) {
+//			for (int l = 0; l < charMatrix.length - 1; l++) {
+//				if (charMatrix[l][k] > charMatrix[l + 1][k]) {
+//					result++;
+//					break;
+//				}
+//			}
+//		}
+//		return result;
+//	}
+
+//	faster version
+//	Runtime: 6 ms, faster than 91.49% & Memory Usage: 38.9 MB, less than 92.64%
 	public int minDeletionSize(String[] strs) {
 		if (strs.length == 1) return 0;
-		return 0;
+		int result = 0;
+		for (int k = 0; k < strs[0].length(); k++) {
+			for (int l = 0; l < strs.length - 1; l++) {
+				if (strs[l].charAt(k) > strs[l + 1].charAt(k)) {
+					result++;
+					break;
+				}
+			}
+		}
+		return result;
 	}
 
 }

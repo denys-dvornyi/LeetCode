@@ -21,10 +21,15 @@ public class _944_DeleteColumnsToMakeSortedTest {
 
 	public static Stream<Arguments> useCases() {
 		return Stream.of(
+				Arguments.of(new String[]{"rrjk","furt","guzm"}, 2),
 				Arguments.of(new String[]{"cba","daf","ghi"}, 1),
 				Arguments.of(new String[]{"a","b"}, 0),
 				Arguments.of(new String[]{"zyx","wvu","tsr"}, 3),
-				Arguments.of(new String[]{"zyx"}, 0)
+				Arguments.of(new String[]{"zyx","wvu"}, 3),
+				Arguments.of(new String[]{"zyx"}, 0),
+				Arguments.of(new String[]{"zyx","zyx","zyx"}, 0),
+				Arguments.of(new String[]{"zyx","zzx","zzy"}, 0)
+
 		);
 	}
 
