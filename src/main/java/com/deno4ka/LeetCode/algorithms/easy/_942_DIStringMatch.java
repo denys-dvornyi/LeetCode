@@ -25,10 +25,42 @@ s[i] is either 'I' or 'D'.
 
 public class _942_DIStringMatch {
 
+//	Runtime: 2 ms, faster than 96.33% & Memory Usage: 45.6 MB, less than 16.89%
 	public int[] diStringMatch(String s) {
-		int[] result = new int[s.length() + 1];
-
+		final int STR_LEN = s.length();
+		int start = 0;
+		int end = s.length();
+		int[] result = new int[STR_LEN + 1];
+		for (int i = 0; i < STR_LEN; i++) {
+			if (s.charAt(i) == 'I') {
+				result[i] = start++;
+			} else {
+				result[i] = end--;
+			}
+		}
+		result[STR_LEN] = start;
 		return result;
 	}
+
+//	Wrong Answer: array with duplicate value
+//	public int[] diStringMatch(String s) {
+//		final int STR_LEN = s.length();
+//		int[] result = new int[STR_LEN + 1];
+//		for (int j = 0; j <= STR_LEN; j++) {
+//			result[0] = j;
+//			int i = 1;
+//			for ( ; i <= STR_LEN; i++) {
+//				if (s.charAt(i - 1) == 'I') {
+//					if (result[i - 1] + 1 > STR_LEN) break;
+//					result[i] = result[i - 1] + 1;
+//				} else {
+//					if (result[i - 1] - 1 < 0) break;
+//					result[i] = result[i - 1] - 1;
+//				}
+//			}
+//			if (i == STR_LEN + 1) break; // can go till the end of array
+//		}
+//		return result;
+//	}
 
 }
