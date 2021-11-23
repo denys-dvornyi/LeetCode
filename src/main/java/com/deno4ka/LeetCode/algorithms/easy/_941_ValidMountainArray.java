@@ -27,10 +27,21 @@ Constraints:
 
 public class _941_ValidMountainArray {
 
+//	Runtime: 2 ms, faster than 43.60% & Memory Usage: 51.5 MB, less than 18.65%
 	public boolean validMountainArray(int[] arr) {
 		if (arr == null || arr.length < 3) return false;
-
-		return false;
+		boolean isGrowing = true;
+		for (int i = 0; i < arr.length - 1; i++) {
+			if (arr[i] == arr[i + 1]) {
+				return false;
+			} else if (arr[i] < arr[i + 1]) {
+				if (!isGrowing) return false;
+			} else {
+				if (i == 0) return false;
+				isGrowing = false;
+			}
+		}
+		return !isGrowing;
 	}
 
 }

@@ -21,9 +21,26 @@ public class _941_ValidMountainArrayTest {
 
 	public static Stream<Arguments> useCases() {
 		return Stream.of(
+				Arguments.of(new int[]{}, false),
+				Arguments.of(new int[]{1}, false),
 				Arguments.of(new int[]{2,1}, false),
 				Arguments.of(new int[]{3,5,5}, false),
-				Arguments.of(new int[]{0,3,2,1}, true)
+				Arguments.of(new int[]{3,2,1}, false),
+				Arguments.of(new int[]{2,1,2}, false),
+				Arguments.of(new int[]{1,1,1}, false),
+				Arguments.of(new int[]{1,1,2}, false),
+				Arguments.of(new int[]{1,2,2}, false),
+				Arguments.of(new int[]{2,1,1}, false),
+				Arguments.of(new int[]{1,2,3}, false),
+				Arguments.of(new int[]{1,2,2,1}, false),
+				Arguments.of(new int[]{1,2,3,2,1}, true),
+				Arguments.of(new int[]{1,1,2,3,2,1}, false),
+				Arguments.of(new int[]{1,2,3,2,1,1}, false),
+				Arguments.of(new int[]{2,1,1,2}, false),
+				Arguments.of(new int[]{1,2,1}, true),
+				Arguments.of(new int[]{0,3,2,1}, true),
+				Arguments.of(new int[]{1,2,3,0}, true),
+				Arguments.of(new int[]{1,2,3,0,0}, false)
 		);
 	}
 
