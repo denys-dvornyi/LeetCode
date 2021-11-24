@@ -22,6 +22,7 @@ public class _953_VerifyingAnAlienDictionaryTest {
 	public static Stream<Arguments> useCases() {
 		return Stream.of(
 				Arguments.of(new String[]{"hello","leetcode"}, "hlabcdefgijkmnopqrstuvwxyz", true),
+				Arguments.of(new String[]{"hello","leetcode"}, "lhabcdefgijkmnopqrstuvwxyz", false),
 				Arguments.of(new String[]{"word","world","row"}, "worldabcefghijkmnpqstuvxyz", false),
 				Arguments.of(new String[]{"apple","app"}, "abcdefghijklmnopqrstuvwxyz", false)
 
