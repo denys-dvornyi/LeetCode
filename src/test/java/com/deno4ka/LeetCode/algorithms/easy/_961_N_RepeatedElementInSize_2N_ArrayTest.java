@@ -15,7 +15,7 @@ public class _961_N_RepeatedElementInSize_2N_ArrayTest {
 	@DisplayName("Return the element that is repeated n times")
 	@ParameterizedTest(name = "test #{index}: nums \"{0}\", expected element \"{1}\"")
 	@MethodSource({"useCases"})
-	public void isAlienSorted(int[] nums, int expected) {
+	public void repeatedNTimes(int[] nums, int expected) {
 		Assertions.assertEquals(expected, nRepeatedElementInSize2NArray.repeatedNTimes(nums));
 	}
 
