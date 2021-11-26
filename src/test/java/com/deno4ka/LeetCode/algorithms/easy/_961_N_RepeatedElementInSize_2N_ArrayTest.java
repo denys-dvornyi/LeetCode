@@ -23,8 +23,8 @@ public class _961_N_RepeatedElementInSize_2N_ArrayTest {
 		return Stream.of(
 				Arguments.of(new int[]{1,2,3,3}, 3),
 				Arguments.of(new int[]{2,1,2,5,3,2}, 2),
-				Arguments.of(new int[]{5,1,5,2,5,3,5,4}, 5)
-
+				Arguments.of(new int[]{5,1,5,2,5,3,5,4}, 5),
+				Arguments.of(new int[]{0,1,2,3,4,5,6,7,8,9,0,0,0,0,0,0,0,0}, 0)
 		);
 	}
 
