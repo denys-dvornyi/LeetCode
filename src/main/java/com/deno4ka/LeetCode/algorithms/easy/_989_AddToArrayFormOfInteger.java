@@ -37,6 +37,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+//  not easy...
 public class _989_AddToArrayFormOfInteger {
 
 //	removed Stream of int[] to List (two times faster)
