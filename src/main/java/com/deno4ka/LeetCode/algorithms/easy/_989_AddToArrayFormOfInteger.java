@@ -32,12 +32,62 @@ num does not contain any leading zeros except for the zero itself.
 1 <= k <= 10(4)
 */
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class _989_AddToArrayFormOfInteger {
 
 	public List<Integer> addToArrayForm(int[] num, int k) {
-		return null;
+		int[] kNums = new int[5]; // k <= 10(4)
+		int kPointer = kNums.length - 1;
+		while (k > 0) {
+			kNums[kPointer--] = k % 10;
+			k /= 10;
+		}
+		kPointer++;
+		if (kPointer != 0) {
+			int[] tmp = new int[5 - kPointer];
+			System.arraycopy(kNums, kPointer, tmp, 0, kNums.length - kPointer);
+			kNums = tmp;
+		}
+		int resultLength = Math.max(num.length, kNums.length);
+		int[] result = new int[resultLength];
+		int arrayOverflow = 0;
+
+		int numDiff = 0;
+		int kDiff = 0;
+		if (num.length > kNums.length) {
+			kDiff = num.length - kNums.length;
+		} else {
+			numDiff = kNums.length - num.length;
+		}
+
+		for (int i = result.length - 1; i >= 0; i--) {
+			int tmp;
+			if (num.length + numDiff > i && kNums.length > i - kDiff) {
+				tmp = num[i - numDiff] + kNums[i - kDiff] + arrayOverflow;
+			} else if (num.length + numDiff <= i && kNums.length + kDiff > i) {
+				tmp = kNums[i - kDiff] + arrayOverflow;
+			} else if (num.length + numDiff > i && kNums.length + kDiff <= i) {
+				tmp = num[i - numDiff] + arrayOverflow;
+			} else {
+				tmp = arrayOverflow;
+			}
+			arrayOverflow = tmp / 10;
+			if (tmp > 9) {
+				tmp %= 10;
+			}
+			result[i] = tmp;
+		}
+
+		if (arrayOverflow > 0) {
+			int[] tmp = new int[result.length + 1];
+			System.arraycopy(result, 0, tmp, 1, result.length);
+			result = tmp;
+			result[0] = arrayOverflow;
+		}
+		return Arrays.stream(result).boxed().collect(Collectors.toList());
 	}
 
 }

@@ -6,7 +6,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class _989_AddToArrayFormOfIntegerTest {
@@ -22,10 +24,10 @@ public class _989_AddToArrayFormOfIntegerTest {
 
 	public static Stream<Arguments> useCases() {
 		return Stream.of(
-				Arguments.of(new int[]{1,2,0,0}, 34, List.of(new int[]{1,2,3,4})),
-				Arguments.of(new int[]{2,7,4}, 181, List.of(new int[]{4,5,5})),
-				Arguments.of(new int[]{2,1,5}, 806, List.of(new int[]{1,0,2,1})),
-				Arguments.of(new int[]{9,9,9,9,9,9,9,9,9,9}, 1, List.of(new int[]{1,0,0,0,0,0,0,0,0,0,0}))
+				Arguments.of(new int[]{1,2,0,0}, 34, Arrays.stream(new int[]{1,2,3,4}).boxed().collect(Collectors.toList())),
+				Arguments.of(new int[]{2,7,4}, 181, Arrays.stream(new int[]{4,5,5}).boxed().collect(Collectors.toList())),
+				Arguments.of(new int[]{2,1,5}, 806, Arrays.stream(new int[]{1,0,2,1}).boxed().collect(Collectors.toList())),
+				Arguments.of(new int[]{9,9,9,9,9,9,9,9,9,9}, 1, Arrays.stream(new int[]{1,0,0,0,0,0,0,0,0,0,0}).boxed().collect(Collectors.toList()))
 		);
 	}
 
