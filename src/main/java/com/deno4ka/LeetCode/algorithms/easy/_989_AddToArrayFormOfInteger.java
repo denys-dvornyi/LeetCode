@@ -32,12 +32,15 @@ num does not contain any leading zeros except for the zero itself.
 1 <= k <= 10(4)
 */
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class _989_AddToArrayFormOfInteger {
 
+//	removed Stream of int[] to List (two times faster)
+//	v.2 Runtime: 3 ms, faster than 93.33% & Memory Usage: 40.2 MB, less than 90.51%
 	public List<Integer> addToArrayForm(int[] num, int k) {
 		int[] kNums = new int[5]; // k <= 10(4)
 		int kPointer = kNums.length - 1;
@@ -55,22 +58,21 @@ public class _989_AddToArrayFormOfInteger {
 		int[] result = new int[resultLength];
 		int arrayOverflow = 0;
 
-		int numDiff = 0;
-		int kDiff = 0;
-		if (num.length > kNums.length) {
-			kDiff = num.length - kNums.length;
-		} else {
-			numDiff = kNums.length - num.length;
-		}
+		int numDiff = result.length - num.length;
+		int kDiff = result.length - kNums.length;
 
 		for (int i = result.length - 1; i >= 0; i--) {
 			int tmp;
-			if (num.length + numDiff > i && kNums.length > i - kDiff) {
-				tmp = num[i - numDiff] + kNums[i - kDiff] + arrayOverflow;
-			} else if (num.length + numDiff <= i && kNums.length + kDiff > i) {
-				tmp = kNums[i - kDiff] + arrayOverflow;
-			} else if (num.length + numDiff > i && kNums.length + kDiff <= i) {
-				tmp = num[i - numDiff] + arrayOverflow;
+			if (num.length > i - numDiff && kNums.length > i - kDiff) {
+				if (i - numDiff >= 0 && i - kDiff >= 0) {
+					tmp = num[i - numDiff] + kNums[i - kDiff] + arrayOverflow;
+				} else if (i - numDiff < 0 && i - kDiff >= 0) {
+					tmp = kNums[i - kDiff] + arrayOverflow;
+				} else if (i - numDiff >= 0 && i - kDiff < 0) {
+					tmp = num[i - numDiff] + arrayOverflow;
+				} else {
+					tmp = arrayOverflow;
+				}
 			} else {
 				tmp = arrayOverflow;
 			}
@@ -81,13 +83,69 @@ public class _989_AddToArrayFormOfInteger {
 			result[i] = tmp;
 		}
 
+		List<Integer> resultList;
 		if (arrayOverflow > 0) {
-			int[] tmp = new int[result.length + 1];
-			System.arraycopy(result, 0, tmp, 1, result.length);
-			result = tmp;
-			result[0] = arrayOverflow;
+			resultList = new ArrayList<>(resultLength + 1);
+			resultList.add(arrayOverflow);
+		} else {
+			resultList = new ArrayList<>(resultLength);
 		}
-		return Arrays.stream(result).boxed().collect(Collectors.toList());
+		for (int n : result) {
+			resultList.add(n);
+		}
+		return resultList;
 	}
+
+//  v1. Runtime: 6 ms, faster than 50.92% & Memory Usage: 40.3 MB, less than 82.00%
+//	public List<Integer> addToArrayForm(int[] num, int k) {
+//		int[] kNums = new int[5]; // k <= 10(4)
+//		int kPointer = kNums.length - 1;
+//		while (k > 0) {
+//			kNums[kPointer--] = k % 10;
+//			k /= 10;
+//		}
+//		kPointer++;
+//		if (kPointer != 0) {
+//			int[] tmp = new int[5 - kPointer];
+//			System.arraycopy(kNums, kPointer, tmp, 0, kNums.length - kPointer);
+//			kNums = tmp;
+//		}
+//		int resultLength = Math.max(num.length, kNums.length);
+//		int[] result = new int[resultLength];
+//		int arrayOverflow = 0;
+//
+//		int numDiff = result.length - num.length;
+//		int kDiff = result.length - kNums.length;
+//
+//		for (int i = result.length - 1; i >= 0; i--) {
+//			int tmp;
+//			if (num.length > i - numDiff && kNums.length > i - kDiff) {
+//				if (i - numDiff >= 0 && i - kDiff >= 0) {
+//					tmp = num[i - numDiff] + kNums[i - kDiff] + arrayOverflow;
+//				} else if (i - numDiff < 0 && i - kDiff >= 0) {
+//					tmp = kNums[i - kDiff] + arrayOverflow;
+//				} else if (i - numDiff >= 0 && i - kDiff < 0) {
+//					tmp = num[i - numDiff] + arrayOverflow;
+//				} else {
+//					tmp = arrayOverflow;
+//				}
+//			} else {
+//				tmp = arrayOverflow;
+//			}
+//			arrayOverflow = tmp / 10;
+//			if (tmp > 9) {
+//				tmp %= 10;
+//			}
+//			result[i] = tmp;
+//		}
+//
+//		if (arrayOverflow > 0) {
+//			int[] tmp = new int[result.length + 1];
+//			System.arraycopy(result, 0, tmp, 1, result.length);
+//			result = tmp;
+//			result[0] = arrayOverflow;
+//		}
+//		return Arrays.stream(result).boxed().collect(Collectors.toList());
+//	}
 
 }
