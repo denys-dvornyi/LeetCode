@@ -25,7 +25,10 @@ public class _1002_FindCommonCharactersTest {
 	public static Stream<Arguments> useCases() {
 		return Stream.of(
 				Arguments.of(new String[]{"bella","label","roller"}, new ArrayList<>(Arrays.asList("e","l","l"))),
-				Arguments.of(new String[]{"cool","lock","cook"}, new ArrayList<>(Arrays.asList("c","o")))
+				Arguments.of(new String[]{"cool","lock","cook"}, new ArrayList<>(Arrays.asList("c","o"))),
+				Arguments.of(new String[]{"aaaaa","aaaaa","aaaaa"}, new ArrayList<>(Arrays.asList("a","a","a","a","a"))),
+				Arguments.of(new String[]{"abcde","abcde","abcde"}, new ArrayList<>(Arrays.asList("a","b","c","d","e"))),
+				Arguments.of(new String[]{"abcde","bcdef","cdefg"}, new ArrayList<>(Arrays.asList("c","d","e")))
 		);
 	}
 
