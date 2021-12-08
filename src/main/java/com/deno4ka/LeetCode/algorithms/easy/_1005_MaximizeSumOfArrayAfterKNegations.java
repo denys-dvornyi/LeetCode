@@ -27,10 +27,56 @@ Constraints:
 1 <= k <= 10(4)
 */
 
+import java.util.Arrays;
+
 public class _1005_MaximizeSumOfArrayAfterKNegations {
 
+//	Runtime: 6 ms, faster than 22.36% && Memory Usage: 39.7 MB, less than 17.68%
 	public int largestSumAfterKNegations(int[] nums, int k) {
-		return 0;
+		Arrays.sort(nums);
+		for (int i = 0; i < k; i++) {
+			if (i == 0 && nums[0] > -1 && k % 2 == 0) {
+				break;
+			}
+			int minPositiveNumber = 100;
+			int minPositiveNumberIndex = 0;
+			boolean isNegationed = false;
+			for (int j = 0; j < nums.length; j++) {
+				if (nums[j] < 0) {
+					nums[j] = -nums[j];
+					isNegationed = true;
+					break;
+				} else {
+					if (minPositiveNumber > nums[j]) {
+						minPositiveNumber = nums[j];
+						minPositiveNumberIndex = j;
+					}
+				}
+			}
+			if (!isNegationed) {
+				nums[minPositiveNumberIndex] = -nums[minPositiveNumberIndex];
+			}
+		}
+		int sum = 0;
+		for (int num : nums) {
+			sum += num;
+		}
+		return sum;
 	}
+
+//	best from leet.code 1ms solution
+//	public int largestSumAfterKNegations(int[] nums, int k) {
+//		Arrays.sort(nums);
+//		for(int i=0; k>0 && i<nums.length && nums[i] < 0; i++, k--){
+//			nums[i] = -nums[i];
+//		}
+//		int res = 0, min = Integer.MAX_VALUE;
+//		for(int i: nums){
+//			min = Math.min(min, i);
+//			res += i;
+//		}
+//		if(k%2 == 0) return res;
+//		return res - min*2;
+//	}
 
 }
