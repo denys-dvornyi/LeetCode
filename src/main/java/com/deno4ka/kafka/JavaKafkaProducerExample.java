@@ -16,6 +16,7 @@ public class JavaKafkaProducerExample {
 	public static void main(String[] args) throws ExecutionException, InterruptedException {
 		String server = "localhost:9092";
 		String topicName = "test";
+		String newTopic = "newTopic";
 
 		final Properties props = new Properties();
 
@@ -25,9 +26,14 @@ public class JavaKafkaProducerExample {
 
 		final Producer<Long, String> producer = new KafkaProducer<>(props);
 
-		RecordMetadata recordMetadata = (RecordMetadata) producer.send(new ProducerRecord(topicName, "example message")).get();
+		RecordMetadata recordMetadata = (RecordMetadata) producer.send(new ProducerRecord(topicName, "example message test")).get();
 		if (recordMetadata.hasOffset()) {
-			System.out.println("Message sent successfully");
+			System.out.printf("Message to %s topic sent successfully%n", topicName);
+		}
+
+		recordMetadata = (RecordMetadata) producer.send(new ProducerRecord(newTopic, "example message newTopic")).get();
+		if (recordMetadata.hasOffset()) {
+			System.out.printf("Message to %s topic sent successfully%n", topicName);
 		}
 		producer.close();
 	}
