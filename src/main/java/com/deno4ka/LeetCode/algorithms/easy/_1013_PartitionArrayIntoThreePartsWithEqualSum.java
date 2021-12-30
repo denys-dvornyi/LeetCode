@@ -26,8 +26,112 @@ Constraints:
 
 public class _1013_PartitionArrayIntoThreePartsWithEqualSum {
 
-	public boolean canThreePartsEqualSum(int[] arr) {
-		return false;
+//	Time Limit Exceeded - 72/72 test cases passed, but took too long ;(
+//	public boolean canThreePartsEqualSum(int[] arr) {
+//		if (arr.length == 3 && (arr[0] != arr[1] && arr[1] != arr[2])) return false;
+//		long sum = 0;
+//		for (int j : arr) {
+//			sum += j;
+//		}
+//		if (sum % 3 != 0) return false;
+//		for (int i = 0; i < arr.length - 2; i++) {
+//			int firstSum = 0;
+//			int firstStartIndex = 0;
+//			for ( ; firstStartIndex <= i; firstStartIndex++) {
+//				firstSum += arr[firstStartIndex];
+//			}
+//			int secondSum = 0;
+//			int secondStartIndex = firstStartIndex;
+//			boolean foundTwoEqualSums = false;
+//			for (; secondStartIndex < arr.length - 1; secondStartIndex++) {
+//				secondSum += arr[secondStartIndex];
+//				if (firstSum == secondSum) {
+//					foundTwoEqualSums = true;
+//					int thirdSum = 0;
+//					int thirdStartIndex = secondStartIndex + 1;
+//					for (; thirdStartIndex < arr.length; thirdStartIndex++) {
+//						thirdSum += arr[thirdStartIndex];
+//					}
+//					if (secondSum == thirdSum) return true;
+//				}
+//			}
+//			if (!foundTwoEqualSums) continue;
+//			int thirdSum = 0;
+//			int thirdStartIndex = secondStartIndex;
+//			for (; thirdStartIndex < arr.length; thirdStartIndex++) {
+//				thirdSum += arr[thirdStartIndex];
+//			}
+//			if (secondSum == thirdSum) return true;
+//		}
+//		return false;
+//	}
+
+//	v 2.0
+//	Runtime: 2394 ms, faster than 5.04% & Memory Usage: 46.5 MB, less than 72.68%
+//	public boolean canThreePartsEqualSum(int[] arr) {
+//		if (arr.length == 3 && (arr[0] != arr[1] && arr[1] != arr[2])) return false;
+//		long sum = 0;
+//		for (int j : arr) sum += j;
+//		if (sum % 3 != 0) return false;
+//		int firstSum = 0;
+//		for (int i = 0; i < arr.length - 2; i++) {
+//			firstSum += arr[i];
+//			int secondSum = 0;
+//			int secondStartIndex = i + 1;
+//			boolean foundTwoEqualSums = false;
+//			for (; secondStartIndex < arr.length - 1; secondStartIndex++) {
+//				secondSum += arr[secondStartIndex];
+//				if (firstSum == secondSum) {
+//					foundTwoEqualSums = true;
+//					int thirdSum = 0;
+//					int thirdStartIndex = secondStartIndex + 1;
+//					for (; thirdStartIndex < arr.length; thirdStartIndex++) {
+//						thirdSum += arr[thirdStartIndex];
+//					}
+//					if (secondSum == thirdSum) return true;
+//				}
+//			}
+//			if (!foundTwoEqualSums) continue;
+//			int thirdSum = 0;
+//			int thirdStartIndex = secondStartIndex;
+//			for (; thirdStartIndex < arr.length; thirdStartIndex++) {
+//				thirdSum += arr[thirdStartIndex];
+//			}
+//			if (secondSum == thirdSum) return true;
+//		}
+//		return false;
+//	}
+
+//	best from leet.code 1 ms
+public boolean canThreePartsEqualSum(int[] arr) {
+	if (arr.length < 3) return false;
+	int sum = 0;
+	for (int j : arr) sum = sum + j;
+	if (sum % 3 != 0) return false;
+
+	int left = 0;
+	int right = arr.length - 1;
+	int leftsum = arr[0];
+	int rightsum = arr[arr.length - 1];
+
+	while (left < right) {
+
+		if (leftsum != sum / 3) {
+			left++;
+			leftsum = leftsum + arr[left];
+		}
+
+		if (rightsum != sum / 3) {
+			right--;
+			rightsum = rightsum + arr[right];
+		}
+
+		if (leftsum == sum / 3 && rightsum == sum / 3) {
+			return (right - left) > 1;
+		}
+
 	}
+	return false;
+}
 
 }

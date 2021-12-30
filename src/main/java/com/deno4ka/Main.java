@@ -147,18 +147,9 @@ public class Main {
 //        _455_AssignCookies assignCookies = new _455_AssignCookies();
 //        _458_PoorPigs poorPigs = new _458_PoorPigs();
 
-        List<String> list = new ArrayList<>();
-        list.add("One");
-        list.add("Two");
-        list.add("Three");
-        Iterator<String> iterator = list.iterator();
-        while (iterator.hasNext()) {
-            Object next =  iterator.next();
-            Object next2 =  iterator.next();
-            iterator.remove();
-            iterator.remove();
-
-        }
+        String test = "First line\nSecond line\nThird line";
+        String[] logContents = test.split("\\R");
+        System.out.println(logContents);
     }
 
 }

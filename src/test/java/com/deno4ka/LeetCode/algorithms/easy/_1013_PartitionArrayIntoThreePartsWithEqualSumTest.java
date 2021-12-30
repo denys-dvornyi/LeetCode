@@ -23,8 +23,18 @@ public class _1013_PartitionArrayIntoThreePartsWithEqualSumTest {
 		return Stream.of(
 				Arguments.of(new int[]{0,2,1,-6,6,-7,9,1,2,0,1}, true),
 				Arguments.of(new int[]{0,2,1,-6,6,7,9,-1,2,0,1}, false),
-				Arguments.of(new int[]{3,3,6,5,-2,2,5,1,-9,4}, true)
-		);
+				Arguments.of(new int[]{3,3,6,5,-2,2,5,1,-9,4}, true),
+				Arguments.of(new int[]{-1,1,3,0}, false),
+				Arguments.of(new int[]{-1,-1,3,-4}, true),
+				Arguments.of(new int[]{-1,-1,-1,1,3,-4}, true),
+				Arguments.of(new int[]{1,2,3}, false),
+				Arguments.of(new int[]{8,8,8}, true),
+				Arguments.of(new int[]{-7,-7,-7}, true),
+				Arguments.of(new int[]{2,1,1,2}, true),
+				Arguments.of(new int[]{1,1,1,1}, false),
+				Arguments.of(new int[]{1,1,1,1,1}, false),
+				Arguments.of(new int[]{1,1,2,1,1}, true)
+				);
 	}
 
 }
