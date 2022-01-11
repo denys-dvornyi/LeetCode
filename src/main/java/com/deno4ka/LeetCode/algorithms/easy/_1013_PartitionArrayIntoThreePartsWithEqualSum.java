@@ -104,7 +104,7 @@ public class _1013_PartitionArrayIntoThreePartsWithEqualSum {
 
 //	best from leet.code 1 ms
 public boolean canThreePartsEqualSum(int[] arr) {
-	if (arr.length < 3) return false;
+	if (arr.length == 3 && (arr[0] != arr[1] && arr[1] != arr[2])) return false;
 	int sum = 0;
 	for (int j : arr) sum = sum + j;
 	if (sum % 3 != 0) return false;
@@ -117,13 +117,11 @@ public boolean canThreePartsEqualSum(int[] arr) {
 	while (left < right) {
 
 		if (leftsum != sum / 3) {
-			left++;
-			leftsum = leftsum + arr[left];
+			leftsum += arr[++left];
 		}
 
 		if (rightsum != sum / 3) {
-			right--;
-			rightsum = rightsum + arr[right];
+			rightsum += arr[--right];
 		}
 
 		if (leftsum == sum / 3 && rightsum == sum / 3) {

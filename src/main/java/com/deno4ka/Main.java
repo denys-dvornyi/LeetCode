@@ -12,8 +12,15 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.Period;
 import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -147,9 +154,6 @@ public class Main {
 //        _455_AssignCookies assignCookies = new _455_AssignCookies();
 //        _458_PoorPigs poorPigs = new _458_PoorPigs();
 
-        String test = "First line\nSecond line\nThird line";
-        String[] logContents = test.split("\\R");
-        System.out.println(logContents);
     }
 
 }
