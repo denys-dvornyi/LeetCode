@@ -1,5 +1,7 @@
 package com.deno4ka.LeetCode.algorithms.easy;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -35,10 +37,94 @@ nums[i] is 0 or 1.
 
 public class _1018_BinaryPrefixDivisibleBy5 {
 
+	final int ONES = 0;
+	final int TWOS = 1;
+	final int FOURS = 2;
+	final int SIXES = 3;
+	final int EIGHTS = 4;
+
 	public List<Boolean> prefixesDivBy5(int[] nums) {
 		List<Boolean> result = new ArrayList<>(nums.length);
+		for (int i = 0; i < nums.length; i++) {
+			int[] endings = new int[5];
+			for (int j = i; j >= 0; j--) {
+				if (nums[j] == 1) {
+					if (j == i && nums[j] == 1) {
+						endings[ONES]++;
+					} else {
+						if (j % 4 == 1) {
+							endings[TWOS]++;
+						} else if (j % 4 == 2) {
+							endings[FOURS]++;
+						} else if (j % 4 == 3) {
+							endings[EIGHTS]++;
+						} else if (j % 4 == 0) {
+							endings[SIXES]++;
+						}
+					}
+				}
+			}
+			for (int k = 0; k < 3; ) {
+				if (k == ONES) {
+					if (endings[k] > 0) {
+						endings[k]--;
+						if (endings[FOURS] > 0) {
+							endings[FOURS]--;
+						} else {
+							result.add(false);
+							k++;
+						}
+					} else {
+						k++;
+					}
+				} else if (k == TWOS) {
+					if (endings[k] > 0) {
+						endings[k]--;
+						if (endings[EIGHTS] > 0) {
+							endings[EIGHTS]--;
+						} else {
+							result.add(false);
+							k++;
+						}
+					} else {
+						k++;
+					}
+				} else if (k == FOURS) {
+					if (endings[k] > 0) {
+						endings[k]--;
+						if (endings[SIXES] > 0) {
+							endings[SIXES]--;
+						} else {
+							result.add(false);
+							k++;
+						}
+					} else {
+						k++;
+					}
+				}
+			}
+			result.add(true);
+		}
 
 		return result;
 	}
+
+//  BigInteger is not allowed for leet.code
+//	public List<Boolean> prefixesDivBy5(int[] nums) {
+//		List<Boolean> result = new ArrayList<>(nums.length);
+//		final BigInteger FIVE = new BigInteger("5");
+//		for (int i = 0; i < nums.length; i++) {
+//			BigInteger number = BigInteger.ZERO;
+//			BigInteger powTwo = BigInteger.ONE;
+//			for (int j = i; j >= 0; j--) {
+//				 if (nums[j] != 0) {
+//					 number = number.add(powTwo);
+//				 }
+//				powTwo = powTwo.multiply(BigInteger.TWO);
+//			}
+//			result.add(number.mod(FIVE).compareTo(BigInteger.ZERO) == 0);
+//		}
+//		return result;
+//	}
 
 }
