@@ -40,30 +40,32 @@ public class _1018_BinaryPrefixDivisibleBy5 {
 	final int ONES = 0;
 	final int TWOS = 1;
 	final int FOURS = 2;
-	final int SIXES = 3;
-	final int EIGHTS = 4;
+	final int EIGHTS = 3;
+	final int SIXES = 4;
 
 	public List<Boolean> prefixesDivBy5(int[] nums) {
 		List<Boolean> result = new ArrayList<>(nums.length);
 		for (int i = 0; i < nums.length; i++) {
 			int[] endings = new int[5];
-			for (int j = i; j >= 0; j--) {
+			int index = 0;
+			for (int j = i; j >= 0; j--, index++) {
 				if (nums[j] == 1) {
-					if (j == i && nums[j] == 1) {
+					if (j == i) {
 						endings[ONES]++;
 					} else {
-						if (j % 4 == 1) {
+						if (index % 4 == 1) {
 							endings[TWOS]++;
-						} else if (j % 4 == 2) {
+						} else if (index % 4 == 2) {
 							endings[FOURS]++;
-						} else if (j % 4 == 3) {
+						} else if (index % 4 == 3) {
 							endings[EIGHTS]++;
-						} else if (j % 4 == 0) {
+						} else if (index % 4 == 0) {
 							endings[SIXES]++;
 						}
 					}
 				}
 			}
+			boolean isDivisibleBy5 = true;
 			for (int k = 0; k < 3; ) {
 				if (k == ONES) {
 					if (endings[k] > 0) {
@@ -71,8 +73,8 @@ public class _1018_BinaryPrefixDivisibleBy5 {
 						if (endings[FOURS] > 0) {
 							endings[FOURS]--;
 						} else {
-							result.add(false);
-							k++;
+							isDivisibleBy5 = false;
+							break;
 						}
 					} else {
 						k++;
@@ -83,8 +85,8 @@ public class _1018_BinaryPrefixDivisibleBy5 {
 						if (endings[EIGHTS] > 0) {
 							endings[EIGHTS]--;
 						} else {
-							result.add(false);
-							k++;
+							isDivisibleBy5 = false;
+							break;
 						}
 					} else {
 						k++;
@@ -95,15 +97,21 @@ public class _1018_BinaryPrefixDivisibleBy5 {
 						if (endings[SIXES] > 0) {
 							endings[SIXES]--;
 						} else {
-							result.add(false);
-							k++;
+							isDivisibleBy5 = false;
+							break;
 						}
 					} else {
 						k++;
 					}
 				}
 			}
-			result.add(true);
+			for (int l = 0; l < endings.length; l++) {
+				if (endings[l] > 0) {
+					isDivisibleBy5 = false;
+					break;
+				}
+			}
+			result.add(isDivisibleBy5);
 		}
 
 		return result;

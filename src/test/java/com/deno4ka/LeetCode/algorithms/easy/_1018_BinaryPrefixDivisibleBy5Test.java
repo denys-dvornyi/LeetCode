@@ -25,6 +25,7 @@ public class _1018_BinaryPrefixDivisibleBy5Test {
 		return Stream.of(
 //				Arguments.of(new int[]{0,1,1}, Arrays.asList(true,false,false)),
 //				Arguments.of(new int[]{1,1,1}, Arrays.asList(false,false,false)),
+//				Arguments.of(new int[]{1,0,1}, Arrays.asList(false,false,true)),
 //				Arguments.of(new int[]{0,1,1,1,1,1}, Arrays.asList(true,false,false,false,true,false)),
 //				Arguments.of(new int[]{1,1,1,0,1}, Arrays.asList(false,false,false,false,false)),
 //				Arguments.of(new int[]{1,1,0,0,0,1,0,0,1}, Arrays.asList(false,false,false,false,false,false,false,false,false)),
