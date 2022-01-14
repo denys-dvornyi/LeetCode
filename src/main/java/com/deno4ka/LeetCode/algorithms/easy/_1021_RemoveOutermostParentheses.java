@@ -65,4 +65,20 @@ public class _1021_RemoveOutermostParentheses {
 		return sb.toString();
 	}
 
+//	best from leet.code 2ms
+//	public String removeOuterParentheses(String s) {
+//		StringBuilder st = new StringBuilder();
+//		int concat =0;
+//		for(char c : s.toCharArray()){
+//			if(c=='(' && ++concat>1){
+//				st.append(c);
+//			}
+//			else if(c==')' && --concat>0){
+//				st.append(c);
+//			}
+//
+//		}
+//		return st.toString();
+//	}
+
 }
