@@ -4,7 +4,9 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /*
 You are given a binary array nums (0-indexed).
@@ -43,81 +45,65 @@ public class _1018_BinaryPrefixDivisibleBy5 {
 	final int EIGHTS = 3;
 	final int SIXES = 4;
 
+	final Map<Integer, Integer> ENDINGS = new HashMap<>() {{
+		put(ONES, 1);
+		put(TWOS, 2);
+		put(FOURS, 4);
+		put(SIXES, 6);
+		put(EIGHTS, 8);
+	}};
+
+//  v.3 Runtime: 10 ms, faster than 5.84% & Memory Usage: 47.3 MB, less than 25.29%
 	public List<Boolean> prefixesDivBy5(int[] nums) {
 		List<Boolean> result = new ArrayList<>(nums.length);
-		for (int i = 0; i < nums.length; i++) {
-			int[] endings = new int[5];
-			int index = 0;
-			for (int j = i; j >= 0; j--, index++) {
-				if (nums[j] == 1) {
-					if (j == i) {
-						endings[ONES]++;
-					} else {
-						if (index % 4 == 1) {
-							endings[TWOS]++;
-						} else if (index % 4 == 2) {
-							endings[FOURS]++;
-						} else if (index % 4 == 3) {
-							endings[EIGHTS]++;
-						} else if (index % 4 == 0) {
-							endings[SIXES]++;
-						}
-					}
-				}
+		int[] endings = new int[5];
+		for (int num : nums) {
+			endings[0] += endings[4];
+			System.arraycopy(endings, 0, endings, 1, 4);
+			endings[0] = num;
+			int sum = 0;
+			for (int k = 0; k < endings.length; k++) {
+				sum += endings[k] * ENDINGS.get(k);
 			}
-			boolean isDivisibleBy5 = true;
-			for (int k = 0; k < 3; ) {
-				if (k == ONES) {
-					if (endings[k] > 0) {
-						endings[k]--;
-						if (endings[FOURS] > 0) {
-							endings[FOURS]--;
-						} else {
-							isDivisibleBy5 = false;
-							break;
-						}
-					} else {
-						k++;
-					}
-				} else if (k == TWOS) {
-					if (endings[k] > 0) {
-						endings[k]--;
-						if (endings[EIGHTS] > 0) {
-							endings[EIGHTS]--;
-						} else {
-							isDivisibleBy5 = false;
-							break;
-						}
-					} else {
-						k++;
-					}
-				} else if (k == FOURS) {
-					if (endings[k] > 0) {
-						endings[k]--;
-						if (endings[SIXES] > 0) {
-							endings[SIXES]--;
-						} else {
-							isDivisibleBy5 = false;
-							break;
-						}
-					} else {
-						k++;
-					}
-				}
-			}
-			for (int l = 0; l < endings.length; l++) {
-				if (endings[l] > 0) {
-					isDivisibleBy5 = false;
-					break;
-				}
-			}
-			result.add(isDivisibleBy5);
+			result.add(sum % 5 == 0);
 		}
-
 		return result;
 	}
 
-//  BigInteger is not allowed for leet.code
+//	v.2 Time Limit Exceeded (24 / 24 test cases passed, but took too long.)
+//	public List<Boolean> prefixesDivBy5(int[] nums) {
+//		List<Boolean> result = new ArrayList<>(nums.length);
+//		for (int i = 0; i < nums.length; i++) {
+//			int[] endings = new int[5];
+//			int index = 0;
+//			for (int j = i; j >= 0; j--, index++) {
+//				if (nums[j] == 1) {
+//					if (j == i) {
+//						endings[ONES]++;
+//					} else {
+//						if (index % 4 == 1) {
+//							endings[TWOS]++;
+//						} else if (index % 4 == 2) {
+//							endings[FOURS]++;
+//						} else if (index % 4 == 3) {
+//							endings[EIGHTS]++;
+//						} else if (index % 4 == 0) {
+//							endings[SIXES]++;
+//						}
+//					}
+//				}
+//			}
+//			int sum = 0;
+//			for (int k = 0; k < endings.length; k++) {
+//				sum += endings[k] * ENDINGS.get(k);
+//			}
+//			result.add(sum % 5 == 0);
+//		}
+//
+//		return result;
+//	}
+
+//  v.1 BigInteger is not allowed for leet.code
 //	public List<Boolean> prefixesDivBy5(int[] nums) {
 //		List<Boolean> result = new ArrayList<>(nums.length);
 //		final BigInteger FIVE = new BigInteger("5");
@@ -131,6 +117,17 @@ public class _1018_BinaryPrefixDivisibleBy5 {
 //				powTwo = powTwo.multiply(BigInteger.TWO);
 //			}
 //			result.add(number.mod(FIVE).compareTo(BigInteger.ZERO) == 0);
+//		}
+//		return result;
+//	}
+
+//	best from leet.code 2ms
+//	public List<Boolean> prefixesDivBy5(int[] nums) {
+//		int reminder = 0;
+//		var result = new ArrayList<Boolean>();
+//		for (int i : nums) {
+//			reminder = (reminder * 2 + i) % 5;
+//			result.add(reminder == 0);
 //		}
 //		return result;
 //	}
