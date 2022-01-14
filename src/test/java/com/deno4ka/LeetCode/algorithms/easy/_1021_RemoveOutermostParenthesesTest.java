@@ -23,6 +23,9 @@ public class _1021_RemoveOutermostParenthesesTest {
 		return Stream.of(
 				Arguments.of("(()())(())", "()()()"),
 				Arguments.of("(()())(())(()(()))", "()()()()(())"),
+				Arguments.of("(((()())))", "((()()))"),
+				Arguments.of("(()((()))())", "()((()))()"),
+				Arguments.of("(()())(())(()())", "()()()()()"),
 				Arguments.of("()()", "")
 		);
 	}
