@@ -37,6 +37,7 @@ Constraints:
 nums[i] is 0 or 1.
 */
 
+//  not easy...
 public class _1018_BinaryPrefixDivisibleBy5 {
 
 	final int ONES = 0;
