@@ -15,7 +15,7 @@ Output: false
 Constraints:
 points.length == 3
 points[i].length == 2
-0 <= xi, yi <= 100
+0 <= x(i), y(i) <= 100
 */
 
 public class _1037_ValidBoomerang {
