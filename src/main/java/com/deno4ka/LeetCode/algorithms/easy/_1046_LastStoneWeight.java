@@ -1,7 +1,7 @@
 package com.deno4ka.LeetCode.algorithms.easy;
 
 /*
-You are given an array of integers stones where stones[i] is the weight of the ith stone.
+You are given an array of integers stones where stones[i] is the weight of the i(th) stone.
 We are playing a game with the stones. On each turn, we choose the heaviest two stones and smash them together.
 Suppose the heaviest two stones have weights x and y with x <= y. The result of this smash is:
 If x == y, both stones are destroyed, and
@@ -27,12 +27,21 @@ Constraints:
 1 <= stones[i] <= 1000
 */
 
+import java.util.Arrays;
+
 public class _1046_LastStoneWeight {
 
+//	Runtime: 0 ms, faster than 100.00% & Memory Usage: 36.4 MB, less than 67.27%
 	public int lastStoneWeight(int[] stones) {
 		if (stones.length == 1) return stones[0];
-
-		return 0;
+		int lastElementIndex = stones.length - 1;
+		Arrays.sort(stones);
+		while (stones[lastElementIndex - 1] != 0) {
+			stones[lastElementIndex] -= stones[lastElementIndex - 1];
+			stones[lastElementIndex - 1] = 0;
+			Arrays.sort(stones);
+		}
+		return stones[lastElementIndex];
 	}
 
 }

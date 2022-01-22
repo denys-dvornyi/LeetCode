@@ -24,7 +24,11 @@ public class _1046_LastStoneWeightTest {
 				Arguments.of(new int[] { 2,7,4,1,8,1 }, 1),
 				Arguments.of(new int[] { 1 }, 1),
 				Arguments.of(new int[] { 0 }, 0),
-				Arguments.of(new int[] { 999 }, 999)
+				Arguments.of(new int[] { 999 }, 999),
+				Arguments.of(new int[] { 2, 2 }, 0),
+				Arguments.of(new int[] { 2, 2, 2 }, 2),
+				Arguments.of(new int[] { 10, 1, 1 }, 8),
+				Arguments.of(new int[] { 316,157,73,106,771,828,46,212,926,604,600,992,71,51,477,869,425,405,859,924,45,187,283,590,303,66,508,982,464,398 }, 0)
 		);
 	}
 
