@@ -22,7 +22,9 @@ public class _1047_RemoveAllAdjacentDuplicatesInStringTest {
 	public static Stream<Arguments> useCases() {
 		return Stream.of(
 				Arguments.of("abbaca", "ca"),
-				Arguments.of("azxxzy", "ay")
+				Arguments.of("azxxzy", "ay"),
+				Arguments.of("abccbefggfh", "aeh"),
+				Arguments.of("abccbefggfhddhe", "a")
 		);
 	}
 
