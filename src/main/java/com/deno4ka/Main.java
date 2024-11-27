@@ -1,8 +1,5 @@
 package com.deno4ka;
 
-import static java.util.Comparator.comparing;
-import static org.testng.Assert.assertEquals;
-
 public class Main {
 
     public static void main(String[] args) throws InterruptedException, NoSuchFieldException, CloneNotSupportedException {
