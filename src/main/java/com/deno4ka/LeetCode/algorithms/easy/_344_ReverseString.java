@@ -12,27 +12,25 @@ Input: "A man, a plan, a canal: Panama"
 Output: "amanaP :lanac a ,nalp a ,nam A"
 */
 
-import java.util.Arrays;
-
 public class _344_ReverseString {
 
-	public _344_ReverseString() {
-		System.out.println(reverseString("hello")); // "olleh"
-		System.out.println(reverseString("A man, a plan, a canal: Panama")); // "amanaP :lanac a ,nalp a ,nam A"
-	}
+    public _344_ReverseString() {
+        System.out.println(reverseString("hello")); // "olleh"
+        System.out.println(reverseString("A man, a plan, a canal: Panama")); // "amanaP :lanac a ,nalp a ,nam A"
+    }
 
-	// (2ms/81.98%)
-	public String reverseString(String s) {
-		if (s == null || s.isEmpty() || s.length() == 1) {
-			return s;
-		}
-		char[] strAsChars = s.toCharArray();
-		for (int i = 0; i < strAsChars.length / 2; i++) {
-			char tmp = strAsChars[i];
-			strAsChars[i] = strAsChars[strAsChars.length - 1 - i];
-			strAsChars[strAsChars.length - 1 - i] = tmp;
-		}
-		return new String(strAsChars);
-	}
+    // (2ms/81.98%)
+    public String reverseString(String s) {
+        if (s == null || s.isEmpty() || s.length() == 1) {
+            return s;
+        }
+        char[] strAsChars = s.toCharArray();
+        for (int i = 0; i < strAsChars.length / 2; i++) {
+            char tmp = strAsChars[i];
+            strAsChars[i] = strAsChars[strAsChars.length - 1 - i];
+            strAsChars[strAsChars.length - 1 - i] = tmp;
+        }
+        return new String(strAsChars);
+    }
 
 }

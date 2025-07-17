@@ -17,19 +17,19 @@ The length of input array is a positive integer and will not exceed 10,000
 
 public class _485_MaxConsecutiveOnes {
 
-	public int findMaxConsecutiveOnes(int[] nums) {
-		int maxConsecutiveOnes = 0;
-		int consecutiveOnes = 0;
-		for (int i = 0; i < nums.length; i++) {
-			if (nums[i] == 1) {
-				consecutiveOnes++;
-			} else {
-				maxConsecutiveOnes = Math.max(maxConsecutiveOnes, consecutiveOnes);
-				consecutiveOnes = 0;
-			}
-		}
-		maxConsecutiveOnes = Math.max(maxConsecutiveOnes, consecutiveOnes);
-		return maxConsecutiveOnes;
-	}
+    public int findMaxConsecutiveOnes(int[] nums) {
+        int maxConsecutiveOnes = 0;
+        int consecutiveOnes = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 1) {
+                consecutiveOnes++;
+            } else {
+                maxConsecutiveOnes = Math.max(maxConsecutiveOnes, consecutiveOnes);
+                consecutiveOnes = 0;
+            }
+        }
+        maxConsecutiveOnes = Math.max(maxConsecutiveOnes, consecutiveOnes);
+        return maxConsecutiveOnes;
+    }
 
 }

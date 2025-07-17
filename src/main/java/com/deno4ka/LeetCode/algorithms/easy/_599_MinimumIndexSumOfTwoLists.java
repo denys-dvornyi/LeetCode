@@ -44,27 +44,27 @@ import java.util.Map;
 
 public class _599_MinimumIndexSumOfTwoLists {
 
-	// Runtime: 86 ms, faster than 14.08% & Memory Usage: 39.9 MB, less than 5.26%
-	public String[] findRestaurant(String[] list1, String[] list2) {
-		Map<Integer, List<String>> result = new HashMap<>();
-		for (int i = 0; i < list1.length; i++) {
-			for (int j = 0; j < list2.length; j++) {
-				if (list1[i].equals(list2[j])) {
-					result.computeIfAbsent(i + j, _k -> new ArrayList<>());
-					result.get(i + j).add(list1[i]);
-				}
-			}
-		}
-		int minSum = Integer.MAX_VALUE;
-		for (Integer key : result.keySet()) {
-			if (minSum > key) {
-				minSum = key;
-			}
-		}
-		return result.get(minSum).toArray(new String[]{});
-	}
+    // Runtime: 86 ms, faster than 14.08% & Memory Usage: 39.9 MB, less than 5.26%
+    public String[] findRestaurant(String[] list1, String[] list2) {
+        Map<Integer, List<String>> result = new HashMap<>();
+        for (int i = 0; i < list1.length; i++) {
+            for (int j = 0; j < list2.length; j++) {
+                if (list1[i].equals(list2[j])) {
+                    result.computeIfAbsent(i + j, _k -> new ArrayList<>());
+                    result.get(i + j).add(list1[i]);
+                }
+            }
+        }
+        int minSum = Integer.MAX_VALUE;
+        for (Integer key : result.keySet()) {
+            if (minSum > key) {
+                minSum = key;
+            }
+        }
+        return result.get(minSum).toArray(new String[]{});
+    }
 
-	// 7 ms
+    // 7 ms
 //	public String[] findRestaurant(String[] list1, String[] list2) {
 //		List<String> res = new ArrayList<>();
 //		int minSum = Integer.MAX_VALUE;

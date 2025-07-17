@@ -27,30 +27,30 @@ n == matrix[i].length
 
 public class _766_ToeplitzMatrix {
 
-//	Runtime: 1 ms, faster than 83.45% & Memory Usage: 39.4 MB, less than 50.72%
-	public boolean isToeplitzMatrix(int[][] matrix) {
-		if (matrix.length == 1) return true;
-		int rowMax = matrix.length - 1;
-		int colMin = 0;
-		boolean newDiagonal = true;
-		int cellValue = -1;
-		while (rowMax != 0 || colMin != matrix[0].length - 1) {
-			int i = rowMax;
-			for (int j = colMin; j < matrix[0].length && i < matrix.length; ) {
-				if (newDiagonal) {
-					cellValue = matrix[i++][j++];
-					newDiagonal = false;
-				} else {
-					if (cellValue != matrix[i++][j++]) {
-						return false;
-					}
-				}
-			}
-			int whatever = rowMax > 0 ? rowMax-- : colMin++;
-			newDiagonal = true;
-		}
-		return true;
-	}
+    //	Runtime: 1 ms, faster than 83.45% & Memory Usage: 39.4 MB, less than 50.72%
+    public boolean isToeplitzMatrix(int[][] matrix) {
+        if (matrix.length == 1) return true;
+        int rowMax = matrix.length - 1;
+        int colMin = 0;
+        boolean newDiagonal = true;
+        int cellValue = -1;
+        while (rowMax != 0 || colMin != matrix[0].length - 1) {
+            int i = rowMax;
+            for (int j = colMin; j < matrix[0].length && i < matrix.length; ) {
+                if (newDiagonal) {
+                    cellValue = matrix[i++][j++];
+                    newDiagonal = false;
+                } else {
+                    if (cellValue != matrix[i++][j++]) {
+                        return false;
+                    }
+                }
+            }
+            int whatever = rowMax > 0 ? rowMax-- : colMin++;
+            newDiagonal = true;
+        }
+        return true;
+    }
 
 //  best from leet.code (0ms)
 //	public boolean isToeplitzMatrix(int[][] matrix) {

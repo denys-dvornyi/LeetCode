@@ -22,14 +22,14 @@ Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (m
 
 public class _198_HouseRobber {
 
-	public _198_HouseRobber() {
+    public _198_HouseRobber() {
 //		System.out.println(rob(new int[] {1,2,3,1}) + " = 4");
 //		System.out.println(rob(new int[] {2,7,9,3,1}) + " = 12");
 //		System.out.println(rob(new int[] {2,1,4,13,12}) + " = 18");
 //		System.out.println(rob(new int[] {2,1,4,13,3,5,14,1}) + " = 29");
 //		System.out.println(rob(new int[] {6,3,10,8,2,10,3,5,10,5,3}) + " = 39");
-		System.out.println(rob(new int[] {8,9,9,4,10,5,6,9,7,9}) + " = 45");
-	}
+        System.out.println(rob(new int[]{8, 9, 9, 4, 10, 5, 6, 9, 7, 9}) + " = 45");
+    }
 
 //	public int rob(int[] nums) {
 //		int result = 0;
@@ -79,7 +79,7 @@ public class _198_HouseRobber {
 //		}
 //	}
 
-	// v 2.0 not working for {2,7,9,3,1}
+    // v 2.0 not working for {2,7,9,3,1}
 //	public int rob(int[] nums) {
 //		int result = 0;
 //		if (nums == null || nums.length == 0) {
@@ -123,7 +123,7 @@ public class _198_HouseRobber {
 //		}
 //	}
 
-	// v 3.0 not working for {8,9,9,4,10,5,6,9,7,9}
+    // v 3.0 not working for {8,9,9,4,10,5,6,9,7,9}
 //	public int rob(int[] nums) {
 //		int result = 0;
 //		if (nums == null || nums.length == 0) {
@@ -171,7 +171,7 @@ public class _198_HouseRobber {
 //		return max;
 //	}
 
-	// from leet.code O(n) solution
+    // from leet.code O(n) solution
 //	public int rob(int[] num) {
 //		int[][] dp = new int[num.length + 1][2];
 //		for (int i = 1; i <= num.length; i++) {
@@ -181,15 +181,15 @@ public class _198_HouseRobber {
 //		return Math.max(dp[num.length][0], dp[num.length][1]);
 //	}
 
-	// best from leet.code space O(1)
-	public int rob(int[] nums) {
-		int preMax = 0, currMax = 0;
-		for (int value : nums) {
-			int tmp = currMax;
-			currMax = Math.max(preMax + value, currMax);
-			preMax = tmp;
-		}
-		return currMax;
-	}
+    // best from leet.code space O(1)
+    public int rob(int[] nums) {
+        int preMax = 0, currMax = 0;
+        for (int value : nums) {
+            int tmp = currMax;
+            currMax = Math.max(preMax + value, currMax);
+            preMax = tmp;
+        }
+        return currMax;
+    }
 
 }

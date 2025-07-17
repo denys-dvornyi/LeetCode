@@ -26,24 +26,24 @@ Constraints:
 
 public class _674_LongestContinuousIncreasingSubsequence {
 
-//	Runtime: 2 ms, faster than 20.74% & Memory Usage: 42.4 MB, less than 26.01%
-	public int findLengthOfLCIS(int[] nums) {
-		if (nums == null || nums.length == 0) return 0;
-		if (nums.length == 1) return 1;
-		int begin = 0, end = 0, max = 0;
-		for (int i = 1; i < nums.length; i++) {
-			if (nums[i] > nums[i-1]) {
-				end = i;
-			} else {
-				int tempMax = end - begin + 1; // subsequence length
-				max = Math.max(max, tempMax);
-				begin = i;
-				end = i;
-			}
-		}
-		int tempMax = end - begin + 1; // last check
-		max = Math.max(max, tempMax);
-		return max;
-	}
+    //	Runtime: 2 ms, faster than 20.74% & Memory Usage: 42.4 MB, less than 26.01%
+    public int findLengthOfLCIS(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+        if (nums.length == 1) return 1;
+        int begin = 0, end = 0, max = 0;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] > nums[i - 1]) {
+                end = i;
+            } else {
+                int tempMax = end - begin + 1; // subsequence length
+                max = Math.max(max, tempMax);
+                begin = i;
+                end = i;
+            }
+        }
+        int tempMax = end - begin + 1; // last check
+        max = Math.max(max, tempMax);
+        return max;
+    }
 
 }

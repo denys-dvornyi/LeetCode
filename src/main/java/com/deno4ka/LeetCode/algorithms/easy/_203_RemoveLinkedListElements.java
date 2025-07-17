@@ -11,7 +11,7 @@ import java.util.StringJoiner;
 
 public class _203_RemoveLinkedListElements {
 
-	public _203_RemoveLinkedListElements() {
+    public _203_RemoveLinkedListElements() {
 //		ListNode node1 = new ListNode(1);
 //		ListNode node2 = new ListNode(2);
 //		ListNode node3 = new ListNode(6);
@@ -26,48 +26,48 @@ public class _203_RemoveLinkedListElements {
 //		node5.next = node6;
 //		node6.next = node7;
 //		System.out.println(linkedListToString(removeElements(node1, 6))); // 1->2->3->4->5
-	}
+    }
 
-	public ListNode removeElements(ListNode head, int val) {
-		ListNode filteredListNode = null;
-		ListNode cursor = null;
-		while (head != null) {
-			if (head.val != val) {
-				if (filteredListNode == null) {
-					filteredListNode = new ListNode(head.val);
-					filteredListNode.next = cursor;
-					cursor = filteredListNode;
-				} else {
-					cursor.next = new ListNode(head.val);
-					cursor = cursor.next;
-				}
-			}
-			head = head.next;
-		}
-		return filteredListNode;
-	}
+    public ListNode removeElements(ListNode head, int val) {
+        ListNode filteredListNode = null;
+        ListNode cursor = null;
+        while (head != null) {
+            if (head.val != val) {
+                if (filteredListNode == null) {
+                    filteredListNode = new ListNode(head.val);
+                    filteredListNode.next = cursor;
+                    cursor = filteredListNode;
+                } else {
+                    cursor.next = new ListNode(head.val);
+                    cursor = cursor.next;
+                }
+            }
+            head = head.next;
+        }
+        return filteredListNode;
+    }
 
-	private String linkedListToString(ListNode head) {
-		StringJoiner linkedListAsString = new StringJoiner("->");
-		if (head != null) {
-			while (head != null) {
-				linkedListAsString.add(String.valueOf(head.val));
-				head = head.next;
-			}
-		}
-		if (linkedListAsString.length() == 0) {
-			return "null";
-		}
-		return linkedListAsString.toString();
-	}
+    private String linkedListToString(ListNode head) {
+        StringJoiner linkedListAsString = new StringJoiner("->");
+        if (head != null) {
+            while (head != null) {
+                linkedListAsString.add(String.valueOf(head.val));
+                head = head.next;
+            }
+        }
+        if (linkedListAsString.length() == 0) {
+            return "null";
+        }
+        return linkedListAsString.toString();
+    }
 
-	private class ListNode {
-		int val;
-		ListNode next;
+    private class ListNode {
+        int val;
+        ListNode next;
 
-		ListNode(int x) {
-			val = x;
-		}
-	}
+        ListNode(int x) {
+            val = x;
+        }
+    }
 
 }

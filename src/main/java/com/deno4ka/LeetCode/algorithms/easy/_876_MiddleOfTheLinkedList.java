@@ -23,42 +23,51 @@ import java.util.Objects;
 
 public class _876_MiddleOfTheLinkedList {
 
-//	Runtime: 0 ms, faster than 100.00% & Memory Usage: 36.7 MB, less than 37.25%
-	public ListNode middleNode(ListNode head) {
-		int listLength = 0;
-		ListNode node = head;
-		while (node != null) {
-			node = node.next;
-			listLength++;
-		}
-		int middle = listLength / 2 + 1;
-		node = head;
-		for (int i = 1; i < middle; i++) {
-			node = node.next;
-		}
-		return node;
-	}
+    //	Runtime: 0 ms, faster than 100.00% & Memory Usage: 36.7 MB, less than 37.25%
+    public ListNode middleNode(ListNode head) {
+        int listLength = 0;
+        ListNode node = head;
+        while (node != null) {
+            node = node.next;
+            listLength++;
+        }
+        int middle = listLength / 2 + 1;
+        node = head;
+        for (int i = 1; i < middle; i++) {
+            node = node.next;
+        }
+        return node;
+    }
 
-	static class ListNode {
-		int val;
-		ListNode next;
-		ListNode() {}
-		ListNode(int val) { this.val = val; }
-		ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+    static class ListNode {
+        int val;
+        ListNode next;
 
-		@Override
-		public boolean equals(Object o) {
-			if (this == o) return true;
-			if (o == null || getClass() != o.getClass()) return false;
-			ListNode listNode = (ListNode) o;
-			return val == listNode.val && Objects.equals(next, listNode.next);
-		}
+        ListNode() {
+        }
 
-		@Override
-		public int hashCode() {
-			return Objects.hash(val, next);
-		}
+        ListNode(int val) {
+            this.val = val;
+        }
 
-	}
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            ListNode listNode = (ListNode) o;
+            return val == listNode.val && Objects.equals(next, listNode.next);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(val, next);
+        }
+
+    }
 
 }

@@ -21,47 +21,46 @@ int guess(int num);
 
 public class _374_GuessNumberHigherOrLower extends GuessGame {
 
-	public _374_GuessNumberHigherOrLower() {
-		GUESSED_NUMBER = 6;
-		System.out.println(guessNumber(10)); // 6
-		GUESSED_NUMBER = 1;
-		System.out.println(guessNumber(3)); // 1
-	}
+    public _374_GuessNumberHigherOrLower() {
+        GUESSED_NUMBER = 6;
+        System.out.println(guessNumber(10)); // 6
+        GUESSED_NUMBER = 1;
+        System.out.println(guessNumber(3)); // 1
+    }
 
-	// (1ms/37.56%) using binary search
-	public int guessNumber(int n) {
-		int min = 1;
-		int max = n;
-		int midl = 0;
-		int result;
-		while (min <= max) {
-			midl = min + (max - min) / 2;
-			result = super.guess(midl);
-			if (result == 0) {
-				return midl;
-			}
-			if (result == -1) {
-				max = midl - 1;
-			} else if (result == 1) {
-				min = midl + 1;
-			}
-		}
-		return midl;
-	}
-
+    // (1ms/37.56%) using binary search
+    public int guessNumber(int n) {
+        int min = 1;
+        int max = n;
+        int midl = 0;
+        int result;
+        while (min <= max) {
+            midl = min + (max - min) / 2;
+            result = super.guess(midl);
+            if (result == 0) {
+                return midl;
+            }
+            if (result == -1) {
+                max = midl - 1;
+            } else if (result == 1) {
+                min = midl + 1;
+            }
+        }
+        return midl;
+    }
 
 
 }
 
 class GuessGame {
-	public static int GUESSED_NUMBER;
+    public static int GUESSED_NUMBER;
 
-	public int guess(int num) {
-		if (num > GUESSED_NUMBER) {
-			return -1;
-		} else if (num < GUESSED_NUMBER) {
-			return 1;
-		}
-		return 0;
-	}
+    public int guess(int num) {
+        if (num > GUESSED_NUMBER) {
+            return -1;
+        } else if (num < GUESSED_NUMBER) {
+            return 1;
+        }
+        return 0;
+    }
 }

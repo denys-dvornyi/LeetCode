@@ -27,36 +27,36 @@ import java.util.List;
 
 public class _350_IntersectionOfTwoArrays2 {
 
-	public _350_IntersectionOfTwoArrays2() {
-		System.out.println(Arrays.toString(intersect(new int[]{1,2,2,1}, new int[]{2,2}))); // [2,2]
-		System.out.println(Arrays.toString(intersect(new int[]{4,9,5}, new int[]{9,4,9,8,4}))); // [4,9]
-	}
+    public _350_IntersectionOfTwoArrays2() {
+        System.out.println(Arrays.toString(intersect(new int[]{1, 2, 2, 1}, new int[]{2, 2}))); // [2,2]
+        System.out.println(Arrays.toString(intersect(new int[]{4, 9, 5}, new int[]{9, 4, 9, 8, 4}))); // [4,9]
+    }
 
-	// (69ms/2.64%)
-	public int[] intersect(int[] nums1, int[] nums2) {
-		if (nums1 == null || nums1.length == 0 || nums2 == null || nums2.length == 0) {
-			return new int[]{};
-		}
-		if (nums2.length > nums1.length) {
-			int[] tmp = nums2;
-			nums2 = nums1;
-			nums1 = tmp;
-		}
-		List<Integer> firstArray = new ArrayList<>(nums1.length);
-		for (int num : nums1) {
-			firstArray.add(num);
-		}
-		List<Integer> intersections = new ArrayList<>();
-		for (int num : nums2) {
-			if (firstArray.contains(num)) {
-				intersections.add(num);
-				firstArray.remove(new Integer(num));
-			}
-		}
-		return intersections.stream().mapToInt(Integer::intValue).toArray();
-	}
+    // (69ms/2.64%)
+    public int[] intersect(int[] nums1, int[] nums2) {
+        if (nums1 == null || nums1.length == 0 || nums2 == null || nums2.length == 0) {
+            return new int[]{};
+        }
+        if (nums2.length > nums1.length) {
+            int[] tmp = nums2;
+            nums2 = nums1;
+            nums1 = tmp;
+        }
+        List<Integer> firstArray = new ArrayList<>(nums1.length);
+        for (int num : nums1) {
+            firstArray.add(num);
+        }
+        List<Integer> intersections = new ArrayList<>();
+        for (int num : nums2) {
+            if (firstArray.contains(num)) {
+                intersections.add(num);
+                firstArray.remove(Integer.valueOf(num));
+            }
+        }
+        return intersections.stream().mapToInt(Integer::intValue).toArray();
+    }
 
-	// best from leetcode
+    // best from leetcode
 //	public int[] intersect(int[] nums1, int[] nums2) {
 //		Arrays.sort(nums1);
 //		Arrays.sort(nums2);

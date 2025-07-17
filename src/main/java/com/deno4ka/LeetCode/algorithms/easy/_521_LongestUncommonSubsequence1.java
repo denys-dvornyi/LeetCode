@@ -25,16 +25,16 @@ Only letters from a ~ z will appear in input strings.
 
 public class _521_LongestUncommonSubsequence1 {
 
-	// Runtime: 0 ms, faster than 100.00% and Memory Usage: 33.9 MB, less than 100.00%
-	public int findLUSlength(String a, String b) {
-		if (a == null && b == null) return -1;
-		if (a.isEmpty() && b.isEmpty()) return -1;
-		if (a == null || a.isEmpty() && b != null) return b.length();
-		if (b == null || b.isEmpty() && a != null) return a.length();
-		if (a.length() < b.length()) return b.length();
-		if (b.length() < a.length()) return a.length();
-		if (!a.equals(b) && a.length() == b.length()) return a.length();
-		return -1;
-	}
+    // Runtime: 0 ms, faster than 100.00% and Memory Usage: 33.9 MB, less than 100.00%
+    public int findLUSlength(String a, String b) {
+        if (a == null && b == null) return -1;
+        if (a.isEmpty() && b.isEmpty()) return -1;
+        if (a == null || a.isEmpty() && b != null) return b.length();
+        if (b == null || b.isEmpty() && a != null) return a.length();
+        if (a.length() < b.length()) return b.length();
+        if (b.length() < a.length()) return a.length();
+        if (!a.equals(b) && a.length() == b.length()) return a.length();
+        return -1;
+    }
 
 }

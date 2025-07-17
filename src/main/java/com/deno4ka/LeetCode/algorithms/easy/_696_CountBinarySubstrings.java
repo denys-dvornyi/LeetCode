@@ -24,47 +24,47 @@ s[i] is either '0' or '1'.
 
 public class _696_CountBinarySubstrings {
 
-//	Runtime: 19 ms, faster than 16.13% & Memory Usage: 49.2 MB, less than 7.05%
-	public int countBinarySubstrings(String s) {
-		if (s == null || s.length() < 2) return 0;
-		int[] sequences = new int[s.length()];
-		int sequencePointer = 0;
-		int sequenceOfZeros = 0;
-		int sequenceOfOnes = 0;
-		for (int i = 0; i < s.length(); i++) {
-			if (s.charAt(i) == '0') {
-				sequenceOfZeros++;
-				if (sequenceOfOnes != 0) {
-					sequences[sequencePointer] = sequenceOfOnes;
-					sequencePointer++;
-					sequenceOfOnes = 0;
-				}
-			} else {
-				sequenceOfOnes++;
-				if (sequenceOfZeros != 0) {
-					sequences[sequencePointer] = sequenceOfZeros;
-					sequencePointer++;
-					sequenceOfZeros = 0;
-				}
-			}
-		}
-		if (sequenceOfOnes != 0) {
-			sequences[sequencePointer] = sequenceOfOnes;
-			sequencePointer++;
-		} else if (sequenceOfZeros != 0) {
-			sequences[sequencePointer] = sequenceOfZeros;
-			sequencePointer++;
-		}
-		if (sequencePointer < 2) return 0;
-		int result = 0;
-		for (int j = 0; j < sequencePointer - 1; j++) {
-			int first = sequences[j];
-			int second = sequences[j + 1];
-			int minSequence = Math.min(first, second);
-			result += minSequence;
-		}
-		return result;
-	}
+    //	Runtime: 19 ms, faster than 16.13% & Memory Usage: 49.2 MB, less than 7.05%
+    public int countBinarySubstrings(String s) {
+        if (s == null || s.length() < 2) return 0;
+        int[] sequences = new int[s.length()];
+        int sequencePointer = 0;
+        int sequenceOfZeros = 0;
+        int sequenceOfOnes = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '0') {
+                sequenceOfZeros++;
+                if (sequenceOfOnes != 0) {
+                    sequences[sequencePointer] = sequenceOfOnes;
+                    sequencePointer++;
+                    sequenceOfOnes = 0;
+                }
+            } else {
+                sequenceOfOnes++;
+                if (sequenceOfZeros != 0) {
+                    sequences[sequencePointer] = sequenceOfZeros;
+                    sequencePointer++;
+                    sequenceOfZeros = 0;
+                }
+            }
+        }
+        if (sequenceOfOnes != 0) {
+            sequences[sequencePointer] = sequenceOfOnes;
+            sequencePointer++;
+        } else if (sequenceOfZeros != 0) {
+            sequences[sequencePointer] = sequenceOfZeros;
+            sequencePointer++;
+        }
+        if (sequencePointer < 2) return 0;
+        int result = 0;
+        for (int j = 0; j < sequencePointer - 1; j++) {
+            int first = sequences[j];
+            int second = sequences[j + 1];
+            int minSequence = Math.min(first, second);
+            result += minSequence;
+        }
+        return result;
+    }
 
 //	fastest from leet.code (5 ms)
 //	public int countBinarySubstrings(String s) {

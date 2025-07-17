@@ -13,24 +13,24 @@ import java.util.stream.Stream;
 
 public class _989_AddToArrayFormOfIntegerTest {
 
-	private final _989_AddToArrayFormOfInteger addToArrayFormOfInteger = new _989_AddToArrayFormOfInteger();
+    private final _989_AddToArrayFormOfInteger addToArrayFormOfInteger = new _989_AddToArrayFormOfInteger();
 
-	@DisplayName("Return the array-form of the integer num + k")
-	@ParameterizedTest(name = "test #{index}: num \"{0}\", integer \"{1}\", expected list \"{2}\"")
-	@MethodSource({"useCases"})
-	public void addToArrayForm(int[] num, int k, List<Integer> expected) {
-		Assertions.assertEquals(expected, addToArrayFormOfInteger.addToArrayForm(num, k));
-	}
+    public static Stream<Arguments> useCases() {
+        return Stream.of(
+                Arguments.of(new int[]{1, 2, 0, 0}, 34, Arrays.stream(new int[]{1, 2, 3, 4}).boxed().collect(Collectors.toList())),
+                Arguments.of(new int[]{2, 7, 4}, 181, Arrays.stream(new int[]{4, 5, 5}).boxed().collect(Collectors.toList())),
+                Arguments.of(new int[]{2, 1, 5}, 806, Arrays.stream(new int[]{1, 0, 2, 1}).boxed().collect(Collectors.toList())),
+                Arguments.of(new int[]{7, 7, 7}, 222, Arrays.stream(new int[]{9, 9, 9}).boxed().collect(Collectors.toList())),
+                Arguments.of(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0}, 10_000, Arrays.stream(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 7, 7, 8, 9, 0}).boxed().collect(Collectors.toList())),
+                Arguments.of(new int[]{9, 9, 9, 9, 9, 9, 9, 9, 9, 9}, 1, Arrays.stream(new int[]{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}).boxed().collect(Collectors.toList()))
+        );
+    }
 
-	public static Stream<Arguments> useCases() {
-		return Stream.of(
-				Arguments.of(new int[]{1,2,0,0}, 34, Arrays.stream(new int[]{1,2,3,4}).boxed().collect(Collectors.toList())),
-				Arguments.of(new int[]{2,7,4}, 181, Arrays.stream(new int[]{4,5,5}).boxed().collect(Collectors.toList())),
-				Arguments.of(new int[]{2,1,5}, 806, Arrays.stream(new int[]{1,0,2,1}).boxed().collect(Collectors.toList())),
-				Arguments.of(new int[]{7,7,7}, 222, Arrays.stream(new int[]{9,9,9}).boxed().collect(Collectors.toList())),
-				Arguments.of(new int[]{1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0}, 10_000, Arrays.stream(new int[]{1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,7,7,8,9,0}).boxed().collect(Collectors.toList())),
-				Arguments.of(new int[]{9,9,9,9,9,9,9,9,9,9}, 1, Arrays.stream(new int[]{1,0,0,0,0,0,0,0,0,0,0}).boxed().collect(Collectors.toList()))
-		);
-	}
+    @DisplayName("Return the array-form of the integer num + k")
+    @ParameterizedTest(name = "test #{index}: num \"{0}\", integer \"{1}\", expected list \"{2}\"")
+    @MethodSource({"useCases"})
+    public void addToArrayForm(int[] num, int k, List<Integer> expected) {
+        Assertions.assertEquals(expected, addToArrayFormOfInteger.addToArrayForm(num, k));
+    }
 
 }

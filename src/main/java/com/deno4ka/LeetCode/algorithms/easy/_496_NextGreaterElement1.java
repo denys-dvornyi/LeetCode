@@ -27,34 +27,30 @@ All elements in nums1 and nums2 are unique.
 The length of both nums1 and nums2 would not exceed 1000.
 */
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-
 public class _496_NextGreaterElement1 {
 
-	// Runtime: 7 ms, faster than 11.47%
-	public int[] nextGreaterElement(int[] nums1, int[] nums2) {
-		int[] result = new int[nums1.length];
-		for (int i = 0; i < nums1.length; i++) {
-			int nextGreaterElement = -1;
-			for (int j = 0; j < nums2.length; j++) {
-				if (nums1[i] == nums2[j]) {
-					for (int k = j + 1; k < nums2.length; k++) {
-						if (nums1[i] < nums2[k]) {
-							nextGreaterElement = nums2[k];
-							break;
-						}
-					}
-					break;
-				}
-			}
-			result[i] = nextGreaterElement;
-		}
-		return result;
-	}
+    // Runtime: 7 ms, faster than 11.47%
+    public int[] nextGreaterElement(int[] nums1, int[] nums2) {
+        int[] result = new int[nums1.length];
+        for (int i = 0; i < nums1.length; i++) {
+            int nextGreaterElement = -1;
+            for (int j = 0; j < nums2.length; j++) {
+                if (nums1[i] == nums2[j]) {
+                    for (int k = j + 1; k < nums2.length; k++) {
+                        if (nums1[i] < nums2[k]) {
+                            nextGreaterElement = nums2[k];
+                            break;
+                        }
+                    }
+                    break;
+                }
+            }
+            result[i] = nextGreaterElement;
+        }
+        return result;
+    }
 
-	// from leet.code (2ms)
+    // from leet.code (2ms)
 //	public int[] nextGreaterElement(int[] nums1, int[] nums2) {
 //		Map<Integer, Integer> vMap = new HashMap<>();
 //		for (int i = 0; i < nums2.length; i++) {

@@ -26,28 +26,28 @@ Both strings consists only of lowercase characters.
 
 public class _392_IsSubsequence {
 
-	public boolean isSubsequence(String s, String t) {
-		if (s.length() == 0) return true;
-		if (s.length() > t.length()) return false;
-		char[] charsS = s.toCharArray();
-		char[] charsT = t.toCharArray();
-		int startFrom = 0;
-		for (int i = 0; i < charsS.length; i++) {
-			boolean charIsFound = false;
-			for (int j = startFrom; j < charsT.length; j++) {
-				if (charsS[i] == charsT[j]) {
-					charIsFound = true;
-					startFrom = j + 1;
-					break;
-				}
-			}
-			if (!charIsFound) {
-				return false;
-			} else if (i == charsS.length - 1) {
-				return true;
-			}
-		}
-		return false;
-	}
+    public boolean isSubsequence(String s, String t) {
+        if (s.length() == 0) return true;
+        if (s.length() > t.length()) return false;
+        char[] charsS = s.toCharArray();
+        char[] charsT = t.toCharArray();
+        int startFrom = 0;
+        for (int i = 0; i < charsS.length; i++) {
+            boolean charIsFound = false;
+            for (int j = startFrom; j < charsT.length; j++) {
+                if (charsS[i] == charsT[j]) {
+                    charIsFound = true;
+                    startFrom = j + 1;
+                    break;
+                }
+            }
+            if (!charIsFound) {
+                return false;
+            } else if (i == charsS.length - 1) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }

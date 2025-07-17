@@ -19,18 +19,18 @@ import java.util.Arrays;
 
 public class _561_ArrayPartition1 {
 
-	public int arrayPairSum(int[] nums) {
-		if (nums.length == 0) return 0;
-		Arrays.sort(nums);
-		if (nums.length == 2) {
-			return nums[0];
-		} else {
-			int result = 0;
-			for (int i = 0; i < nums.length; i+=2) {
-				result += nums[i];
-			}
-			return result;
-		}
-	}
+    public int arrayPairSum(int[] nums) {
+        if (nums.length == 0) return 0;
+        Arrays.sort(nums);
+        if (nums.length == 2) {
+            return nums[0];
+        } else {
+            int result = 0;
+            for (int i = 0; i < nums.length; i += 2) {
+                result += nums[i];
+            }
+            return result;
+        }
+    }
 
 }

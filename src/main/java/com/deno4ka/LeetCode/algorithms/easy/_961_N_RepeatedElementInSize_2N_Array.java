@@ -28,14 +28,14 @@ nums contains n + 1 unique elements and one of them is repeated exactly n times.
 
 public class _961_N_RepeatedElementInSize_2N_Array {
 
-//	Runtime: 0 ms, faster than 100.00% & Memory Usage: 39.6 MB, less than 84.75%
-	public int repeatedNTimes(int[] nums) {
+    //	Runtime: 0 ms, faster than 100.00% & Memory Usage: 39.6 MB, less than 84.75%
+    public int repeatedNTimes(int[] nums) {
 //		if (nums == null || nums.length < 4 || nums.length % 2 == 1) return 0;
-		int[] numCount = new int[10_001];
-		for (int num : nums) {
-			if (++numCount[num] > 1) return num;
-		}
-		return 0;
-	}
+        int[] numCount = new int[10_001];
+        for (int num : nums) {
+            if (++numCount[num] > 1) return num;
+        }
+        return 0;
+    }
 
 }

@@ -38,39 +38,39 @@ Constraints:
 
 public class _914_XOfAKindInADeckOfCards {
 
-	private static final int MAX_DECK_SIZE = 10_000;
+    private static final int MAX_DECK_SIZE = 10_000;
 
-//	Runtime: 2 ms, faster than 99.58% & Memory Usage: 39.4 MB, less than 54.03%
-	public boolean hasGroupsSizeX(int[] deck) {
-		if (deck.length < 2) return false;
-		int[] cardGroups = new int[MAX_DECK_SIZE];
-		for (int card : deck) {
-			cardGroups[card]++;
-		}
-		int minCardsInGroup = MAX_DECK_SIZE;
-		for (int card : deck) {
-			minCardsInGroup = Math.min(minCardsInGroup, cardGroups[card]);
-		}
-		int commonDivisor = 2;
-		boolean hasCommonDivisor;
-		while (commonDivisor <= minCardsInGroup) {
-			hasCommonDivisor = true;
-			for (int cardGroup : cardGroups) {
-				if (cardGroup == 1) {
-					return false;
-				} else if (cardGroup > 1) {
-					if (cardGroup % commonDivisor != 0) {
-						commonDivisor++;
-						hasCommonDivisor = false;
-						break;
-					}
-				}
-			}
-			if (hasCommonDivisor) {
-				return true;
-			}
-		}
-		return false;
-	}
+    //	Runtime: 2 ms, faster than 99.58% & Memory Usage: 39.4 MB, less than 54.03%
+    public boolean hasGroupsSizeX(int[] deck) {
+        if (deck.length < 2) return false;
+        int[] cardGroups = new int[MAX_DECK_SIZE];
+        for (int card : deck) {
+            cardGroups[card]++;
+        }
+        int minCardsInGroup = MAX_DECK_SIZE;
+        for (int card : deck) {
+            minCardsInGroup = Math.min(minCardsInGroup, cardGroups[card]);
+        }
+        int commonDivisor = 2;
+        boolean hasCommonDivisor;
+        while (commonDivisor <= minCardsInGroup) {
+            hasCommonDivisor = true;
+            for (int cardGroup : cardGroups) {
+                if (cardGroup == 1) {
+                    return false;
+                } else if (cardGroup > 1) {
+                    if (cardGroup % commonDivisor != 0) {
+                        commonDivisor++;
+                        hasCommonDivisor = false;
+                        break;
+                    }
+                }
+            }
+            if (hasCommonDivisor) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }

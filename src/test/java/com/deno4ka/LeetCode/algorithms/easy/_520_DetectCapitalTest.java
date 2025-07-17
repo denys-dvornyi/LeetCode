@@ -10,27 +10,27 @@ import java.util.stream.Stream;
 
 public class _520_DetectCapitalTest {
 
-	private final _520_DetectCapital detectCapital = new _520_DetectCapital();
+    private final _520_DetectCapital detectCapital = new _520_DetectCapital();
 
-	@DisplayName("Detect Capital")
-	@ParameterizedTest(name = "test #{index}: word {0} -> expected {1}")
-	@MethodSource({"useCases"})
-	public void detectCapitalUse(String word, boolean expected) {
-		Assertions.assertEquals(expected, detectCapital.detectCapitalUse(word));
-	}
+    public static Stream<Arguments> useCases() {
+        return Stream.of(
+                Arguments.of("USA", true),
+                Arguments.of("Google", true),
+                Arguments.of("leetcode", true),
+                Arguments.of("A", true),
+                Arguments.of("Ab", true),
+                Arguments.of("z", true),
+                Arguments.of("zA", false),
+                Arguments.of("FlaG", false),
+                Arguments.of("TrackEnsure", false)
+        );
+    }
 
-	public static Stream<Arguments> useCases() {
-		return Stream.of(
-				Arguments.of("USA", true),
-				Arguments.of("Google", true),
-				Arguments.of("leetcode", true),
-				Arguments.of("A", true),
-				Arguments.of("Ab", true),
-				Arguments.of("z", true),
-				Arguments.of("zA", false),
-				Arguments.of("FlaG", false),
-				Arguments.of("TrackEnsure", false)
-		);
-	}
+    @DisplayName("Detect Capital")
+    @ParameterizedTest(name = "test #{index}: word {0} -> expected {1}")
+    @MethodSource({"useCases"})
+    public void detectCapitalUse(String word, boolean expected) {
+        Assertions.assertEquals(expected, detectCapital.detectCapitalUse(word));
+    }
 
 }

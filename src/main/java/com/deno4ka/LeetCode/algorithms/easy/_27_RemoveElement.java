@@ -10,15 +10,15 @@ package com.deno4ka.LeetCode.algorithms.easy;
 public class _27_RemoveElement {
 
     public _27_RemoveElement() {
-        removeElement(new int[] {3,2,2,3,3,3,4,5,3}, 2);
+        removeElement(new int[]{3, 2, 2, 3, 3, 3, 4, 5, 3}, 2);
     }
 
     private int removeElement(int[] nums, int val) {
         int newLength = nums.length;
-        for (int i = 0; i < newLength;) {
+        for (int i = 0; i < newLength; ) {
             if (nums[i] == val) {
                 for (int j = i; j < newLength - 1; j++) {
-                    nums[j] = nums[j+1];
+                    nums[j] = nums[j + 1];
                 }
                 newLength--;
             }

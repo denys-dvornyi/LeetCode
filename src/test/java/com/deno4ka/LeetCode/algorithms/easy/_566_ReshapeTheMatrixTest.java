@@ -10,20 +10,20 @@ import java.util.stream.Stream;
 
 public class _566_ReshapeTheMatrixTest {
 
-	private final _566_ReshapeTheMatrix reshapeTheMatrix = new _566_ReshapeTheMatrix();
+    private final _566_ReshapeTheMatrix reshapeTheMatrix = new _566_ReshapeTheMatrix();
 
-	@DisplayName("Reshape the Matrix")
-	@ParameterizedTest(name = "test #{index}: matrix to reshape \"{0}\", rows {1}, columns {2} -> expected matrix \"{3}\"")
-	@MethodSource({"useCases"})
-	public void matrixReshape(int[][] nums, int r, int c, int[][] expected) {
-		Assertions.assertArrayEquals(expected, reshapeTheMatrix.matrixReshape(nums, r, c));
-	}
+    public static Stream<Arguments> useCases() {
+        return Stream.of(
+                Arguments.of(new int[][]{{1, 2}, {3, 4}}, 1, 4, new int[][]{{1, 2, 3, 4}}),
+                Arguments.of(new int[][]{{1, 2}, {3, 4}}, 2, 4, new int[][]{{1, 2}, {3, 4}})
+        );
+    }
 
-	public static Stream<Arguments> useCases() {
-		return Stream.of(
-				Arguments.of(new int[][] {{1,2}, {3,4}}, 1, 4, new int[][] {{1,2,3,4}}),
-				Arguments.of(new int[][] {{1,2}, {3,4}}, 2, 4, new int[][] {{1,2}, {3,4}})
-		);
-	}
+    @DisplayName("Reshape the Matrix")
+    @ParameterizedTest(name = "test #{index}: matrix to reshape \"{0}\", rows {1}, columns {2} -> expected matrix \"{3}\"")
+    @MethodSource({"useCases"})
+    public void matrixReshape(int[][] nums, int r, int c, int[][] expected) {
+        Assertions.assertArrayEquals(expected, reshapeTheMatrix.matrixReshape(nums, r, c));
+    }
 
 }

@@ -10,8 +10,8 @@ package com.deno4ka.LeetCode.algorithms.easy;
 public class _88_MergeSortedArray {
 
     public _88_MergeSortedArray() {
-        int[] nums1 = new int[] {2,4,6,8,10,0,0,0,0,0};
-        int[] nums2 = new int[] {1,3,5,7,9};
+        int[] nums1 = new int[]{2, 4, 6, 8, 10, 0, 0, 0, 0, 0};
+        int[] nums2 = new int[]{1, 3, 5, 7, 9};
         printArray(nums1);
         printArray(nums2);
         merge(nums1, 5, nums2, nums2.length);
@@ -23,7 +23,7 @@ public class _88_MergeSortedArray {
             int[] tmp = new int[m + n];
             int pos1 = 0, pos2 = 0;
             boolean secondEnd = false, firstEnd = false;
-            for (int i = 0; i < tmp.length; i ++) {
+            for (int i = 0; i < tmp.length; i++) {
                 if (nums1[pos1] <= nums2[pos2]) {
                     if (pos1 == m - 1) {
                         if (firstEnd) {
@@ -49,7 +49,7 @@ public class _88_MergeSortedArray {
                             tmp[i] = nums2[pos2];
                             secondEnd = true;
                         }
-                    } else if (pos2 < n -1) {
+                    } else if (pos2 < n - 1) {
                         tmp[i] = nums2[pos2];
                         pos2++;
                     } else {

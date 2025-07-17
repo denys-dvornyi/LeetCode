@@ -33,43 +33,41 @@ Constraints:
 words[i] consists of lowercase English letters.
 */
 
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 public class _804_UniqueMorseCodeWords {
 
-	private static final String[] morseCodes = new String[] {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
-	private static final char[] alphabet = new char[] {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
-//	private static final Map<Character, String> morseCodeTable = new HashMap<>(alphabet.length);
-	private static final String[] morseCodeArray = new String[(int) 'z' + 1];
+    private static final String[] morseCodes = new String[]{".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."};
+    private static final char[] alphabet = new char[]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+    //	private static final Map<Character, String> morseCodeTable = new HashMap<>(alphabet.length);
+    private static final String[] morseCodeArray = new String[(int) 'z' + 1];
 
-	static {
-		for (int i = 0; i < morseCodes.length; i++) {
-			morseCodeArray[alphabet[i]] = morseCodes[i];
-		}
+    static {
+        for (int i = 0; i < morseCodes.length; i++) {
+            morseCodeArray[alphabet[i]] = morseCodes[i];
+        }
 //		for (int i = 0; i < alphabet.length; i++) {
 //			morseCodeTable.put(alphabet[i], morseCodes[i]);
 //		}
-	}
+    }
 
-//	Runtime: 1 ms, faster than 100.00% & Memory Usage: 37 MB, less than 80.23%
-	public int uniqueMorseRepresentations(String[] words) {
-		if (words.length == 1) {
-			return 1;
-		} else {
-			Set<String> uniqueMorseCodeWords = new HashSet<>(words.length);
-			for (String word : words) {
-				StringBuilder wordAsMorseCode = new StringBuilder();
-				for (char c : word.toCharArray()) {
-					wordAsMorseCode.append(morseCodeArray[c]);
-				}
-				uniqueMorseCodeWords.add(wordAsMorseCode.toString());
-			}
-			return uniqueMorseCodeWords.size();
-		}
-	}
+    //	Runtime: 1 ms, faster than 100.00% & Memory Usage: 37 MB, less than 80.23%
+    public int uniqueMorseRepresentations(String[] words) {
+        if (words.length == 1) {
+            return 1;
+        } else {
+            Set<String> uniqueMorseCodeWords = new HashSet<>(words.length);
+            for (String word : words) {
+                StringBuilder wordAsMorseCode = new StringBuilder();
+                for (char c : word.toCharArray()) {
+                    wordAsMorseCode.append(morseCodeArray[c]);
+                }
+                uniqueMorseCodeWords.add(wordAsMorseCode.toString());
+            }
+            return uniqueMorseCodeWords.size();
+        }
+    }
 
 //	Runtime: 2 ms, faster than 71.58% & Memory Usage: 36.9 MB, less than 80.23%
 //	public int uniqueMorseRepresentations(String[] words) {

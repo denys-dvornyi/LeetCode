@@ -38,24 +38,24 @@ import java.util.Set;
 
 public class _929_UniqueEmailAddresses {
 
-//	Runtime: 20 ms, faster than 36.18% & Memory Usage: 39.7 MB, less than 36.55%
-	public int numUniqueEmails(String[] emails) {
-		if (emails == null || emails.length == 0) return 0;
-		if (emails.length == 1) return 1;
-		Set<String> uniqueEmailAddresses = new HashSet<>();
-		for (String email : emails) {
-			String[] emailParts = email.split("@");
-			StringBuilder localName = new StringBuilder();
-			for (int i = 0; i < emailParts[0].length(); i++) {
-				if (email.charAt(i) == '+') {
-					break;
-				} else if (email.charAt(i) != '.') {
-					localName.append(email.charAt(i));
-				}
-			}
-			uniqueEmailAddresses.add(localName + "@" + emailParts[1]);
-		}
-		return uniqueEmailAddresses.size();
-	}
+    //	Runtime: 20 ms, faster than 36.18% & Memory Usage: 39.7 MB, less than 36.55%
+    public int numUniqueEmails(String[] emails) {
+        if (emails == null || emails.length == 0) return 0;
+        if (emails.length == 1) return 1;
+        Set<String> uniqueEmailAddresses = new HashSet<>();
+        for (String email : emails) {
+            String[] emailParts = email.split("@");
+            StringBuilder localName = new StringBuilder();
+            for (int i = 0; i < emailParts[0].length(); i++) {
+                if (email.charAt(i) == '+') {
+                    break;
+                } else if (email.charAt(i) != '.') {
+                    localName.append(email.charAt(i));
+                }
+            }
+            uniqueEmailAddresses.add(localName + "@" + emailParts[1]);
+        }
+        return uniqueEmailAddresses.size();
+    }
 
 }

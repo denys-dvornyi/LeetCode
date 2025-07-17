@@ -28,14 +28,14 @@ Note:
 
 public class _509_FibonacciNumber {
 
-	// Runtime: 9 ms, faster than 26.57% and Memory Usage: 32.9 MB, less than 5.51%
-	public int fib(int N) {
-		if (N == 0) return 0;
-		if (N == 1) return 1;
-		return fib(N - 1) + fib (N - 2);
-	}
+    // Runtime: 9 ms, faster than 26.57% and Memory Usage: 32.9 MB, less than 5.51%
+    public int fib(int N) {
+        if (N == 0) return 0;
+        if (N == 1) return 1;
+        return fib(N - 1) + fib(N - 2);
+    }
 
-	// best from leet.code
+    // best from leet.code
 //	public int fib(int N) {
 //		if (N <= 0) {
 //			return 0;

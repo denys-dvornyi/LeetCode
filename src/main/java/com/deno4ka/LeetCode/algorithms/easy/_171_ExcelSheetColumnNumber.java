@@ -27,25 +27,25 @@ Output: 701
 
 public class _171_ExcelSheetColumnNumber {
 
-	public _171_ExcelSheetColumnNumber() {
-		System.out.println(titleToNumber("A"));
-		System.out.println(titleToNumber("AB"));
-		System.out.println(titleToNumber("ZY"));
-	}
+    public _171_ExcelSheetColumnNumber() {
+        System.out.println(titleToNumber("A"));
+        System.out.println(titleToNumber("AB"));
+        System.out.println(titleToNumber("ZY"));
+    }
 
-	public int titleToNumber(String s) {
-		final int OFFSET = 64;
-		int[] ints = new StringBuilder(s).reverse().chars().toArray();
-		int result = 0;
-		long index = 1;
-		for (int i = 0; i < ints.length; i++) {
-			result += (ints[i] - OFFSET) * index;
-			index *= 26;
-		}
-		return result;
-	}
+    public int titleToNumber(String s) {
+        final int OFFSET = 64;
+        int[] ints = new StringBuilder(s).reverse().chars().toArray();
+        int result = 0;
+        long index = 1;
+        for (int i = 0; i < ints.length; i++) {
+            result += (ints[i] - OFFSET) * index;
+            index *= 26;
+        }
+        return result;
+    }
 
-	// best from leet.code
+    // best from leet.code
 //	public int titleToNumber(String s) {
 //		int num = 0;
 //		int exp = 1;

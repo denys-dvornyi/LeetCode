@@ -31,41 +31,41 @@ import java.util.Arrays;
 
 public class _1005_MaximizeSumOfArrayAfterKNegations {
 
-//	Runtime: 6 ms, faster than 22.36% && Memory Usage: 39.7 MB, less than 17.68%
-	public int largestSumAfterKNegations(int[] nums, int k) {
-		Arrays.sort(nums);
-		if (nums[0] > -1) {
-			if (k % 2 == 1) {
-				nums[0] = -nums[0];
-			}
-		} else {
-			for (int i = 0; i < k; i++) {
-				int minPositiveNumber = 100;
-				int minPositiveNumberIndex = 0;
-				boolean isNegationed = false;
-				for (int j = 0; j < nums.length; j++) {
-					if (nums[j] < 0) {
-						nums[j] = -nums[j];
-						isNegationed = true;
-						break;
-					} else {
-						if (minPositiveNumber > nums[j]) {
-							minPositiveNumber = nums[j];
-							minPositiveNumberIndex = j;
-						}
-					}
-				}
-				if (!isNegationed) {
-					nums[minPositiveNumberIndex] = -nums[minPositiveNumberIndex];
-				}
-			}
-		}
-		int sum = 0;
-		for (int num : nums) {
-			sum += num;
-		}
-		return sum;
-	}
+    //	Runtime: 6 ms, faster than 22.36% && Memory Usage: 39.7 MB, less than 17.68%
+    public int largestSumAfterKNegations(int[] nums, int k) {
+        Arrays.sort(nums);
+        if (nums[0] > -1) {
+            if (k % 2 == 1) {
+                nums[0] = -nums[0];
+            }
+        } else {
+            for (int i = 0; i < k; i++) {
+                int minPositiveNumber = 100;
+                int minPositiveNumberIndex = 0;
+                boolean isNegationed = false;
+                for (int j = 0; j < nums.length; j++) {
+                    if (nums[j] < 0) {
+                        nums[j] = -nums[j];
+                        isNegationed = true;
+                        break;
+                    } else {
+                        if (minPositiveNumber > nums[j]) {
+                            minPositiveNumber = nums[j];
+                            minPositiveNumberIndex = j;
+                        }
+                    }
+                }
+                if (!isNegationed) {
+                    nums[minPositiveNumberIndex] = -nums[minPositiveNumberIndex];
+                }
+            }
+        }
+        int sum = 0;
+        for (int num : nums) {
+            sum += num;
+        }
+        return sum;
+    }
 
 //	best from leet.code 1ms solution
 //	public int largestSumAfterKNegations(int[] nums, int k) {

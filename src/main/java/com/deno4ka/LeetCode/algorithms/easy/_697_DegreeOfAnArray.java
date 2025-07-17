@@ -25,50 +25,46 @@ nums.length will be between 1 and 50,000.
 nums[i] will be an integer between 0 and 49,999.
 */
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-
 public class _697_DegreeOfAnArray {
 
-//	Runtime: 45 ms, faster than 14.21% & Memory Usage: 40.8 MB, less than 99.86%
-	public int findShortestSubArray(int[] nums) {
-		if (nums == null || nums.length == 0) return 0;
-		if (nums.length == 1) return 1;
-		final int MAX_ELEMENTS = 50_000;
-		int degree = 0;
-		int[] numFrequency = new int[MAX_ELEMENTS];
-		for (int num : nums) {
-			numFrequency[num]++;
-			degree = Math.max(degree, numFrequency[num]);
-		}
-		int[] mostFrequentNums = new int[MAX_ELEMENTS / degree];
-		int mostFrequentNumsCursor = 0;
-		for (int j = 0; j < numFrequency.length; j++) {
-			if (degree == numFrequency[j]) {
-				mostFrequentNums[mostFrequentNumsCursor] = j;
-				mostFrequentNumsCursor++;
-			}
-		}
-		int minSubarrayLength = nums.length;
-		for (int k = 0; k < mostFrequentNumsCursor; k++) {
-			int freqNum = mostFrequentNums[k];
-			int first = -1;
-			int last = -1;
-			for (int m = 0; m < nums.length; m++) {
-				if (freqNum == nums[m]) {
-					if (first == -1) {
-						first = m;
-						last = m;
-					} else {
-						last = m;
-					}
-				}
-			}
-			minSubarrayLength = Math.min(minSubarrayLength, last - first + 1);
-		}
-		return minSubarrayLength;
-	}
+    //	Runtime: 45 ms, faster than 14.21% & Memory Usage: 40.8 MB, less than 99.86%
+    public int findShortestSubArray(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+        if (nums.length == 1) return 1;
+        final int MAX_ELEMENTS = 50_000;
+        int degree = 0;
+        int[] numFrequency = new int[MAX_ELEMENTS];
+        for (int num : nums) {
+            numFrequency[num]++;
+            degree = Math.max(degree, numFrequency[num]);
+        }
+        int[] mostFrequentNums = new int[MAX_ELEMENTS / degree];
+        int mostFrequentNumsCursor = 0;
+        for (int j = 0; j < numFrequency.length; j++) {
+            if (degree == numFrequency[j]) {
+                mostFrequentNums[mostFrequentNumsCursor] = j;
+                mostFrequentNumsCursor++;
+            }
+        }
+        int minSubarrayLength = nums.length;
+        for (int k = 0; k < mostFrequentNumsCursor; k++) {
+            int freqNum = mostFrequentNums[k];
+            int first = -1;
+            int last = -1;
+            for (int m = 0; m < nums.length; m++) {
+                if (freqNum == nums[m]) {
+                    if (first == -1) {
+                        first = m;
+                        last = m;
+                    } else {
+                        last = m;
+                    }
+                }
+            }
+            minSubarrayLength = Math.min(minSubarrayLength, last - first + 1);
+        }
+        return minSubarrayLength;
+    }
 
 //	fastest from leet.code (2ms)
 //	public int findShortestSubArray(int[] nums) {

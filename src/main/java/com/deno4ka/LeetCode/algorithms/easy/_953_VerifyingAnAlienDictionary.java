@@ -56,30 +56,30 @@ public class _953_VerifyingAnAlienDictionary {
 //		return word.length() - other.length();
 //	}
 
-//	more memory less computations
+    //	more memory less computations
 //	Runtime: 0 ms, faster than 100.00% & Memory Usage: 39 MB, less than 57.68%
-	public boolean isAlienSorted(String[] words, String order) {
-		if (words == null || words.length < 2) return true;
-		int[] alienOrder = new int[123]; // int value of 'a' is 97, int value of 'z' is 122
-		for (int i = 0; i < order.length(); i++) {
-			alienOrder[order.charAt(i)] = i;
-		}
-		for (int j = 0; j < words.length - 1; j++) {
-			if ( compareStrings(words[j], words[j + 1], alienOrder) > 0) {
-				return false;
-			}
-		}
-		return true;
-	}
+    public boolean isAlienSorted(String[] words, String order) {
+        if (words == null || words.length < 2) return true;
+        int[] alienOrder = new int[123]; // int value of 'a' is 97, int value of 'z' is 122
+        for (int i = 0; i < order.length(); i++) {
+            alienOrder[order.charAt(i)] = i;
+        }
+        for (int j = 0; j < words.length - 1; j++) {
+            if (compareStrings(words[j], words[j + 1], alienOrder) > 0) {
+                return false;
+            }
+        }
+        return true;
+    }
 
-	private int compareStrings(String word, String other, int[] order) {
-		int lim = Math.min(word.length(), other.length());
-		for(int k = 0; k < lim; ++k) {
-			if (order[word.charAt(k)] != order[other.charAt(k)]) {
-				return order[word.charAt(k)] - order[other.charAt(k)];
-			}
-		}
-		return word.length() - other.length();
-	}
+    private int compareStrings(String word, String other, int[] order) {
+        int lim = Math.min(word.length(), other.length());
+        for (int k = 0; k < lim; ++k) {
+            if (order[word.charAt(k)] != order[other.charAt(k)]) {
+                return order[word.charAt(k)] - order[other.charAt(k)];
+            }
+        }
+        return word.length() - other.length();
+    }
 
 }

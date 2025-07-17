@@ -23,7 +23,7 @@ public class _58_LengthOfLastWord {
         else {
             int length = 0;
             char[] chars = s.toCharArray();
-            for (int i = chars.length-1; i >= 0; i--) {
+            for (int i = chars.length - 1; i >= 0; i--) {
                 if (chars[i] == ' ' && length > 0) {
                     return length;
                 } else if (chars[i] == ' ' && length == 0) {

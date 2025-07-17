@@ -24,42 +24,42 @@ import java.util.Map;
 
 public class _303_RangeSumQueryImmutable {
 
-	private int[] sums;
-	private int[] nums;
-	private Map<String, Integer> sumRanges = new HashMap<>();
+    private int[] sums;
+    private int[] nums;
+    private Map<String, Integer> sumRanges = new HashMap<>();
 
-	public _303_RangeSumQueryImmutable() {
-		nums = new int[] {-2, 0, 3, -5, 2, -1};
-		System.out.println(sumRange(0, 2)); // 1
-		System.out.println(sumRange(2, 5)); // -1
-		System.out.println(sumRange(0, 5)); // -3
-	}
+    public _303_RangeSumQueryImmutable() {
+        nums = new int[]{-2, 0, 3, -5, 2, -1};
+        System.out.println(sumRange(0, 2)); // 1
+        System.out.println(sumRange(2, 5)); // -1
+        System.out.println(sumRange(0, 5)); // -3
+    }
 
-	public _303_RangeSumQueryImmutable(int[] nums) {
-		this.nums = nums;
+    public _303_RangeSumQueryImmutable(int[] nums) {
+        this.nums = nums;
 
-		sums = Arrays.copyOf(nums, nums.length);
-		for (int x = 1; x < nums.length; x++) {
-			sums[x] += sums[x - 1];
-		}
-	}
+        sums = Arrays.copyOf(nums, nums.length);
+        for (int x = 1; x < nums.length; x++) {
+            sums[x] += sums[x - 1];
+        }
+    }
 
-	// (920ms/2.76%)
-	public int sumRange(int i, int j) {
-		String sumRangeKey = i + ":" + j;
-		if (sumRanges.containsKey(sumRangeKey)) {
-			return sumRanges.get(sumRangeKey);
-		} else {
-			int sum = 0;
-			for (int start = i; start <= j; start++) {
-				sum += nums[start];
-			}
-			sumRanges.put(sumRangeKey, sum);
-			return sum;
-		}
-	}
+    // (920ms/2.76%)
+    public int sumRange(int i, int j) {
+        String sumRangeKey = i + ":" + j;
+        if (sumRanges.containsKey(sumRangeKey)) {
+            return sumRanges.get(sumRangeKey);
+        } else {
+            int sum = 0;
+            for (int start = i; start <= j; start++) {
+                sum += nums[start];
+            }
+            sumRanges.put(sumRangeKey, sum);
+            return sum;
+        }
+    }
 
-	// best from leetcode (217ms)
+    // best from leetcode (217ms)
 //	public int sumRange(int i, int j)
 //	{
 //		if (i == 0)

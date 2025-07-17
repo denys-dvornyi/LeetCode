@@ -32,59 +32,59 @@ There is exactly one cell with board[i][j] == 'R'
 
 public class _999_AvailableCapturesForRook {
 
-	private static final char ROOK = 'R';
-	private static final char BISHOP = 'B';
-	private static final char PAWN = 'p';
+    private static final char ROOK = 'R';
+    private static final char BISHOP = 'B';
+    private static final char PAWN = 'p';
 
-//	Runtime: 0 ms, faster than 100.00% & Memory Usage: 36.5 MB, less than 45.59%
-	public int numRookCaptures(char[][] board) {
-		int[] rookCoordinates = findRook(board);
-		if (rookCoordinates == null) return 0;
-		int rookCaptures = 0;
-		for (int i = rookCoordinates[0]; i >= 0; i--) { // check left side from rook
-			if (BISHOP == board[i][rookCoordinates[1]]) {
-				break;
-			} else if (PAWN == board[i][rookCoordinates[1]]) {
-				rookCaptures++;
-				break;
-			}
-		}
-		for (int i = rookCoordinates[0]; i < board.length; i++) { // check right side from rook
-			if (BISHOP == board[i][rookCoordinates[1]]) {
-				break;
-			} else if (PAWN == board[i][rookCoordinates[1]]) {
-				rookCaptures++;
-				break;
-			}
-		}
-		for (int i = rookCoordinates[1]; i >= 0; i--) { // check top side from rook
-			if (BISHOP == board[rookCoordinates[0]][i]) {
-				break;
-			} else if (PAWN == board[rookCoordinates[0]][i]) {
-				rookCaptures++;
-				break;
-			}
-		}
-		for (int i = rookCoordinates[1]; i < board[rookCoordinates[0]].length; i++) { // check bottom side from rook
-			if (BISHOP == board[rookCoordinates[0]][i]) {
-				break;
-			} else if (PAWN == board[rookCoordinates[0]][i]) {
-				rookCaptures++;
-				break;
-			}
-		}
-		return rookCaptures;
-	}
+    //	Runtime: 0 ms, faster than 100.00% & Memory Usage: 36.5 MB, less than 45.59%
+    public int numRookCaptures(char[][] board) {
+        int[] rookCoordinates = findRook(board);
+        if (rookCoordinates == null) return 0;
+        int rookCaptures = 0;
+        for (int i = rookCoordinates[0]; i >= 0; i--) { // check left side from rook
+            if (BISHOP == board[i][rookCoordinates[1]]) {
+                break;
+            } else if (PAWN == board[i][rookCoordinates[1]]) {
+                rookCaptures++;
+                break;
+            }
+        }
+        for (int i = rookCoordinates[0]; i < board.length; i++) { // check right side from rook
+            if (BISHOP == board[i][rookCoordinates[1]]) {
+                break;
+            } else if (PAWN == board[i][rookCoordinates[1]]) {
+                rookCaptures++;
+                break;
+            }
+        }
+        for (int i = rookCoordinates[1]; i >= 0; i--) { // check top side from rook
+            if (BISHOP == board[rookCoordinates[0]][i]) {
+                break;
+            } else if (PAWN == board[rookCoordinates[0]][i]) {
+                rookCaptures++;
+                break;
+            }
+        }
+        for (int i = rookCoordinates[1]; i < board[rookCoordinates[0]].length; i++) { // check bottom side from rook
+            if (BISHOP == board[rookCoordinates[0]][i]) {
+                break;
+            } else if (PAWN == board[rookCoordinates[0]][i]) {
+                rookCaptures++;
+                break;
+            }
+        }
+        return rookCaptures;
+    }
 
-	private int[] findRook(char[][] board) {
-		for (int i = 0; i < board.length; i++) {
-			for (int j = 0; j < board[i].length; j++) {
-				if (ROOK == board[i][j]) {
-					return new int[]{i, j};
-				}
-			}
-		}
-		return null;
-	}
+    private int[] findRook(char[][] board) {
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
+                if (ROOK == board[i][j]) {
+                    return new int[]{i, j};
+                }
+            }
+        }
+        return null;
+    }
 
 }

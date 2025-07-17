@@ -16,39 +16,39 @@ import java.util.Arrays;
 
 public class _283_MoveZeroes {
 
-	public _283_MoveZeroes() {
+    public _283_MoveZeroes() {
 //		int[] nums = new int[]{0,1,0,3,12};
 //		moveZeroes(nums); // 1,3,12,0,0
 
-		int[] nums = new int[]{0,0,1};
-		moveZeroes(nums); // [1,0,0]
-		System.out.println(Arrays.toString(nums));
-	}
+        int[] nums = new int[]{0, 0, 1};
+        moveZeroes(nums); // [1,0,0]
+        System.out.println(Arrays.toString(nums));
+    }
 
-	// (34ms/4.34%)
-	public void moveZeroes(int[] nums) {
+    // (34ms/4.34%)
+    public void moveZeroes(int[] nums) {
 //		int iterationCount = 0;
-		if (nums != null && nums.length > 1) {
-			int lastPositionForZero = nums.length - 1;
-			for (int i = 0; i < lastPositionForZero;) {
-				if (nums[i] == 0) {
-					for (int j = i; j < lastPositionForZero; j++) {
-						int tmp = nums[j];
-						nums[j] = nums[j + 1];
-						nums[j + 1] = tmp;
+        if (nums != null && nums.length > 1) {
+            int lastPositionForZero = nums.length - 1;
+            for (int i = 0; i < lastPositionForZero; ) {
+                if (nums[i] == 0) {
+                    for (int j = i; j < lastPositionForZero; j++) {
+                        int tmp = nums[j];
+                        nums[j] = nums[j + 1];
+                        nums[j + 1] = tmp;
 //						iterationCount++;
-					}
-					lastPositionForZero--;
-				}
-				if (nums[i] != 0) {
-					i++;
-				}
-			}
-		}
+                    }
+                    lastPositionForZero--;
+                }
+                if (nums[i] != 0) {
+                    i++;
+                }
+            }
+        }
 //		System.out.println("iterationCount: " + iterationCount);
-	}
+    }
 
-	// best from leetcode (1ms)
+    // best from leetcode (1ms)
 //	public void moveZeroes(int[] nums) {
 //		int zeroCounter = 0;
 //		int notZeroPointer = 0;

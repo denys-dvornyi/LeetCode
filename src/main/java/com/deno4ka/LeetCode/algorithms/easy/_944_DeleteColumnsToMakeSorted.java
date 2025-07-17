@@ -67,20 +67,20 @@ public class _944_DeleteColumnsToMakeSorted {
 //		return result;
 //	}
 
-//	faster version
+    //	faster version
 //	Runtime: 6 ms, faster than 91.49% & Memory Usage: 38.9 MB, less than 92.64%
-	public int minDeletionSize(String[] strs) {
-		if (strs.length == 1) return 0;
-		int result = 0;
-		for (int k = 0; k < strs[0].length(); k++) {
-			for (int l = 0; l < strs.length - 1; l++) {
-				if (strs[l].charAt(k) > strs[l + 1].charAt(k)) {
-					result++;
-					break;
-				}
-			}
-		}
-		return result;
-	}
+    public int minDeletionSize(String[] strs) {
+        if (strs.length == 1) return 0;
+        int result = 0;
+        for (int k = 0; k < strs[0].length(); k++) {
+            for (int l = 0; l < strs.length - 1; l++) {
+                if (strs[l].charAt(k) > strs[l + 1].charAt(k)) {
+                    result++;
+                    break;
+                }
+            }
+        }
+        return result;
+    }
 
 }

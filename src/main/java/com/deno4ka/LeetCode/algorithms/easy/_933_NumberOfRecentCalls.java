@@ -29,48 +29,51 @@ Each test case will call ping with strictly increasing values of t.
 At most 104 calls will be made to ping.
 */
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class _933_NumberOfRecentCalls {
 
-	public Integer[] getNumberOfRecentCalls(String[] commands, Integer[] pings) {
-		RecentCounter recentCounter = null;
-		Integer[] result = new Integer[pings.length];
-		for (int i = 0; i < commands.length; i++) {
-			switch(commands[i]) {
-				case "RecentCounter": recentCounter = new RecentCounter(); result[i] = null; break;
-				case "ping": if (recentCounter != null) result[i] = recentCounter.ping(pings[i]); break;
-			}
-		}
-		return result;
-	}
+    public Integer[] getNumberOfRecentCalls(String[] commands, Integer[] pings) {
+        RecentCounter recentCounter = null;
+        Integer[] result = new Integer[pings.length];
+        for (int i = 0; i < commands.length; i++) {
+            switch (commands[i]) {
+                case "RecentCounter":
+                    recentCounter = new RecentCounter();
+                    result[i] = null;
+                    break;
+                case "ping":
+                    if (recentCounter != null) result[i] = recentCounter.ping(pings[i]);
+                    break;
+            }
+        }
+        return result;
+    }
 
-	class RecentCounter {
+    class RecentCounter {
 
-		private static final int PAST_MILLIS = 3_000;
-		private final int[] calls = new int[10_000];
-		private int callCursor = 0;
-		private int startRange = 0;
+        private static final int PAST_MILLIS = 3_000;
+        private final int[] calls = new int[10_000];
+        private int callCursor = 0;
+        private int startRange = 0;
 
 //		Queue<Integer> queue = new LinkedList<>();
 
-		public RecentCounter() {}
+        public RecentCounter() {
+        }
 
-//		Runtime: 51 ms, faster than 21.75% & Memory Usage: 48 MB, less than 38.03%
-		public int ping(int t) {
-			int result = 0;
-			calls[callCursor++] = t;
-			int range = t - PAST_MILLIS;
-			for (int i = startRange; i < callCursor; i++) {
-				if (calls[i] < range) {
-					startRange++;
-				} else {
-					result++;
-				}
-			}
-			return result;
-		}
+        //		Runtime: 51 ms, faster than 21.75% & Memory Usage: 48 MB, less than 38.03%
+        public int ping(int t) {
+            int result = 0;
+            calls[callCursor++] = t;
+            int range = t - PAST_MILLIS;
+            for (int i = startRange; i < callCursor; i++) {
+                if (calls[i] < range) {
+                    startRange++;
+                } else {
+                    result++;
+                }
+            }
+            return result;
+        }
 
 //		best from leet.code -> Runtime: 43 ms, faster than 25.03% & Memory Usage: 71.8 MB, less than 5.20%
 //		public int ping(int t) {
@@ -81,6 +84,6 @@ public class _933_NumberOfRecentCalls {
 //			return queue.size();
 //		}
 
-	}
+    }
 
 }

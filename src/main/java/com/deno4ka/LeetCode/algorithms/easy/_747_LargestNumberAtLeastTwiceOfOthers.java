@@ -28,8 +28,6 @@ Constraints:
 The largest element in nums is unique.
 */
 
-import java.util.Arrays;
-
 public class _747_LargestNumberAtLeastTwiceOfOthers {
 
 //	with two loops
@@ -56,31 +54,31 @@ public class _747_LargestNumberAtLeastTwiceOfOthers {
 //		}
 //	}
 
-//	with prev maximum
+    //	with prev maximum
 //	Runtime: 0 ms, faster than 100.00% & Memory Usage: 37 MB, less than 59.13%
-	public int dominantIndex(int[] nums) {
-		if (nums == null || nums.length == 0) return -1;
-		if (nums.length == 1) return 0;
-		else {
-			int prevMaxElement = Integer.MIN_VALUE;
-			int maxElementIndex = 0;
-			int maxElement = nums[maxElementIndex];
-			for (int i = 1; i < nums.length; i++) {
-				if (maxElement < nums[i]) {
-					prevMaxElement = maxElement;
-					maxElementIndex = i;
-					maxElement = nums[i];
-				} else if (prevMaxElement < nums[i]) {
-					prevMaxElement = nums[i];
-				}
-			}
-			if (prevMaxElement * 2 > maxElement) {
-				return -1;
-			} else {
-				return maxElementIndex;
-			}
-		}
-	}
+    public int dominantIndex(int[] nums) {
+        if (nums == null || nums.length == 0) return -1;
+        if (nums.length == 1) return 0;
+        else {
+            int prevMaxElement = Integer.MIN_VALUE;
+            int maxElementIndex = 0;
+            int maxElement = nums[maxElementIndex];
+            for (int i = 1; i < nums.length; i++) {
+                if (maxElement < nums[i]) {
+                    prevMaxElement = maxElement;
+                    maxElementIndex = i;
+                    maxElement = nums[i];
+                } else if (prevMaxElement < nums[i]) {
+                    prevMaxElement = nums[i];
+                }
+            }
+            if (prevMaxElement * 2 > maxElement) {
+                return -1;
+            } else {
+                return maxElementIndex;
+            }
+        }
+    }
 
 //	with sorting array
 //	Runtime: 1 ms, faster than 50.61% & Memory Usage: 36.9 MB, less than 59.13%

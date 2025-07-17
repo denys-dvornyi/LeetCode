@@ -13,46 +13,46 @@ import java.util.Arrays;
 
 public class _204_CountPrimes {
 
-	public _204_CountPrimes() {
-		System.out.println(countPrimes(2)); // 0
-		System.out.println(countPrimes(3)); // 1
-		System.out.println(countPrimes(10)); // 4
-		System.out.println(countPrimes(499979)); // 41537
-	}
+    public _204_CountPrimes() {
+        System.out.println(countPrimes(2)); // 0
+        System.out.println(countPrimes(3)); // 1
+        System.out.println(countPrimes(10)); // 4
+        System.out.println(countPrimes(499979)); // 41537
+    }
 
-	// runtime: 25ms
-	public int countPrimes(int n) {
-		if (n < 2) {
-			return 0;
-		} else {
-			boolean[] numbers = new boolean[n + 1];
-			Arrays.fill(numbers, true);
+    // runtime: 25ms
+    public int countPrimes(int n) {
+        if (n < 2) {
+            return 0;
+        } else {
+            boolean[] numbers = new boolean[n + 1];
+            Arrays.fill(numbers, true);
 
-			long cycleCounter = 0;
+            long cycleCounter = 0;
 
-			for (int i = 2; i * i < n; i++) {
-				if (numbers[i]) {
-					for (int j = i; j+i < n + 1; j += i) {
-						if (numbers[j + i]) {
-							numbers[j + i] = false;
-							cycleCounter++;
-						}
-					}
-				}
-			}
+            for (int i = 2; i * i < n; i++) {
+                if (numbers[i]) {
+                    for (int j = i; j + i < n + 1; j += i) {
+                        if (numbers[j + i]) {
+                            numbers[j + i] = false;
+                            cycleCounter++;
+                        }
+                    }
+                }
+            }
 
-			int primesCounter = 0;
-			for (int k = 2; k < n; k++) {
-				if (numbers[k]) {
-					primesCounter++;
-				}
-			}
-			System.out.println("cycleCounter: " + cycleCounter); // 5638156
-			return primesCounter;
-		}
-	}
+            int primesCounter = 0;
+            for (int k = 2; k < n; k++) {
+                if (numbers[k]) {
+                    primesCounter++;
+                }
+            }
+            System.out.println("cycleCounter: " + cycleCounter); // 5638156
+            return primesCounter;
+        }
+    }
 
-	// v_1.0 Time Limit Exceeded
+    // v_1.0 Time Limit Exceeded
 //	public int countPrimes(int n) {
 //		if (n < 2) {
 //			return 0;

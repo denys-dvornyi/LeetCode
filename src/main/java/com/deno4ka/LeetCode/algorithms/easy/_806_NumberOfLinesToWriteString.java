@@ -39,25 +39,25 @@ s contains only lowercase English letters.
 
 public class _806_NumberOfLinesToWriteString {
 
-//	Runtime: 0 ms, faster than 100.00% & Memory Usage: 37.6 MB, less than 46.43%
-	public int[] numberOfLines(int[] widths, String s) {
-		final int INT_VAL_A = 'a'; // 97
-		int[] result = new int[2];
-		int rowSum = 0;
-		int totalLines = 1;
-		for (char c : s.toCharArray()) {
-			int charWidth = widths[c - INT_VAL_A];
-			if (rowSum + charWidth > 100) {
-				totalLines++;
-				rowSum = charWidth;
-			} else {
-				rowSum += charWidth;
-			}
-		}
-		result[0] = totalLines;
-		result[1] = rowSum;
-		return result;
-	}
+    //	Runtime: 0 ms, faster than 100.00% & Memory Usage: 37.6 MB, less than 46.43%
+    public int[] numberOfLines(int[] widths, String s) {
+        final int INT_VAL_A = 'a'; // 97
+        int[] result = new int[2];
+        int rowSum = 0;
+        int totalLines = 1;
+        for (char c : s.toCharArray()) {
+            int charWidth = widths[c - INT_VAL_A];
+            if (rowSum + charWidth > 100) {
+                totalLines++;
+                rowSum = charWidth;
+            } else {
+                rowSum += charWidth;
+            }
+        }
+        result[0] = totalLines;
+        result[1] = rowSum;
+        return result;
+    }
 
 //	without extra variables. increment inside result array
 //	Runtime: 0 ms, faster than 100.00% & 37.5 MB, less than 54.20%

@@ -27,10 +27,10 @@ import java.util.StringJoiner;
 
 public class _226_InvertBinaryTree {
 
-	private TreeNode invertedTreeNode;
-	private StringJoiner treeNodeAsString;
+    private TreeNode invertedTreeNode;
+    private StringJoiner treeNodeAsString;
 
-	// from leet.code
+    // from leet.code
 //	public TreeNode invertTree(TreeNode root) {
 //		if(root == null)
 //			return null;
@@ -43,71 +43,72 @@ public class _226_InvertBinaryTree {
 //		return root;
 //	}
 
-	// my solution (0ms/100%)
-	public _226_InvertBinaryTree() {
-		TreeNode root = new TreeNode(4);
-		TreeNode leftRoot = new TreeNode(2);
-		TreeNode leftLeftNode = new TreeNode(1);
-		TreeNode leftRightNode = new TreeNode(3);
-		TreeNode rightRoot = new TreeNode(7);
-		TreeNode rightLeftNode = new TreeNode(6);
-		TreeNode rightRightNode = new TreeNode(9);
-		root.left = leftRoot;
-		root.right = rightRoot;
-		leftRoot.left = leftLeftNode;
-		leftRoot.right = leftRightNode;
-		rightRoot.left = rightLeftNode;
-		rightRoot.right = rightRightNode;
+    // my solution (0ms/100%)
+    public _226_InvertBinaryTree() {
+        TreeNode root = new TreeNode(4);
+        TreeNode leftRoot = new TreeNode(2);
+        TreeNode leftLeftNode = new TreeNode(1);
+        TreeNode leftRightNode = new TreeNode(3);
+        TreeNode rightRoot = new TreeNode(7);
+        TreeNode rightLeftNode = new TreeNode(6);
+        TreeNode rightRightNode = new TreeNode(9);
+        root.left = leftRoot;
+        root.right = rightRoot;
+        leftRoot.left = leftLeftNode;
+        leftRoot.right = leftRightNode;
+        rightRoot.left = rightLeftNode;
+        rightRoot.right = rightRightNode;
 
-		treeNodeAsString = new StringJoiner("-");
-		printTreeNode(root);
-		System.out.println(treeNodeAsString.toString());
+        treeNodeAsString = new StringJoiner("-");
+        printTreeNode(root);
+        System.out.println(treeNodeAsString.toString());
 
-		treeNodeAsString = new StringJoiner("-");
-		invertTree(root);
-		printTreeNode(invertedTreeNode);
-		System.out.println(treeNodeAsString.toString());
-	}
+        treeNodeAsString = new StringJoiner("-");
+        invertTree(root);
+        printTreeNode(invertedTreeNode);
+        System.out.println(treeNodeAsString.toString());
+    }
 
-	public TreeNode invertTree(TreeNode root) {
-		if (root != null) {
-			invert(invertedTreeNode, root);
-		}
-		return invertedTreeNode;
-	}
+    public TreeNode invertTree(TreeNode root) {
+        if (root != null) {
+            invert(invertedTreeNode, root);
+        }
+        return invertedTreeNode;
+    }
 
-	private void invert(TreeNode invertedNode, TreeNode originalNode) {
-		if (invertedNode == null) {
-			invertedNode = new TreeNode(originalNode.val);
-		}
-		if (invertedTreeNode == null) {
-			invertedTreeNode = invertedNode;
-		}
-		if (originalNode.right != null) {
-			invertedNode.left = new TreeNode(originalNode.right.val);
-			invert(invertedNode.left, originalNode.right);
-		}
-		if (originalNode.left != null) {
-			invertedNode.right = new TreeNode(originalNode.left.val);
-			invert(invertedNode.right, originalNode.left);
-		}
-	}
+    private void invert(TreeNode invertedNode, TreeNode originalNode) {
+        if (invertedNode == null) {
+            invertedNode = new TreeNode(originalNode.val);
+        }
+        if (invertedTreeNode == null) {
+            invertedTreeNode = invertedNode;
+        }
+        if (originalNode.right != null) {
+            invertedNode.left = new TreeNode(originalNode.right.val);
+            invert(invertedNode.left, originalNode.right);
+        }
+        if (originalNode.left != null) {
+            invertedNode.right = new TreeNode(originalNode.left.val);
+            invert(invertedNode.right, originalNode.left);
+        }
+    }
 
-	private void printTreeNode(TreeNode root) {
-		if (root != null) {
-			printTreeNode(root.left);
-			treeNodeAsString.add(String.valueOf(root.val));
-			printTreeNode(root.right);
-		}
-	}
+    private void printTreeNode(TreeNode root) {
+        if (root != null) {
+            printTreeNode(root.left);
+            treeNodeAsString.add(String.valueOf(root.val));
+            printTreeNode(root.right);
+        }
+    }
 
-	private class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
-		TreeNode(int x) {
-			val = x;
-		}
-	}
+    private class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode(int x) {
+            val = x;
+        }
+    }
 
 }

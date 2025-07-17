@@ -29,41 +29,41 @@ import java.util.Map;
 
 public class _290_WordPattern {
 
-	public _290_WordPattern() {
-		System.out.println(wordPattern("abba", "dog cat cat dog")); // true
-		System.out.println(wordPattern("abba", "dog cat cat fish")); // false
-		System.out.println(wordPattern("aaaa", "dog cat cat dog")); // false
-		System.out.println(wordPattern("abba", "dog dog dog dog")); // false
-	}
+    public _290_WordPattern() {
+        System.out.println(wordPattern("abba", "dog cat cat dog")); // true
+        System.out.println(wordPattern("abba", "dog cat cat fish")); // false
+        System.out.println(wordPattern("aaaa", "dog cat cat dog")); // false
+        System.out.println(wordPattern("abba", "dog dog dog dog")); // false
+    }
 
-	// (1ms/98.33%)
-	public boolean wordPattern(String pattern, String str) {
-		if ((pattern == null || pattern.length() == 0) && (str == null || str.length() == 0)) {
-			return true;
-		} else if ((pattern == null || pattern.length() == 0) && str != null && str.length() > 0) {
-			return false;
-		} else if ((str == null || str.length() == 0) && pattern != null && pattern.length() > 0) {
-			return false;
-		} else {
-			String[] words = str.split(" ");
-			if (words.length != pattern.length()) {
-				return false;
-			} else {
-				Map<Character, String> patternMap = new HashMap<>();
-				for (int i = 0; i < pattern.length(); i++) {
-					if (!patternMap.containsKey(pattern.charAt(i)) && !patternMap.containsValue(words[i])) {
-						patternMap.put(pattern.charAt(i), words[i]);
-					}
-				}
-				for (int j = 0; j < pattern.length(); j++) {
-					String patternWord = patternMap.get(pattern.charAt(j));
-					if (patternWord == null || !patternWord.equals(words[j])) {
-						return false;
-					}
-				}
-				return true;
-			}
-		}
-	}
+    // (1ms/98.33%)
+    public boolean wordPattern(String pattern, String str) {
+        if ((pattern == null || pattern.length() == 0) && (str == null || str.length() == 0)) {
+            return true;
+        } else if ((pattern == null || pattern.length() == 0) && str != null && str.length() > 0) {
+            return false;
+        } else if ((str == null || str.length() == 0) && pattern != null && pattern.length() > 0) {
+            return false;
+        } else {
+            String[] words = str.split(" ");
+            if (words.length != pattern.length()) {
+                return false;
+            } else {
+                Map<Character, String> patternMap = new HashMap<>();
+                for (int i = 0; i < pattern.length(); i++) {
+                    if (!patternMap.containsKey(pattern.charAt(i)) && !patternMap.containsValue(words[i])) {
+                        patternMap.put(pattern.charAt(i), words[i]);
+                    }
+                }
+                for (int j = 0; j < pattern.length(); j++) {
+                    String patternWord = patternMap.get(pattern.charAt(j));
+                    if (patternWord == null || !patternWord.equals(words[j])) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+    }
 
 }

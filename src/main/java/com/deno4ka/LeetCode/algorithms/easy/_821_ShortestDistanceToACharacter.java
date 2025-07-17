@@ -27,34 +27,34 @@ It is guaranteed that c occurs at least once in s.
 
 public class _821_ShortestDistanceToACharacter {
 
-//	Runtime: 1 ms, faster than 98.71% & Memory Usage: 39.2 MB, less than 72.01%
-	public int[] shortestToChar(String s, char c) {
-		int[] result = new int[s.length()];
-		int[] occurrencePositions = new int[s.length()];
-		int occurrenceCount = 0;
-		for (int i = 0; i < s.length(); i++) {
-			if (s.charAt(i) == c) {
-				occurrencePositions[occurrenceCount++] = i;
-			}
-		}
-		int occurrencePointer = 0;
-		for (int j = 0; j < s.length(); j++) {
-			if (j == occurrencePositions[occurrencePointer]) {
-				result[j] = 0;
-			} else if (j < occurrencePositions[occurrencePointer]) {
-				result[j] = occurrencePositions[occurrencePointer] - j;
-			} else {
-				if (occurrencePointer + 1 == occurrenceCount) {
-					result[j] = j - occurrencePositions[occurrencePointer];
-				} else {
-					result[j] = Math.min(Math.abs(j - occurrencePositions[occurrencePointer]), Math.abs(j -occurrencePositions[occurrencePointer + 1]));
-				}
-				if (occurrencePointer + 1 < occurrenceCount && j >= occurrencePositions[occurrencePointer + 1]) {
-					occurrencePointer++;
-				}
-			}
-		}
-		return result;
-	}
+    //	Runtime: 1 ms, faster than 98.71% & Memory Usage: 39.2 MB, less than 72.01%
+    public int[] shortestToChar(String s, char c) {
+        int[] result = new int[s.length()];
+        int[] occurrencePositions = new int[s.length()];
+        int occurrenceCount = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == c) {
+                occurrencePositions[occurrenceCount++] = i;
+            }
+        }
+        int occurrencePointer = 0;
+        for (int j = 0; j < s.length(); j++) {
+            if (j == occurrencePositions[occurrencePointer]) {
+                result[j] = 0;
+            } else if (j < occurrencePositions[occurrencePointer]) {
+                result[j] = occurrencePositions[occurrencePointer] - j;
+            } else {
+                if (occurrencePointer + 1 == occurrenceCount) {
+                    result[j] = j - occurrencePositions[occurrencePointer];
+                } else {
+                    result[j] = Math.min(Math.abs(j - occurrencePositions[occurrencePointer]), Math.abs(j - occurrencePositions[occurrencePointer + 1]));
+                }
+                if (occurrencePointer + 1 < occurrenceCount && j >= occurrencePositions[occurrencePointer + 1]) {
+                    occurrencePointer++;
+                }
+            }
+        }
+        return result;
+    }
 
 }

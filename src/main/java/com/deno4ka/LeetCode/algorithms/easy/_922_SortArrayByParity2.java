@@ -25,23 +25,23 @@ Follow Up: Could you solve it in-place?
 
 public class _922_SortArrayByParity2 {
 
-//	sort in a new array
+    //	sort in a new array
 //	Runtime: 2 ms, faster than 98.04% & Memory Usage: 42 MB, less than 21.45%
-	public int[] sortArrayByParityII(int[] nums) {
-		int[] result = new int[nums.length];
-		int evenPosition = 0;
-		int oddPosition = nums.length - 1;
-		for (int num : nums) {
-			if (num % 2 == 0) {
-				result[evenPosition] = num;
-				evenPosition += 2;
-			} else {
-				result[oddPosition] = num;
-				oddPosition -= 2;
-			}
-		}
-		return result;
-	}
+    public int[] sortArrayByParityII(int[] nums) {
+        int[] result = new int[nums.length];
+        int evenPosition = 0;
+        int oddPosition = nums.length - 1;
+        for (int num : nums) {
+            if (num % 2 == 0) {
+                result[evenPosition] = num;
+                evenPosition += 2;
+            } else {
+                result[oddPosition] = num;
+                oddPosition -= 2;
+            }
+        }
+        return result;
+    }
 
 //	sort in-place
 //	Runtime: 3 ms, faster than 39.33% & Memory Usage: 40.2 MB, less than 49.62%

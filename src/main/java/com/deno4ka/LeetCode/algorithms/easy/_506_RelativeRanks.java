@@ -23,29 +23,33 @@ import java.util.Map;
 
 public class _506_RelativeRanks {
 
-//	 Runtime: 110 ms, faster than 5.05% and Memory Usage: 39.7 MB, less than 100.00%
-	public String[] findRelativeRanks(int[] nums) {
-		if (nums == null) return new String[] {};
-		Map<Integer, String> ranks = new HashMap<Integer, String>() {{put(1, "Gold Medal"); put(2, "Silver Medal"); put(3, "Bronze Medal");}};
-		List<String> result = new ArrayList<>(nums.length);
-		int[] sortedNums = Arrays.copyOf(nums, nums.length);
-		Arrays.sort(sortedNums);
-		for (int num: nums) {
-			for (int i = sortedNums.length - 1; i >= 0 ; i--) {
-				if (num == sortedNums[i]) {
-					if (i > sortedNums.length - 1 - 3) {
-						result.add(ranks.get(sortedNums.length - 1 - i + 1));
-					} else {
-						result.add(String.valueOf(sortedNums.length - i));
-					}
-				}
-			}
-		}
+    //	 Runtime: 110 ms, faster than 5.05% and Memory Usage: 39.7 MB, less than 100.00%
+    public String[] findRelativeRanks(int[] nums) {
+        if (nums == null) return new String[]{};
+        Map<Integer, String> ranks = new HashMap<Integer, String>() {{
+            put(1, "Gold Medal");
+            put(2, "Silver Medal");
+            put(3, "Bronze Medal");
+        }};
+        List<String> result = new ArrayList<>(nums.length);
+        int[] sortedNums = Arrays.copyOf(nums, nums.length);
+        Arrays.sort(sortedNums);
+        for (int num : nums) {
+            for (int i = sortedNums.length - 1; i >= 0; i--) {
+                if (num == sortedNums[i]) {
+                    if (i > sortedNums.length - 1 - 3) {
+                        result.add(ranks.get(sortedNums.length - 1 - i + 1));
+                    } else {
+                        result.add(String.valueOf(sortedNums.length - i));
+                    }
+                }
+            }
+        }
 //		System.out.println(result);
-		return result.toArray(new String[0]);
-	}
+        return result.toArray(new String[0]);
+    }
 
-	// best from leet.code 1ms
+    // best from leet.code 1ms
 //	public String[] findRelativeRanks(int[] nums) {
 //		int maxValue = 0;
 //		for (int i = 0; i < nums.length; i ++) {

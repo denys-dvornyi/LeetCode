@@ -30,95 +30,95 @@ import java.util.Arrays;
 
 public class _475_Heaters {
 
-	// Runtime: 11 ms, faster than 90.50% | Memory Usage: 39.7 MB, less than 94.87%
-	public int findRadius(int[] houses, int[] heaters) {
-		Arrays.sort(houses);
-		Arrays.sort(heaters);
-		int prevHeaterCursor = 0;
-		int heaterCursor = 0;
-		int maxRadius = 0;
-		int tmpRadius = 0;
-		for (int i = 0; i < houses.length; i++) {
-			if (heaterCursor == heaters.length) {
-				if (heaters[heaterCursor - 1] < houses[i]) {
-					int rightRadius = houses[houses.length - 1] - heaters[heaterCursor - 1];
-					if (maxRadius < rightRadius) {
-						maxRadius = rightRadius;
-					}
-				}
-				break;
-			} else if (houses[0] > heaters[heaterCursor]) {
-				prevHeaterCursor = heaterCursor;
-				maxRadius = houses[0] - heaters[heaterCursor++];
-				i--;
-				continue;
-			} else if (houses[i] >= heaters[prevHeaterCursor] && houses[i] <= heaters[heaterCursor]) {
-				int rightRadius = heaters[heaterCursor] - houses[i];
-				if (heaterCursor > 0) {
-					int leftRadius = houses[i] - heaters[prevHeaterCursor];
-					int distanceBetweenHeaters = (heaters[heaterCursor] - heaters[prevHeaterCursor]) / 2;
-					if (leftRadius <= distanceBetweenHeaters) {
-						if (tmpRadius < leftRadius) {
-							tmpRadius = leftRadius;
-						}
-					} else if (rightRadius < distanceBetweenHeaters) {
-						if (tmpRadius < rightRadius) {
-							tmpRadius = rightRadius;
-						}
-					} else {
-						if (maxRadius < tmpRadius) {
-							maxRadius = tmpRadius;
-						}
-						tmpRadius = 0;
-						while (i < houses.length && houses[i] < heaters[heaterCursor]) {
-							i++;
-						}
-						prevHeaterCursor = heaterCursor++;
-						continue;
-					}
-				} else {
-					if (maxRadius < rightRadius) {
-						maxRadius = rightRadius;
-					}
-					if (heaterCursor < heaters.length) {
-						while (i < houses.length && houses[i] < heaters[heaterCursor]) {
-							i++;
-						}
-						prevHeaterCursor = heaterCursor++;
-						if (heaterCursor == heaters.length) {
-							if (heaters[prevHeaterCursor] < houses[houses.length - 1]) {
-								rightRadius = houses[houses.length - 1] - heaters[prevHeaterCursor];
-								if (maxRadius < rightRadius) {
-									maxRadius = rightRadius;
-								}
-							}
-							break;
-						}
-						continue;
-					} else {
-						break;
-					}
-				}
-			} else if (houses[i] >= heaters[prevHeaterCursor] && houses[i] > heaters[heaterCursor]) {
-				if (prevHeaterCursor < heaters.length - 1 && houses[i] > heaters[prevHeaterCursor + 1]) {
-					prevHeaterCursor++;
-				}
-				i--;
-				heaterCursor++;
-				continue;
-			} else if (houses[0] < heaters[0]) {
-				maxRadius = heaters[0] - houses[0];
-			} else {
-				prevHeaterCursor = heaterCursor++;
-			}
-		}
-		if (maxRadius < tmpRadius) {
-			maxRadius = tmpRadius;
-		}
-		return maxRadius;
-	}
+    // Runtime: 11 ms, faster than 90.50% | Memory Usage: 39.7 MB, less than 94.87%
+    public int findRadius(int[] houses, int[] heaters) {
+        Arrays.sort(houses);
+        Arrays.sort(heaters);
+        int prevHeaterCursor = 0;
+        int heaterCursor = 0;
+        int maxRadius = 0;
+        int tmpRadius = 0;
+        for (int i = 0; i < houses.length; i++) {
+            if (heaterCursor == heaters.length) {
+                if (heaters[heaterCursor - 1] < houses[i]) {
+                    int rightRadius = houses[houses.length - 1] - heaters[heaterCursor - 1];
+                    if (maxRadius < rightRadius) {
+                        maxRadius = rightRadius;
+                    }
+                }
+                break;
+            } else if (houses[0] > heaters[heaterCursor]) {
+                prevHeaterCursor = heaterCursor;
+                maxRadius = houses[0] - heaters[heaterCursor++];
+                i--;
+                continue;
+            } else if (houses[i] >= heaters[prevHeaterCursor] && houses[i] <= heaters[heaterCursor]) {
+                int rightRadius = heaters[heaterCursor] - houses[i];
+                if (heaterCursor > 0) {
+                    int leftRadius = houses[i] - heaters[prevHeaterCursor];
+                    int distanceBetweenHeaters = (heaters[heaterCursor] - heaters[prevHeaterCursor]) / 2;
+                    if (leftRadius <= distanceBetweenHeaters) {
+                        if (tmpRadius < leftRadius) {
+                            tmpRadius = leftRadius;
+                        }
+                    } else if (rightRadius < distanceBetweenHeaters) {
+                        if (tmpRadius < rightRadius) {
+                            tmpRadius = rightRadius;
+                        }
+                    } else {
+                        if (maxRadius < tmpRadius) {
+                            maxRadius = tmpRadius;
+                        }
+                        tmpRadius = 0;
+                        while (i < houses.length && houses[i] < heaters[heaterCursor]) {
+                            i++;
+                        }
+                        prevHeaterCursor = heaterCursor++;
+                        continue;
+                    }
+                } else {
+                    if (maxRadius < rightRadius) {
+                        maxRadius = rightRadius;
+                    }
+                    if (heaterCursor < heaters.length) {
+                        while (i < houses.length && houses[i] < heaters[heaterCursor]) {
+                            i++;
+                        }
+                        prevHeaterCursor = heaterCursor++;
+                        if (heaterCursor == heaters.length) {
+                            if (heaters[prevHeaterCursor] < houses[houses.length - 1]) {
+                                rightRadius = houses[houses.length - 1] - heaters[prevHeaterCursor];
+                                if (maxRadius < rightRadius) {
+                                    maxRadius = rightRadius;
+                                }
+                            }
+                            break;
+                        }
+                        continue;
+                    } else {
+                        break;
+                    }
+                }
+            } else if (houses[i] >= heaters[prevHeaterCursor] && houses[i] > heaters[heaterCursor]) {
+                if (prevHeaterCursor < heaters.length - 1 && houses[i] > heaters[prevHeaterCursor + 1]) {
+                    prevHeaterCursor++;
+                }
+                i--;
+                heaterCursor++;
+                continue;
+            } else if (houses[0] < heaters[0]) {
+                maxRadius = heaters[0] - houses[0];
+            } else {
+                prevHeaterCursor = heaterCursor++;
+            }
+        }
+        if (maxRadius < tmpRadius) {
+            maxRadius = tmpRadius;
+        }
+        return maxRadius;
+    }
 
-	// very short solution from leetcode.com
+    // very short solution from leetcode.com
 //	public int findRadius(int[] houses, int[] heaters) {
 //		if (houses == null || heaters == null)
 //			return 0;

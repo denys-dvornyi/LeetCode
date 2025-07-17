@@ -10,19 +10,19 @@ import java.util.stream.Stream;
 
 public class _561_ArrayPartition1Test {
 
-	private final _561_ArrayPartition1 arrayPartition1 = new _561_ArrayPartition1();
+    private final _561_ArrayPartition1 arrayPartition1 = new _561_ArrayPartition1();
 
-	@DisplayName("Find the largest possible pairs sum")
-	@ParameterizedTest(name = "test #{index}: array \"{0}\" -> expect {1}")
-	@MethodSource({"useCases"})
-	public void arrayPairSum(int[] nums, int expected) {
-		Assertions.assertEquals(expected, arrayPartition1.arrayPairSum(nums));
-	}
+    public static Stream<Arguments> useCases() {
+        return Stream.of(
+                Arguments.of(new int[]{1, 4, 3, 2}, 4)
+        );
+    }
 
-	public static Stream<Arguments> useCases() {
-		return Stream.of(
-				Arguments.of(new int[] {1, 4, 3, 2}, 4)
-		);
-	}
+    @DisplayName("Find the largest possible pairs sum")
+    @ParameterizedTest(name = "test #{index}: array \"{0}\" -> expect {1}")
+    @MethodSource({"useCases"})
+    public void arrayPairSum(int[] nums, int expected) {
+        Assertions.assertEquals(expected, arrayPartition1.arrayPairSum(nums));
+    }
 
 }

@@ -18,48 +18,48 @@ import java.util.HashMap;
 
 public class _409_LongestPalindrome {
 
-	public _409_LongestPalindrome() {
-		System.out.println(longestPalindrome("abccccdd")); // 7
-		System.out.println(longestPalindrome("ccc")); // 3
-	}
+    public _409_LongestPalindrome() {
+        System.out.println(longestPalindrome("abccccdd")); // 7
+        System.out.println(longestPalindrome("ccc")); // 3
+    }
 
-	// (17ms/19%)
-	public int longestPalindrome(String s) {
-		if (s == null || s.isEmpty()) {
-			return 0;
-		} else if (s.length() == 1) {
-			return 1;
-		} else {
-			HashMap<Character, Integer> letters = new HashMap<>();
-			for (char letter : s.toCharArray()) {
-				if (!letters.containsKey(letter)) {
-					letters.put(letter, 1);
-				} else {
-					letters.put(letter, letters.get(letter) + 1);
-				}
-			}
-			boolean singleChar = false;
-			int palindromeSize = 0;
-			for (int letterCount : letters.values()) {
-				if (letterCount == 1 && !singleChar) {
-					singleChar = true;
-				} else if (letterCount % 2 == 1) {
-					palindromeSize += letterCount - 1;
-					if (!singleChar) {
-						singleChar = true;
-					}
-				} else {
-					palindromeSize += letterCount;
-				}
-			}
-			if (singleChar) {
-				palindromeSize++;
-			}
-			return palindromeSize;
-		}
-	}
+    // (17ms/19%)
+    public int longestPalindrome(String s) {
+        if (s == null || s.isEmpty()) {
+            return 0;
+        } else if (s.length() == 1) {
+            return 1;
+        } else {
+            HashMap<Character, Integer> letters = new HashMap<>();
+            for (char letter : s.toCharArray()) {
+                if (!letters.containsKey(letter)) {
+                    letters.put(letter, 1);
+                } else {
+                    letters.put(letter, letters.get(letter) + 1);
+                }
+            }
+            boolean singleChar = false;
+            int palindromeSize = 0;
+            for (int letterCount : letters.values()) {
+                if (letterCount == 1 && !singleChar) {
+                    singleChar = true;
+                } else if (letterCount % 2 == 1) {
+                    palindromeSize += letterCount - 1;
+                    if (!singleChar) {
+                        singleChar = true;
+                    }
+                } else {
+                    palindromeSize += letterCount;
+                }
+            }
+            if (singleChar) {
+                palindromeSize++;
+            }
+            return palindromeSize;
+        }
+    }
 
-	// best from leetcode (5ms)
+    // best from leetcode (5ms)
 //	public int longestPalindrome(String s) {
 //		int[] record = new int[256];
 //		for (char c : s.toCharArray()) {

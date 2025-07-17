@@ -35,21 +35,30 @@ moves only contains the characters 'U', 'D', 'L' and 'R'.
 
 public class _657_RobotReturnToOrigin {
 
-//	Runtime: 4 ms, faster than 82.39% & Memory Usage: 38.9 MB, less than 80.91%
-	public boolean judgeCircle(String moves) {
-		if (moves.isEmpty()) return true;
-		int horizontalMove = 0;
-		int verticalMove = 0;
-		for (char move: moves.toCharArray()) {
-			switch (move) {
-				case 'R': horizontalMove++; break;
-				case 'L': horizontalMove--; break;
-				case 'U': verticalMove++; break;
-				case 'D': verticalMove--; break;
-				default: System.out.println("wrong symbol found");
-			}
-		}
-		return horizontalMove == 0 && verticalMove == 0;
-	}
+    //	Runtime: 4 ms, faster than 82.39% & Memory Usage: 38.9 MB, less than 80.91%
+    public boolean judgeCircle(String moves) {
+        if (moves.isEmpty()) return true;
+        int horizontalMove = 0;
+        int verticalMove = 0;
+        for (char move : moves.toCharArray()) {
+            switch (move) {
+                case 'R':
+                    horizontalMove++;
+                    break;
+                case 'L':
+                    horizontalMove--;
+                    break;
+                case 'U':
+                    verticalMove++;
+                    break;
+                case 'D':
+                    verticalMove--;
+                    break;
+                default:
+                    System.out.println("wrong symbol found");
+            }
+        }
+        return horizontalMove == 0 && verticalMove == 0;
+    }
 
 }

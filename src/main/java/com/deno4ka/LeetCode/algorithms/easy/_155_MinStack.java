@@ -21,28 +21,30 @@ Example:
 	minStack.getMin();   --> Returns -2.
 */
 
-	private LinkedList<Integer> queue;
+    private LinkedList<Integer> queue;
 
-	/** initialize your data structure here. */
-	public _155_MinStack() {
-		queue = new LinkedList<>();
-	}
+    /**
+     * initialize your data structure here.
+     */
+    public _155_MinStack() {
+        queue = new LinkedList<>();
+    }
 
-	public void push(int x) {
-		queue.add(x);
-	}
+    public void push(int x) {
+        queue.add(x);
+    }
 
-	public void pop() {
-		queue.removeLast();
-	}
+    public void pop() {
+        queue.removeLast();
+    }
 
-	public int top() {
-		return queue.getLast();
-	}
+    public int top() {
+        return queue.getLast();
+    }
 
-	public int getMin() {
-		return queue.stream().min(Integer::compare).get();
-	}
+    public int getMin() {
+        return queue.stream().min(Integer::compare).get();
+    }
 
 }
 

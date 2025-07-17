@@ -25,28 +25,28 @@ Because the 4th row is incomplete, we return 3.
 
 public class _441_ArrangingCoins {
 
-	public _441_ArrangingCoins() {
-		System.out.println(arrangeCoins(5)); // 2
-		System.out.println(arrangeCoins(8)); // 3
-	}
+    public _441_ArrangingCoins() {
+        System.out.println(arrangeCoins(5)); // 2
+        System.out.println(arrangeCoins(8)); // 3
+    }
 
-	// (46ms/ 24.51%)
-	public int arrangeCoins(int n) {
-		if (n == 0) {
-			return 0;
-		} else if (n == 1) {
-			return 1;
-		} else {
-			int step = 1;
-			long sum = step;
-			while (n - sum > step) {
-				sum += ++step;
-			}
-			return step;
-		}
-	}
+    // (46ms/ 24.51%)
+    public int arrangeCoins(int n) {
+        if (n == 0) {
+            return 0;
+        } else if (n == 1) {
+            return 1;
+        } else {
+            int step = 1;
+            long sum = step;
+            while (n - sum > step) {
+                sum += ++step;
+            }
+            return step;
+        }
+    }
 
-	// best from leetcode 23ms
+    // best from leetcode 23ms
 //	public int arrangeCoins(int n) {
 //		return (int) ((-1+Math.sqrt(1+8*(long)n))/2);
 //	}

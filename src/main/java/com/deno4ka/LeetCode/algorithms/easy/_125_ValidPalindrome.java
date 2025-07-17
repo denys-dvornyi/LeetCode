@@ -34,7 +34,7 @@ public class _125_ValidPalindrome {
             char[] alphanumeric = sb.toString().toCharArray();
             int midl = alphanumeric.length / 2;
             for (int j = 0; j < midl; j++) {
-                if (alphanumeric[j] != alphanumeric[alphanumeric.length-1-j]) {
+                if (alphanumeric[j] != alphanumeric[alphanumeric.length - 1 - j]) {
                     return false;
                 }
             }

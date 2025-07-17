@@ -53,7 +53,7 @@ public class _110_BalancedBinaryTree {
     public boolean isBalanced(TreeNode root) {
         ArrayList<Boolean> isBalanced = new ArrayList<>();
         checkBalance(root, isBalanced);
-        for(Boolean bal:isBalanced) {
+        for (Boolean bal : isBalanced) {
             if (!bal) return false;
         }
         return true;

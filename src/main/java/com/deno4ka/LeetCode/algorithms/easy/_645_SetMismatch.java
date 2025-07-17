@@ -24,28 +24,28 @@ Constraints:
 
 public class _645_SetMismatch {
 
-//	Runtime: 1 ms, faster than 100.00% & Memory Usage: 40.4 MB, less than 70.35%
+    //	Runtime: 1 ms, faster than 100.00% & Memory Usage: 40.4 MB, less than 70.35%
 //  v3
-	public int[] findErrorNums(int[] nums) {
-		final int MAX_ELEMENTS = 10_001;
-		int[] result = new int[2];
-		if (nums == null || nums.length < 2 || nums.length > MAX_ELEMENTS) return result;
-		boolean[] numbers = new boolean[MAX_ELEMENTS];
-		for (int num : nums) {
-			if (numbers[num]) { // find duplicate number
-				result[0] = num;
-			} else {
-				numbers[num] = true;
-			}
-		}
-		for (int i = 1; i <= nums.length; i++) {
-			if (!numbers[i]) { // find absent number
-				result[1] = i;
-				break;
-			}
-		}
-		return result;
-	}
+    public int[] findErrorNums(int[] nums) {
+        final int MAX_ELEMENTS = 10_001;
+        int[] result = new int[2];
+        if (nums == null || nums.length < 2 || nums.length > MAX_ELEMENTS) return result;
+        boolean[] numbers = new boolean[MAX_ELEMENTS];
+        for (int num : nums) {
+            if (numbers[num]) { // find duplicate number
+                result[0] = num;
+            } else {
+                numbers[num] = true;
+            }
+        }
+        for (int i = 1; i <= nums.length; i++) {
+            if (!numbers[i]) { // find absent number
+                result[1] = i;
+                break;
+            }
+        }
+        return result;
+    }
 
 //	v2
 //	public int[] findErrorNums(int[] nums) {

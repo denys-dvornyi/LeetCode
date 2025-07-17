@@ -16,7 +16,7 @@ public class _136_SingleNumber {
 //        System.out.println(singleNumber(new int[] {9}));
 //        System.out.println(singleNumber(new int[] {1, 0, 1}));
 //        System.out.println(singleNumber(new int[] {0, 1, 0}));
-        System.out.println(singleNumber(new int[] {0, 1, 0, 2, 1, 2, 3}));
+        System.out.println(singleNumber(new int[]{0, 1, 0, 2, 1, 2, 3}));
     }
 
     private int singleNumber(int[] nums) {
@@ -35,7 +35,7 @@ public class _136_SingleNumber {
                 }
             }
             Object[] keys = map.keySet().toArray();
-            return (int)keys[0];
+            return (int) keys[0];
         }
     }
 

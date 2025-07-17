@@ -27,31 +27,41 @@ import java.util.ArrayList;
 // (100ms/6%)
 public class _232_ImplementQueueUsingStacks {
 
-	private ArrayList<Integer> queue;
+    private ArrayList<Integer> queue;
 
-	/** Initialize your data structure here. */
-	public _232_ImplementQueueUsingStacks() {
-		queue = new ArrayList<>();
-	}
+    /**
+     * Initialize your data structure here.
+     */
+    public _232_ImplementQueueUsingStacks() {
+        queue = new ArrayList<>();
+    }
 
-	/** Push element x to the back of queue. */
-	public void push(int x) {
-		queue.add(0, x);
-	}
+    /**
+     * Push element x to the back of queue.
+     */
+    public void push(int x) {
+        queue.add(0, x);
+    }
 
-	/** Removes the element from in front of queue and returns that element. */
-	public int pop() {
-		return queue.remove(queue.size() - 1);
-	}
+    /**
+     * Removes the element from in front of queue and returns that element.
+     */
+    public int pop() {
+        return queue.remove(queue.size() - 1);
+    }
 
-	/** Get the front element. */
-	public int peek() {
-		return queue.get(queue.size() - 1);
-	}
+    /**
+     * Get the front element.
+     */
+    public int peek() {
+        return queue.get(queue.size() - 1);
+    }
 
-	/** Returns whether the queue is empty. */
-	public boolean empty() {
-		return queue.isEmpty();
-	}
+    /**
+     * Returns whether the queue is empty.
+     */
+    public boolean empty() {
+        return queue.isEmpty();
+    }
 
 }

@@ -36,34 +36,34 @@ s is a valid parentheses string.
 
 public class _1021_RemoveOutermostParentheses {
 
-//	Runtime: 8 ms, faster than 34.20% & Memory Usage: 39.7 MB, less than 23.55%
-	public String removeOuterParentheses(String s) {
-		StringBuilder sb = new StringBuilder();
-		int leftParentheses = 0;
-		int rightParentheses = 0;
-		int start = 0;
-		for (int i = 0; i < s.length(); i++) {
-			if (leftParentheses == 0 && rightParentheses == 0) {
-				start = i;
-			}
-			if (s.charAt(i) == '(') {
-				leftParentheses++;
-			} else {
-				rightParentheses++;
-			}
-			if (leftParentheses > 0 && rightParentheses > 0 && leftParentheses == rightParentheses) {
-				if (leftParentheses > 1) {
-					sb.append(s, start + 1, i);
-				}
-				leftParentheses = 0;
-				rightParentheses = 0;
-			}
-		}
-		if (leftParentheses > 1 && rightParentheses > 1 && leftParentheses == rightParentheses) {
-			sb.append(s, start + 1, s.length());
-		}
-		return sb.toString();
-	}
+    //	Runtime: 8 ms, faster than 34.20% & Memory Usage: 39.7 MB, less than 23.55%
+    public String removeOuterParentheses(String s) {
+        StringBuilder sb = new StringBuilder();
+        int leftParentheses = 0;
+        int rightParentheses = 0;
+        int start = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (leftParentheses == 0 && rightParentheses == 0) {
+                start = i;
+            }
+            if (s.charAt(i) == '(') {
+                leftParentheses++;
+            } else {
+                rightParentheses++;
+            }
+            if (leftParentheses > 0 && rightParentheses > 0 && leftParentheses == rightParentheses) {
+                if (leftParentheses > 1) {
+                    sb.append(s, start + 1, i);
+                }
+                leftParentheses = 0;
+                rightParentheses = 0;
+            }
+        }
+        if (leftParentheses > 1 && rightParentheses > 1 && leftParentheses == rightParentheses) {
+            sb.append(s, start + 1, s.length());
+        }
+        return sb.toString();
+    }
 
 //	best from leet.code 2ms
 //	public String removeOuterParentheses(String s) {

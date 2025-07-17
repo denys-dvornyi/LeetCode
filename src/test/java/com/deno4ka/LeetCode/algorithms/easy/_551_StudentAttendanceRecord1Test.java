@@ -10,20 +10,20 @@ import java.util.stream.Stream;
 
 public class _551_StudentAttendanceRecord1Test {
 
-	private final _551_StudentAttendanceRecord1 studentAttendanceRecord1 = new _551_StudentAttendanceRecord1();
+    private final _551_StudentAttendanceRecord1 studentAttendanceRecord1 = new _551_StudentAttendanceRecord1();
 
-	@DisplayName("Return whether the student could be rewarded")
-	@ParameterizedTest(name = "test #{index}: Attendance record {0} -> expected {2}")
-	@MethodSource({"useCases"})
-	public void checkRecord(String s, boolean expected) {
-		Assertions.assertEquals(expected, studentAttendanceRecord1.checkRecord(s));
-	}
+    public static Stream<Arguments> useCases() {
+        return Stream.of(
+                Arguments.of("PPALLP", true),
+                Arguments.of("PPALLL", false)
+        );
+    }
 
-	public static Stream<Arguments> useCases() {
-		return Stream.of(
-				Arguments.of("PPALLP", true),
-				Arguments.of("PPALLL", false)
-		);
-	}
+    @DisplayName("Return whether the student could be rewarded")
+    @ParameterizedTest(name = "test #{index}: Attendance record {0} -> expected {2}")
+    @MethodSource({"useCases"})
+    public void checkRecord(String s, boolean expected) {
+        Assertions.assertEquals(expected, studentAttendanceRecord1.checkRecord(s));
+    }
 
 }

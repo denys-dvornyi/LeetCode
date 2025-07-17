@@ -11,20 +11,20 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class _500_KeyboardRowTest {
 
-	private final _500_KeyboardRow keyboardRow = new _500_KeyboardRow();
+    private final _500_KeyboardRow keyboardRow = new _500_KeyboardRow();
 
-	@DisplayName("Words of only one row's of American keyboard")
-	@ParameterizedTest(name = "test #{index}: words {0} -> expected {1}")
-	@MethodSource({"useCases"})
-	public void findWords(String[] words, String[] expected) {
-		assertArrayEquals(expected, keyboardRow.findWords(words));
-	}
+    public static Stream<Arguments> useCases() {
+        return Stream.of(
+                Arguments.of(new String[]{"Hello", "Alaska", "Dad", "Peace"}, new String[]{"Alaska", "Dad"}),
+                Arguments.of(new String[]{"abdfs", "cccd", "a", "qwwewm"}, new String[]{"a"})
+        );
+    }
 
-	public static Stream<Arguments> useCases() {
-		return Stream.of(
-				Arguments.of(new String[]{"Hello", "Alaska", "Dad", "Peace"}, new String[]{"Alaska", "Dad"}),
-				Arguments.of(new String[]{"abdfs", "cccd", "a", "qwwewm"}, new String[]{"a"})
-		);
-	}
+    @DisplayName("Words of only one row's of American keyboard")
+    @ParameterizedTest(name = "test #{index}: words {0} -> expected {1}")
+    @MethodSource({"useCases"})
+    public void findWords(String[] words, String[] expected) {
+        assertArrayEquals(expected, keyboardRow.findWords(words));
+    }
 
 }

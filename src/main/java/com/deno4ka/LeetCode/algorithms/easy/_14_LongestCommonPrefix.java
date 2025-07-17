@@ -5,11 +5,11 @@ package com.deno4ka.LeetCode.algorithms.easy;
 public class _14_LongestCommonPrefix {
 
     public _14_LongestCommonPrefix() {
-        System.out.println(longestCommonPrefix(new String[] {}));
-        System.out.println(longestCommonPrefix(new String[] {"hello"}));
-        System.out.println(longestCommonPrefix(new String[] {"hello", "helicopter", "good", "goodness"}));
-        System.out.println(longestCommonPrefix(new String[] {"success", "successfully", "hello", "helicopter", "good", "goodness"}));
-        System.out.println(longestCommonPrefix(new String[] {"acd","acbd","acd"}));
+        System.out.println(longestCommonPrefix(new String[]{}));
+        System.out.println(longestCommonPrefix(new String[]{"hello"}));
+        System.out.println(longestCommonPrefix(new String[]{"hello", "helicopter", "good", "goodness"}));
+        System.out.println(longestCommonPrefix(new String[]{"success", "successfully", "hello", "helicopter", "good", "goodness"}));
+        System.out.println(longestCommonPrefix(new String[]{"acd", "acbd", "acd"}));
     }
 
     private String longestCommonPrefix(String[] strs) {

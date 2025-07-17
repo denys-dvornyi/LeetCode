@@ -44,30 +44,30 @@ import java.util.Set;
 
 public class _997_FindTheTownJudge {
 
-//	Runtime: 6 ms, faster than 32.22% & Memory Usage: 48.3 MB, less than 35.39%
-	public int findJudge(int n, int[][] trust) {
-		Set<Integer> trustInSomebody = new HashSet<>(n);
-		for (int[] trustPair : trust) {
-			trustInSomebody.add(trustPair[0]);
-		}
-		if (trustInSomebody.size() != n - 1) return -1;
+    //	Runtime: 6 ms, faster than 32.22% & Memory Usage: 48.3 MB, less than 35.39%
+    public int findJudge(int n, int[][] trust) {
+        Set<Integer> trustInSomebody = new HashSet<>(n);
+        for (int[] trustPair : trust) {
+            trustInSomebody.add(trustPair[0]);
+        }
+        if (trustInSomebody.size() != n - 1) return -1;
 
-		int prospectiveJudge = -1;
-		for (int i = 1; i <= n; i++) {
-			 if (!trustInSomebody.contains(i)) {
-				 prospectiveJudge = i;
-				 break;
-			 }
-		}
+        int prospectiveJudge = -1;
+        for (int i = 1; i <= n; i++) {
+            if (!trustInSomebody.contains(i)) {
+                prospectiveJudge = i;
+                break;
+            }
+        }
 
-		Set<Integer> trustInJudge = new HashSet<>(n);
-		for (int[] trustPair : trust) {
-			if (trustPair[1] == prospectiveJudge) {
-				trustInJudge.add(trustPair[0]);
-			}
-		}
-		if (trustInJudge.size() != n - 1) return -1;
-		return prospectiveJudge;
-	}
+        Set<Integer> trustInJudge = new HashSet<>(n);
+        for (int[] trustPair : trust) {
+            if (trustPair[1] == prospectiveJudge) {
+                trustInJudge.add(trustPair[0]);
+            }
+        }
+        if (trustInJudge.size() != n - 1) return -1;
+        return prospectiveJudge;
+    }
 
 }

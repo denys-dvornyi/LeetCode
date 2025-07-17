@@ -23,37 +23,37 @@ s consists of lowercase English letters.
 
 public class _680_ValidPalindrome2 {
 
-//	v4 Runtime: 15 ms, faster than 13.22% & Memory Usage: 51.8 MB, less than 18.90%
-public boolean validPalindrome(String s) {
-	if (s == null || s.isEmpty()) return false;
-	if (s.length() == 2) return true;
-	int leftShift = 0;
-	int rightShift = 0;
-	boolean leftShiftFailed = false;
-	boolean rightShiftFailed = false;
-	int length = s.length();
-	for (int i = 0; i < length / 2; i++) {
-		if (s.charAt(i + leftShift) != s.charAt(length - 1 - i - rightShift)) {
-			leftShift = 1;
-			if (s.charAt(i + leftShift) != s.charAt(length - 1 - i - rightShift)) {
-				leftShiftFailed = true;
-				leftShift = 0;
-				break;
-			}
-		}
-	}
-	if (!leftShiftFailed) return true;
-	for (int i = 0; i < length / 2; i++) {
-		if (s.charAt(i + leftShift) != s.charAt(length - 1 - i - rightShift)) {
-			rightShift = 1;
-			if (s.charAt(i + leftShift) != s.charAt(length - 1 - i - rightShift)) {
-				rightShiftFailed = true;
-				break;
-			}
-		}
-	}
-	return !rightShiftFailed;
-}
+    //	v4 Runtime: 15 ms, faster than 13.22% & Memory Usage: 51.8 MB, less than 18.90%
+    public boolean validPalindrome(String s) {
+        if (s == null || s.isEmpty()) return false;
+        if (s.length() == 2) return true;
+        int leftShift = 0;
+        int rightShift = 0;
+        boolean leftShiftFailed = false;
+        boolean rightShiftFailed = false;
+        int length = s.length();
+        for (int i = 0; i < length / 2; i++) {
+            if (s.charAt(i + leftShift) != s.charAt(length - 1 - i - rightShift)) {
+                leftShift = 1;
+                if (s.charAt(i + leftShift) != s.charAt(length - 1 - i - rightShift)) {
+                    leftShiftFailed = true;
+                    leftShift = 0;
+                    break;
+                }
+            }
+        }
+        if (!leftShiftFailed) return true;
+        for (int i = 0; i < length / 2; i++) {
+            if (s.charAt(i + leftShift) != s.charAt(length - 1 - i - rightShift)) {
+                rightShift = 1;
+                if (s.charAt(i + leftShift) != s.charAt(length - 1 - i - rightShift)) {
+                    rightShiftFailed = true;
+                    break;
+                }
+            }
+        }
+        return !rightShiftFailed;
+    }
 
 //	v3 Runtime: 20 ms, faster than 7.74% & Memory Usage: 53.3 MB, less than 5.05
 //	public boolean validPalindrome(String s) {

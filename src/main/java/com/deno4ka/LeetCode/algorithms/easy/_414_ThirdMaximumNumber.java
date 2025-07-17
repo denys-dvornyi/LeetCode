@@ -27,32 +27,32 @@ import java.util.TreeSet;
 
 public class _414_ThirdMaximumNumber {
 
-	public _414_ThirdMaximumNumber() {
-		System.out.println(thirdMax(new int[]{3, 2, 1})); //1
-		System.out.println(thirdMax(new int[]{1, 2})); //2
-		System.out.println(thirdMax(new int[]{2, 2, 3, 1})); //1
-	}
+    public _414_ThirdMaximumNumber() {
+        System.out.println(thirdMax(new int[]{3, 2, 1})); //1
+        System.out.println(thirdMax(new int[]{1, 2})); //2
+        System.out.println(thirdMax(new int[]{2, 2, 3, 1})); //1
+    }
 
-	// (19ms/8.11%)
-	public int thirdMax(int[] nums) {
-		TreeSet<Integer> uniqueSortedNums = new TreeSet<>();
-		for (int num : nums) {
-			uniqueSortedNums.add(num);
-		}
-		if (uniqueSortedNums.size() < 3) {
-			return uniqueSortedNums.last();
-		} else {
-			Iterator<Integer> iterator = uniqueSortedNums.descendingIterator();
-			int counter = 0;
-			while (iterator.hasNext()) {
-				counter++;
-				if (counter == 3) {
-					return iterator.next();
-				}
-				iterator.next();
-			}
-			return -1;
-		}
-	}
+    // (19ms/8.11%)
+    public int thirdMax(int[] nums) {
+        TreeSet<Integer> uniqueSortedNums = new TreeSet<>();
+        for (int num : nums) {
+            uniqueSortedNums.add(num);
+        }
+        if (uniqueSortedNums.size() < 3) {
+            return uniqueSortedNums.last();
+        } else {
+            Iterator<Integer> iterator = uniqueSortedNums.descendingIterator();
+            int counter = 0;
+            while (iterator.hasNext()) {
+                counter++;
+                if (counter == 3) {
+                    return iterator.next();
+                }
+                iterator.next();
+            }
+            return -1;
+        }
+    }
 
 }

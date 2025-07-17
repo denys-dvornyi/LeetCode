@@ -35,27 +35,27 @@ import java.util.Set;
 
 public class _819_MostCommonWord {
 
-//	Runtime: 10 ms, faster than 84.82% & Memory Usage: 39.4 MB, less than 62.66%
-	public String mostCommonWord(String paragraph, String[] banned) {
-		Set<String> bannedWords = new HashSet<>(Arrays.asList(banned));
-		String[] words = paragraph
-				.replaceAll("[!?',;.]", " ")
-				.toLowerCase().split(" ");
-		Map<String, Integer> wordsFrequency = new HashMap<>(words.length);
-		for (String word : words) {
-			if (word.length() > 0) {
-				wordsFrequency.put(word, wordsFrequency.computeIfAbsent(word, count -> 0) + 1);
-			}
-		}
-		String mostFrequentWord = "";
-		int mostFrequent = 0;
-		for (Map.Entry<String, Integer> pair : wordsFrequency.entrySet()) {
-			if (!bannedWords.contains(pair.getKey()) && pair.getValue() > mostFrequent) {
-				mostFrequent = pair.getValue();
-				mostFrequentWord = pair.getKey();
-			}
-		}
-		return mostFrequentWord;
-	}
+    //	Runtime: 10 ms, faster than 84.82% & Memory Usage: 39.4 MB, less than 62.66%
+    public String mostCommonWord(String paragraph, String[] banned) {
+        Set<String> bannedWords = new HashSet<>(Arrays.asList(banned));
+        String[] words = paragraph
+                .replaceAll("[!?',;.]", " ")
+                .toLowerCase().split(" ");
+        Map<String, Integer> wordsFrequency = new HashMap<>(words.length);
+        for (String word : words) {
+            if (word.length() > 0) {
+                wordsFrequency.put(word, wordsFrequency.computeIfAbsent(word, count -> 0) + 1);
+            }
+        }
+        String mostFrequentWord = "";
+        int mostFrequent = 0;
+        for (Map.Entry<String, Integer> pair : wordsFrequency.entrySet()) {
+            if (!bannedWords.contains(pair.getKey()) && pair.getValue() > mostFrequent) {
+                mostFrequent = pair.getValue();
+                mostFrequentWord = pair.getKey();
+            }
+        }
+        return mostFrequentWord;
+    }
 
 }

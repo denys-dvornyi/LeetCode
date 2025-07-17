@@ -28,20 +28,20 @@ import java.util.stream.Collectors;
 
 public class _1047_RemoveAllAdjacentDuplicatesInString {
 
-//	Runtime: 65 ms, faster than 21.13% & Memory Usage: 58.8 MB, less than 15.05%
-	public String removeDuplicates(String s) {
-		if (s.length() == 1) return s;
-		Stack<Character> stack = new Stack<>();
-		for (int i = 0; i < s.length(); i++) {
-			 if (!stack.empty() && s.charAt(i) == stack.peek()) {
-				stack.pop();
-			 } else {
-				 stack.push(s.charAt(i));
-			 }
+    //	Runtime: 65 ms, faster than 21.13% & Memory Usage: 58.8 MB, less than 15.05%
+    public String removeDuplicates(String s) {
+        if (s.length() == 1) return s;
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < s.length(); i++) {
+            if (!stack.empty() && s.charAt(i) == stack.peek()) {
+                stack.pop();
+            } else {
+                stack.push(s.charAt(i));
+            }
 
-		}
-		return stack.stream().map(Object::toString).collect(Collectors.joining());
-	}
+        }
+        return stack.stream().map(Object::toString).collect(Collectors.joining());
+    }
 
 //	best from leet.code 3ms
 //	public String removeDuplicates(String s) {

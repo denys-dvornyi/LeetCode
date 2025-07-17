@@ -44,13 +44,6 @@ public class _83_RemoveDuplicatesFromSortedList {
         return head;
     }
 
-    //Definition for singly-linked list.
-    public class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) { val = x; }
-    }
-
     private void printListNodes(ListNode ln) {
         ListNode currentNode = ln;
         while (currentNode.next != null) {
@@ -59,6 +52,16 @@ public class _83_RemoveDuplicatesFromSortedList {
         }
         System.out.print(currentNode.val);
         System.out.println();
+    }
+
+    //Definition for singly-linked list.
+    public class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int x) {
+            val = x;
+        }
     }
 
 }

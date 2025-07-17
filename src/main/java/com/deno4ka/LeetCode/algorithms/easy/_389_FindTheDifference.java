@@ -18,24 +18,24 @@ Explanation:
 
 public class _389_FindTheDifference {
 
-	public _389_FindTheDifference() {
-		System.out.println(findTheDifference("abcd", "abcde")); // 'e'
-	}
+    public _389_FindTheDifference() {
+        System.out.println(findTheDifference("abcd", "abcde")); // 'e'
+    }
 
-	// (5ms/64.08%)
-	public char findTheDifference(String s, String t) {
-		if (s == null || s.isEmpty()) {
-			return t.charAt(0);
-		} else {
-			int sum = 0;
-			for (char charT : t.toCharArray()) {
-				sum += charT;
-			}
-			for (char charS : s.toCharArray()) {
-				sum -= charS;
-			}
-			return (char)sum;
-		}
-	}
+    // (5ms/64.08%)
+    public char findTheDifference(String s, String t) {
+        if (s == null || s.isEmpty()) {
+            return t.charAt(0);
+        } else {
+            int sum = 0;
+            for (char charT : t.toCharArray()) {
+                sum += charT;
+            }
+            for (char charS : s.toCharArray()) {
+                sum -= charS;
+            }
+            return (char) sum;
+        }
+    }
 
 }

@@ -31,32 +31,32 @@ import java.util.List;
 
 public class _263_UglyNumber {
 
-	private List<Integer> uglyPrimes;
+    private List<Integer> uglyPrimes;
 
-	public _263_UglyNumber() {
-		System.out.println(isUgly(4)); //true
-		System.out.println(isUgly(6)); //true
-		System.out.println(isUgly(7)); //false
-		System.out.println(isUgly(8)); //true
-		System.out.println(isUgly(14)); //false
-		System.out.println(isUgly(937351770)); //false
-		System.out.println(isUgly(214797179)); //false
-	}
+    public _263_UglyNumber() {
+        System.out.println(isUgly(4)); //true
+        System.out.println(isUgly(6)); //true
+        System.out.println(isUgly(7)); //false
+        System.out.println(isUgly(8)); //true
+        System.out.println(isUgly(14)); //false
+        System.out.println(isUgly(937351770)); //false
+        System.out.println(isUgly(214797179)); //false
+    }
 
-	// best from leetcode (0ms/100%)
-	public boolean isUgly(int num) {
-		if (num <= 0) return false;
-		if (num == 1) return true;
-		while (num % 2 == 0)
-			num >>= 1; // equals n/=2
-		while (num % 3 == 0)
-			num /= 3;
-		while (num % 5 == 0)
-			num /= 5;
-		return num == 1;
-	}
+    // best from leetcode (0ms/100%)
+    public boolean isUgly(int num) {
+        if (num <= 0) return false;
+        if (num == 1) return true;
+        while (num % 2 == 0)
+            num >>= 1; // equals n/=2
+        while (num % 3 == 0)
+            num /= 3;
+        while (num % 5 == 0)
+            num /= 5;
+        return num == 1;
+    }
 
-	// Time Limit Exceeded :(
+    // Time Limit Exceeded :(
 //	public boolean isUgly(int num) {
 //		if (num < 1) return false;
 //		if (num == 1) return true;
@@ -70,25 +70,24 @@ public class _263_UglyNumber {
 //		return true;
 //	}
 
-	private List<Integer> getUglyPrimes() {
-		int max = Integer.MAX_VALUE / 64;
-		List<Integer> primes = new ArrayList<>();
-		boolean[] numbers = new boolean[max + 1];
-		Arrays.fill(numbers, true);
-		for (int i = 2; i * i <= max; i++) {
-			if (numbers[i]) {
-				for (int j = i; i * j <= max; j++)
-				{
-					numbers[i * j] = false;
-				}
-			}
-		}
-		for (int k = 2; k <= max; k++) {
-			if (numbers[k] && k != 2 && k != 3 && k != 5) {
-				primes.add(k);
-			}
-		}
-		return primes;
-	}
+    private List<Integer> getUglyPrimes() {
+        int max = Integer.MAX_VALUE / 64;
+        List<Integer> primes = new ArrayList<>();
+        boolean[] numbers = new boolean[max + 1];
+        Arrays.fill(numbers, true);
+        for (int i = 2; i * i <= max; i++) {
+            if (numbers[i]) {
+                for (int j = i; i * j <= max; j++) {
+                    numbers[i * j] = false;
+                }
+            }
+        }
+        for (int k = 2; k <= max; k++) {
+            if (numbers[k] && k != 2 && k != 3 && k != 5) {
+                primes.add(k);
+            }
+        }
+        return primes;
+    }
 
 }

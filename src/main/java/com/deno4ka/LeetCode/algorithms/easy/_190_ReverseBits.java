@@ -18,17 +18,17 @@ If this function is called many times, how would you optimize it?
 
 public class _190_ReverseBits {
 
-	public _190_ReverseBits() {
+    public _190_ReverseBits() {
 //		System.out.println(reverseBits(43261596) + " = 964176192"); // 964176192
 //		int vInt = Integer.parseUnsignedInt("2147483648");
 //		System.out.println(vInt);
-		System.out.println(reverseBits(  Integer.parseUnsignedInt("2147483648")) + " = 1"); // 1
-		System.out.println(reverseBits(  Integer.parseUnsignedInt("2147483649")) + " = -2147483647"); // -2147483647
-	}
+        System.out.println(reverseBits(Integer.parseUnsignedInt("2147483648")) + " = 1"); // 1
+        System.out.println(reverseBits(Integer.parseUnsignedInt("2147483649")) + " = -2147483647"); // -2147483647
+    }
 
-	// you need treat n as an unsigned value
+    // you need treat n as an unsigned value
 
-	// from leet.code
+    // from leet.code
 //	public int reverseBits(int n) {
 //		int result = 0;
 //		for (int i = 0; i < 32; i++)
@@ -38,12 +38,12 @@ public class _190_ReverseBits {
 //		return result;
 //	}
 
-	// v 2.0 'cheat' version
-	public int reverseBits(int n) {
-		return Integer.reverse(n);
-	}
+    // v 2.0 'cheat' version
+    public int reverseBits(int n) {
+        return Integer.reverse(n);
+    }
 
-	// v 1.0 my version
+    // v 1.0 my version
 //	public int reverseBits(int n) {
 //		return Integer.reverse(n);
 //		if (n == 0) {

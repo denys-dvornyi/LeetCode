@@ -16,38 +16,36 @@ Input: nums = [1,2,3,1,2,3], k = 2
 Output: false
 */
 
-import java.util.HashMap;
-
 public class _219_ContainsDuplicate2 {
 
-	public _219_ContainsDuplicate2() {
-		System.out.println(containsNearbyDuplicate(new int[]{1,2,3,1}, -1)); // false
-		System.out.println(containsNearbyDuplicate(new int[]{1,2,3,1}, 0)); // false
-		System.out.println(containsNearbyDuplicate(new int[]{1,2,3,1}, 4)); // true
-		System.out.println(containsNearbyDuplicate(new int[]{1,2,3,1}, 3)); // true
-		System.out.println(containsNearbyDuplicate(new int[]{1,0,1,1}, 1)); // true
-		System.out.println(containsNearbyDuplicate(new int[]{1,2,3,1,2,3}, 2)); // false
-		System.out.println(containsNearbyDuplicate(new int[]{99,99}, 2)); // true
-		System.out.println(containsNearbyDuplicate(new int[]{2,2}, 3)); // true
-	}
+    public _219_ContainsDuplicate2() {
+        System.out.println(containsNearbyDuplicate(new int[]{1, 2, 3, 1}, -1)); // false
+        System.out.println(containsNearbyDuplicate(new int[]{1, 2, 3, 1}, 0)); // false
+        System.out.println(containsNearbyDuplicate(new int[]{1, 2, 3, 1}, 4)); // true
+        System.out.println(containsNearbyDuplicate(new int[]{1, 2, 3, 1}, 3)); // true
+        System.out.println(containsNearbyDuplicate(new int[]{1, 0, 1, 1}, 1)); // true
+        System.out.println(containsNearbyDuplicate(new int[]{1, 2, 3, 1, 2, 3}, 2)); // false
+        System.out.println(containsNearbyDuplicate(new int[]{99, 99}, 2)); // true
+        System.out.println(containsNearbyDuplicate(new int[]{2, 2}, 3)); // true
+    }
 
-	// my solution (557ms/5.77%)
-	public boolean containsNearbyDuplicate(int[] nums, int k) {
-		if (nums == null || nums.length == 0 || k < 1) {
-			return false;
-		} else {
-			for (int i = 0; i < nums.length - 1; i++) {
-				for (int j = i + 1; j < nums.length; j++) {
-					if (nums[i] == nums[j] && (j - i) <= k) {
-						return true;
-					}
-				}
-			}
-			return false;
-		}
-	}
+    // my solution (557ms/5.77%)
+    public boolean containsNearbyDuplicate(int[] nums, int k) {
+        if (nums == null || nums.length == 0 || k < 1) {
+            return false;
+        } else {
+            for (int i = 0; i < nums.length - 1; i++) {
+                for (int j = i + 1; j < nums.length; j++) {
+                    if (nums[i] == nums[j] && (j - i) <= k) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+    }
 
-	// from leet.code (18ms)
+    // from leet.code (18ms)
 //	public boolean containsNearbyDuplicate(int[] nums, int k) {
 //		HashMap<Integer,Integer> result = new HashMap<>();
 //		for (int i = 0; i < nums.length; i++) {

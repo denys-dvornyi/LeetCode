@@ -41,7 +41,7 @@ public class _141_LinkedListCycle {
         return false;
     }
 
-//    Definition for singly-linked list.
+    //    Definition for singly-linked list.
     private class ListNode {
         int val;
         ListNode next;

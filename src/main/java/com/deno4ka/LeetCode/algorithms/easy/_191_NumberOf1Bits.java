@@ -16,23 +16,23 @@ Explanation: Integer 128 has binary representation 00000000000000000000000010000
 
 public class _191_NumberOf1Bits {
 
-	public _191_NumberOf1Bits() {
-		System.out.println(hammingWeight(11) + " = 3"); // 3
-		System.out.println(hammingWeight(128) + " = 1"); // 1
-	}
+    public _191_NumberOf1Bits() {
+        System.out.println(hammingWeight(11) + " = 3"); // 3
+        System.out.println(hammingWeight(128) + " = 1"); // 1
+    }
 
-	// you need to treat n as an unsigned value
-	public int hammingWeight(int n) {
-		int hammingWeightCount = 0;
-		for (char c : Integer.toBinaryString(n).toCharArray()) {
-			if (c == '1') {
-				hammingWeightCount++;
-			}
-		}
-		return hammingWeightCount;
-	}
+    // you need to treat n as an unsigned value
+    public int hammingWeight(int n) {
+        int hammingWeightCount = 0;
+        for (char c : Integer.toBinaryString(n).toCharArray()) {
+            if (c == '1') {
+                hammingWeightCount++;
+            }
+        }
+        return hammingWeightCount;
+    }
 
-	// best from leet.code
+    // best from leet.code
 //	public int hammingWeight(int n) {
 //		int count = 0;
 //		while (n != 0) {

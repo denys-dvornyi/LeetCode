@@ -25,23 +25,23 @@ bits[i] is either 0 or 1.
 
 public class _717_1bitAnd2bitCharacters {
 
-//	Runtime: 0 ms, faster than 100.00% & Memory Usage: 38.7 MB, less than 38.62%
-	public boolean isOneBitCharacter(int[] bits) {
-		if (bits == null || bits.length == 0) return false;
-		if (bits.length == 1) return true;
-		boolean isFirst = false;
-		boolean isSecond = false;
-		for (int bit : bits) {
-			if (isSecond) {
-				isSecond = false;
-			} else if (bit != 0) {
-				isSecond = true;
-				isFirst = false;
-			} else {
-				isFirst = true;
-			}
-		}
-		return isFirst;
-	}
+    //	Runtime: 0 ms, faster than 100.00% & Memory Usage: 38.7 MB, less than 38.62%
+    public boolean isOneBitCharacter(int[] bits) {
+        if (bits == null || bits.length == 0) return false;
+        if (bits.length == 1) return true;
+        boolean isFirst = false;
+        boolean isSecond = false;
+        for (int bit : bits) {
+            if (isSecond) {
+                isSecond = false;
+            } else if (bit != 0) {
+                isSecond = true;
+                isFirst = false;
+            } else {
+                isFirst = true;
+            }
+        }
+        return isFirst;
+    }
 
 }

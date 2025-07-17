@@ -10,22 +10,22 @@ import java.util.stream.Stream;
 
 public class _724_FindPivotIndexTest {
 
-	private final _724_FindPivotIndex pivotIndex = new _724_FindPivotIndex();
+    private final _724_FindPivotIndex pivotIndex = new _724_FindPivotIndex();
 
-	@DisplayName("Return the leftmost pivot index. If no such index exists, return `-1`")
-	@ParameterizedTest(name = "test #{index}: array \"{0}\", expected pivot index \"{1}\"")
-	@MethodSource({"useCases"})
-	public void pivotIndex(int[] nums, int expected) {
-		Assertions.assertEquals(expected, pivotIndex.pivotIndex(nums));
-	}
+    public static Stream<Arguments> useCases() {
+        return Stream.of(
+                Arguments.of(new int[]{1, 7, 3, 6, 5, 6}, 3),
+                Arguments.of(new int[]{1, 2, 3}, -1),
+                Arguments.of(new int[]{2, 1, -1}, 0),
+                Arguments.of(new int[]{0}, 0)
+        );
+    }
 
-	public static Stream<Arguments> useCases() {
-		return Stream.of(
-				Arguments.of(new int[]{1, 7, 3, 6, 5, 6}, 3),
-				Arguments.of(new int[]{1, 2, 3}, -1),
-				Arguments.of(new int[]{2, 1, -1}, 0),
-				Arguments.of(new int[]{0}, 0)
-				);
-	}
+    @DisplayName("Return the leftmost pivot index. If no such index exists, return `-1`")
+    @ParameterizedTest(name = "test #{index}: array \"{0}\", expected pivot index \"{1}\"")
+    @MethodSource({"useCases"})
+    public void pivotIndex(int[] nums, int expected) {
+        Assertions.assertEquals(expected, pivotIndex.pivotIndex(nums));
+    }
 
 }

@@ -9,7 +9,7 @@ package com.deno4ka.LeetCode.algorithms.easy;
 public class _26_RemoveDuplicatesFromSortedArray {
 
     public _26_RemoveDuplicatesFromSortedArray() {
-        System.out.println("new size = " + removeDuplicates(new int[]{1,1,1,2,3,3,4,5,6,6}));
+        System.out.println("new size = " + removeDuplicates(new int[]{1, 1, 1, 2, 3, 3, 4, 5, 6, 6}));
     }
 
     private int removeDuplicates(int[] nums) {

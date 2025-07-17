@@ -10,20 +10,20 @@ import java.util.stream.Stream;
 
 public class _804_UniqueMorseCodeWordsTest {
 
-	private final _804_UniqueMorseCodeWords uniqueMorseCodeWords = new _804_UniqueMorseCodeWords();
+    private final _804_UniqueMorseCodeWords uniqueMorseCodeWords = new _804_UniqueMorseCodeWords();
 
-	@DisplayName("Return the number of different transformations among all words we have")
-	@ParameterizedTest(name = "test #{index}: words \"{0}\", transformations \"{1}\"")
-	@MethodSource({"useCases"})
-	public void uniqueMorseRepresentations(String[] words, int expected) {
-		Assertions.assertEquals(expected, uniqueMorseCodeWords.uniqueMorseRepresentations(words));
-	}
+    public static Stream<Arguments> useCases() {
+        return Stream.of(
+                Arguments.of(new String[]{"gin", "zen", "gig", "msg"}, 2),
+                Arguments.of(new String[]{"a"}, 1)
+        );
+    }
 
-	public static Stream<Arguments> useCases() {
-		return Stream.of(
-				Arguments.of(new String[] {"gin","zen","gig","msg"}, 2),
-				Arguments.of(new String[] {"a"}, 1)
-		);
-	}
+    @DisplayName("Return the number of different transformations among all words we have")
+    @ParameterizedTest(name = "test #{index}: words \"{0}\", transformations \"{1}\"")
+    @MethodSource({"useCases"})
+    public void uniqueMorseRepresentations(String[] words, int expected) {
+        Assertions.assertEquals(expected, uniqueMorseCodeWords.uniqueMorseRepresentations(words));
+    }
 
 }

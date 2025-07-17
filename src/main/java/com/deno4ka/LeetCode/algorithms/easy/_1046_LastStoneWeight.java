@@ -31,17 +31,17 @@ import java.util.Arrays;
 
 public class _1046_LastStoneWeight {
 
-//	Runtime: 0 ms, faster than 100.00% & Memory Usage: 36.4 MB, less than 67.27%
-	public int lastStoneWeight(int[] stones) {
-		if (stones.length == 1) return stones[0];
-		int lastElementIndex = stones.length - 1;
-		Arrays.sort(stones);
-		while (stones[lastElementIndex - 1] != 0) {
-			stones[lastElementIndex] -= stones[lastElementIndex - 1];
-			stones[lastElementIndex - 1] = 0;
-			Arrays.sort(stones);
-		}
-		return stones[lastElementIndex];
-	}
+    //	Runtime: 0 ms, faster than 100.00% & Memory Usage: 36.4 MB, less than 67.27%
+    public int lastStoneWeight(int[] stones) {
+        if (stones.length == 1) return stones[0];
+        int lastElementIndex = stones.length - 1;
+        Arrays.sort(stones);
+        while (stones[lastElementIndex - 1] != 0) {
+            stones[lastElementIndex] -= stones[lastElementIndex - 1];
+            stones[lastElementIndex - 1] = 0;
+            Arrays.sort(stones);
+        }
+        return stones[lastElementIndex];
+    }
 
 }

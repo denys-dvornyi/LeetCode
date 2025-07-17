@@ -19,38 +19,38 @@ import java.util.Arrays;
 
 public class _268_MissingNumber {
 
-	public _268_MissingNumber() {
-		System.out.println(missingNumber(new int[]{0})); // 1
-		System.out.println(missingNumber(new int[]{1})); // 0
-		System.out.println(missingNumber(new int[]{1,2})); // 0
-		System.out.println(missingNumber(new int[]{3,0,1})); // 2
-		System.out.println(missingNumber(new int[]{9,6,4,2,3,5,7,0,1})); // 8
-		System.out.println(missingNumber(new int[]{0,1,2,3})); // 4
-	}
+    public _268_MissingNumber() {
+        System.out.println(missingNumber(new int[]{0})); // 1
+        System.out.println(missingNumber(new int[]{1})); // 0
+        System.out.println(missingNumber(new int[]{1, 2})); // 0
+        System.out.println(missingNumber(new int[]{3, 0, 1})); // 2
+        System.out.println(missingNumber(new int[]{9, 6, 4, 2, 3, 5, 7, 0, 1})); // 8
+        System.out.println(missingNumber(new int[]{0, 1, 2, 3})); // 4
+    }
 
-	// (13ms/9.24%)
-	public int missingNumber(int[] nums) {
-		if (nums.length == 1) {
-			if (nums[0] == 0) {
-				return nums[0] + 1;
-			} else {
-				return nums[0] - 1;
-			}
-		}
-		Arrays.sort(nums);
-		for (int i = 0; i < nums.length - 1; i++) {
-			if (nums[i + 1] - nums[i] > 1) {
-				return nums[i] + 1;
-			}
-		}
-		if (nums[0] == 0) {
-			return nums[nums.length - 1] + 1;
-		} else {
-			return 0;
-		}
-	}
+    // (13ms/9.24%)
+    public int missingNumber(int[] nums) {
+        if (nums.length == 1) {
+            if (nums[0] == 0) {
+                return nums[0] + 1;
+            } else {
+                return nums[0] - 1;
+            }
+        }
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i + 1] - nums[i] > 1) {
+                return nums[i] + 1;
+            }
+        }
+        if (nums[0] == 0) {
+            return nums[nums.length - 1] + 1;
+        } else {
+            return 0;
+        }
+    }
 
-	// best from leetcode (0ms/100%)
+    // best from leetcode (0ms/100%)
 //	public int missingNumber(int[] nums) {
 //		if (nums == null || nums.length == 0) {
 //			return -1;

@@ -20,8 +20,8 @@ public class FirstNonRepeatedCharacterInTheString {
                 int repeatCounter = 0;
                 for (int j = 0; j < chars.length; j++) {
                     if (i != j && chars[i] == chars[j]) {
-                       repeatCounter++;
-                       break;
+                        repeatCounter++;
+                        break;
                     }
                 }
                 if (repeatCounter == 0) {

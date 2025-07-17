@@ -27,16 +27,16 @@ Note:
 
 public class _482_LicenseKeyFormatting {
 
-	public String licenseKeyFormatting(String S, int K) {
-		char[] chars = S.toUpperCase().replaceAll("-", "").toCharArray();
-		StringBuilder sb = new StringBuilder();
-		for (int i = chars.length - 1; i >= 0; i--) {
-			sb.append(chars[i]);
-			if (i != 0 && (chars.length - i) % K == 0) {
-				sb.append("-");
-			}
-		}
-		return sb.reverse().toString();
-	}
+    public String licenseKeyFormatting(String S, int K) {
+        char[] chars = S.toUpperCase().replaceAll("-", "").toCharArray();
+        StringBuilder sb = new StringBuilder();
+        for (int i = chars.length - 1; i >= 0; i--) {
+            sb.append(chars[i]);
+            if (i != 0 && (chars.length - i) % K == 0) {
+                sb.append("-");
+            }
+        }
+        return sb.reverse().toString();
+    }
 
 }

@@ -18,28 +18,28 @@ Note: Your solution should be in logarithmic time complexity.
 
 public class _172_FactorialTrailingZeroes {
 
-	public _172_FactorialTrailingZeroes() {
+    public _172_FactorialTrailingZeroes() {
 //		System.out.println(" | " + trailingZeroes(24)); // 24! (4)
 //		System.out.println(" | " + trailingZeroes(25)); // 25! (6)
 //		System.out.println(" | " + trailingZeroes(124)); // 124! (28)
 //		System.out.println(" | " + trailingZeroes(125)); // 125! (31)
-	}
+    }
 
-	// v 2.0 (31ms)
-	public int trailingZeroes(int n) {
-		if (n == 0) return 0;
-		else {
-			int x = n / 5;
-			n /= 5;
-			while (n >= 5) {
-				x += n / 5;
-				n /= 5;
-			}
-			return x;
-		}
-	}
+    // v 2.0 (31ms)
+    public int trailingZeroes(int n) {
+        if (n == 0) return 0;
+        else {
+            int x = n / 5;
+            n /= 5;
+            while (n >= 5) {
+                x += n / 5;
+                n /= 5;
+            }
+            return x;
+        }
+    }
 
-	// v 1.0 too long time :(
+    // v 1.0 too long time :(
 //	public int trailingZeroes(int n) {
 //		System.out.print(n + " | ");
 //		if (n == 0) return 0;
@@ -59,7 +59,7 @@ public class _172_FactorialTrailingZeroes {
 //		}
 //	}
 
-	// best from leet.code (1ms)
+    // best from leet.code (1ms)
 //	public int trailingZeroes(int n) {
 //		return n == 0 ? 0 : n / 5 + trailingZeroes(n / 5);
 //	}

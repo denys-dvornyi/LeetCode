@@ -35,22 +35,22 @@ The range of operations size won't exceed 10,000.
 
 public class _598_RangeAddition2 {
 
-	public int maxCount(int m, int n, int[][] ops) {
-		int max = m * n;
-		if (ops == null || ops.length == 0) {
-			return max;
-		} else {
-			int minRow = m, minCol = n;
-			for (int[] operation : ops) {
-				if (minRow > operation[0]) {
-					minRow = operation[0];
-				}
-				if (minCol > operation[1]) {
-					minCol = operation[1];
-				}
-			}
-			return minRow * minCol;
-		}
-	}
+    public int maxCount(int m, int n, int[][] ops) {
+        int max = m * n;
+        if (ops == null || ops.length == 0) {
+            return max;
+        } else {
+            int minRow = m, minCol = n;
+            for (int[] operation : ops) {
+                if (minRow > operation[0]) {
+                    minRow = operation[0];
+                }
+                if (minCol > operation[1]) {
+                    minCol = operation[1];
+                }
+            }
+            return minRow * minCol;
+        }
+    }
 
 }

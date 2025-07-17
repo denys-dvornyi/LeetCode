@@ -20,30 +20,27 @@ Return 3. The paths that sum to 8 are:
 3. -3 -> 11
 */
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 public class _437_PathSum3 {
 
-	public _437_PathSum3() {
-		TreeNode root = new TreeNode(10);
-		TreeNode left = new TreeNode(5);
-		TreeNode right = new TreeNode(-3);
-		TreeNode leftLeft = new TreeNode(3);
-		TreeNode leftRight = new TreeNode(2);
-		TreeNode rightRight = new TreeNode(11);
-		TreeNode leftLeftLeft = new TreeNode(3);
-		TreeNode leftLeftRight = new TreeNode(-2);
-		TreeNode leftRightRight = new TreeNode(1);
-		root.left = left;
-		root.right = right;
-		right.right = rightRight;
-		left.left = leftLeft;
-		left.right = leftRight;
-		leftRight.right = leftRightRight;
-		leftLeft.left = leftLeftLeft;
-		leftLeft.right = leftLeftRight;
-		System.out.println(pathSum(root, 3)); // 3
+    public _437_PathSum3() {
+        TreeNode root = new TreeNode(10);
+        TreeNode left = new TreeNode(5);
+        TreeNode right = new TreeNode(-3);
+        TreeNode leftLeft = new TreeNode(3);
+        TreeNode leftRight = new TreeNode(2);
+        TreeNode rightRight = new TreeNode(11);
+        TreeNode leftLeftLeft = new TreeNode(3);
+        TreeNode leftLeftRight = new TreeNode(-2);
+        TreeNode leftRightRight = new TreeNode(1);
+        root.left = left;
+        root.right = right;
+        right.right = rightRight;
+        left.left = leftLeft;
+        left.right = leftRight;
+        leftRight.right = leftRightRight;
+        leftLeft.left = leftLeftLeft;
+        leftLeft.right = leftLeftRight;
+        System.out.println(pathSum(root, 3)); // 3
 //		[10,5,-3,3,2,null,11,3,-2,null,1]
 
 //		System.out.println(pathSum(new TreeNode(1), 1)); // 1
@@ -62,13 +59,13 @@ public class _437_PathSum3 {
 //		left.right = leftRight;
 //		leftLeft.left = leftLeftLeft;
 //		System.out.println(pathSum(root, 3)); // 1
-		//[1,-2,-3,1,3,-2,null,-1]
+        //[1,-2,-3,1,3,-2,null,-1]
 
 //		TreeNode root = new TreeNode(1);
 //		TreeNode left = new TreeNode(2);
 //		root.left = left;
 //		System.out.println(pathSum(root, 2)); // 1
-		//[1,2], 2
+        //[1,2], 2
 
 //		[0,0,null,0,null,0,null,0,null,0,null,0,null,0,null,0,null,0,null,0,null,0,null,0,null,0,null,0,null,0,null,0,null,
 //				0,null,0,null,0,null,0,null,0,null,0,null,0,null,0,null,0,null,0,null,0,null,0,null,0,null,0,null,0,null,
@@ -137,9 +134,9 @@ public class _437_PathSum3 {
 //				0,null,0,null,0,null,0,null,0,null,0,null,0,null,0,null,0,null,0,null,0,null,0,null,0,null,0,null,0,null,
 //				0,null,0,null,0,null,0,null,0,null,0,null,0,null,0,null,0,null,0,null,0,null,0,null,0,null,0,null,0,null,
 //				0,null,0,null,0,null,0,null,0,null,0,null,0,null,0] 0
-	}
+    }
 
-	// from leetcode Prefix sum method. BETTER!!!
+    // from leetcode Prefix sum method. BETTER!!!
 //	public int pathSum(TreeNode root, int sum) {
 //		HashMap<Integer, Integer> preSum = new HashMap();
 //		preSum.put(0,1);
@@ -160,19 +157,19 @@ public class _437_PathSum3 {
 //		return res;
 //	}
 
-	// from leetcode DFS solution. INEFFICIENT!!! (25ms/21.33%)
-	public int pathSum(TreeNode root, int sum) {
-		if (root == null) return 0;
-		return pathSumFrom(root, sum) + pathSum(root.left, sum) + pathSum(root.right, sum);
-	}
+    // from leetcode DFS solution. INEFFICIENT!!! (25ms/21.33%)
+    public int pathSum(TreeNode root, int sum) {
+        if (root == null) return 0;
+        return pathSumFrom(root, sum) + pathSum(root.left, sum) + pathSum(root.right, sum);
+    }
 
-	private int pathSumFrom(TreeNode node, int sum) {
-		if (node == null) return 0;
-		return (node.val == sum ? 1 : 0)
-				+ pathSumFrom(node.left, sum - node.val) + pathSumFrom(node.right, sum - node.val);
-	}
+    private int pathSumFrom(TreeNode node, int sum) {
+        if (node == null) return 0;
+        return (node.val == sum ? 1 : 0)
+                + pathSumFrom(node.left, sum - node.val) + pathSumFrom(node.right, sum - node.val);
+    }
 
-	// my own algorithm. but 'Memory Limit Exceeded' :(
+    // my own algorithm. but 'Memory Limit Exceeded' :(
 //	public int pathSum(TreeNode root, int sum) {
 //		int result = 0;
 //		if (root != null) {
@@ -214,23 +211,23 @@ public class _437_PathSum3 {
 //		}
 //	}
 
-	private class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
+    private class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
 
-		TreeNode(int x) {
-			val = x;
-		}
+        TreeNode(int x) {
+            val = x;
+        }
 
-		@Override
-		public String toString() {
-			return "{" +
-					"\"val\":" + val +
-					", \"left\":" + left +
-					", \"right\":" + right +
-					'}';
-		}
-	}
+        @Override
+        public String toString() {
+            return "{" +
+                    "\"val\":" + val +
+                    ", \"left\":" + left +
+                    ", \"right\":" + right +
+                    '}';
+        }
+    }
 
 }

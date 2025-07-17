@@ -33,36 +33,36 @@ name and typed contain only lowercase English letters.
 
 public class _925_LongPressedName {
 
-//	Runtime: 0 ms, faster than 100.00% & Memory Usage: 37.2 MB, less than 54.26%
-	public boolean isLongPressedName(String name, String typed) {
-		if (name.equals(typed)) return true;
-		if (name.length() > typed.length()) return false;
-		int namePosition = 0;
-		int typedPosition = 0;
-		char prevNameChar = name.charAt(namePosition++);
-		char prevTypedChar = typed.charAt(typedPosition++);
-		if (prevNameChar != prevTypedChar) return false;
-		while (namePosition < name.length() && typedPosition < typed.length()) {
-			if (name.charAt(namePosition) == typed.charAt(typedPosition)) {
-				prevNameChar = name.charAt(namePosition++);
-				prevTypedChar = typed.charAt(typedPosition++);
-			} else {
-				if (prevNameChar == typed.charAt(typedPosition)) {
-					typedPosition++;
-				} else {
-					return false;
-				}
-			}
-		}
-		if (namePosition < name.length()) {
-			return false;
-		}
-		while (typedPosition < typed.length()) {
-			if (typed.charAt(typedPosition++) != prevTypedChar) {
-				return false;
-			}
-		}
-		return true;
-	}
+    //	Runtime: 0 ms, faster than 100.00% & Memory Usage: 37.2 MB, less than 54.26%
+    public boolean isLongPressedName(String name, String typed) {
+        if (name.equals(typed)) return true;
+        if (name.length() > typed.length()) return false;
+        int namePosition = 0;
+        int typedPosition = 0;
+        char prevNameChar = name.charAt(namePosition++);
+        char prevTypedChar = typed.charAt(typedPosition++);
+        if (prevNameChar != prevTypedChar) return false;
+        while (namePosition < name.length() && typedPosition < typed.length()) {
+            if (name.charAt(namePosition) == typed.charAt(typedPosition)) {
+                prevNameChar = name.charAt(namePosition++);
+                prevTypedChar = typed.charAt(typedPosition++);
+            } else {
+                if (prevNameChar == typed.charAt(typedPosition)) {
+                    typedPosition++;
+                } else {
+                    return false;
+                }
+            }
+        }
+        if (namePosition < name.length()) {
+            return false;
+        }
+        while (typedPosition < typed.length()) {
+            if (typed.charAt(typedPosition++) != prevTypedChar) {
+                return false;
+            }
+        }
+        return true;
+    }
 
 }

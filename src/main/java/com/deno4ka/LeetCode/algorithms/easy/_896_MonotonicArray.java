@@ -33,26 +33,26 @@ Constraints:
 
 public class _896_MonotonicArray {
 
-//	Runtime: 1 ms, faster than 100.00% & Memory Usage: 48.6 MB, less than 46.64%
-	public boolean isMonotonic(int[] nums) {
-		if (nums.length <= 2) return true;
-		int prev = nums[0];
-		Boolean isIncreasing = null;
-		for (int i = 1; i < nums.length; i++) {
-			if (isIncreasing == null) {
-				if (nums[i] > prev) {
-					isIncreasing = true;
-				} else if (nums[i] < prev) {
-					isIncreasing = false;
-				}
-			} else {
-				if ( (isIncreasing && nums[i] < prev) || (!isIncreasing && nums[i] > prev)) {
-					return false;
-				}
-			}
-			prev = nums[i];
-		}
-		return true;
-	}
+    //	Runtime: 1 ms, faster than 100.00% & Memory Usage: 48.6 MB, less than 46.64%
+    public boolean isMonotonic(int[] nums) {
+        if (nums.length <= 2) return true;
+        int prev = nums[0];
+        Boolean isIncreasing = null;
+        for (int i = 1; i < nums.length; i++) {
+            if (isIncreasing == null) {
+                if (nums[i] > prev) {
+                    isIncreasing = true;
+                } else if (nums[i] < prev) {
+                    isIncreasing = false;
+                }
+            } else {
+                if ((isIncreasing && nums[i] < prev) || (!isIncreasing && nums[i] > prev)) {
+                    return false;
+                }
+            }
+            prev = nums[i];
+        }
+        return true;
+    }
 
 }

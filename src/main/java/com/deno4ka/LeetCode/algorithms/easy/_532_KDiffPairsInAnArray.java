@@ -30,38 +30,38 @@ import java.util.Arrays;
 
 public class _532_KDiffPairsInAnArray {
 
-	// Runtime: 16 ms, faster than 18.46% & Memory Usage: 40.3 MB, less than 84.21%
-	public int findPairs(int[] nums, int k) {
-		int result = 0;
-		if (nums.length < 2) return result;
-		else {
-			Arrays.sort(nums);
-			int prev = 0;
-			for (int i = 0, j = 1; i < nums.length - 1;) {
-				if (i == 0) prev = nums[i];
-				else if (prev == nums[i]) {
-					j = ++i + 1;
-					continue;
-				}
-				if (j > nums.length - 1) {
-					j = ++i + 1;
-					continue;
-				}
-				int diff = Math.abs(nums[j] - nums[i]);
-				if (diff < k) {
-					j++;
-					continue;
-				} else if (diff == k) {
-					prev = nums[i];
-					j = ++i + 1;
-					result++;
-				} else {
-					prev = nums[i];
-					j = ++i + 1;
-				}
-			}
-		}
-		return result;
-	}
+    // Runtime: 16 ms, faster than 18.46% & Memory Usage: 40.3 MB, less than 84.21%
+    public int findPairs(int[] nums, int k) {
+        int result = 0;
+        if (nums.length < 2) return result;
+        else {
+            Arrays.sort(nums);
+            int prev = 0;
+            for (int i = 0, j = 1; i < nums.length - 1; ) {
+                if (i == 0) prev = nums[i];
+                else if (prev == nums[i]) {
+                    j = ++i + 1;
+                    continue;
+                }
+                if (j > nums.length - 1) {
+                    j = ++i + 1;
+                    continue;
+                }
+                int diff = Math.abs(nums[j] - nums[i]);
+                if (diff < k) {
+                    j++;
+                    continue;
+                } else if (diff == k) {
+                    prev = nums[i];
+                    j = ++i + 1;
+                    result++;
+                } else {
+                    prev = nums[i];
+                    j = ++i + 1;
+                }
+            }
+        }
+        return result;
+    }
 
 }

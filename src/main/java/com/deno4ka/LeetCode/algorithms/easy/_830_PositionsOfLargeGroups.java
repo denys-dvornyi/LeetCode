@@ -37,28 +37,28 @@ s contains lower-case English letters only.
 
 public class _830_PositionsOfLargeGroups {
 
-//	Runtime: 1 ms, faster than 100.00% & Memory Usage: 39.3 MB, less than 63.41%
-	public List<List<Integer>> largeGroupPositions(String s) {
-		List<List<Integer>> result = new ArrayList<>();
-		char groupCharacter = s.charAt(0);
-		int cursor = 0;
-		int groupSize = 1;
-		for (int i = 1; i < s.length(); i++) {
-			if (groupCharacter == s.charAt(i)) {
-				groupSize++;
-			} else {
-				if (groupSize > 2) {
-					result.add(List.of(cursor, cursor + groupSize - 1));
-				}
-				groupCharacter = s.charAt(i);
-				cursor = i;
-				groupSize = 1;
-			}
-		}
-		if (groupSize > 2) {
-			result.add(List.of(cursor, cursor + groupSize - 1));
-		}
-		return result;
-	}
+    //	Runtime: 1 ms, faster than 100.00% & Memory Usage: 39.3 MB, less than 63.41%
+    public List<List<Integer>> largeGroupPositions(String s) {
+        List<List<Integer>> result = new ArrayList<>();
+        char groupCharacter = s.charAt(0);
+        int cursor = 0;
+        int groupSize = 1;
+        for (int i = 1; i < s.length(); i++) {
+            if (groupCharacter == s.charAt(i)) {
+                groupSize++;
+            } else {
+                if (groupSize > 2) {
+                    result.add(List.of(cursor, cursor + groupSize - 1));
+                }
+                groupCharacter = s.charAt(i);
+                cursor = i;
+                groupSize = 1;
+            }
+        }
+        if (groupSize > 2) {
+            result.add(List.of(cursor, cursor + groupSize - 1));
+        }
+        return result;
+    }
 
 }

@@ -4,104 +4,114 @@ import java.util.HashMap;
 
 public class CommandPattern {
 
-	/** The Command interface */
-	interface Command {
-		void execute();
-	}
+    public static void main(String[] args) {
+        CommandPattern main = new CommandPattern();
+        CommandDemoNew commandDemoNew = main.new CommandDemoNew();
+        commandDemoNew.main(null);
+    }
 
-	/** The Invoker class */
-	class Switch {
-		private final HashMap<String, Command> commandMap = new HashMap<>();
+    /**
+     * The Command interface
+     */
+    interface Command {
+        void execute();
+    }
 
-		public void register(String commandName, Command command) {
-			commandMap.put(commandName, command);
-		}
+    /**
+     * The Invoker class
+     */
+    class Switch {
+        private final HashMap<String, Command> commandMap = new HashMap<>();
 
-		public void execute(String commandName) {
-			Command command = commandMap.get(commandName);
-			if (command == null) {
-				throw new IllegalStateException("no command registered for " + commandName);
-			}
-			command.execute();
-		}
-	}
+        public void register(String commandName, Command command) {
+            commandMap.put(commandName, command);
+        }
 
-	/** The Receiver class */
-	class Light {
-		public String turnOn() {
-			System.out.println("The light is on");
-			return "";
-		}
+        public void execute(String commandName) {
+            Command command = commandMap.get(commandName);
+            if (command == null) {
+                throw new IllegalStateException("no command registered for " + commandName);
+            }
+            command.execute();
+        }
+    }
 
-		public void turnOff() {
-			System.out.println("The light is off");
-		}
-	}
+    /**
+     * The Receiver class
+     */
+    class Light {
+        public String turnOn() {
+            System.out.println("The light is on");
+            return "";
+        }
 
-	/** The Command for turning on the light - ConcreteCommand #1 */
-	class SwitchOnCommand implements Command {
-		private final Light light;
+        public void turnOff() {
+            System.out.println("The light is off");
+        }
+    }
 
-		public SwitchOnCommand(Light light) {
-			this.light = light;
-		}
+    /**
+     * The Command for turning on the light - ConcreteCommand #1
+     */
+    class SwitchOnCommand implements Command {
+        private final Light light;
 
-		@Override // Command
-		public void execute() {
-			light.turnOn();
-		}
-	}
+        public SwitchOnCommand(Light light) {
+            this.light = light;
+        }
 
-	/** The Command for turning off the light - ConcreteCommand #2 */
-	class SwitchOffCommand implements Command {
-		private final Light light;
+        @Override // Command
+        public void execute() {
+            light.turnOn();
+        }
+    }
 
-		public SwitchOffCommand(Light light) {
-			this.light = light;
-		}
+    /**
+     * The Command for turning off the light - ConcreteCommand #2
+     */
+    class SwitchOffCommand implements Command {
+        private final Light light;
 
-		@Override // Command
-		public void execute() {
-			light.turnOff();
-		}
-	}
+        public SwitchOffCommand(Light light) {
+            this.light = light;
+        }
 
-	class CommandDemo {
-		public void main(final String[] arguments) {
-			Light lamp = new Light();
+        @Override // Command
+        public void execute() {
+            light.turnOff();
+        }
+    }
 
-			Command switchOn = new SwitchOnCommand(lamp);
-			Command switchOff = new SwitchOffCommand(lamp);
+    class CommandDemo {
+        public void main(final String[] arguments) {
+            Light lamp = new Light();
 
-			Switch mySwitch = new Switch();
-			mySwitch.register("on", switchOn);
-			mySwitch.register("off", switchOff);
+            Command switchOn = new SwitchOnCommand(lamp);
+            Command switchOff = new SwitchOffCommand(lamp);
 
-			mySwitch.execute("on");
-			mySwitch.execute("off");
-		}
-	}
+            Switch mySwitch = new Switch();
+            mySwitch.register("on", switchOn);
+            mySwitch.register("off", switchOff);
 
-	class CommandDemoNew {
-		public void main(final String[] arguments) {
-			Light lamp = new Light();
+            mySwitch.execute("on");
+            mySwitch.execute("off");
+        }
+    }
 
-			Command switchOn = lamp::turnOn;
-			Command switchOff = lamp::turnOff;
+    class CommandDemoNew {
+        public void main(final String[] arguments) {
+            Light lamp = new Light();
 
-			Switch mySwitch = new Switch();
-			mySwitch.register("on", switchOn);
-			mySwitch.register("off", switchOff);
+            Command switchOn = lamp::turnOn;
+            Command switchOff = lamp::turnOff;
 
-			mySwitch.execute("on");
-			mySwitch.execute("off");
-		}
-	}
+            Switch mySwitch = new Switch();
+            mySwitch.register("on", switchOn);
+            mySwitch.register("off", switchOff);
 
-	public static void main(String[] args) {
-		CommandPattern main = new CommandPattern();
-		CommandDemoNew commandDemoNew = main.new CommandDemoNew();
-		commandDemoNew.main(null);
-	}
+            mySwitch.execute("on");
+            mySwitch.execute("off");
+        }
+    }
 
 }

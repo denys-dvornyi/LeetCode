@@ -28,14 +28,14 @@ Note: This question is the same as 476: https://leetcode.com/problems/number-com
 
 public class _1009_ComplementOfBase10Integer {
 
-//	Runtime: 1 ms, faster than 22.61% & Memory Usage: 36.1 MB, less than 44.85%
-	public int bitwiseComplement(int n) {
-		String binaryString = Integer.toBinaryString(n);
-		char[] invertedBinaryChars = new char[binaryString.length()];
-		for (int i = 0; i < binaryString.length(); i++) {
-			invertedBinaryChars[i] = binaryString.charAt(i) == '1' ? '0' : '1';
-		}
-		return Integer.parseInt(new String(invertedBinaryChars), 2);
-	}
+    //	Runtime: 1 ms, faster than 22.61% & Memory Usage: 36.1 MB, less than 44.85%
+    public int bitwiseComplement(int n) {
+        String binaryString = Integer.toBinaryString(n);
+        char[] invertedBinaryChars = new char[binaryString.length()];
+        for (int i = 0; i < binaryString.length(); i++) {
+            invertedBinaryChars[i] = binaryString.charAt(i) == '1' ? '0' : '1';
+        }
+        return Integer.parseInt(new String(invertedBinaryChars), 2);
+    }
 
 }

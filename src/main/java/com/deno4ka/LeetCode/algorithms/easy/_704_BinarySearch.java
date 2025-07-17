@@ -24,25 +24,25 @@ nums is sorted in ascending order.
 
 public class _704_BinarySearch {
 
-//	Runtime: 0 ms, faster than 100.00% & Memory Usage: 51.9 MB, less than 18.14%
-	public int search(int[] nums, int target) {
-		if (nums == null || nums.length == 0) return -1;
-		int left = 0;
-		int right = nums.length - 1;
-		int middle = (right + left) / 2;
-		while (left <= right) {
-			int current = nums[middle];
-			if (current == target) {
-				return middle;
-			} else if (target < current) {
-				right = middle - 1;
-				middle = (right + left) / 2;
-			} else {
-				left = middle + 1;
-				middle = (right + left) / 2;
-			}
-		}
-		return -1;
-	}
+    //	Runtime: 0 ms, faster than 100.00% & Memory Usage: 51.9 MB, less than 18.14%
+    public int search(int[] nums, int target) {
+        if (nums == null || nums.length == 0) return -1;
+        int left = 0;
+        int right = nums.length - 1;
+        int middle = (right + left) / 2;
+        while (left <= right) {
+            int current = nums[middle];
+            if (current == target) {
+                return middle;
+            } else if (target < current) {
+                right = middle - 1;
+                middle = (right + left) / 2;
+            } else {
+                left = middle + 1;
+                middle = (right + left) / 2;
+            }
+        }
+        return -1;
+    }
 
 }

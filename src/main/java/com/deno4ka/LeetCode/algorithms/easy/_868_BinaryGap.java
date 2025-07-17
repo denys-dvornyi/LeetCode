@@ -42,18 +42,18 @@ Constraints:
 
 public class _868_BinaryGap {
 
-//	Runtime: 1 ms, faster than 56.72% & Memory Usage: 35.9 MB, less than 56.47%
-	public int binaryGap(int n) {
-		String binaryString = Integer.toBinaryString(n);
-		int gap = 0;
-		int onesPosition = 0;
-		for (int i = 0; i < binaryString.length(); i++) {
-			if (binaryString.charAt(i) == '1') {
-				gap = Math.max(gap, i - onesPosition);
-				onesPosition = i;
-			}
-		}
-		return gap;
-	}
+    //	Runtime: 1 ms, faster than 56.72% & Memory Usage: 35.9 MB, less than 56.47%
+    public int binaryGap(int n) {
+        String binaryString = Integer.toBinaryString(n);
+        int gap = 0;
+        int onesPosition = 0;
+        for (int i = 0; i < binaryString.length(); i++) {
+            if (binaryString.charAt(i) == '1') {
+                gap = Math.max(gap, i - onesPosition);
+                onesPosition = i;
+            }
+        }
+        return gap;
+    }
 
 }

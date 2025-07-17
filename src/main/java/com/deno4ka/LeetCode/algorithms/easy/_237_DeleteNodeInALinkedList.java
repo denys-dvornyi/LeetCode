@@ -27,43 +27,46 @@ import java.util.StringJoiner;
 
 public class _237_DeleteNodeInALinkedList {
 
-	public _237_DeleteNodeInALinkedList() {
-		ListNode node_1 = new ListNode(4);
-		ListNode node_2 = new ListNode(5);
-		ListNode node_3 = new ListNode(1);
-		ListNode node_4 = new ListNode(9);
-		node_1.next = node_2;
-		node_2.next = node_3;
-		node_3.next = node_4;
+    public _237_DeleteNodeInALinkedList() {
+        ListNode node_1 = new ListNode(4);
+        ListNode node_2 = new ListNode(5);
+        ListNode node_3 = new ListNode(1);
+        ListNode node_4 = new ListNode(9);
+        node_1.next = node_2;
+        node_2.next = node_3;
+        node_3.next = node_4;
 
-		StringJoiner listNodeAsString = new StringJoiner("->");
-		listNodeToString(node_1, listNodeAsString);
-		System.out.println(listNodeAsString);
+        StringJoiner listNodeAsString = new StringJoiner("->");
+        listNodeToString(node_1, listNodeAsString);
+        System.out.println(listNodeAsString);
 
-		deleteNode(node_3);
+        deleteNode(node_3);
 
-		listNodeAsString = new StringJoiner("->");
-		listNodeToString(node_1, listNodeAsString);
-		System.out.println(listNodeAsString);
-	}
+        listNodeAsString = new StringJoiner("->");
+        listNodeToString(node_1, listNodeAsString);
+        System.out.println(listNodeAsString);
+    }
 
-	// (0ms/100%)
-	public void deleteNode(ListNode node) {
-		node.val = node.next.val;
-		node.next = node.next.next;
-	}
+    // (0ms/100%)
+    public void deleteNode(ListNode node) {
+        node.val = node.next.val;
+        node.next = node.next.next;
+    }
 
-	private void listNodeToString(ListNode node, StringJoiner listNodeAsString) {
-		if (node != null) {
-			listNodeAsString.add(String.valueOf(node.val));
-			listNodeToString(node.next, listNodeAsString);
-		}
-	}
+    private void listNodeToString(ListNode node, StringJoiner listNodeAsString) {
+        if (node != null) {
+            listNodeAsString.add(String.valueOf(node.val));
+            listNodeToString(node.next, listNodeAsString);
+        }
+    }
 
     private class ListNode {
         int val;
         ListNode next;
-        ListNode(int x) { val = x; }
+
+        ListNode(int x) {
+            val = x;
+        }
     }
 
 }

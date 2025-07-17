@@ -14,20 +14,20 @@ Output: 1
 
 public class _371_SumOfTwoIntegers {
 
-	public _371_SumOfTwoIntegers() {
-		System.out.println(getSum(1, 2)); // 3
-		System.out.println(getSum(-2, 3)); // 1
-	}
+    public _371_SumOfTwoIntegers() {
+        System.out.println(getSum(1, 2)); // 3
+        System.out.println(getSum(-2, 3)); // 1
+    }
 
-	// (0ms/100%) (maybe cheat: use '+=' & '-=' instead of '+' & '-')
-	public int getSum(int a, int b) {
-		int sum = 0;
-		sum += a;
-		sum += b;
-		return sum;
-	}
+    // (0ms/100%) (maybe cheat: use '+=' & '-=' instead of '+' & '-')
+    public int getSum(int a, int b) {
+        int sum = 0;
+        sum += a;
+        sum += b;
+        return sum;
+    }
 
-	// another version with increment/decrement
+    // another version with increment/decrement
 //	public int getSum(int a, int b) {
 //		int sum = a;
 //		if (b > 0) {
@@ -44,7 +44,7 @@ public class _371_SumOfTwoIntegers {
 //		return sum;
 //	}
 
-	// with for loop
+    // with for loop
 //	public int getSum(int a, int b) {
 //		int sum = a;
 //		if (b > 0) {

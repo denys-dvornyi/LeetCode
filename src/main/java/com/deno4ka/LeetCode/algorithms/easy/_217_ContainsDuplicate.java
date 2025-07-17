@@ -22,25 +22,25 @@ import java.util.Set;
 
 public class _217_ContainsDuplicate {
 
-	public _217_ContainsDuplicate() {
-		System.out.println(containsDuplicate(new int[]{1,2,3,1})); // true
-		System.out.println(containsDuplicate(new int[]{1,2,3,4})); // false
-		System.out.println(containsDuplicate(new int[]{1,1,1,3,3,4,3,2,4,2})); // true
-	}
+    public _217_ContainsDuplicate() {
+        System.out.println(containsDuplicate(new int[]{1, 2, 3, 1})); // true
+        System.out.println(containsDuplicate(new int[]{1, 2, 3, 4})); // false
+        System.out.println(containsDuplicate(new int[]{1, 1, 1, 3, 3, 4, 3, 2, 4, 2})); // true
+    }
 
-	// (8ms/77.75%)
-	public boolean containsDuplicate(int[] nums) {
-		if (nums == null || nums.length == 0) {
-			return false;
-		} else {
-			Set<Integer> numbersSet = new HashSet<>();
-			for (int number: nums) {
-				if (!numbersSet.add(number)) {
-					return true;
-				}
-			}
-			return false;
-		}
-	}
+    // (8ms/77.75%)
+    public boolean containsDuplicate(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return false;
+        } else {
+            Set<Integer> numbersSet = new HashSet<>();
+            for (int number : nums) {
+                if (!numbersSet.add(number)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
 
 }

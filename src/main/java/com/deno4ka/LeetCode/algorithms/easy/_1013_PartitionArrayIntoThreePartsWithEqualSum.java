@@ -102,34 +102,34 @@ public class _1013_PartitionArrayIntoThreePartsWithEqualSum {
 //		return false;
 //	}
 
-//	best from leet.code 1 ms
-public boolean canThreePartsEqualSum(int[] arr) {
-	if (arr.length == 3 && (arr[0] != arr[1] && arr[1] != arr[2])) return false;
-	int sum = 0;
-	for (int j : arr) sum = sum + j;
-	if (sum % 3 != 0) return false;
+    //	best from leet.code 1 ms
+    public boolean canThreePartsEqualSum(int[] arr) {
+        if (arr.length == 3 && (arr[0] != arr[1] && arr[1] != arr[2])) return false;
+        int sum = 0;
+        for (int j : arr) sum = sum + j;
+        if (sum % 3 != 0) return false;
 
-	int left = 0;
-	int right = arr.length - 1;
-	int leftsum = arr[0];
-	int rightsum = arr[arr.length - 1];
+        int left = 0;
+        int right = arr.length - 1;
+        int leftsum = arr[0];
+        int rightsum = arr[arr.length - 1];
 
-	while (left < right) {
+        while (left < right) {
 
-		if (leftsum != sum / 3) {
-			leftsum += arr[++left];
-		}
+            if (leftsum != sum / 3) {
+                leftsum += arr[++left];
+            }
 
-		if (rightsum != sum / 3) {
-			rightsum += arr[--right];
-		}
+            if (rightsum != sum / 3) {
+                rightsum += arr[--right];
+            }
 
-		if (leftsum == sum / 3 && rightsum == sum / 3) {
-			return (right - left) > 1;
-		}
+            if (leftsum == sum / 3 && rightsum == sum / 3) {
+                return (right - left) > 1;
+            }
 
-	}
-	return false;
-}
+        }
+        return false;
+    }
 
 }

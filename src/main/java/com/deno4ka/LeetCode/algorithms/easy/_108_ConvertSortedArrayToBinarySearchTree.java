@@ -27,7 +27,7 @@ public class _108_ConvertSortedArrayToBinarySearchTree {
 //        TreeNode tn = sortedArrayToBST(new int[] {-1,0,1,2,4});
 //        TreeNode tn = sortedArrayToBST(new int[] {-10,-3,0,5,9});
 //        TreeNode tn = sortedArrayToBST(new int[] {0,1,2,3,4,5,6,7});
-        TreeNode tn = sortedArrayToBST(new int[] {0,1,2,3,4,5,6,7,8,9});
+        TreeNode tn = sortedArrayToBST(new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9});
         printTreeNode(tn);
     }
 
@@ -51,7 +51,7 @@ public class _108_ConvertSortedArrayToBinarySearchTree {
         } else {
             int midl = end / 2;
             result = new TreeNode(nums[midl]);
-            int leftMidl = (int)Math.round((double)(midl - 1 - start) / 2) + start;
+            int leftMidl = (int) Math.round((double) (midl - 1 - start) / 2) + start;
             int rightMidl = (end - midl + 1) / 2 + midl;
             result.left = new TreeNode(nums[leftMidl]);
             result.right = new TreeNode(nums[rightMidl]);

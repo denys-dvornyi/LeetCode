@@ -52,9 +52,9 @@ public class _107_BinaryTreeLevelOrderTraversal2 {
             }
         }
         int listSize = max;
-        for(int i = 0; i <= listSize; i++) {
+        for (int i = 0; i <= listSize; i++) {
             List<Integer> vals = new ArrayList<>();
-            for(int j = 0; j < values.size(); j++) {
+            for (int j = 0; j < values.size(); j++) {
                 String[] valParts = values.get(j).split(":");
                 int value = Integer.parseInt(valParts[0]);
                 if (value == max) {

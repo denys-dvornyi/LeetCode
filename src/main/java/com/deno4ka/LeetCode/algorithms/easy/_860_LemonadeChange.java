@@ -42,28 +42,28 @@ bills[i] is either 5, 10, or 20.
 
 public class _860_LemonadeChange {
 
-//	Runtime: 1 ms, faster than 100.00% & Memory Usage: 49.8 MB, less than 50.69%
-	public boolean lemonadeChange(int[] bills) {
-		int fiveCoins = 0;
-		int tenCoins = 0;
-		for (int bill : bills) {
-			if (bill == 5) {
-				fiveCoins++;
-			} else if (bill == 10) {
-				if (--fiveCoins < 0) return false;
-				tenCoins++;
-			} else {
-				if (fiveCoins == 0 || (tenCoins == 0 && fiveCoins < 3)) {
-					return false;
-				} else if (tenCoins > 0) {
-					fiveCoins--;
-					tenCoins--;
-				} else {
-					fiveCoins -= 3;
-				}
-			}
-		}
-		return true;
-	}
+    //	Runtime: 1 ms, faster than 100.00% & Memory Usage: 49.8 MB, less than 50.69%
+    public boolean lemonadeChange(int[] bills) {
+        int fiveCoins = 0;
+        int tenCoins = 0;
+        for (int bill : bills) {
+            if (bill == 5) {
+                fiveCoins++;
+            } else if (bill == 10) {
+                if (--fiveCoins < 0) return false;
+                tenCoins++;
+            } else {
+                if (fiveCoins == 0 || (tenCoins == 0 && fiveCoins < 3)) {
+                    return false;
+                } else if (tenCoins > 0) {
+                    fiveCoins--;
+                    tenCoins--;
+                } else {
+                    fiveCoins -= 3;
+                }
+            }
+        }
+        return true;
+    }
 
 }

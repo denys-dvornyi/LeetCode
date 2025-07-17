@@ -20,10 +20,10 @@ points[i].length == 2
 
 public class _1037_ValidBoomerang {
 
-//	Runtime: 1 ms, faster than 37.75% & Memory Usage: 38.4 MB, less than 40.56%
-	public boolean isBoomerang(int[][] points) {
-		return ((points[1][0] - points[0][0]) * (points[2][1] - points[0][1]) - (points[1][1] - points[0][1]) * (points[2][0] - points[0][0])) != 0;
-	}
+    //	Runtime: 1 ms, faster than 37.75% & Memory Usage: 38.4 MB, less than 40.56%
+    public boolean isBoomerang(int[][] points) {
+        return ((points[1][0] - points[0][0]) * (points[2][1] - points[0][1]) - (points[1][1] - points[0][1]) * (points[2][0] - points[0][0])) != 0;
+    }
 
 //	public boolean isBoomerang(int[][] points) {
 //		int diffX2And1 = points[1][0] - points[0][0];

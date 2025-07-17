@@ -13,27 +13,25 @@ Note: The input number n will not exceed 100,000,000. (1e8)
 */
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class _507_PerfectNumber {
 
-	// Runtime: 1401 ms, faster than 5.03% and Memory Usage: 33.9 MB, less than 5.88%
-	public boolean checkPerfectNumber(int num) {
-		List<Integer> positiveDivisors = new ArrayList<>();
-		if (num < 6) return false;
-		int divisor = num / 2;
-		while (divisor > 0) {
-			if (num % divisor == 0) {
-				positiveDivisors.add(divisor);
-			}
-			divisor--;
-		}
-		return positiveDivisors.stream().mapToInt(Integer::intValue).sum() == num;
-	}
+    // Runtime: 1401 ms, faster than 5.03% and Memory Usage: 33.9 MB, less than 5.88%
+    public boolean checkPerfectNumber(int num) {
+        List<Integer> positiveDivisors = new ArrayList<>();
+        if (num < 6) return false;
+        int divisor = num / 2;
+        while (divisor > 0) {
+            if (num % divisor == 0) {
+                positiveDivisors.add(divisor);
+            }
+            divisor--;
+        }
+        return positiveDivisors.stream().mapToInt(Integer::intValue).sum() == num;
+    }
 
-	// best from leet.code -> cheat!!!
+    // best from leet.code -> cheat!!!
 //	public boolean checkPerfectNumber(int num) {
 //		final Set<Integer> perfectNums = new HashSet<>();
 //		perfectNums.add(6);

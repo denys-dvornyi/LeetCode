@@ -1,9 +1,6 @@
 package com.deno4ka.LeetCode.algorithms.easy;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,36 +37,36 @@ nums[i] is 0 or 1.
 //  not easy...
 public class _1018_BinaryPrefixDivisibleBy5 {
 
-	final int ONES = 0;
-	final int TWOS = 1;
-	final int FOURS = 2;
-	final int EIGHTS = 3;
-	final int SIXES = 4;
+    final int ONES = 0;
+    final int TWOS = 1;
+    final int FOURS = 2;
+    final int EIGHTS = 3;
+    final int SIXES = 4;
 
-	final Map<Integer, Integer> ENDINGS = new HashMap<>() {{
-		put(ONES, 1);
-		put(TWOS, 2);
-		put(FOURS, 4);
-		put(SIXES, 6);
-		put(EIGHTS, 8);
-	}};
+    final Map<Integer, Integer> ENDINGS = new HashMap<>() {{
+        put(ONES, 1);
+        put(TWOS, 2);
+        put(FOURS, 4);
+        put(SIXES, 6);
+        put(EIGHTS, 8);
+    }};
 
-//  v.3 Runtime: 10 ms, faster than 5.84% & Memory Usage: 47.3 MB, less than 25.29%
-	public List<Boolean> prefixesDivBy5(int[] nums) {
-		List<Boolean> result = new ArrayList<>(nums.length);
-		int[] endings = new int[5];
-		for (int num : nums) {
-			endings[0] += endings[4];
-			System.arraycopy(endings, 0, endings, 1, 4);
-			endings[0] = num;
-			int sum = 0;
-			for (int k = 0; k < endings.length; k++) {
-				sum += endings[k] * ENDINGS.get(k);
-			}
-			result.add(sum % 5 == 0);
-		}
-		return result;
-	}
+    //  v.3 Runtime: 10 ms, faster than 5.84% & Memory Usage: 47.3 MB, less than 25.29%
+    public List<Boolean> prefixesDivBy5(int[] nums) {
+        List<Boolean> result = new ArrayList<>(nums.length);
+        int[] endings = new int[5];
+        for (int num : nums) {
+            endings[0] += endings[4];
+            System.arraycopy(endings, 0, endings, 1, 4);
+            endings[0] = num;
+            int sum = 0;
+            for (int k = 0; k < endings.length; k++) {
+                sum += endings[k] * ENDINGS.get(k);
+            }
+            result.add(sum % 5 == 0);
+        }
+        return result;
+    }
 
 //	v.2 Time Limit Exceeded (24 / 24 test cases passed, but took too long.)
 //	public List<Boolean> prefixesDivBy5(int[] nums) {

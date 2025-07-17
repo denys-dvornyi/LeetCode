@@ -13,29 +13,29 @@ Follow up: Could you do it without any loop/recursion in O(1) runtime?
 
 public class _258_AddDigits {
 
-	public _258_AddDigits() {
-		System.out.println(addDigits(38)); // 2
-		System.out.println(addDigits(999999999)); // 9
-	}
+    public _258_AddDigits() {
+        System.out.println(addDigits(38)); // 2
+        System.out.println(addDigits(999999999)); // 9
+    }
 
-	// (5ms/2.21%)
-	public int addDigits(int num) {
-		if (num < 10) {
-			return num;
-		} else {
-			int sum = num;
-			while (sum > 9) {
-				String numberStr = String.valueOf(sum);
-				sum = 0;
-				for (char n : numberStr.toCharArray()) {
-					sum += Integer.parseInt(String.valueOf(n));
-				}
-			}
-			return sum;
-		}
-	}
+    // (5ms/2.21%)
+    public int addDigits(int num) {
+        if (num < 10) {
+            return num;
+        } else {
+            int sum = num;
+            while (sum > 9) {
+                String numberStr = String.valueOf(sum);
+                sum = 0;
+                for (char n : numberStr.toCharArray()) {
+                    sum += Integer.parseInt(String.valueOf(n));
+                }
+            }
+            return sum;
+        }
+    }
 
-	// v 1.0 Time Limit Exceeded
+    // v 1.0 Time Limit Exceeded
 //	public int addDigits(int num) {
 //		if (num < 10) {
 //			return num;
@@ -56,7 +56,7 @@ public class _258_AddDigits {
 //		}
 //	}
 
-	// best from leetcode (1ms/76.96)
+    // best from leetcode (1ms/76.96)
 //	public int addDigits(int num) {
 //		if(num >= 0 && num <= 9)
 //			return num;

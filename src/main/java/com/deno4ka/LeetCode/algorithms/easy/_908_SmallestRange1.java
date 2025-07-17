@@ -28,23 +28,20 @@ Constraints:
 0 <= k <= 10(4)
 */
 
-import java.util.IntSummaryStatistics;
-import java.util.stream.IntStream;
-
 public class _908_SmallestRange1 {
 
-//	Runtime: 2 ms, faster than 80.43% & Memory Usage: 39.2 MB, less than 78.90%
-	public int smallestRangeI(int[] nums, int k) {
-		if (nums.length < 2) return 0;
-		int minValue = 10_000;
-		int maxValue = 0;
-		for (int num : nums) {
-			minValue = Math.min(minValue, num);
-			maxValue = Math.max(maxValue, num);
-		}
-		int diff = maxValue - minValue;
-		return diff > Math.abs(k) * 2 ? diff - Math.abs(k) * 2 : 0;
-	}
+    //	Runtime: 2 ms, faster than 80.43% & Memory Usage: 39.2 MB, less than 78.90%
+    public int smallestRangeI(int[] nums, int k) {
+        if (nums.length < 2) return 0;
+        int minValue = 10_000;
+        int maxValue = 0;
+        for (int num : nums) {
+            minValue = Math.min(minValue, num);
+            maxValue = Math.max(maxValue, num);
+        }
+        int diff = maxValue - minValue;
+        return diff > Math.abs(k) * 2 ? diff - Math.abs(k) * 2 : 0;
+    }
 
 //	Stream version
 //	public int smallestRangeI(int[] nums, int k) {

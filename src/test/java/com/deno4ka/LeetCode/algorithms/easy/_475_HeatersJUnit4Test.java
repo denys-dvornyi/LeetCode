@@ -15,28 +15,28 @@ import static org.junit.Assert.assertThat;
 @RunWith(value = Parameterized.class)
 public class _475_HeatersJUnit4Test {
 
-	private final _475_Heaters heatersImpl = new _475_Heaters();
+    private final _475_Heaters heatersImpl = new _475_Heaters();
 
-	@Parameter(value = 0)
-	public int[] houses;
-	@Parameter(value = 1)
-	public int[] heaters;
-	@Parameter(value = 2)
-	public int expected;
+    @Parameter(value = 0)
+    public int[] houses;
+    @Parameter(value = 1)
+    public int[] heaters;
+    @Parameter(value = 2)
+    public int expected;
 
-	@Parameters(name = "findRadius #{index}")
-	public static Collection<Object[]> data() {
-		return asList(new Object[][] {
-				{new int[]{1, 2, 3}, new int[]{2}, 1},
-				{new int[]{1, 2, 3, 4}, new int[]{1, 4}, 1},
-				{new int[]{1}, new int[]{1, 2, 3, 4}, 0},
-				{new int[] {1,2,3,5,15}, new int[] {2,30}, 13}
-		});
-	}
+    @Parameters(name = "findRadius #{index}")
+    public static Collection<Object[]> data() {
+        return asList(new Object[][]{
+                {new int[]{1, 2, 3}, new int[]{2}, 1},
+                {new int[]{1, 2, 3, 4}, new int[]{1, 4}, 1},
+                {new int[]{1}, new int[]{1, 2, 3, 4}, 0},
+                {new int[]{1, 2, 3, 5, 15}, new int[]{2, 30}, 13}
+        });
+    }
 
-	@Test
-	public void findRadius() {
-		assertThat(heatersImpl.findRadius(houses, heaters), is(expected));
-	}
+    @Test
+    public void findRadius() {
+        assertThat(heatersImpl.findRadius(houses, heaters), is(expected));
+    }
 
 }
